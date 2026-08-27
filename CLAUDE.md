@@ -1,20 +1,25 @@
 # US Portfolio Valuation Dashboard
 
-Apple-style static dashboard showing trailing and forward P/E for Sema's 15 US stock holdings versus sector means, plus S&P 500 and Nasdaq-100 benchmarks. Single self-contained page, no build step.
+Apple-style static dashboard showing trailing and forward P/E for Sema's 15 US stock holdings versus hand-picked peer groups, plus S&P 500 and Nasdaq-100 benchmarks. Static page + data.json, no build step; prices auto-refresh daily.
 
 ## Status
 
 - **Built**: 2026-08-27 · data as of 2026-08-27 (all holdings had reported Q2 2026 / equivalent fiscal quarter)
-- **Deploy**: local only — Sema has not yet approved publishing (portfolio composition is personal)
+- **Deployed 2026-08-27** (Sema's request): GitHub `lopushokbot/us-portfolio-dashboard` (public) · **Live: https://lopushokbot.github.io/us-portfolio-dashboard/**
+- **Auto-update**: GitHub Actions `.github/workflows/update.yml` runs `scripts/update-prices.mjs` daily at 14:30 UTC = 18:30 Dubai, commits `data.json`, Pages redeploys. Prices only — EPS/consensus/index/sector multiples are manual (quarterly).
 - **Open items**: IREN FY2026 results were due 2026-08-27 after close — refresh its TTM EPS
 
 ## Files
 
 ```
 us-portfolio-dashboard/
-├── index.html          — the whole dashboard (CSS + JS + DATA block inline)
+├── index.html          — the dashboard (CSS + JS); fetches data.json on load and derives every ratio client-side
+├── data.json           — ALL data: meta (as-of stamps), bench, sp500, stocks, peers, groups
+├── scripts/update-prices.mjs — Yahoo Finance price refresh (Node 20, no deps). Do NOT send a browser User-Agent (Yahoo 429s it)
+├── .github/workflows/update.yml — daily 14:30 UTC cron + workflow_dispatch; commits data.json
 ├── assets/fonts/       — New York Large (4 weights) + InterVariable, bundled
 ├── data/research-*.json — provenance snapshots from the 2026-08-27 research pass
+├── robots.txt, sitemap.xml
 ├── CLAUDE.md
 └── RUNBOOK.md
 ```
@@ -48,6 +53,7 @@ NVDA, NU, IREN, CRCL, TEM, VST, COIN, MU, SNDK, TSM, GOOG, AMZN, MSFT, META, OXY
 
 ## Rules
 
-- All data lives in the `DATA` block at the top of the `<script>` in index.html — edit there, never hardcode into markup
-- Don't publish without Sema's explicit OK
+- All data lives in `data.json` — edit there, never hardcode numbers into index.html
+- Price fields are overwritten daily by the workflow; everything else in data.json is manual
+- Repo is public (required for free GitHub Pages) — Sema accepted this when asking to publish
 - Update this file and RUNBOOK.md after any refresh
