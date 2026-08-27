@@ -1,0 +1,7 @@
+{
+  "JPM": {"price": 356.50, "bvps": 133.01, "tbvps": 113.35, "pb": 2.68, "ttm_eps": 23.30, "forward_eps_fy2027": 23.97, "latest_report": "Q2 2026, Jul 14, 2026", "bvps_source": "JPM Q2 2026 earnings release"},
+  "BAC": {"price": 62.23, "bvps": 39.34, "tbvps": 29.37, "pb": 1.58, "ttm_eps": 4.33, "forward_eps_fy2027": 5.33, "latest_report": "Q2 2026, Jul 14, 2026", "bvps_source": "BAC Q2 2026 8-K"},
+  "WFC": {"price": 85.23, "bvps": 54.48, "tbvps": 46.13, "pb": 1.56, "ttm_eps": 6.88, "forward_eps_fy2027": 7.92, "latest_report": "Q2 2026, Jul 14, 2026", "bvps_source": "WFC 2Q26 quarterly supplement"},
+  "GS": {"price": 1040.46, "bvps": 367.67, "tbvps": null, "pb": 2.83, "ttm_eps": 64.63, "forward_eps_fy2027": 72.27, "latest_report": "Q2 2026, Jul 14, 2026", "bvps_source": "GS Q2 2026 8-K"},
+  "_note": "Prices = Aug 26, 2026 close. Mean P/B of the four = 2.16x. Fetched 2026-08-27."
+}

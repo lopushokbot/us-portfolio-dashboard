@@ -1,0 +1,39 @@
+name: Daily price update
+
+on:
+  schedule:
+    # 18:30 Asia/Dubai (UTC+4, no DST) = 14:30 UTC, every day
+    - cron: "30 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Refresh prices
+        run: node scripts/update-prices.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          if git diff --cached --quiet; then
+            echo "No price changes."
+          else
+            git commit -m "Daily price update $(TZ=Asia/Dubai date '+%Y-%m-%d %H:%M') Dubai"
+            git push
+          fi

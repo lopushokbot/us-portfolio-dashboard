@@ -1,0 +1,9 @@
+{
+  "AAPL": {"price": 313.45, "ttm_eps": 8.72, "forward_eps_fy2027": 9.53, "forward_eps_fy2026": 8.82, "quoted_pe": 35.96, "quoted_forward_pe": 34.23, "latest_report": "Q3 FY2026 (ended Jun 27, 2026), reported Jul 30, 2026", "fy_end": "Sep"},
+  "TSLA": {"price": 345.82, "ttm_eps": 1.08, "forward_eps_fy2027": 2.16, "forward_eps_fy2026": 1.77, "quoted_pe": 358.86, "quoted_forward_pe": 181.67, "latest_report": "Q2 2026, reported Jul 22, 2026"},
+  "HOOD": {"price": 108.54, "ttm_eps": 2.26, "forward_eps_fy2027": 2.70, "forward_eps_fy2026": 2.50, "quoted_pe": 48.69, "quoted_forward_pe": 46.46, "latest_report": "Q2 2026, reported Jul 29, 2026", "note": "FY2027 from Yahoo (GAAP-basis); stockanalysis adjusted FY2027 paywalled"},
+  "IBKR": {"price": 97.02, "ttm_eps": 2.52, "forward_eps_fy2027": 3.18, "forward_eps_fy2026": 2.71, "quoted_pe": 38.53, "quoted_forward_pe": 32.88, "latest_report": "Q2 2026, reported Jul 21, 2026"},
+  "V": {"price": 383.90, "ttm_eps": 11.75, "forward_eps_fy2027": 15.00, "forward_eps_fy2026": 13.22, "quoted_pe": 32.68, "quoted_forward_pe": 26.55, "latest_report": "Q3 FY2026 (ended Jun 30, 2026), reported Jul 28, 2026", "fy_end": "Sep"},
+  "MA": {"price": 598.47, "ttm_eps": 18.18, "forward_eps_fy2027": 23.03, "forward_eps_fy2026": 19.91, "quoted_pe": 32.91, "quoted_forward_pe": 28.14, "latest_report": "Q2 2026, reported Jul 30, 2026"},
+  "_note": "Prices = Aug 26, 2026 close (stockanalysis history). TTM EPS from stockanalysis statistics; FY2027 consensus from Yahoo Finance analysis page. Fetched 2026-08-27."
+}

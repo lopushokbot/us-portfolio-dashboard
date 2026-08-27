@@ -1,0 +1,8 @@
+{
+  "TEM": {"ttm_eps": -1.44, "forward_eps_fy2027": -0.02, "forward_eps_fy2026": -0.26, "latest_report": "Q2 2026, reported Jul 30, 2026", "sector": "Health Care", "note": "first positive quarter Q2'26 (+0.03)"},
+  "GOOG": {"ttm_eps": 19.90, "forward_eps_fy2027": 14.81, "forward_eps_fy2026": 20.59, "latest_report": "Q2 2026, reported Jul 22, 2026", "sector": "Communication Services", "note": "TTM inflated: Q2'26 EPS 9.11 incl $99.0B equity gain (Anthropic/SpaceX stakes, ~$6.26/sh); FY2027 is cleaner forward"},
+  "AMZN": {"ttm_eps": 12.43, "forward_eps_fy2027": 10.39, "forward_eps_fy2026": 12.48, "latest_report": "Q2 2026, reported Jul 30, 2026", "sector": "Consumer Discretionary", "note": "TTM inflated: Q2'26 EPS 5.75 incl $53.4B Anthropic gain"},
+  "MSFT": {"ttm_eps": 17.96, "forward_eps_fy2027": 19.75, "latest_report": "FQ4 FY2026 (ended Jun 2026), reported Jul 29, 2026", "sector": "Information Technology", "note": "FY2027 ends Jun 2027 = NTM"},
+  "META": {"ttm_eps": 26.55, "forward_eps_fy2027": 34.70, "forward_eps_fy2026": 31.16, "latest_report": "Q2 2026, reported Jul 29, 2026", "sector": "Communication Services", "note": "TTM depressed by Q3'25 $1.05 (one-time tax charge)"},
+  "_source": "stockanalysis.com + company releases, fetched 2026-08-27"
+}

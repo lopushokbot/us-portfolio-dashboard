@@ -1,0 +1,8 @@
+{
+  "NVDA": {"ttm_eps": 7.91, "ttm_quarters": "Q2FY27 2.46 + Q1FY27 2.39 + Q4FY26 1.76 + Q3FY26 1.30", "forward_eps_ntm": 11.71, "forward_eps_fy2027": 9.27, "forward_eps_fy2028": 14.35, "latest_report": "Q2 FY2027 (ended Jul 26, 2026), reported Aug 26, 2026", "sector": "Information Technology"},
+  "MU": {"ttm_eps": 44.17, "ttm_quarters": "Q3FY26 24.67 + Q2FY26 12.07 + Q1FY26 4.60 + Q4FY25 2.83", "forward_eps_fy2027": 155.03, "forward_eps_fy2026": 73.40, "quoted_forward_pe": 6.53, "latest_report": "FQ3 2026 (ended May 28, 2026), reported Jun 24, 2026; FQ4 due ~Sep 22, 2026", "sector": "Information Technology"},
+  "SNDK": {"ttm_eps": 72.89, "ttm_quarters": "Q4FY26 43.96 + Q3FY26 23.03 + Q2FY26 5.15 + Q1FY26 0.75", "forward_eps_fy2027": 214.10, "forward_eps_fy2026": 70.88, "quoted_forward_pe": 7.00, "latest_report": "FQ4 2026 (ended Jul 3, 2026), reported Aug 5, 2026", "sector": "Information Technology"},
+  "TSM": {"ttm_eps_per_adr": 13.86, "ttm_quarters": "Q2'26 4.31 + Q1'26 3.49 + Q4'25 3.14 + Q3'25 2.92 (USD/ADR from TSMC releases)", "forward_eps_cy2027": 20.87, "latest_report": "Q2 2026, reported Jul 16, 2026; next Oct 15, 2026", "sector": "Information Technology"},
+  "IREN": {"ttm_eps": 0.54, "ttm_quarters": "Q3FY26 -0.74 + Q2FY26 -0.52 + Q1FY26 1.08 + Q4FY25 0.72", "forward_eps_fy2027": -1.00, "forward_eps_fy2026": -1.57, "latest_report": "FQ3 2026 (ended Mar 31, 2026), reported May 7, 2026; FY2026 results due Aug 27, 2026 after close", "sector": "Financials (GICS crypto miners)"},
+  "_source": "company releases (SEC 8-K/6-K) + stockanalysis.com + marketbeat, fetched 2026-08-27"
+}

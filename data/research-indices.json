@@ -1,0 +1,16 @@
+{
+  "sp500": {"trailing_pe": 29.59, "forward_pe": 20.0, "trailing_src": "multpl.com GAAP TTM, close Aug 26 2026", "forward_src": "FactSet Earnings Insight, Aug 7 2026 (5yr avg 19.9, 10yr 19.0)"},
+  "nasdaq100": {"trailing_pe": 28.94, "forward_pe": 22.4, "trailing_src": "worldperatio.com Aug 26 2026", "forward_src": "historyofmarket.com NTM consensus Aug 26 2026 (alt 20.8 trendonify)"},
+  "sectors": {
+    "Information Technology": {"trailing_pe": 32.75, "forward_pe": 27.99},
+    "Communication Services": {"trailing_pe": 15.86, "forward_pe": 13.09},
+    "Consumer Discretionary": {"trailing_pe": 25.82, "forward_pe": 24.01},
+    "Financials": {"trailing_pe": 16.85, "forward_pe": 15.81},
+    "Energy": {"trailing_pe": 21.79, "forward_pe": 13.02},
+    "Utilities": {"trailing_pe": 20.13, "forward_pe": 19.22},
+    "Health Care": {"trailing_pe": 30.34, "forward_pe": 19.69},
+    "_src": "trailing worldperatio.com 2026-08-26; forward Alaric sector-ETF 2026-07-29"
+  },
+  "bank_pb": {"us_banks_median": 1.05, "money_center_avg": 1.62, "nu_actual": 5.26, "src": "companiesmarketcap 2026 / Damodaran Jan 2026 / GuruFocus Jul 2026"},
+  "notes": "SP500 trailing 29.59 is GAAP (operating basis ~26.1). NDX forward sources range 20.8-22.4."
+}

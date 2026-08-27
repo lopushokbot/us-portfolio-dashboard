@@ -1,0 +1,338 @@
+{
+  "meta": {
+    "pricesAsOf": "August 27, 2026 at 18:12 Dubai",
+    "pricesAsOfISO": "2026-08-27T14:12:29.049Z",
+    "priceSource": "Yahoo Finance (last trade 2026-08-27 14:12 UTC)",
+    "earningsAsOf": "August 27, 2026",
+    "earningsNote": "All holdings and peers had reported Q2 2026 (or the equivalent fiscal quarter)."
+  },
+  "sp500": {
+    "t": 29.6,
+    "f": 20
+  },
+  "bench": [
+    {
+      "index": "S&P 500",
+      "kind": "Trailing P/E",
+      "value": 29.6,
+      "context": "GAAP TTM · operating basis ≈ 26×"
+    },
+    {
+      "index": "S&P 500",
+      "kind": "Forward P/E",
+      "value": 20,
+      "context": "5-yr avg 19.9× · 10-yr avg 19.0×"
+    },
+    {
+      "index": "Nasdaq-100",
+      "kind": "Trailing P/E",
+      "value": 28.9,
+      "context": "5-yr range 27.5–33.4×"
+    },
+    {
+      "index": "Nasdaq-100",
+      "kind": "Forward P/E",
+      "value": 22.4,
+      "context": "5-yr median 24.2×"
+    }
+  ],
+  "stocks": [
+    {
+      "t": "NVDA",
+      "name": "Nvidia",
+      "price": 225.41,
+      "group": "mag7",
+      "ttmEps": 7.91,
+      "fwdEps": 11.71,
+      "fn": [
+        9
+      ]
+    },
+    {
+      "t": "NU",
+      "name": "Nu Holdings",
+      "price": 14.99,
+      "group": "banks",
+      "metric": "pb",
+      "bvps": 2.74,
+      "fn": [
+        2
+      ]
+    },
+    {
+      "t": "IREN",
+      "name": "IREN",
+      "price": 40.88,
+      "group": "secFin",
+      "ttmEps": 0.54,
+      "fwdEps": -1,
+      "fn": [
+        8
+      ]
+    },
+    {
+      "t": "CRCL",
+      "name": "Circle",
+      "price": 93.28,
+      "group": "payments",
+      "ttmEps": 1.8,
+      "fwdEps": 1.59,
+      "fn": [
+        6
+      ]
+    },
+    {
+      "t": "TEM",
+      "name": "Tempus AI",
+      "price": 69.36,
+      "group": "secHC",
+      "ttmEps": -1.44,
+      "fwdEps": -0.02,
+      "fn": [
+        7
+      ]
+    },
+    {
+      "t": "VST",
+      "name": "Vistra",
+      "price": 140.25,
+      "group": "secUtil",
+      "ttmEps": 5.87,
+      "fwdEps": 10.37
+    },
+    {
+      "t": "COIN",
+      "name": "Coinbase",
+      "price": 188.1,
+      "group": "exchanges",
+      "ttmEps": -3.73,
+      "fwdEps": 2.88,
+      "fn": [
+        5
+      ]
+    },
+    {
+      "t": "MU",
+      "name": "Micron",
+      "price": 932.39,
+      "group": "secIT",
+      "ttmEps": 44.17,
+      "fwdEps": 155.03,
+      "fn": [
+        9
+      ]
+    },
+    {
+      "t": "SNDK",
+      "name": "Sandisk",
+      "price": 1483.91,
+      "group": "secIT",
+      "ttmEps": 72.89,
+      "fwdEps": 214.1,
+      "fn": [
+        9
+      ]
+    },
+    {
+      "t": "TSM",
+      "name": "TSMC (ADR)",
+      "price": 423.97,
+      "group": "secIT",
+      "ttmEps": 13.86,
+      "fwdEps": 20.87
+    },
+    {
+      "t": "GOOG",
+      "name": "Alphabet",
+      "price": 337.16,
+      "group": "mag7",
+      "ttmEps": 19.9,
+      "fwdEps": 14.81,
+      "fn": [
+        3
+      ]
+    },
+    {
+      "t": "AMZN",
+      "name": "Amazon",
+      "price": 257.45,
+      "group": "mag7",
+      "ttmEps": 12.43,
+      "fwdEps": 10.39,
+      "fn": [
+        3
+      ]
+    },
+    {
+      "t": "MSFT",
+      "name": "Microsoft",
+      "price": 502.35,
+      "group": "mag7",
+      "ttmEps": 17.96,
+      "fwdEps": 19.75
+    },
+    {
+      "t": "META",
+      "name": "Meta",
+      "price": 584.65,
+      "group": "mag7",
+      "ttmEps": 26.55,
+      "fwdEps": 34.7,
+      "fn": [
+        4
+      ]
+    },
+    {
+      "t": "OXY",
+      "name": "Occidental",
+      "price": 58.31,
+      "group": "secEnergy",
+      "ttmEps": 6.51,
+      "fwdEps": 3.82
+    }
+  ],
+  "peers": [
+    {
+      "t": "AAPL",
+      "name": "Apple",
+      "price": 310.94,
+      "ttmEps": 8.72,
+      "fwdEps": 9.53
+    },
+    {
+      "t": "TSLA",
+      "name": "Tesla",
+      "price": 350.96,
+      "ttmEps": 1.08,
+      "fwdEps": 2.16
+    },
+    {
+      "t": "HOOD",
+      "name": "Robinhood",
+      "price": 110.35,
+      "ttmEps": 2.26,
+      "fwdEps": 2.7
+    },
+    {
+      "t": "IBKR",
+      "name": "Interactive Brokers",
+      "price": 96.64,
+      "ttmEps": 2.52,
+      "fwdEps": 3.18
+    },
+    {
+      "t": "V",
+      "name": "Visa",
+      "price": 380.1,
+      "ttmEps": 11.75,
+      "fwdEps": 15
+    },
+    {
+      "t": "MA",
+      "name": "Mastercard",
+      "price": 590.59,
+      "ttmEps": 18.18,
+      "fwdEps": 23.03
+    },
+    {
+      "t": "JPM",
+      "name": "JPMorgan Chase",
+      "price": 352.82,
+      "metric": "pb",
+      "bvps": 133.01
+    },
+    {
+      "t": "BAC",
+      "name": "Bank of America",
+      "price": 61.26,
+      "metric": "pb",
+      "bvps": 39.34
+    },
+    {
+      "t": "WFC",
+      "name": "Wells Fargo",
+      "price": 84.23,
+      "metric": "pb",
+      "bvps": 54.48
+    },
+    {
+      "t": "GS",
+      "name": "Goldman Sachs",
+      "price": 1038.36,
+      "metric": "pb",
+      "bvps": 367.67
+    }
+  ],
+  "groups": {
+    "mag7": {
+      "label": "Magnificent 7",
+      "short": "Mag 7",
+      "members": [
+        "AAPL",
+        "MSFT",
+        "GOOG",
+        "AMZN",
+        "META",
+        "NVDA",
+        "TSLA"
+      ]
+    },
+    "exchanges": {
+      "label": "Brokerages & exchanges",
+      "short": "HOOD · IBKR",
+      "members": [
+        "HOOD",
+        "IBKR"
+      ]
+    },
+    "payments": {
+      "label": "Payment networks",
+      "short": "V · MA",
+      "members": [
+        "V",
+        "MA"
+      ]
+    },
+    "banks": {
+      "label": "US large banks (P/B)",
+      "short": "JPM · BAC · WFC · GS",
+      "members": [
+        "JPM",
+        "BAC",
+        "WFC",
+        "GS"
+      ],
+      "kind": "pb"
+    },
+    "secIT": {
+      "label": "S&P 500 Information Technology",
+      "short": "Info Tech sector",
+      "t": 32.75,
+      "f": 27.99
+    },
+    "secFin": {
+      "label": "S&P 500 Financials",
+      "short": "Financials sector",
+      "t": 16.85,
+      "f": 15.81
+    },
+    "secHC": {
+      "label": "S&P 500 Health Care",
+      "short": "Health Care sector",
+      "t": 30.34,
+      "f": 19.69
+    },
+    "secUtil": {
+      "label": "S&P 500 Utilities",
+      "short": "Utilities sector",
+      "t": 20.13,
+      "f": 19.22
+    },
+    "secEnergy": {
+      "label": "S&P 500 Energy",
+      "short": "Energy sector",
+      "t": 21.79,
+      "f": 13.02
+    }
+  }
+}
