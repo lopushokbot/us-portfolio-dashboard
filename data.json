@@ -46,7 +46,22 @@
       "fwdEps": 11.71,
       "fn": [
         9
-      ]
+      ],
+      "growth": {
+        "pct": 58.3,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27 (Simply Wall St 22.9%)"
+      },
+      "hist": {
+        "min": 30.5,
+        "median": 51.1,
+        "max": 78.3,
+        "quarters": 16,
+        "excluded": 3,
+        "from": "2021-10",
+        "to": "2026-04",
+        "source": "macrotrends quarterly, fetched 2026-08-27"
+      }
     },
     {
       "t": "NU",
@@ -57,7 +72,23 @@
       "bvps": 2.74,
       "fn": [
         2
-      ]
+      ],
+      "growth": {
+        "pct": 30.0,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27 (Simply Wall St 21.5%)"
+      },
+      "hist": {
+        "min": 3.7,
+        "median": 6.2,
+        "max": 8.9,
+        "quarters": 17,
+        "excluded": 0,
+        "from": "2022-06",
+        "to": "2026-06",
+        "source": "macrotrends quarterly price/book, fetched 2026-08-27",
+        "note": "price-to-book history"
+      }
     },
     {
       "t": "IREN",
@@ -68,7 +99,23 @@
       "fwdEps": -1,
       "fn": [
         8
-      ]
+      ],
+      "growth": {
+        "pct": 41.8,
+        "basis": "lt",
+        "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-08-27"
+      },
+      "hist": {
+        "min": 27.0,
+        "median": 33.0,
+        "max": 52.7,
+        "quarters": 4,
+        "excluded": 9,
+        "from": "2025-06",
+        "to": "2026-03",
+        "source": "macrotrends quarterly, fetched 2026-08-27",
+        "note": "only four profitable TTM quarters on record (since mid-2025)"
+      }
     },
     {
       "t": "CRCL",
@@ -79,7 +126,23 @@
       "fwdEps": 1.59,
       "fn": [
         6
-      ]
+      ],
+      "growth": {
+        "pct": 14.2,
+        "basis": "lt",
+        "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-08-27"
+      },
+      "hist": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "quarters": 1,
+        "excluded": 3,
+        "from": "2025-06",
+        "to": "2026-06",
+        "source": "macrotrends quarterly, fetched 2026-08-27",
+        "note": "listed June 2025, one profitable TTM quarter so far"
+      }
     },
     {
       "t": "TEM",
@@ -90,7 +153,23 @@
       "fwdEps": -0.02,
       "fn": [
         7
-      ]
+      ],
+      "growth": {
+        "pct": 55.1,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+      },
+      "hist": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "quarters": 2,
+        "excluded": 5,
+        "from": "2024-06",
+        "to": "2026-06",
+        "source": "macrotrends quarterly, fetched 2026-08-27",
+        "note": "loss-making since its 2024 IPO apart from one anomalous two-quarter window"
+      }
     },
     {
       "t": "VST",
@@ -98,7 +177,22 @@
       "price": 140.47,
       "group": "secUtil",
       "ttmEps": 5.87,
-      "fwdEps": 10.37
+      "fwdEps": 10.37,
+      "growth": {
+        "pct": 13.3,
+        "basis": "lt",
+        "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-08-27"
+      },
+      "hist": {
+        "min": 7.1,
+        "median": 25.9,
+        "max": 73.8,
+        "quarters": 14,
+        "excluded": 6,
+        "from": "2022-03",
+        "to": "2026-06",
+        "source": "macrotrends quarterly P/E, fetched 2026-08-27"
+      }
     },
     {
       "t": "COIN",
@@ -109,7 +203,22 @@
       "fwdEps": 2.88,
       "fn": [
         5
-      ]
+      ],
+      "growth": {
+        "pct": 10.3,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27 (Simply Wall St 67.9% off a depressed 2026 base)"
+      },
+      "hist": {
+        "min": 20.1,
+        "median": 33.2,
+        "max": 64.2,
+        "quarters": 10,
+        "excluded": 8,
+        "from": "2022-03",
+        "to": "2026-03",
+        "source": "macrotrends quarterly, fetched 2026-08-27"
+      }
     },
     {
       "t": "MU",
@@ -120,7 +229,22 @@
       "fwdEps": 155.03,
       "fn": [
         9
-      ]
+      ],
+      "growth": {
+        "pct": 31.0,
+        "basis": "lt",
+        "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-08-27"
+      },
+      "hist": {
+        "min": 7.2,
+        "median": 16.9,
+        "max": 40.4,
+        "quarters": 13,
+        "excluded": 6,
+        "from": "2021-11",
+        "to": "2026-05",
+        "source": "macrotrends quarterly, fetched 2026-08-27"
+      }
     },
     {
       "t": "SNDK",
@@ -131,7 +255,23 @@
       "fwdEps": 214.1,
       "fn": [
         9
-      ]
+      ],
+      "growth": {
+        "pct": 48.2,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+      },
+      "hist": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "quarters": 2,
+        "excluded": 1,
+        "from": "2025-12",
+        "to": "2026-06",
+        "source": "macrotrends quarterly, fetched 2026-08-27",
+        "note": "spun off from Western Digital in Feb 2025 — two profitable quarters so far"
+      }
     },
     {
       "t": "TSM",
@@ -139,7 +279,22 @@
       "price": 424.62,
       "group": "secIT",
       "ttmEps": 13.86,
-      "fwdEps": 20.87
+      "fwdEps": 20.87,
+      "growth": {
+        "pct": 26.5,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+      },
+      "hist": {
+        "min": 11.1,
+        "median": 25.1,
+        "max": 35.1,
+        "quarters": 20,
+        "excluded": 0,
+        "from": "2021-09",
+        "to": "2026-06",
+        "source": "macrotrends quarterly, fetched 2026-08-27"
+      }
     },
     {
       "t": "GOOG",
@@ -150,7 +305,22 @@
       "fwdEps": 14.81,
       "fn": [
         3
-      ]
+      ],
+      "growth": {
+        "pct": 17.4,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+      },
+      "hist": {
+        "min": 17.4,
+        "median": 23.4,
+        "max": 29.0,
+        "quarters": 20,
+        "excluded": 0,
+        "from": "2021-09",
+        "to": "2026-06",
+        "source": "macrotrends quarterly P/E, fetched 2026-08-27"
+      }
     },
     {
       "t": "AMZN",
@@ -161,7 +331,22 @@
       "fwdEps": 10.39,
       "fn": [
         3
-      ]
+      ],
+      "growth": {
+        "pct": 18.7,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+      },
+      "hist": {
+        "min": 19.2,
+        "median": 43.1,
+        "max": 95.6,
+        "quarters": 16,
+        "excluded": 4,
+        "from": "2021-09",
+        "to": "2026-06",
+        "source": "macrotrends quarterly, fetched 2026-08-27"
+      }
     },
     {
       "t": "MSFT",
@@ -169,7 +354,22 @@
       "price": 504.59,
       "group": "mag7",
       "ttmEps": 17.96,
-      "fwdEps": 19.75
+      "fwdEps": 19.75,
+      "growth": {
+        "pct": 15.9,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+      },
+      "hist": {
+        "min": 20.7,
+        "median": 30.7,
+        "max": 37.2,
+        "quarters": 20,
+        "excluded": 0,
+        "from": "2021-09",
+        "to": "2026-06",
+        "source": "macrotrends quarterly, fetched 2026-08-27"
+      }
     },
     {
       "t": "META",
@@ -180,7 +380,22 @@
       "fwdEps": 34.7,
       "fn": [
         4
-      ]
+      ],
+      "growth": {
+        "pct": 20.6,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+      },
+      "hist": {
+        "min": 12.9,
+        "median": 24.3,
+        "max": 33.1,
+        "quarters": 20,
+        "excluded": 0,
+        "from": "2021-09",
+        "to": "2026-06",
+        "source": "macrotrends quarterly P/E, fetched 2026-08-27"
+      }
     },
     {
       "t": "OXY",
@@ -188,7 +403,22 @@
       "price": 58.51,
       "group": "secEnergy",
       "ttmEps": 6.51,
-      "fwdEps": 3.82
+      "fwdEps": 3.82,
+      "growth": {
+        "pct": 10.4,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+      },
+      "hist": {
+        "min": 4.8,
+        "median": 14.6,
+        "max": 34.2,
+        "quarters": 19,
+        "excluded": 1,
+        "from": "2021-12",
+        "to": "2026-06",
+        "source": "macrotrends quarterly P/E, fetched 2026-08-27"
+      }
     }
   ],
   "peers": [

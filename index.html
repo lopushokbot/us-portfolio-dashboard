@@ -144,10 +144,12 @@ section { padding: 32px 0; }
 
 /* ---------- Table ---------- */
 .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 760px; }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 860px; }
+tbody td:first-child { max-width: 215px; }
+.co .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 thead th {
   font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--muted); text-align: right; padding: 0 12px 12px;
+  color: var(--muted); text-align: right; padding: 0 8px 12px;
   border-bottom: 1px solid var(--hairline); white-space: nowrap;
   cursor: pointer; user-select: none;
 }
@@ -155,7 +157,7 @@ thead th:first-child { text-align: left; padding-left: 0; }
 thead th .arrow { font-size: 10px; opacity: 0; margin-left: 3px; }
 thead th.sorted .arrow { opacity: 1; }
 tbody td {
-  padding: 14px 12px; text-align: right; border-bottom: 1px solid var(--hairline);
+  padding: 14px 8px; text-align: right; border-bottom: 1px solid var(--hairline);
   font-variant-numeric: tabular-nums; white-space: nowrap;
 }
 tbody tr:last-child td { border-bottom: none; }
@@ -186,6 +188,26 @@ sup.fn { font-size: 10px; color: var(--accent); font-weight: 600; cursor: help; 
 .peer .pl .pm { font-size: 12.5px; color: var(--muted); }
 .peer .pv { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink-2); text-align: right; line-height: 1.35; }
 .peer .pv b { color: var(--ink); font-weight: 600; }
+
+/* ---------- History bands ---------- */
+.sw-band { width: 16px; height: 8px; border-radius: 4px; background: var(--accent-soft); border: 1px solid var(--accent); }
+.sw-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.hist { display: flex; flex-direction: column; }
+.hrow { display: grid; grid-template-columns: 56px 1fr 150px; align-items: center; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--hairline); font-size: 13.5px; }
+.hrow:last-child { border-bottom: none; }
+.hrow .ht { font-weight: 600; }
+.hrow .hv { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+.hrow .hv b { color: var(--ink); font-weight: 600; }
+.hrow .hv .pos { display: block; font-size: 12px; color: var(--muted); }
+.track { position: relative; height: 26px; }
+.track .lo, .track .hi { position: absolute; top: 50%; transform: translateY(-50%); font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.track .lo { left: 0; } .track .hi { right: 0; }
+.track .band { position: absolute; top: 9px; height: 8px; border-radius: 4px; background: var(--accent-soft); }
+.track .med { position: absolute; top: 5px; width: 2px; height: 16px; border-radius: 1px; background: var(--tick); }
+.track .dot { position: absolute; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 2px var(--card); transform: translateX(-50%); }
+.track .dot.out { background: var(--bad); }
+.hrow.na .track { color: var(--muted); font-size: 12.5px; display: flex; align-items: center; }
+@media (max-width: 640px) { .hrow { grid-template-columns: 48px 1fr 96px; gap: 10px; } .track .lo, .track .hi { display: none; } .hrow .hv { white-space: normal; } .hrow .hv .pos { white-space: normal; } .peer { flex-direction: column; align-items: flex-start; gap: 4px; } .peer .pv { text-align: left; white-space: normal; } }
 
 /* ---------- Footnotes & methodology ---------- */
 .notes { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
@@ -246,6 +268,18 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
       <div class="chart-scroll"><svg id="chart-fwd" class="chart-svg" role="img" aria-label="Forward P/E by holding with peer median markers"></svg></div>
       <p class="chart-note" id="note-fwd"></p>
     </div>
+
+    <div class="card">
+      <h2 class="section-title">Versus its own history</h2>
+      <p class="section-sub">Where today's trailing P/E sits inside each stock's 5-year range (quarterly, loss quarters excluded). Band = low to high, tick = median, dot = today.</p>
+      <div class="legend">
+        <span><span class="sw-band"></span>5-year range</span>
+        <span><span class="sw-tick"></span>5-year median</span>
+        <span><span class="sw-dot"></span>Today</span>
+      </div>
+      <div class="hist" id="hist"></div>
+      <p class="chart-note" id="note-hist"></p>
+    </div>
   </section>
 
   <section class="fade">
@@ -258,10 +292,12 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
             <tr>
               <th data-k="t">Company<span class="arrow">▾</span></th>
               <th data-k="price">Price<span class="arrow">▾</span></th>
-              <th data-k="ttmPe">Trailing P/E<span class="arrow">▾</span></th>
-              <th data-k="fwdPe">Forward P/E<span class="arrow">▾</span></th>
-              <th data-k="secT">Peers · Trail<span class="arrow">▾</span></th>
-              <th data-k="secF">Peers · Fwd<span class="arrow">▾</span></th>
+              <th data-k="ttmPe" title="Trailing P/E">Trailing<span class="arrow">▾</span></th>
+              <th data-k="fwdPe" title="Forward P/E">Forward<span class="arrow">▾</span></th>
+              <th data-k="growth" title="Consensus long-term EPS growth, % per year">Growth<span class="arrow">▾</span></th>
+              <th data-k="peg" title="Forward P/E ÷ EPS growth">PEG<span class="arrow">▾</span></th>
+              <th data-k="secT" title="Peer median, trailing">Peers T<span class="arrow">▾</span></th>
+              <th data-k="secF" title="Peer median, forward">Peers F<span class="arrow">▾</span></th>
               <th data-k="delta">vs Peers<span class="arrow">▾</span></th>
             </tr>
           </thead>
@@ -292,6 +328,8 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
         <li><b>TEM.</b> Unprofitable trailing (−$1.44) and roughly breakeven FY2027 consensus (−$0.02) — both multiples not meaningful. First positive quarter posted in Q2 2026.</li>
         <li><b>IREN.</b> No clean listed peer group; benchmarked to the S&amp;P 500 Financials sector (GICS classifies crypto miners there). Trailing EPS $0.54 predates the FY2026 results due August 27, 2026; FY2027 consensus is a loss (−$1.00), so forward is not meaningful.</li>
         <li><b>Forward basis.</b> Forward EPS is next-fiscal-year consensus (FY/CY2027 — for MSFT, MU, SNDK, AAPL and V those fiscal years span roughly the next twelve months). NVDA uses next-twelve-months consensus of $11.71, since its FY2027 ends January 2027.</li>
+        <li><b>EPS growth &amp; PEG.</b> Growth is the analyst consensus long-term EPS growth rate (3–5 years, % per year). PEG = forward P/E ÷ that growth rate — below 1 is conventionally "growth at a reasonable price". Where no long-term consensus exists (marked †), growth is next fiscal year vs the current one. PEG is N/M when growth is negative or forward earnings are not meaningful. Memory names (MU, SNDK) show very low PEGs because consensus assumes the current up-cycle persists — treat with the same caution as their forward P/E.</li>
+        <li><b>Own-history band.</b> Quarterly trailing P/E over the last five years (since IPO for CRCL and TEM), from reported TTM EPS and quarter-end prices; quarters with losses, or with P/E above 100× because earnings were near zero, are excluded, so the range only spans normally profitable periods. NU uses price-to-book history. Refreshed annually.</li>
       </ol>
     </div>
   </section>
@@ -300,7 +338,7 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
     <div class="card method">
       <h3>Methodology &amp; sources</h3>
       <p><b>Prices</b> refresh automatically every day at 18:30 Dubai time from Yahoo Finance (US market is open at that hour, so the quote is intraday). All multiples are recomputed from the new prices on every load. <b>Earnings data</b> (EPS, book value, consensus, index and sector multiples) is refreshed after each earnings season — see the date in the header.</p>
-      <p><b>Trailing P/E</b> = price ÷ trailing-twelve-month diluted EPS, summed from the four most recently reported quarters. <b>Forward P/E</b> = price ÷ analyst consensus EPS (see note 9). <b>Peer benchmarks</b> are the median of the members' own trailing and forward P/E (or P/B for banks), computed the same way at the same prices (see note 1).</p>
+      <p><b>Trailing P/E</b> = price ÷ trailing-twelve-month diluted EPS, summed from the four most recently reported quarters. <b>Forward P/E</b> = price ÷ analyst consensus EPS (see note 9). <b>PEG</b> = forward P/E ÷ consensus long-term EPS growth (see note 10). <b>History bands</b> = own 5-year quarterly trailing P/E range (note 11). <b>Peer benchmarks</b> are the median of the members' own trailing and forward P/E (or P/B for banks), computed the same way at the same prices (see note 1).</p>
       <p><b>Sector means</b> (MU, SNDK, TSM, VST, OXY, TEM, IREN): S&amp;P 500 GICS sector trailing P/E from WorldPERatio (Aug 26, 2026); forward P/E from sector-ETF data, Alaric Securities (Jul 29, 2026). <b>S&amp;P 500</b>: trailing (GAAP) from multpl.com (Aug 26); forward from FactSet Earnings Insight (Aug 7). <b>Nasdaq-100</b>: WorldPERatio / NTM consensus (Aug 26). Per-stock EPS and book values from company earnings releases and stockanalysis.com (fetched Aug 27, 2026).</p>
       <p>Numbers are point-in-time and for reference only — not investment advice.</p>
     </div>
@@ -352,7 +390,10 @@ function derive(s) {
   const isPb = s.metric === "pb";
   const delta = isPb ? (m.ttmPe && gm.t ? m.ttmPe / gm.t - 1 : null)
                      : (m.fwdPe && gm.f ? m.fwdPe / gm.f - 1 : null);
-  return { ...s, ...m, secT: gm.t, secF: gm.f, delta, isPb, groupShort: g.short, groupLabel: g.label };
+  const growth = s.growth && s.growth.pct != null ? s.growth.pct : null;
+  const growthBasis = s.growth ? s.growth.basis : null;
+  const peg = !isPb && m.fwdPe && growth > 0 ? m.fwdPe / growth : null;
+  return { ...s, ...m, secT: gm.t, secF: gm.f, delta, isPb, groupShort: g.short, groupLabel: g.label, growth, growthBasis, peg };
 }
 
 /* ================= Renderers ================= */
@@ -382,6 +423,17 @@ function deltaCell(r) {
   const sign = pct > 0 ? "+" : "−";
   return `<span class="${cls}">${sign}${Math.abs(pct)}%</span>`;
 }
+function growthCell(r) {
+  if (r.growth == null) return `<span class="nm-flag">—</span>`;
+  const v = Math.round(r.growth);
+  const fb = r.growthBasis === "fy" ? `<sup class="fn" title="No long-term consensus — next fiscal year vs current">†</sup>` : "";
+  return `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v)}%${fb}`;
+}
+function pegCell(r) {
+  if (r.isPb) return `<span class="nm-flag">—</span>`;
+  if (r.peg == null) return `<span class="nm-flag">N/M</span>`;
+  return r.peg.toFixed(2);
+}
 function renderTable() {
   document.querySelector("#holdings tbody").innerHTML = rows.map(r => `
     <tr>
@@ -389,6 +441,8 @@ function renderTable() {
       <td class="val-muted">$${money(r.price)}</td>
       <td class="val-strong">${mult(r.ttmPe)}</td>
       <td class="val-strong">${r.isPb ? '<span class="nm-flag">—</span>' : mult(r.fwdPe)}</td>
+      <td class="val-muted">${growthCell(r)}</td>
+      <td class="val-strong">${pegCell(r)}</td>
       <td class="val-muted">${mult(r.secT)}</td>
       <td class="val-muted">${r.isPb ? '<span class="nm-flag">—</span>' : mult(r.secF)}</td>
       <td>${deltaCell(r)}</td>
@@ -432,6 +486,46 @@ function renderPeers() {
     return `<div class="peer"><div class="pl"><span class="pn">${g.label}</span><span class="pm">${memberStr}</span></div><div class="pv">${meanStr}</div></div>`;
   }).join("");
   document.getElementById("peers").innerHTML = html;
+}
+
+/* ================= History bands ================= */
+function renderHistory() {
+  const L = 44, R = 44; /* px reserved for the low/high labels */
+  /* order: today's position inside its own range, most stretched first; rows without history last */
+  const posOf = r => { const h = r.hist; if (!h || h.min == null || h.max == null || r.ttmPe == null || (h.quarters != null && h.quarters < 4)) return -Infinity; return (r.ttmPe - h.min) / Math.max(h.max - h.min, 0.01); };
+  const order = [...rows].sort((a, b) => posOf(b) - posOf(a) || a.t.localeCompare(b.t));
+  const html = order.map(r => {
+    const h = r.hist;
+    const cur = r.isPb ? r.ttmPe : r.ttmPe;
+    const metric = r.isPb ? "P/B" : "P/E";
+    if (!h || h.min == null || h.max == null || (h.quarters != null && h.quarters < 4)) {
+      const why = h && h.note ? h.note : (cur == null ? "no positive trailing earnings" : "fewer than 4 profitable quarters on record");
+      return `<div class="hrow na"><span class="ht">${r.t}</span><div class="track">Insufficient history — ${why}</div><div class="hv"><b>${cur != null ? fx(cur) + "×" : "N/M"}</b> ${metric} today</div></div>`;
+    }
+    const span = Math.max(h.max - h.min, 0.01);
+    const pct = v => Math.min(1, Math.max(0, (v - h.min) / span));
+    const pos = v => `calc(${L}px + (100% - ${L + R}px) * ${pct(v).toFixed(4)})`;
+    const inRange = cur != null && cur >= h.min && cur <= h.max;
+    const where = cur == null ? "" : cur > h.max ? "above its 5-yr high" : cur < h.min ? "below its 5-yr low" : cur > h.median ? "above median" : "below median";
+    const period = `${h.from || ""}–${h.to || ""}`;
+    const tip = `${r.name}: ${metric} today ${cur != null ? fx(cur) + "×" : "N/M"} · 5-yr low ${fx(h.min)}× · median ${fx(h.median)}× · high ${fx(h.max)}× · ${h.quarters || "?"} quarters ${period}`;
+    return `<div class="hrow" title="${tip}">
+      <span class="ht">${r.t}${r.isPb ? ' <span class="badge">P/B</span>' : ""}</span>
+      <div class="track">
+        <span class="lo">${fx(h.min)}×</span>
+        <span class="band" style="left:${L}px; right:${R}px"></span>
+        <span class="med" style="left:${pos(h.median)}"></span>
+        ${cur != null ? `<span class="dot${inRange ? "" : " out"}" style="left:${pos(cur)}"></span>` : ""}
+        <span class="hi">${fx(h.max)}×</span>
+      </div>
+      <div class="hv"><b>${cur != null ? fx(cur) + "×" : "N/M"}</b> today<span class="pos">${where}${cur == null ? "" : " · median " + fx(h.median) + "×"}</span></div>
+    </div>`;
+  }).join("");
+  document.getElementById("hist").innerHTML = html;
+  const spans = rows.filter(r => r.hist && r.hist.from).map(r => r.hist.from.slice(0, 4));
+  const earliest = spans.length ? spans.sort()[0] : "";
+  document.getElementById("note-hist").textContent =
+    `Quarterly trailing P/E, ${earliest ? earliest + "–2026" : "last 5 years"}; shorter for recent listings (CRCL, TEM). NU shown on price-to-book. A highlighted dot means today is outside the historical range.`;
 }
 
 /* ================= Charts ================= */
@@ -527,6 +621,7 @@ async function init() {
   renderTable();
   bindSorting();
   renderPeers();
+  renderHistory();
   drawAll();
   matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawAll);
 

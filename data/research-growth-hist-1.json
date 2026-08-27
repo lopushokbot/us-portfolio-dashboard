@@ -1,0 +1,88 @@
+{
+ "NVDA": {
+  "growth": {
+   "pct": 58.3,
+   "basis": "lt",
+   "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27 (Simply Wall St 22.9%)"
+  },
+  "hist": {
+   "min": 30.5,
+   "median": 51.1,
+   "max": 78.3,
+   "quarters": 16,
+   "excluded": 3,
+   "from": "2021-10",
+   "to": "2026-04",
+   "source": "macrotrends quarterly, fetched 2026-08-27"
+  }
+ },
+ "MU": {
+  "growth": {
+   "pct": 31.0,
+   "basis": "lt",
+   "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-08-27"
+  },
+  "hist": {
+   "min": 7.2,
+   "median": 16.9,
+   "max": 40.4,
+   "quarters": 13,
+   "excluded": 6,
+   "from": "2021-11",
+   "to": "2026-05",
+   "source": "macrotrends quarterly, fetched 2026-08-27"
+  }
+ },
+ "SNDK": {
+  "growth": {
+   "pct": 48.2,
+   "basis": "lt",
+   "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+  },
+  "hist": {
+   "min": null,
+   "median": null,
+   "max": null,
+   "quarters": 2,
+   "excluded": 1,
+   "from": "2025-12",
+   "to": "2026-06",
+   "source": "macrotrends quarterly, fetched 2026-08-27",
+   "note": "spun off from Western Digital in Feb 2025 \u2014 two profitable quarters so far"
+  }
+ },
+ "TSM": {
+  "growth": {
+   "pct": 26.5,
+   "basis": "lt",
+   "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+  },
+  "hist": {
+   "min": 11.1,
+   "median": 25.1,
+   "max": 35.1,
+   "quarters": 20,
+   "excluded": 0,
+   "from": "2021-09",
+   "to": "2026-06",
+   "source": "macrotrends quarterly, fetched 2026-08-27"
+  }
+ },
+ "MSFT": {
+  "growth": {
+   "pct": 15.9,
+   "basis": "lt",
+   "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+  },
+  "hist": {
+   "min": 20.7,
+   "median": 30.7,
+   "max": 37.2,
+   "quarters": 20,
+   "excluded": 0,
+   "from": "2021-09",
+   "to": "2026-06",
+   "source": "macrotrends quarterly, fetched 2026-08-27"
+  }
+ }
+}

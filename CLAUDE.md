@@ -7,7 +7,8 @@ Apple-style static dashboard showing trailing and forward P/E for Sema's 15 US s
 - **Built**: 2026-08-27 · data as of 2026-08-27 (all holdings had reported Q2 2026 / equivalent fiscal quarter)
 - **Deployed 2026-08-27** (Sema's request): GitHub `lopushokbot/us-portfolio-dashboard` (public) · **Live: https://lopushokbot.github.io/us-portfolio-dashboard/**
 - **Auto-update**: GitHub Actions `.github/workflows/update.yml` runs `scripts/update-prices.mjs` daily at 14:30 UTC = 18:30 Dubai, commits `data.json`, Pages redeploys. Prices only — EPS/consensus/index/sector multiples are manual (quarterly).
-- **Open items**: IREN FY2026 results were due 2026-08-27 after close — refresh its TTM EPS
+- **v4 (2026-08-27)**: EPS growth + PEG columns and an own-history band card added (see Methodology). Growth sources: Zacks 3-5yr where available, else Simply Wall St.
+- **Open items**: IREN FY2026 results were due 2026-08-27 after close — refresh its TTM EPS. Sema's remaining improvement ideas not yet built: portfolio-weighted P/E (needs weights), EV/Sales for loss-makers, peers for the sector-benchmarked names, auto-refresh of EPS, history snapshots, Telegram alerts.
 
 ## Files
 
@@ -45,6 +46,8 @@ us-portfolio-dashboard/
 - Sema explicitly did NOT want GICS sector means for the megacaps (MSFT/NVDA in IT vs GOOG/META in Comm Services gave inconsistent benchmarks) nor for COIN/CRCL.
 - Charts: two separate simple bar charts (trailing, forward), not one combined — Sema found the combined version too busy.
 - **Indices**: S&P 500 trailing GAAP (multpl.com), forward (FactSet Earnings Insight); Nasdaq-100 trailing (WorldPERatio), forward NTM consensus.
+- **EPS growth / PEG (added 2026-08-27, Sema's request)**: `growth: {pct, basis, source}` per stock in data.json. `basis` = "lt" (consensus 3–5 yr EPS CAGR — Yahoo "Next 5 years", Zacks, stockanalysis) or "fy" (fallback: next-FY ÷ current-FY consensus − 1, shown with †). PEG = forward P/E ÷ growth%; N/M if growth ≤ 0 or forward N/M; banks "—".
+- **Own-history band (added 2026-08-27)**: `hist: {min, median, max, quarters, excluded, from, to, source, note}` per stock — quarterly trailing P/E over 5 yrs (macrotrends quarterly table; loss quarters excluded; NU uses P/B history). Rendered as a per-row normalized band (each row scaled to its own low→high) so outliers don't flatten the others. <4 usable quarters → "Insufficient history". Refresh yearly.
 - Flag one-offs in the Notes section (e.g. GOOG/AMZN Q2'26 Anthropic-stake gains inflate TTM; META Q3'25 tax charge depresses it).
 
 ## Holdings (from Sema's broker screenshot, 2026-08-27)
