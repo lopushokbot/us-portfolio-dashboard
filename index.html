@@ -490,7 +490,8 @@ function renderPeers() {
 
 /* ================= History bands ================= */
 function renderHistory() {
-  const L = 44, R = 44; /* px reserved for the low/high labels */
+  const narrow = window.innerWidth <= 640;
+  const L = narrow ? 0 : 44, R = narrow ? 0 : 44; /* px reserved for the low/high labels (hidden on phones) */
   /* order: today's position inside its own range, most stretched first; rows without history last */
   const posOf = r => { const h = r.hist; if (!h || h.min == null || h.max == null || r.ttmPe == null || (h.quarters != null && h.quarters < 4)) return -Infinity; return (r.ttmPe - h.min) / Math.max(h.max - h.min, 0.01); };
   const order = [...rows].sort((a, b) => posOf(b) - posOf(a) || a.t.localeCompare(b.t));
@@ -624,6 +625,7 @@ async function init() {
   renderHistory();
   drawAll();
   matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawAll);
+  let rsT; window.addEventListener("resize", () => { clearTimeout(rsT); rsT = setTimeout(renderHistory, 150); });
 
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
