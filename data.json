@@ -1,8 +1,8 @@
 {
   "meta": {
-    "pricesAsOf": "August 27, 2026 at 18:19 Dubai",
-    "pricesAsOfISO": "2026-08-27T14:19:31.301Z",
-    "priceSource": "Yahoo Finance (last trade 2026-08-27 14:19 UTC)",
+    "pricesAsOf": "August 28, 2026 at 03:53 Dubai",
+    "pricesAsOfISO": "2026-08-27T23:53:36.259Z",
+    "priceSource": "Yahoo Finance (last trade 2026-08-27 20:04 UTC)",
     "earningsAsOf": "August 27, 2026",
     "earningsNote": "All holdings and peers had reported Q2 2026 (or the equivalent fiscal quarter)."
   },
@@ -40,7 +40,7 @@
     {
       "t": "NVDA",
       "name": "Nvidia",
-      "price": 225.87,
+      "price": 227.98,
       "group": "mag7",
       "ttmEps": 7.91,
       "fwdEps": 11.71,
@@ -66,7 +66,7 @@
     {
       "t": "NU",
       "name": "Nu Holdings",
-      "price": 14.89,
+      "price": 14.88,
       "group": "banks",
       "metric": "pb",
       "bvps": 2.74,
@@ -74,7 +74,7 @@
         2
       ],
       "growth": {
-        "pct": 30.0,
+        "pct": 30,
         "basis": "lt",
         "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27 (Simply Wall St 21.5%)"
       },
@@ -93,7 +93,7 @@
     {
       "t": "IREN",
       "name": "IREN",
-      "price": 41.13,
+      "price": 40.53,
       "group": "secFin",
       "ttmEps": 0.54,
       "fwdEps": -1,
@@ -106,8 +106,8 @@
         "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-08-27"
       },
       "hist": {
-        "min": 27.0,
-        "median": 33.0,
+        "min": 27,
+        "median": 33,
         "max": 52.7,
         "quarters": 4,
         "excluded": 9,
@@ -120,7 +120,7 @@
     {
       "t": "CRCL",
       "name": "Circle",
-      "price": 93.66,
+      "price": 94.24,
       "group": "payments",
       "ttmEps": 1.8,
       "fwdEps": 1.59,
@@ -147,7 +147,7 @@
     {
       "t": "TEM",
       "name": "Tempus AI",
-      "price": 69.61,
+      "price": 70.69,
       "group": "secHC",
       "ttmEps": -1.44,
       "fwdEps": -0.02,
@@ -174,7 +174,7 @@
     {
       "t": "VST",
       "name": "Vistra",
-      "price": 140.47,
+      "price": 139.81,
       "group": "secUtil",
       "ttmEps": 5.87,
       "fwdEps": 10.37,
@@ -197,7 +197,7 @@
     {
       "t": "COIN",
       "name": "Coinbase",
-      "price": 189.06,
+      "price": 190.72,
       "group": "exchanges",
       "ttmEps": -3.73,
       "fwdEps": 2.88,
@@ -223,7 +223,7 @@
     {
       "t": "MU",
       "name": "Micron",
-      "price": 927.65,
+      "price": 935.39,
       "group": "secIT",
       "ttmEps": 44.17,
       "fwdEps": 155.03,
@@ -231,7 +231,7 @@
         9
       ],
       "growth": {
-        "pct": 31.0,
+        "pct": 31,
         "basis": "lt",
         "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-08-27"
       },
@@ -249,7 +249,7 @@
     {
       "t": "SNDK",
       "name": "Sandisk",
-      "price": 1482.96,
+      "price": 1484.95,
       "group": "secIT",
       "ttmEps": 72.89,
       "fwdEps": 214.1,
@@ -276,7 +276,7 @@
     {
       "t": "TSM",
       "name": "TSMC (ADR)",
-      "price": 424.62,
+      "price": 427.3,
       "group": "secIT",
       "ttmEps": 13.86,
       "fwdEps": 20.87,
@@ -299,7 +299,7 @@
     {
       "t": "GOOG",
       "name": "Alphabet",
-      "price": 336.61,
+      "price": 337.71,
       "group": "mag7",
       "ttmEps": 19.9,
       "fwdEps": 14.81,
@@ -314,7 +314,7 @@
       "hist": {
         "min": 17.4,
         "median": 23.4,
-        "max": 29.0,
+        "max": 29,
         "quarters": 20,
         "excluded": 0,
         "from": "2021-09",
@@ -325,7 +325,7 @@
     {
       "t": "AMZN",
       "name": "Amazon",
-      "price": 257.22,
+      "price": 256.26,
       "group": "mag7",
       "ttmEps": 12.43,
       "fwdEps": 10.39,
@@ -351,7 +351,7 @@
     {
       "t": "MSFT",
       "name": "Microsoft",
-      "price": 504.59,
+      "price": 505.06,
       "group": "mag7",
       "ttmEps": 17.96,
       "fwdEps": 19.75,
@@ -374,7 +374,7 @@
     {
       "t": "META",
       "name": "Meta",
-      "price": 583.48,
+      "price": 571.1,
       "group": "mag7",
       "ttmEps": 26.55,
       "fwdEps": 34.7,
@@ -400,7 +400,7 @@
     {
       "t": "OXY",
       "name": "Occidental",
-      "price": 58.51,
+      "price": 59.17,
       "group": "secEnergy",
       "ttmEps": 6.51,
       "fwdEps": 3.82,
@@ -425,70 +425,70 @@
     {
       "t": "AAPL",
       "name": "Apple",
-      "price": 310.19,
+      "price": 314.58,
       "ttmEps": 8.72,
       "fwdEps": 9.53
     },
     {
       "t": "TSLA",
       "name": "Tesla",
-      "price": 351.65,
+      "price": 354.81,
       "ttmEps": 1.08,
       "fwdEps": 2.16
     },
     {
       "t": "HOOD",
       "name": "Robinhood",
-      "price": 110.66,
+      "price": 109.76,
       "ttmEps": 2.26,
       "fwdEps": 2.7
     },
     {
       "t": "IBKR",
       "name": "Interactive Brokers",
-      "price": 96.52,
+      "price": 96.55,
       "ttmEps": 2.52,
       "fwdEps": 3.18
     },
     {
       "t": "V",
       "name": "Visa",
-      "price": 380.02,
+      "price": 379.66,
       "ttmEps": 11.75,
       "fwdEps": 15
     },
     {
       "t": "MA",
       "name": "Mastercard",
-      "price": 589.79,
+      "price": 591.73,
       "ttmEps": 18.18,
       "fwdEps": 23.03
     },
     {
       "t": "JPM",
       "name": "JPMorgan Chase",
-      "price": 352.54,
+      "price": 354.22,
       "metric": "pb",
       "bvps": 133.01
     },
     {
       "t": "BAC",
       "name": "Bank of America",
-      "price": 61.25,
+      "price": 61.17,
       "metric": "pb",
       "bvps": 39.34
     },
     {
       "t": "WFC",
       "name": "Wells Fargo",
-      "price": 84.24,
+      "price": 84.97,
       "metric": "pb",
       "bvps": 54.48
     },
     {
       "t": "GS",
       "name": "Goldman Sachs",
-      "price": 1037.93,
+      "price": 1040.87,
       "metric": "pb",
       "bvps": 367.67
     }
