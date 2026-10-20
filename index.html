@@ -150,8 +150,8 @@ section { padding: 32px 0; }
 
 /* ---------- Table ---------- */
 .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 860px; }
-tbody td:first-child { max-width: 215px; }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 900px; }
+tbody td:first-child { max-width: 190px; }
 .co .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 thead th {
   font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
@@ -187,6 +187,27 @@ tbody tr:hover { background: var(--accent-soft); }
 .delta-neg { color: var(--good); font-weight: 500; }
 .delta-pos { color: var(--bad); font-weight: 500; }
 sup.fn { font-size: 10px; color: var(--accent); font-weight: 600; cursor: help; }
+
+/* ---------- Earnings cell + calendar ---------- */
+.earn { display: inline-flex; flex-direction: column; align-items: flex-end; line-height: 1.3; font-size: 13.5px; }
+.earn .nx { font-weight: 500; }
+.earn .nx.soon { color: var(--accent); font-weight: 600; }
+.earn .ls { font-size: 12px; color: var(--muted); }
+.earn .pend { color: var(--bad); font-weight: 500; }
+.earn .est { font-size: 11px; color: var(--muted); font-weight: 400; }
+.cal { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; }
+@media (max-width: 720px) { .cal { grid-template-columns: 1fr; gap: 24px; } }
+.cal-h { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.ce { display: grid; grid-template-columns: 92px 56px 1fr auto; gap: 12px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--hairline); font-size: 14px; }
+.ce:last-child { border-bottom: none; }
+.ce .cd { font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.ce .ct { font-weight: 600; }
+.ce .cn { color: var(--muted); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ce .cs { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.ce .cs.ok { color: var(--good); }
+.ce.soon .cd { color: var(--accent); font-weight: 600; }
+.cal-empty { font-size: 13.5px; color: var(--muted); padding: 10px 0; }
+@media (max-width: 480px) { .ce { grid-template-columns: 96px 1fr auto; } .ce .cn { display: none; } }
 
 /* ---------- Peer groups ---------- */
 .peers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 32px; }
@@ -249,14 +270,14 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
 
   <section class="fade">
     <h2 class="section-title">Market benchmarks</h2>
-    <p class="section-sub">Index P/E at today's level. The published multiple fixes the index's earnings (level ÷ P/E on the source date); today's level is divided by those same earnings — exactly how each stock below is priced.</p>
+    <p class="section-sub">Built bottom-up from every constituent with the same definitions as the stocks below — trailing GAAP earnings and next-twelve-months consensus — and refreshed automatically.</p>
     <div class="tiles" id="tiles"></div>
   </section>
 
   <section class="fade">
     <div class="card">
       <h2 class="section-title">Trailing P/E</h2>
-      <p class="section-sub">Price ÷ last twelve months' earnings. Marker shows the peer-group median.</p>
+      <p class="section-sub">Price ÷ last twelve months' GAAP earnings. Marker shows the peer-group median.</p>
       <div class="legend">
         <span><span class="sw-bar"></span>Holding</span>
         <span><span class="sw-tick"></span>Peer median</span>
@@ -268,7 +289,7 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
 
     <div class="card">
       <h2 class="section-title">Forward P/E</h2>
-      <p class="section-sub">Price ÷ next fiscal year consensus earnings. Marker shows the peer-group median.</p>
+      <p class="section-sub">Price ÷ next twelve months' consensus earnings. Marker shows the peer-group median.</p>
       <div class="legend">
         <span><span class="sw-bar"></span>Holding</span>
         <span><span class="sw-tick"></span>Peer median</span>
@@ -294,24 +315,37 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
   <section class="fade">
     <div class="card">
       <h2 class="section-title">Holdings</h2>
-      <p class="section-sub">Every multiple is today's price divided by the earnings shown beneath it — trailing-twelve-month EPS, next-fiscal-year consensus EPS, or book value per share for NU. Click a column to sort.</p>
+      <p class="section-sub">Every multiple is today's price divided by the earnings shown beneath it — trailing-twelve-month GAAP EPS, next-twelve-months consensus EPS, or book value per share for NU. Earnings refresh automatically after each report. Click a column to sort.</p>
       <div class="table-scroll">
         <table id="holdings">
           <thead>
             <tr>
               <th data-k="t">Company<span class="arrow">▾</span></th>
               <th data-k="price" id="th-price" title="Price used for every multiple in the row">Price<span class="arrow">▾</span></th>
-              <th data-k="ttmPe" title="Trailing P/E">Trailing<span class="arrow">▾</span></th>
-              <th data-k="fwdPe" title="Forward P/E">Forward<span class="arrow">▾</span></th>
+              <th data-k="ttmPe" title="Price ÷ trailing-twelve-month diluted GAAP EPS">Trailing<span class="arrow">▾</span></th>
+              <th data-k="fwdPe" title="Price ÷ next-twelve-months consensus EPS">Forward<span class="arrow">▾</span></th>
               <th data-k="growth" title="Consensus long-term EPS growth, % per year">Growth<span class="arrow">▾</span></th>
               <th data-k="peg" title="Forward P/E ÷ EPS growth">PEG<span class="arrow">▾</span></th>
               <th data-k="secT" title="Peer median, trailing">Peers T<span class="arrow">▾</span></th>
               <th data-k="secF" title="Peer median, forward">Peers F<span class="arrow">▾</span></th>
               <th data-k="delta">vs Peers<span class="arrow">▾</span></th>
+              <th data-k="nextTs" title="Next earnings report (top) · last report (bottom)">Next report<span class="arrow">▾</span></th>
             </tr>
           </thead>
           <tbody></tbody>
         </table>
+      </div>
+      <p class="chart-note" id="note-hidden"></p>
+    </div>
+  </section>
+
+  <section class="fade">
+    <div class="card">
+      <h2 class="section-title">Earnings calendar</h2>
+      <p class="section-sub">The dashboard re-reads each company's numbers twice a day, so a new report flows into every multiple within hours of publication.</p>
+      <div class="cal">
+        <div><h4 class="cal-h">Upcoming</h4><div id="cal-next"></div></div>
+        <div><h4 class="cal-h">Recently reported</h4><div id="cal-last"></div></div>
       </div>
     </div>
   </section>
@@ -319,7 +353,7 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
   <section class="fade">
     <div class="card">
       <h2 class="section-title">Peer groups</h2>
-      <p class="section-sub">How each benchmark is built: the median of members' own multiples at today's prices, with the simple mean for reference. Hover a ticker for its price and earnings.</p>
+      <p class="section-sub">How each benchmark is built: hand-picked peers use the median of members' own multiples at today's prices (mean for reference); sectors are aggregated bottom-up from every S&amp;P 500 member. Hover a ticker for its price and earnings.</p>
       <div class="peers" id="peers"></div>
     </div>
   </section>
@@ -327,30 +361,17 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
   <section class="fade">
     <div class="card method">
       <h3>Notes</h3>
-      <ol class="notes">
-        <li><b>Peer benchmark = median.</b> Tesla trades near 320× trailing / 160× forward, which would push a simple Magnificent 7 mean to ~67× / ~43× — not a usable yardstick. Peer benchmarks therefore use the median of the members' multiples; the plain mean is shown in the Peer groups panel for reference. For the two-member V·MA group median and mean are identical.</li>
-        <li><b>NU — price-to-book.</b> As a bank, Nubank is valued on P/B: price ÷ book value per share of $2.74 (Q2 2026: $13.25B equity, 4.83B shares), compared with the P/B of JPM, BAC, WFC and GS (book value per share from each bank's Q2 2026 release). On earnings, NU trades at FY2027 consensus EPS of $1.14.</li>
-        <li><b>GOOG &amp; AMZN — inflated trailing EPS.</b> Q2 2026 included one-time investment gains (Alphabet ~$99B, Amazon ~$53B pre-tax, largely Anthropic stakes), so trailing P/E is flattered — for the stocks and for the Magnificent 7 median. Forward P/E on FY2027 consensus is the cleaner read.</li>
-        <li><b>META — depressed trailing EPS.</b> Q3 2025 carried a one-time tax charge (EPS $1.05), so trailing P/E overstates the multiple slightly.</li>
-        <li><b>CRCL.</b> Peers: Visa and Mastercard (payment networks). Consensus sees FY2027 EPS below FY2026, hence forward P/E above trailing.</li>
-        <li><b>XOM — depressed trailing EPS.</b> TTM GAAP EPS of $7.77 (Q3'25 $1.76, Q4'25 $1.53, Q1'26 $1.00, Q2'26 $3.48) absorbs ~$0.9/share of negative timing effects in Q1 2026 plus impairments and reserve additions, so trailing P/E overstates the multiple. CY2027 consensus ($11.97) sits below CY2026 (~$12.7) as the 2026 oil-price spike is expected to fade. Benchmarked to the S&amp;P 500 Energy sector, like OXY.</li>
-        <li><b>NKE — trailing flattered, forward is the current fiscal year.</b> Q4 FY2026 included a one-time +$0.52/share benefit from expected tariff refunds, so the $2.08 TTM EPS (≈ $1.56 underlying) makes trailing P/E look far cheaper than forward. Nike's fiscal year ends in May: forward uses FY2027 consensus of $1.31 (ending May 2027, already one quarter in); FY2028 consensus is ~$1.56. Benchmarked to the S&amp;P 500 Consumer Discretionary sector.</li>
-        <li><b>UBER — trailing EPS mostly one-offs.</b> TTM GAAP EPS of $4.55 includes a ~$2.30/share tax valuation-allowance release (Q3 2025) and large quarterly swings from revaluing equity stakes (±$1.5B pre-tax each quarter); excluding the tax release alone, TTM is ~$2.25. Forward P/E on CY2027 consensus ($4.54) is the cleaner read. Growth uses Simply Wall St (14.7%), since Zacks' 3.7% is computed off the tax-inflated 2025 base. GICS classifies Uber as Industrials (Passenger Ground Transportation).</li>
-        <li><b>Index multiples.</b> Published index P/Es are point-in-time. Each is anchored to the index level on its source date (shown on the tile), which fixes the index's earnings: EPS = level ÷ P/E. The tile then divides today's level by that same EPS — the same method used for every stock, so index and stock multiples always use same-day prices. Index EPS is refreshed with each earnings season.</li>
-        <li><b>Forward basis.</b> Forward EPS is next-fiscal-year consensus (FY/CY2027 — for MSFT, MU, SNDK, AAPL and V those fiscal years span roughly the next twelve months; for NKE see note 7). NVDA uses next-twelve-months consensus of $11.71, since its FY2027 ends January 2027.</li>
-        <li><b>EPS growth &amp; PEG.</b> Growth is the analyst consensus long-term EPS growth rate (3–5 years, % per year). PEG = forward P/E ÷ that growth rate — below 1 is conventionally "growth at a reasonable price". Where no long-term consensus exists (marked †), growth is next fiscal year vs the current one. PEG is N/M when growth is negative or forward earnings are not meaningful. Memory names (MU, SNDK) show very low PEGs because consensus assumes the current up-cycle persists — treat with the same caution as their forward P/E.</li>
-        <li><b>Own-history band.</b> Quarterly trailing P/E over the last five years (since IPO for CRCL, since the 2025 spin-off for SNDK), from reported TTM EPS and quarter-end prices; quarters with losses, or with P/E above 100× because earnings were near zero, are excluded, so the range only spans normally profitable periods (UBER: since 2023). NU uses price-to-book history. Refreshed annually.</li>
-      </ol>
+      <ol class="notes" id="notes"></ol>
     </div>
   </section>
 
   <section class="fade">
     <div class="card method">
       <h3>Methodology &amp; sources</h3>
-      <p><b>Prices</b> refresh automatically every day at 18:30 Dubai time from Yahoo Finance (US market is open at that hour, so the quote is intraday). All multiples are recomputed from the new prices on every load. <b>Earnings data</b> (EPS, book value, consensus, index and sector multiples) is refreshed after each earnings season — see the date in the header.</p>
-      <p><b>Trailing P/E</b> = price ÷ trailing-twelve-month diluted EPS, summed from the four most recently reported quarters. <b>Forward P/E</b> = price ÷ analyst consensus EPS (see note 10). <b>PEG</b> = forward P/E ÷ consensus long-term EPS growth (see note 11). <b>History bands</b> = own 5-year quarterly trailing P/E range (note 12). <b>Index P/E</b> = today's index level ÷ the index EPS implied by the published multiple on its source date (note 9). <b>Peer benchmarks</b> are the median of the members' own trailing and forward P/E (or P/B for banks), computed the same way at the same prices (see note 1).</p>
-      <p><b>Sector means</b> (MU, SNDK, TSM, VST, OXY, XOM, NKE, UBER): S&amp;P 500 GICS sector trailing P/E from WorldPERatio (Aug 26, 2026; Industrials from its August 2026 monthly series); forward P/E from sector-ETF data, Alaric Securities (Jul 29, 2026). <b>S&amp;P 500</b>: trailing (GAAP) from multpl.com (Aug 26); forward from FactSet Earnings Insight (Aug 7). <b>Nasdaq-100</b>: WorldPERatio / NTM consensus (Aug 26). Index levels from Yahoo Finance (^GSPC, ^NDX), refreshed daily with stock prices. Per-stock EPS and book values from company earnings releases and stockanalysis.com (fetched Aug 27, 2026; XOM, NKE and UBER added Oct 20, 2026 with their latest reported quarters and Yahoo / stockanalysis consensus).</p>
-      <p>Numbers are point-in-time and for reference only — not investment advice.</p>
+      <p><b>Prices</b> come from Yahoo Finance twice a day — 18:30 Dubai (US market open, intraday quote) and 06:00 Dubai (after the close). <b>Earnings</b> are re-read on the same schedule, so trailing EPS, consensus and report dates update automatically after every report; the index and sector multiples are rebuilt from scratch on each run.</p>
+      <p><b>Trailing P/E</b> = price ÷ diluted GAAP EPS summed over the four most recently reported quarters (Yahoo Finance fundamentals; quote-level TTM EPS where quarters are incomplete). <b>Forward P/E</b> = price ÷ next-twelve-months consensus EPS — a time-weighted blend of the current and next fiscal year's consensus, the same basis FactSet uses for the market's forward P/E. <b>P/B</b> (banks) = price ÷ book value per share from the latest quarter. <b>PEG</b> = forward P/E ÷ consensus long-term EPS growth. <b>History bands</b> = own 5-year quarterly trailing P/E range.</p>
+      <p><b>S&amp;P 500, Nasdaq-100 and sector multiples</b> are computed bottom-up from every constituent with the same definitions: Σ market cap ÷ Σ earnings, where each company's earnings = market cap × EPS ÷ price. Loss-makers are included, as S&amp;P and FactSet do (the tile also shows the figure without them); dual share classes are counted once. Constituents: Wikipedia's S&amp;P 500 list (GICS sectors) and Nasdaq's Nasdaq-100 list. Cross-check on Oct 20, 2026: S&amp;P 500 forward 19.1× vs FactSet 19.0× (Oct 16); trailing 26.0× vs FactSet 26.0× and multpl 26.2×.</p>
+      <p><b>Report dates</b>: last report from Nasdaq, next report from Yahoo Finance (estimated until the company confirms). <b>Growth</b>: Zacks 3–5-year EPS growth, Simply Wall St where Zacks has none (manual, refreshed with this table's source date). Numbers are for reference only — not investment advice.</p>
     </div>
   </section>
 
@@ -374,7 +395,8 @@ const median = a => {
   return v.length % 2 ? v[h] : (v[h - 1] + v[h]) / 2;
 };
 
-let DATA, ALL = {}, rows = [], SPX;
+let DATA, ALL = {}, rows = [], SPX, FN = {}, HIDDEN = [];
+const TODAY = new Date().toISOString().slice(0, 10);
 
 function multiples(s) {
   if (s.metric === "pb") return { ttmPe: s.price && s.bvps ? s.price / s.bvps : null, fwdPe: null };
@@ -403,42 +425,52 @@ function derive(s) {
   const growth = s.growth && s.growth.pct != null ? s.growth.pct : null;
   const growthBasis = s.growth ? s.growth.basis : null;
   const peg = !isPb && m.fwdPe && growth > 0 ? m.fwdPe / growth : null;
-  return { ...s, ...m, secT: gm.t, secF: gm.f, delta, isPb, groupShort: g.short, groupLabel: g.label, growth, growthBasis, peg };
+  const e = s.earnings || {};
+  const pending = e.next && e.next <= TODAY && (!e.lastReported || e.lastReported < e.next);
+  return { ...s, ...m, secT: gm.t, secF: gm.f, delta, isPb, groupShort: g.short, groupLabel: g.label, growth, growthBasis, peg,
+    nextTs: e.next ? Date.parse(e.next) : null, pending };
 }
 
 /* ================= Renderers ================= */
 function renderStamp() {
   const m = DATA.meta;
-  const warn = m.priceWarning ? ` · <span class="warn">${m.priceWarning}</span>` : "";
+  const warn = [m.priceWarning, m.earningsWarning].filter(Boolean).map(w => ` · <span class="warn">${w}</span>`).join("");
   document.getElementById("stamp").innerHTML =
-    `<strong>Prices as of ${m.pricesAsOf}</strong> · earnings data as of ${m.earningsAsOf}${m.earningsAsOfAdded ? ` (XOM, NKE, UBER: ${m.earningsAsOfAdded})` : ""} · refreshes daily at 18:30 Dubai${warn}`;
-  document.getElementById("footer").textContent = `US Portfolio Valuation Dashboard · Prices ${m.pricesAsOf} · Earnings data ${m.earningsAsOf}`;
+    `<strong>Prices as of ${m.pricesAsOf}</strong> · earnings checked ${longDate(m.earningsAsOf)} · updates automatically after every report${warn}`;
+  document.getElementById("footer").textContent = `US Portfolio Valuation Dashboard · Prices ${m.pricesAsOf} · Earnings checked ${longDate(m.earningsAsOf)}`;
 }
 
-/* Index multiple re-priced at today's level: EPS implied on the source date (level ÷ P/E) is held fixed */
+/* Index multiple at today's level: the bottom-up run fixes the index's earnings (level ÷ P/E on its run date);
+   between runs the tile re-prices that same EPS at the latest level, exactly like a stock. */
 const lvl = v => v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const shortDate = iso => new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+const longDate = iso => iso ? new Date(String(iso).slice(0, 10) + "T12:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" }) : "—";
+const wkDate = iso => new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" });
 function indexPe(ix, kind) {
   const b = ix[kind], eps = b.level / b.pe;
-  return { ...b, eps, live: ix.price / eps };
+  return { ...b, eps, live: ix.price / eps, liveEx: b.exLoss ? b.exLoss * ix.price / b.level : null };
 }
 function renderTiles() {
   const tiles = [];
   DATA.indices.forEach(ix => ["trailing", "forward"].forEach(kind => tiles.push({ ix, kind, m: indexPe(ix, kind) })));
   tiles.sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "trailing" ? -1 : 1));
-  document.getElementById("tiles").innerHTML = tiles.map(({ ix, kind, m }) => `
-    <div class="tile" title="${m.source}: ${m.pe.toFixed(2)}× at ${lvl(m.level)} on ${shortDate(m.date)} → implied ${kind} EPS ${lvl(m.eps)}">
+  document.getElementById("tiles").innerHTML = tiles.map(({ ix, kind, m }) => {
+    const repriced = Math.abs(ix.price - m.level) > 0.005;
+    return `
+    <div class="tile" title="${m.source}, ${longDate(m.date)}: ${m.pe.toFixed(2)}× at ${lvl(m.level)} → implied ${kind === "trailing" ? "TTM" : "NTM"} EPS ${lvl(m.eps)}">
       <div class="label">${kind === "trailing" ? "Trailing P/E" : "Forward P/E"}</div>
       <div class="index-name">${ix.name}</div>
       <div class="value">${m.live.toFixed(1)}<small>×</small></div>
       <dl class="kv">
         <div><dt>Index today</dt><dd>${lvl(ix.price)}</dd></div>
-        <div><dt>${kind === "trailing" ? "TTM" : "Fwd"} EPS</dt><dd>${lvl(m.eps)}</dd></div>
-        <div class="src"><dt>Index ${shortDate(m.date)}</dt><dd>${lvl(m.level)}</dd></div>
-        <div class="src"><dt>P/E ${shortDate(m.date)}</dt><dd>${m.pe.toFixed(1)}×</dd></div>
+        <div><dt>${kind === "trailing" ? "TTM" : "NTM"} EPS</dt><dd>${lvl(m.eps)}</dd></div>
+        <div class="src"><dt>Companies</dt><dd>${m.n ?? "—"}</dd></div>
+        ${m.liveEx ? `<div class="src"><dt>Ex ${m.losers} loss-makers</dt><dd>${m.liveEx.toFixed(1)}×</dd></div>` : ""}
+        ${repriced ? `<div class="src"><dt>Built ${shortDate(m.date)}</dt><dd>${m.pe.toFixed(1)}× at ${lvl(m.level)}</dd></div>` : ""}
       </dl>
-      <div class="context">${m.context}</div>
-    </div>`).join("");
+      <div class="context">${kind === "trailing" ? "GAAP" : "Consensus"} · bottom-up · ${shortDate(m.date)}</div>
+    </div>`;
+  }).join("");
 }
 
 function deltaCell(r) {
@@ -465,10 +497,20 @@ function stackCell(v, eps, lbl) {
   const e = `${eps < 0 ? "−" : ""}$${money(Math.abs(eps))}`;
   return `<span class="stack">${mult(v)}<span class="eps" title="${lbl === "BV" ? "Book value per share" : "Earnings per share"}">${lbl} ${e}</span></span>`;
 }
+function earnCell(r) {
+  const e = r.earnings;
+  if (!e) return `<span class="nm-flag">—</span>`;
+  const days = e.next ? Math.round((Date.parse(e.next) - Date.parse(TODAY)) / 864e5) : null;
+  const top = r.pending ? `<span class="pend" title="Reported ${longDate(e.next)} — numbers update on the next refresh">${shortDate(e.next)} · updating</span>`
+    : e.next ? `<span class="nx${days != null && days <= 7 ? " soon" : ""}" title="Next report ${longDate(e.next)} — ${e.nextConfirmed ? "confirmed by the company" : "estimated date"}">${shortDate(e.next)}${e.nextConfirmed ? "" : '<span class="est"> est.</span>'}</span>` : "";
+  const qs = (e.gaapQuarters || []).map(q => `${q.end.slice(0, 7)}: $${q.eps.toFixed(2)}`).join(" · ");
+  const bottom = e.lastReported ? `<span class="ls" title="Last report ${longDate(e.lastReported)} (${e.lastQuarter} quarter)${qs ? " · GAAP EPS by quarter — " + qs : ""}">last ${shortDate(e.lastReported)}</span>` : "";
+  return `<span class="earn">${top}${bottom}</span>`;
+}
 function renderTable() {
   document.querySelector("#holdings tbody").innerHTML = rows.map(r => `
     <tr>
-      <td><div class="co"><span class="tk">${r.t}${r.isPb ? '<span class="badge">P/B</span>' : ""}${fnSup(r.fn)}</span><span class="nm">${r.name} · ${r.groupShort}</span></div></td>
+      <td><div class="co"><span class="tk">${r.t}${r.isPb ? '<span class="badge">P/B</span>' : ""}${fnSup(FN[r.t])}</span><span class="nm">${r.name} · ${r.groupShort}</span></div></td>
       <td class="price">$${money(r.price)}</td>
       <td class="val-strong">${stackCell(r.ttmPe, r.isPb ? r.bvps : r.ttmEps, r.isPb ? "BV" : "EPS")}</td>
       <td class="val-strong">${r.isPb ? '<span class="nm-flag">—</span>' : stackCell(r.fwdPe, r.fwdEps, "EPS")}</td>
@@ -477,6 +519,7 @@ function renderTable() {
       <td class="val-muted">${mult(r.secT)}</td>
       <td class="val-muted">${r.isPb ? '<span class="nm-flag">—</span>' : mult(r.secF)}</td>
       <td>${deltaCell(r)}</td>
+      <td>${earnCell(r)}</td>
     </tr>`).join("");
 }
 
@@ -509,7 +552,7 @@ function renderPeers() {
     const memberStr = g.members.map(m => {
       const s = ALL[m], x = multiples(s);
       const v = g.kind === "pb" ? `${fx(x.ttmPe) ?? "—"}×` : `${x.ttmPe ? fx(x.ttmPe) : "N/M"} / ${x.fwdPe ? fx(x.fwdPe) : "N/M"}×`;
-      const tip = g.kind === "pb" ? `${s.name}: $${money(s.price)} ÷ BV/share $${money(s.bvps)}`
+      const tip = !s ? m : g.kind === "pb" ? `${s.name}: $${money(s.price)} ÷ BV/share $${money(s.bvps)}`
         : `${s.name}: $${money(s.price)} ÷ TTM EPS $${money(s.ttmEps)} · ÷ fwd EPS $${money(s.fwdEps)}`;
       return `<span title="${tip}">${m} ${v}</span>`;
     }).join(" · ");
@@ -518,7 +561,12 @@ function renderPeers() {
       : `<b>${fx(gm.t) ?? "—"}×</b> trail · <b>${fx(gm.f) ?? "—"}×</b> fwd median<br><span class="pm">mean ${fx(gm.tMean) ?? "—"}× · ${fx(gm.fMean) ?? "—"}×</span>`;
     return `<div class="peer"><div class="pl"><span class="pn">${g.label}</span><span class="pm">${memberStr}</span></div><div class="pv">${meanStr}</div></div>`;
   }).join("");
-  document.getElementById("peers").innerHTML = html;
+  const used = new Set(rows.map(r => r.group));
+  const sec = Object.entries(DATA.groups).filter(([k, g]) => !g.members && used.has(k)).map(([k, g]) => {
+    const who = rows.filter(r => r.group === k).map(r => r.t).join(", ");
+    return `<div class="peer"><div class="pl"><span class="pn">${g.label}</span><span class="pm">${g.n ? `${g.n} companies, bottom-up` : "sector aggregate"}${g.asOf ? ` · ${shortDate(g.asOf)}` : ""} · for ${who}</span></div><div class="pv"><b>${fx(g.t) ?? "—"}×</b> trail · <b>${fx(g.f) ?? "—"}×</b> fwd</div></div>`;
+  }).join("");
+  document.getElementById("peers").innerHTML = html + sec;
 }
 
 /* ================= History bands ================= */
@@ -559,7 +607,66 @@ function renderHistory() {
   const spans = rows.filter(r => r.hist && r.hist.from).map(r => r.hist.from.slice(0, 4));
   const earliest = spans.length ? spans.sort()[0] : "";
   document.getElementById("note-hist").textContent =
-    `Quarterly trailing P/E, ${earliest ? earliest + "–2026" : "last 5 years"}; shorter for recent listings (CRCL, SNDK). NU shown on price-to-book. A highlighted dot means today is outside the historical range.`;
+    `Quarterly trailing P/E, ${earliest ? earliest + "–2026" : "last 5 years"}; shorter for recent listings (CRCL, SNDK). NU shown on price-to-book. Today's dot uses the latest earnings; a highlighted dot means today is outside the historical range.`;
+}
+
+/* ================= Earnings calendar ================= */
+function renderCalendar() {
+  const all = rows.filter(r => r.earnings);
+  const up = all.filter(r => r.earnings.next && (r.earnings.next >= TODAY || r.pending)).sort((a, b) => a.earnings.next.localeCompare(b.earnings.next));
+  const recentCut = new Date(Date.now() - 45 * 864e5).toISOString().slice(0, 10);
+  const last = all.filter(r => r.earnings.lastReported && r.earnings.lastReported >= recentCut).sort((a, b) => b.earnings.lastReported.localeCompare(a.earnings.lastReported));
+  const soon = iso => (Date.parse(iso) - Date.parse(TODAY)) / 864e5 <= 7;
+  document.getElementById("cal-next").innerHTML = up.length ? up.map(r => `
+    <div class="ce${soon(r.earnings.next) ? " soon" : ""}"><span class="cd">${wkDate(r.earnings.next)}</span><span class="ct">${r.t}</span><span class="cn">${r.name}</span>
+    <span class="cs">${r.pending ? "updating" : r.earnings.nextConfirmed ? "confirmed" : "estimated"}</span></div>`).join("") : `<div class="cal-empty">No dates published yet.</div>`;
+  document.getElementById("cal-last").innerHTML = last.length ? last.map(r => `
+    <div class="ce"><span class="cd">${wkDate(r.earnings.lastReported)}</span><span class="ct">${r.t}</span><span class="cn">${r.earnings.lastQuarter} quarter</span>
+    <span class="cs ok">✓ in the numbers</span></div>`).join("") : `<div class="cal-empty">No reports in the last 45 days.</div>`;
+}
+
+/* ================= Notes (built from data, numbered dynamically) ================= */
+const qtrMonth = label => { const d = new Date(`1 ${label} 12:00 UTC`); return isNaN(d) ? null : d.toISOString().slice(0, 7); };
+function ttmWindow(s) {
+  const e = s.earnings || {};
+  if (e.gaapQuarters && e.gaapQuarters.length) return e.gaapQuarters.map(q => q.end.slice(0, 7));
+  return (e.quarters || []).map(q => qtrMonth(q.qtr)).filter(Boolean);
+}
+function renderNotes() {
+  const notes = [];
+  const add = (html, tickers = []) => { notes.push(html); const n = notes.length; tickers.forEach(t => (FN[t] = FN[t] || []).push(n)); };
+  const shown = new Set(rows.map(r => r.t));
+
+  const tsla = ALL.TSLA && multiples(ALL.TSLA);
+  const mag = groupMeans("mag7");
+  add(`<b>Peer benchmark = median.</b> ${tsla && tsla.ttmPe ? `Tesla trades at ${Math.round(tsla.ttmPe)}× trailing / ${Math.round(tsla.fwdPe)}× forward, which pushes a simple Magnificent 7 mean to ${fx(mag.tMean)}× / ${fx(mag.fMean)}× — not a usable yardstick.` : "A single outlier can distort a simple mean."} Peer benchmarks therefore use the median of the members' multiples; the plain mean is shown in the Peer groups panel. For the two-member V·MA group median and mean are identical.`);
+
+  const nu = ALL.NU;
+  if (nu && shown.has("NU")) {
+    const pe = nu.ttmEps > 0 ? nu.price / nu.ttmEps : null, fpe = nu.fwdEps > 0 ? nu.price / nu.fwdEps : null;
+    add(`<b>NU — price-to-book.</b> As a bank, Nubank is valued on P/B: price ÷ book value per share of $${money(nu.bvps)} (${nu.earnings?.lastQuarter || "latest"} quarter), compared with the P/B of JPM, BAC, WFC and GS.${pe ? ` On earnings, NU trades at ${fx(pe)}× trailing and ${fx(fpe)}× forward.` : ""}`, ["NU"]);
+  }
+
+  /* curated one-offs: shown only while the affected quarter is inside the stock's trailing-twelve-month window */
+  for (const n of DATA.notes || []) {
+    const live = n.t.filter(t => shown.has(t) && ttmWindow(ALL[t]).includes(n.qtr));
+    if (live.length) add(`<b>${n.title}.</b> ${n.text}`, live);
+  }
+  /* automatic flag: GAAP vs company-adjusted EPS over the same four quarters diverge by more than 25% */
+  const curated = new Set((DATA.notes || []).flatMap(n => n.t.filter(t => ttmWindow(ALL[t]).includes(n.qtr))));
+  for (const r of rows) {
+    const e = r.earnings; if (r.isPb || !e || !(e.adjTtm > 0) || !(r.ttmEps > 0) || curated.has(r.t)) continue;
+    const gap = r.ttmEps / e.adjTtm - 1;
+    if (Math.abs(gap) > 0.25) add(`<b>${r.t} — one-off items.</b> Trailing GAAP EPS of $${money(r.ttmEps)} is ${Math.round(Math.abs(gap) * 100)}% ${gap > 0 ? "above" : "below"} the company's adjusted EPS of $${money(e.adjTtm)} over the same four quarters, so trailing P/E ${gap > 0 ? "flatters" : "overstates"} the multiple (${fx(r.price / e.adjTtm)}× on adjusted earnings). Flagged automatically.`, [r.t]);
+  }
+  const spx = DATA.indices.find(i => i.key === "spx"), ndx = DATA.indices.find(i => i.key === "ndx");
+  add(`<b>Index multiples.</b> Computed bottom-up on every refresh: Σ market cap ÷ Σ earnings across all ${spx.trailing.n} S&amp;P 500 and ${ndx.trailing.n} Nasdaq-100 companies, using the same trailing-GAAP and next-twelve-months definitions as the stocks. Loss-makers are included, as index providers do — they weigh on the Nasdaq-100 in particular (${ndx.trailing.losers} companies with trailing losses; ${fx(indexPe(ndx, "trailing").liveEx)}× without them). Sector benchmarks are built the same way from the S&amp;P 500's GICS sectors.`);
+  add(`<b>Forward basis.</b> Forward EPS is next-twelve-months consensus: the current and next fiscal year's consensus blended by how much of the current year is left (e.g. a company with a December year-end, in late October: ~20% FY2026 + ~80% FY2027). This puts holdings with June, August or January year-ends (MSFT, MU, NVDA, NKE) on the same footing as calendar-year companies and as the index forward P/E.`);
+  add(`<b>EPS growth &amp; PEG.</b> Growth is the analyst consensus long-term EPS growth rate (3–5 years, % per year). PEG = forward P/E ÷ that growth rate — below 1 is conventionally "growth at a reasonable price". Where no long-term consensus exists (marked †), growth is next fiscal year vs the current one. Memory names (MU, SNDK) show very low PEGs because consensus assumes the current up-cycle persists — treat with the same caution as their forward P/E.`);
+  add(`<b>Own-history band.</b> Quarterly trailing P/E over the last five years (since IPO for CRCL, since the 2025 spin-off for SNDK; UBER since it turned profitable in 2023), from reported TTM EPS and quarter-end prices; quarters with losses, or with P/E above 100×, are excluded. NU uses price-to-book history. Refreshed annually.`);
+  if (HIDDEN.length) add(`<b>Not shown.</b> ${HIDDEN.map(r => r.t).join(", ")} — negative trailing or forward earnings, so P/E can't be computed. ${HIDDEN.length > 1 ? "They return" : "It returns"} automatically once earnings turn positive.`);
+  document.getElementById("notes").innerHTML = notes.map(n => `<li>${n}</li>`).join("");
+  document.getElementById("note-hidden").textContent = HIDDEN.length ? `Not shown: ${HIDDEN.map(r => r.t).join(", ")} (negative earnings — P/E not computable).` : "";
 }
 
 /* ================= Charts ================= */
@@ -620,7 +727,7 @@ function drawChart(svgId, kind) {
     const eps = kind === "ttm" ? d.ttmEps : d.fwdEps;
     const html = `<div class="tt-title">${d.name} (${d.t})</div>
       <div class="tt-line">${kind === "ttm" ? "Trailing" : "Forward"} P/E <b>${fx(v)}×</b></div>
-      <div class="tt-line">$${money(d.price)} ÷ ${kind === "ttm" ? "TTM" : "forward"} EPS $${money(eps)}</div>
+      <div class="tt-line">$${money(d.price)} ÷ ${kind === "ttm" ? "TTM GAAP" : "NTM consensus"} EPS $${money(eps)}</div>
       <div class="tt-line">${d.groupShort} median ${p != null ? fx(p) + "× → " + rel : "n/a"}</div>`;
     g.addEventListener("mousemove", e => showTT(html, e));
     g.addEventListener("mouseleave", hideTT);
@@ -648,17 +755,22 @@ async function init() {
     return;
   }
   [...DATA.stocks, ...DATA.peers].forEach(s => { ALL[s.t] = s; });
-  rows = DATA.stocks.map(derive);
+  /* Sema's rule: only show holdings whose P/E can be computed — negative trailing or forward earnings are hidden */
+  const all = DATA.stocks.map(derive);
+  HIDDEN = all.filter(r => !r.isPb && (r.ttmPe == null || r.fwdPe == null));
+  rows = all.filter(r => !HIDDEN.includes(r));
 
   const spx = DATA.indices.find(i => i.key === "spx");
   SPX = { t: indexPe(spx, "trailing").live, f: indexPe(spx, "forward").live };
   document.getElementById("ref-ttm").textContent = `${SPX.t.toFixed(1)}×`;
   document.getElementById("ref-fwd").textContent = `${SPX.f.toFixed(1)}×`;
-  document.getElementById("eyebrow").textContent = `Portfolio · ${DATA.stocks.length} Holdings`;
+  document.getElementById("eyebrow").textContent = `Portfolio · ${rows.length} Holdings`;
   document.getElementById("th-price").title = `Price used for every multiple in the row · ${DATA.meta.pricesAsOf}`;
   renderStamp();
   renderTiles();
+  renderNotes();
   renderTable();
+  renderCalendar();
   bindSorting();
   renderPeers();
   renderHistory();

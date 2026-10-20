@@ -3,9 +3,66 @@
     "pricesAsOf": "October 20, 2026 at 12:42 Dubai",
     "pricesAsOfISO": "2026-10-20T08:42:49.445Z",
     "priceSource": "Yahoo Finance (last trade 2026-10-19 21:15 UTC)",
-    "earningsAsOf": "August 27, 2026",
-    "earningsNote": "All holdings and peers had reported Q2 2026 (or the equivalent fiscal quarter). XOM, NKE and UBER were added on October 20, 2026 with their latest reported quarters (NKE through fiscal Q1 FY2027).",
-    "earningsAsOfAdded": "October 20, 2026"
+    "earningsAsOf": "2026-10-20",
+    "indicesAsOf": "2026-10-20",
+    "sectorsAll": {
+      "secIT": {
+        "t": 33.17,
+        "f": 19.39,
+        "n": 75
+      },
+      "secEnergy": {
+        "t": 19.68,
+        "f": 12.85,
+        "n": 21
+      },
+      "secUtil": {
+        "t": 18.76,
+        "f": 15.99,
+        "n": 31
+      },
+      "secCD": {
+        "t": 27.86,
+        "f": 26.02,
+        "n": 47
+      },
+      "secInd": {
+        "t": 27.65,
+        "f": 22.34,
+        "n": 83
+      },
+      "secFin": {
+        "t": 16.06,
+        "f": 14.71,
+        "n": 76
+      },
+      "secHC": {
+        "t": 37.34,
+        "f": 19.07,
+        "n": 60
+      },
+      "secComm": {
+        "t": 18.82,
+        "f": 18.93,
+        "n": 19
+      },
+      "secStaples": {
+        "t": 30.65,
+        "f": 23.62,
+        "n": 34
+      },
+      "secMat": {
+        "t": 31.42,
+        "f": 16.95,
+        "n": 24
+      },
+      "secRE": {
+        "t": 33.38,
+        "f": 34.96,
+        "n": 30
+      }
+    },
+    "earningsUpdatedISO": "2026-10-20T09:04:04.587Z"
   },
   "indices": [
     {
@@ -14,18 +71,26 @@
       "yahoo": "^GSPC",
       "price": 7690.73,
       "trailing": {
-        "pe": 29.59,
-        "level": 7675.7,
-        "date": "2026-08-26",
-        "source": "multpl.com, GAAP TTM",
-        "context": "GAAP basis · operating ≈ 26×"
+        "pe": 25.98,
+        "level": 7690.73,
+        "date": "2026-10-20",
+        "n": 500,
+        "coverage": 1,
+        "losers": 24,
+        "exLoss": 24.92,
+        "source": "Bottom-up from 500 constituents (Yahoo Finance consensus)",
+        "basis": "GAAP TTM"
       },
       "forward": {
-        "pe": 20,
-        "level": 7709.96,
-        "date": "2026-08-06",
-        "source": "FactSet Earnings Insight (Aug 7 report, Aug 6 close)",
-        "context": "5-yr avg 19.9× · 10-yr avg 19.0×"
+        "pe": 19.09,
+        "level": 7690.73,
+        "date": "2026-10-20",
+        "n": 500,
+        "coverage": 1,
+        "losers": 2,
+        "exLoss": 19.06,
+        "source": "Bottom-up from 500 constituents (Yahoo Finance consensus)",
+        "basis": "NTM consensus"
       }
     },
     {
@@ -34,18 +99,26 @@
       "yahoo": "^NDX",
       "price": 29529.34,
       "trailing": {
-        "pe": 28.94,
-        "level": 29224.52,
-        "date": "2026-08-26",
-        "source": "WorldPERatio",
-        "context": "5-yr range 27.5–33.4×"
+        "pe": 32.71,
+        "level": 29529.34,
+        "date": "2026-10-20",
+        "n": 100,
+        "coverage": 1,
+        "losers": 9,
+        "exLoss": 28.53,
+        "source": "Bottom-up from 100 constituents (Yahoo Finance consensus)",
+        "basis": "GAAP TTM"
       },
       "forward": {
-        "pe": 22.4,
-        "level": 29224.52,
-        "date": "2026-08-26",
-        "source": "NTM consensus, historyofmarket.com",
-        "context": "5-yr median 24.2×"
+        "pe": 22.18,
+        "level": 29529.34,
+        "date": "2026-10-20",
+        "n": 100,
+        "coverage": 1,
+        "losers": 3,
+        "exLoss": 22.05,
+        "source": "Bottom-up from 100 constituents (Yahoo Finance consensus)",
+        "basis": "NTM consensus"
       }
     }
   ],
@@ -56,14 +129,11 @@
       "price": 217.09,
       "group": "mag7",
       "ttmEps": 7.91,
-      "fwdEps": 11.71,
-      "fn": [
-        10
-      ],
+      "fwdEps": 14.0596,
       "growth": {
-        "pct": 58.3,
+        "pct": 14,
         "basis": "lt",
-        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27 (Simply Wall St 22.9%)"
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"
       },
       "hist": {
         "min": 30.5,
@@ -74,6 +144,61 @@
         "from": "2021-10",
         "to": "2026-04",
         "source": "macrotrends quarterly, fetched 2026-08-27"
+      },
+      "earnings": {
+        "lastQuarter": "Jul 2026",
+        "lastQuarterEnd": "2026-07-26",
+        "lastReported": "2026-08-26",
+        "next": "2026-11-17",
+        "nextConfirmed": true,
+        "adjTtm": 6.9,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-10-31",
+            "eps": 1.3
+          },
+          {
+            "end": "2026-01-31",
+            "eps": 1.76
+          },
+          {
+            "end": "2026-04-30",
+            "eps": 2.39
+          },
+          {
+            "end": "2026-07-31",
+            "eps": 2.46
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jul 2026",
+            "reported": "2026-08-26",
+            "adjEps": 2.22
+          },
+          {
+            "qtr": "Apr 2026",
+            "reported": "2026-05-20",
+            "adjEps": 1.87
+          },
+          {
+            "qtr": "Jan 2026",
+            "reported": "2026-02-25",
+            "adjEps": 1.57
+          },
+          {
+            "qtr": "Oct 2025",
+            "reported": "2025-11-19",
+            "adjEps": 1.24
+          }
+        ],
+        "fy0": 9.3124,
+        "fy0End": "2027-01-31",
+        "fy1": 15.9146,
+        "fy1End": "2028-01-31",
+        "analysts": 52,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -82,14 +207,11 @@
       "price": 14.51,
       "group": "banks",
       "metric": "pb",
-      "bvps": 2.74,
-      "fn": [
-        2
-      ],
+      "bvps": 2.743,
       "growth": {
-        "pct": 30,
+        "pct": 28.4,
         "basis": "lt",
-        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27 (Simply Wall St 21.5%)"
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"
       },
       "hist": {
         "min": 3.7,
@@ -101,22 +223,59 @@
         "to": "2026-06",
         "source": "macrotrends quarterly price/book, fetched 2026-08-27",
         "note": "price-to-book history"
-      }
+      },
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-08-13",
+        "next": "2026-11-12",
+        "nextConfirmed": true,
+        "adjTtm": 0.77,
+        "ttmBasis": "yahoo-quote",
+        "gaapQuarters": null,
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-08-13",
+            "adjEps": 0.22
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-05-14",
+            "adjEps": 0.19
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-02-25",
+            "adjEps": 0.19
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-11-13",
+            "adjEps": 0.17
+          }
+        ],
+        "fy0": 0.8538,
+        "fy0End": "2026-12-31",
+        "fy1": 1.1063,
+        "fy1End": "2027-12-31",
+        "analysts": 16,
+        "updated": "2026-10-20"
+      },
+      "ttmEps": 0.73,
+      "fwdEps": 1.0568
     },
     {
       "t": "CRCL",
       "name": "Circle",
       "price": 81.37,
       "group": "payments",
-      "ttmEps": 1.8,
-      "fwdEps": 1.59,
-      "fn": [
-        5
-      ],
+      "ttmEps": 1.46,
+      "fwdEps": 1.3551,
       "growth": {
-        "pct": 14.2,
+        "pct": 14.5,
         "basis": "lt",
-        "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-08-27"
+        "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-10-20"
       },
       "hist": {
         "min": null,
@@ -128,6 +287,61 @@
         "to": "2026-06",
         "source": "macrotrends quarterly, fetched 2026-08-27",
         "note": "listed June 2025, one profitable TTM quarter so far"
+      },
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-08-05",
+        "next": "2026-11-04",
+        "nextConfirmed": true,
+        "adjTtm": 1.46,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 0.64
+          },
+          {
+            "end": "2025-12-31",
+            "eps": 0.43
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 0.21
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 0.18
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-08-05",
+            "adjEps": 0.18
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-05-11",
+            "adjEps": 0.21
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-02-25",
+            "adjEps": 0.43
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-11-12",
+            "adjEps": 0.64
+          }
+        ],
+        "fy0": 1.0946,
+        "fy0End": "2026-12-31",
+        "fy1": 1.4186,
+        "fy1End": "2027-12-31",
+        "analysts": 21,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -135,12 +349,12 @@
       "name": "Vistra",
       "price": 149.7,
       "group": "secUtil",
-      "ttmEps": 5.87,
-      "fwdEps": 10.37,
+      "ttmEps": 5.93,
+      "fwdEps": 10.2036,
       "growth": {
-        "pct": 13.3,
+        "pct": 16.5,
         "basis": "lt",
-        "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-08-27"
+        "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-10-20"
       },
       "hist": {
         "min": 7.1,
@@ -151,6 +365,44 @@
         "from": "2022-03",
         "to": "2026-06",
         "source": "macrotrends quarterly P/E, fetched 2026-08-27"
+      },
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-08-07",
+        "next": "2026-11-06",
+        "nextConfirmed": true,
+        "adjTtm": 8.6,
+        "ttmBasis": "yahoo-quote",
+        "gaapQuarters": null,
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-08-07",
+            "adjEps": 1.8
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-05-08",
+            "adjEps": 2.87
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-02-26",
+            "adjEps": 2.18
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-11-06",
+            "adjEps": 1.75
+          }
+        ],
+        "fy0": 9.5785,
+        "fy0End": "2026-12-31",
+        "fy1": 10.3561,
+        "fy1End": "2027-12-31",
+        "analysts": 10,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -158,15 +410,12 @@
       "name": "Micron",
       "price": 904.9,
       "group": "secIT",
-      "ttmEps": 44.17,
-      "fwdEps": 155.03,
-      "fn": [
-        10
-      ],
+      "ttmEps": 74.33,
+      "fwdEps": 180.7531,
       "growth": {
-        "pct": 31,
+        "pct": 32.6,
         "basis": "lt",
-        "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-08-27"
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"
       },
       "hist": {
         "min": 7.2,
@@ -177,6 +426,44 @@
         "from": "2021-11",
         "to": "2026-05",
         "source": "macrotrends quarterly, fetched 2026-08-27"
+      },
+      "earnings": {
+        "lastQuarter": "Aug 2026",
+        "lastQuarterEnd": "2026-09-03",
+        "lastReported": "2026-09-30",
+        "next": "2026-12-23",
+        "nextConfirmed": false,
+        "adjTtm": 74.77,
+        "ttmBasis": "yahoo-quote",
+        "gaapQuarters": null,
+        "quarters": [
+          {
+            "qtr": "Aug 2026",
+            "reported": "2026-09-30",
+            "adjEps": 33.19
+          },
+          {
+            "qtr": "May 2026",
+            "reported": "2026-06-24",
+            "adjEps": 24.89
+          },
+          {
+            "qtr": "Feb 2026",
+            "reported": "2026-03-18",
+            "adjEps": 12.08
+          },
+          {
+            "qtr": "Nov 2025",
+            "reported": "2025-12-17",
+            "adjEps": 4.61
+          }
+        ],
+        "fy0": 176.5466,
+        "fy0End": "2027-08-31",
+        "fy1": 206.8938,
+        "fy1End": "2028-08-31",
+        "analysts": 36,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -184,15 +471,12 @@
       "name": "Sandisk",
       "price": 1371.12,
       "group": "secIT",
-      "ttmEps": 72.89,
-      "fwdEps": 214.1,
-      "fn": [
-        10
-      ],
+      "ttmEps": 72.9,
+      "fwdEps": 230.6956,
       "growth": {
         "pct": 48.2,
         "basis": "lt",
-        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"
       },
       "hist": {
         "min": null,
@@ -204,6 +488,61 @@
         "to": "2026-06",
         "source": "macrotrends quarterly, fetched 2026-08-27",
         "note": "spun off from Western Digital in Feb 2025 — two profitable quarters so far"
+      },
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-07-03",
+        "lastReported": "2026-08-05",
+        "next": "2026-10-29",
+        "nextConfirmed": true,
+        "adjTtm": 68.77,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 0.75
+          },
+          {
+            "end": "2025-12-31",
+            "eps": 5.15
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 23.03
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 43.97
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-08-05",
+            "adjEps": 38.82
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-30",
+            "adjEps": 23.22
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-29",
+            "adjEps": 5.83
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-11-06",
+            "adjEps": 0.9
+          }
+        ],
+        "fy0": 214.8233,
+        "fy0End": "2027-06-30",
+        "fy1": 266.2971,
+        "fy1End": "2028-06-30",
+        "analysts": 21,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -211,12 +550,12 @@
       "name": "TSMC (ADR)",
       "price": 420.22,
       "group": "secIT",
-      "ttmEps": 13.86,
-      "fwdEps": 20.87,
+      "ttmEps": 15.43,
+      "fwdEps": 22.2321,
       "growth": {
-        "pct": 26.5,
+        "pct": 28.9,
         "basis": "lt",
-        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"
       },
       "hist": {
         "min": 11.1,
@@ -227,6 +566,44 @@
         "from": "2021-09",
         "to": "2026-06",
         "source": "macrotrends quarterly, fetched 2026-08-27"
+      },
+      "earnings": {
+        "lastQuarter": "Sep 2026",
+        "lastQuarterEnd": "2026-09-30",
+        "lastReported": "2026-10-15",
+        "next": "2027-01-14",
+        "nextConfirmed": false,
+        "adjTtm": 15.54,
+        "ttmBasis": "yahoo-quote",
+        "gaapQuarters": null,
+        "quarters": [
+          {
+            "qtr": "Sep 2026",
+            "reported": "2026-10-15",
+            "adjEps": 4.6
+          },
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-16",
+            "adjEps": 4.31
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-16",
+            "adjEps": 3.49
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-15",
+            "adjEps": 3.14
+          }
+        ],
+        "fy0": 17.5043,
+        "fy0End": "2026-12-31",
+        "fy1": 23.3853,
+        "fy1End": "2027-12-31",
+        "analysts": 13,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -234,15 +611,12 @@
       "name": "Alphabet",
       "price": 340.16,
       "group": "mag7",
-      "ttmEps": 19.9,
-      "fwdEps": 14.81,
-      "fn": [
-        3
-      ],
+      "ttmEps": 19.91,
+      "fwdEps": 14.8697,
       "growth": {
-        "pct": 17.4,
+        "pct": 16.8,
         "basis": "lt",
-        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"
       },
       "hist": {
         "min": 17.4,
@@ -253,6 +627,61 @@
         "from": "2021-09",
         "to": "2026-06",
         "source": "macrotrends quarterly P/E, fetched 2026-08-27"
+      },
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-07-22",
+        "next": "2026-10-28",
+        "nextConfirmed": true,
+        "adjTtm": 19.91,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 2.87
+          },
+          {
+            "end": "2025-12-31",
+            "eps": 2.82
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 5.11
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 9.11
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-22",
+            "adjEps": 9.11
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-29",
+            "adjEps": 5.11
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-02-04",
+            "adjEps": 2.82
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-10-29",
+            "adjEps": 2.87
+          }
+        ],
+        "fy0": 13.14,
+        "fy0End": "2026-12-31",
+        "fy1": 15.2916,
+        "fy1End": "2027-12-31",
+        "analysts": 24,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -261,14 +690,11 @@
       "price": 262.45,
       "group": "mag7",
       "ttmEps": 12.43,
-      "fwdEps": 10.39,
-      "fn": [
-        3
-      ],
+      "fwdEps": 11.012,
       "growth": {
-        "pct": 18.7,
+        "pct": 16.1,
         "basis": "lt",
-        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"
       },
       "hist": {
         "min": 19.2,
@@ -279,6 +705,61 @@
         "from": "2021-09",
         "to": "2026-06",
         "source": "macrotrends quarterly, fetched 2026-08-27"
+      },
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-07-30",
+        "next": "2026-10-29",
+        "nextConfirmed": true,
+        "adjTtm": 7.34,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 1.95
+          },
+          {
+            "end": "2025-12-31",
+            "eps": 1.95
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 2.78
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 5.75
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-30",
+            "adjEps": 1.88
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-29",
+            "adjEps": 1.56
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-02-05",
+            "adjEps": 1.95
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-10-30",
+            "adjEps": 1.95
+          }
+        ],
+        "fy0": 12.8981,
+        "fy0End": "2026-12-31",
+        "fy1": 10.5519,
+        "fy1End": "2027-12-31",
+        "analysts": 53,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -287,11 +768,11 @@
       "price": 533.52,
       "group": "mag7",
       "ttmEps": 17.96,
-      "fwdEps": 19.75,
+      "fwdEps": 20.9952,
       "growth": {
         "pct": 15.9,
         "basis": "lt",
-        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"
       },
       "hist": {
         "min": 20.7,
@@ -302,6 +783,61 @@
         "from": "2021-09",
         "to": "2026-06",
         "source": "macrotrends quarterly, fetched 2026-08-27"
+      },
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-07-29",
+        "next": "2026-10-28",
+        "nextConfirmed": true,
+        "adjTtm": 17.28,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 3.72
+          },
+          {
+            "end": "2025-12-31",
+            "eps": 5.16
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 4.27
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 4.81
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-29",
+            "adjEps": 4.74
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-29",
+            "adjEps": 4.27
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-28",
+            "adjEps": 4.14
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-10-29",
+            "adjEps": 4.13
+          }
+        ],
+        "fy0": 19.7784,
+        "fy0End": "2027-06-30",
+        "fy1": 23.7245,
+        "fy1End": "2028-06-30",
+        "analysts": 33,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -310,14 +846,11 @@
       "price": 705.44,
       "group": "mag7",
       "ttmEps": 26.55,
-      "fwdEps": 34.7,
-      "fn": [
-        4
-      ],
+      "fwdEps": 33.1908,
       "growth": {
         "pct": 20.6,
         "basis": "lt",
-        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"
       },
       "hist": {
         "min": 12.9,
@@ -328,6 +861,61 @@
         "from": "2021-09",
         "to": "2026-06",
         "source": "macrotrends quarterly P/E, fetched 2026-08-27"
+      },
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-07-29",
+        "next": "2026-10-21",
+        "nextConfirmed": true,
+        "adjTtm": 29.62,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 1.05
+          },
+          {
+            "end": "2025-12-31",
+            "eps": 8.88
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 10.44
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 6.18
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-29",
+            "adjEps": 6.18
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-29",
+            "adjEps": 7.31
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-28",
+            "adjEps": 8.88
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-10-29",
+            "adjEps": 7.25
+          }
+        ],
+        "fy0": 30.5081,
+        "fy0End": "2026-12-31",
+        "fy1": 33.8452,
+        "fy1End": "2027-12-31",
+        "analysts": 54,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -335,12 +923,12 @@
       "name": "Occidental",
       "price": 62.72,
       "group": "secEnergy",
-      "ttmEps": 6.51,
-      "fwdEps": 3.82,
+      "ttmEps": 6.46,
+      "fwdEps": 5.2107,
       "growth": {
         "pct": 10.4,
         "basis": "lt",
-        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"
       },
       "hist": {
         "min": 4.8,
@@ -351,6 +939,61 @@
         "from": "2021-12",
         "to": "2026-06",
         "source": "macrotrends quarterly P/E, fetched 2026-08-27"
+      },
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-08-05",
+        "next": "2026-11-09",
+        "nextConfirmed": true,
+        "adjTtm": 4.41,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 0.65
+          },
+          {
+            "end": "2025-12-31",
+            "eps": -0.07
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 3.13
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 2.75
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-08-05",
+            "adjEps": 2.4
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-05-05",
+            "adjEps": 1.06
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-02-18",
+            "adjEps": 0.31
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-11-10",
+            "adjEps": 0.64
+          }
+        ],
+        "fy0": 6.7226,
+        "fy0End": "2026-12-31",
+        "fy1": 4.8419,
+        "fy1End": "2027-12-31",
+        "analysts": 25,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -359,10 +1002,7 @@
       "price": 178.28,
       "group": "secEnergy",
       "ttmEps": 7.77,
-      "fwdEps": 11.97,
-      "fn": [
-        6
-      ],
+      "fwdEps": 12.1944,
       "growth": {
         "pct": 13.7,
         "basis": "lt",
@@ -377,6 +1017,61 @@
         "from": "2021-12",
         "to": "2026-06",
         "source": "macrotrends quarterly (macrotrends.net/stocks/charts/XOM/exxonmobil-holdings/pe-ratio), fetched 2026-10-20"
+      },
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-07-31",
+        "next": "2026-10-30",
+        "nextConfirmed": true,
+        "adjTtm": 8.27,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 1.76
+          },
+          {
+            "end": "2025-12-31",
+            "eps": 1.53
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 1
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 3.48
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-31",
+            "adjEps": 3.52
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-05-01",
+            "adjEps": 1.16
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-30",
+            "adjEps": 1.71
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-10-31",
+            "adjEps": 1.88
+          }
+        ],
+        "fy0": 13.123,
+        "fy0End": "2026-12-31",
+        "fy1": 11.9679,
+        "fy1End": "2027-12-31",
+        "analysts": 22,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -385,14 +1080,11 @@
       "price": 37.21,
       "group": "secCD",
       "ttmEps": 2.08,
-      "fwdEps": 1.31,
-      "fn": [
-        7
-      ],
+      "fwdEps": 1.3683,
       "growth": {
         "pct": 7,
         "basis": "lt",
-        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20 (Simply Wall St 2.1%)"
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"
       },
       "hist": {
         "min": 18.5,
@@ -403,6 +1095,44 @@
         "from": "2021-08",
         "to": "2026-08",
         "source": "macrotrends quarterly (fiscal quarter ends Aug/Nov/Feb/May), fetched 2026-10-20"
+      },
+      "earnings": {
+        "lastQuarter": "Aug 2026",
+        "lastQuarterEnd": "2026-08-31",
+        "lastReported": "2026-10-01",
+        "next": "2026-12-17",
+        "nextConfirmed": false,
+        "adjTtm": 1.56,
+        "ttmBasis": "yahoo-quote",
+        "gaapQuarters": null,
+        "quarters": [
+          {
+            "qtr": "Aug 2026",
+            "reported": "2026-10-01",
+            "adjEps": 0.48
+          },
+          {
+            "qtr": "May 2026",
+            "reported": "2026-06-30",
+            "adjEps": 0.2
+          },
+          {
+            "qtr": "Feb 2026",
+            "reported": "2026-03-31",
+            "adjEps": 0.35
+          },
+          {
+            "qtr": "Nov 2025",
+            "reported": "2025-12-18",
+            "adjEps": 0.53
+          }
+        ],
+        "fy0": 1.2483,
+        "fy0End": "2027-05-31",
+        "fy1": 1.5556,
+        "fy1End": "2028-05-31",
+        "analysts": 39,
+        "updated": "2026-10-20"
       }
     },
     {
@@ -411,14 +1141,11 @@
       "price": 69.96,
       "group": "secInd",
       "ttmEps": 4.55,
-      "fwdEps": 4.54,
-      "fn": [
-        8
-      ],
+      "fwdEps": 4.2689,
       "growth": {
         "pct": 14.7,
         "basis": "lt",
-        "source": "Simply Wall St EPS growth p.a., 2026-10-19 (Zacks 3.66% distorted by the 2025 tax-release base)"
+        "source": "Simply Wall St EPS growth p.a., 2026-10-20 (Zacks Exp EPS Growth 3-5yr shows 3.66%)"
       },
       "hist": {
         "min": 12.6,
@@ -430,6 +1157,61 @@
         "to": "2026-06",
         "source": "macrotrends quarterly, fetched 2026-10-20",
         "note": "profitable TTM only since 2023-09"
+      },
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-08-05",
+        "next": "2026-11-04",
+        "nextConfirmed": true,
+        "adjTtm": 5.71,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 3.11
+          },
+          {
+            "end": "2025-12-31",
+            "eps": 0.14
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 0.13
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 1.17
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-08-05",
+            "adjEps": 1.17
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-05-06",
+            "adjEps": 0.72
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-02-04",
+            "adjEps": 0.71
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-11-04",
+            "adjEps": 3.11
+          }
+        ],
+        "fy0": 3.1753,
+        "fy0End": "2026-12-31",
+        "fy1": 4.5357,
+        "fy1End": "2027-12-31",
+        "analysts": 39,
+        "updated": "2026-10-20"
       }
     }
   ],
@@ -439,56 +1221,436 @@
       "name": "Apple",
       "price": 342.94,
       "ttmEps": 8.72,
-      "fwdEps": 9.53
+      "fwdEps": 9.5706,
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-27",
+        "lastReported": "2026-07-30",
+        "next": "2026-11-02",
+        "nextConfirmed": true,
+        "adjTtm": 8.61,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 1.85
+          },
+          {
+            "end": "2025-12-31",
+            "eps": 2.84
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 2.01
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 2.02
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-30",
+            "adjEps": 1.91
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-30",
+            "adjEps": 2.01
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-29",
+            "adjEps": 2.84
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-10-30",
+            "adjEps": 1.85
+          }
+        ],
+        "fy0": 8.8201,
+        "fy0End": "2026-09-30",
+        "fy1": 9.5706,
+        "fy1End": "2027-09-30",
+        "analysts": 40,
+        "updated": "2026-10-20"
+      }
     },
     {
       "t": "TSLA",
       "name": "Tesla",
       "price": 368.06,
       "ttmEps": 1.08,
-      "fwdEps": 2.16
+      "fwdEps": 2.0852,
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-07-22",
+        "next": "2026-10-21",
+        "nextConfirmed": true,
+        "adjTtm": 0.9,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 0.39
+          },
+          {
+            "end": "2025-12-31",
+            "eps": 0.24
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 0.13
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 0.32
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-22",
+            "adjEps": 0.04
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-22",
+            "adjEps": 0.18
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-28",
+            "adjEps": 0.31
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-10-22",
+            "adjEps": 0.37
+          }
+        ],
+        "fy0": 1.7439,
+        "fy0End": "2026-12-31",
+        "fy1": 2.1684,
+        "fy1End": "2027-12-31",
+        "analysts": 31,
+        "updated": "2026-10-20"
+      }
     },
     {
       "t": "V",
       "name": "Visa",
       "price": 402.92,
-      "ttmEps": 11.75,
-      "fwdEps": 15
+      "ttmEps": 11.76,
+      "fwdEps": 15.0089,
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-07-28",
+        "next": "2026-10-27",
+        "nextConfirmed": true,
+        "adjTtm": 12.78,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 2.62
+          },
+          {
+            "end": "2025-12-31",
+            "eps": 3.03
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 3.14
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 2.97
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-28",
+            "adjEps": 3.32
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-28",
+            "adjEps": 3.31
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-29",
+            "adjEps": 3.17
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-10-28",
+            "adjEps": 2.98
+          }
+        ],
+        "fy0": 13.2298,
+        "fy0End": "2026-09-30",
+        "fy1": 15.0089,
+        "fy1End": "2027-09-30",
+        "analysts": 40,
+        "updated": "2026-10-20"
+      }
     },
     {
       "t": "MA",
       "name": "Mastercard",
       "price": 616.4,
       "ttmEps": 18.18,
-      "fwdEps": 23.03
+      "fwdEps": 22.4537,
+      "earnings": {
+        "lastQuarter": "Jun 2026",
+        "lastQuarterEnd": "2026-06-30",
+        "lastReported": "2026-07-30",
+        "next": "2026-10-29",
+        "nextConfirmed": true,
+        "adjTtm": 18.78,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-09-30",
+            "eps": 4.34
+          },
+          {
+            "end": "2025-12-31",
+            "eps": 4.52
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 4.35
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 4.97
+          }
+        ],
+        "quarters": [
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-30",
+            "adjEps": 5.04
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-30",
+            "adjEps": 4.6
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-29",
+            "adjEps": 4.76
+          },
+          {
+            "qtr": "Sep 2025",
+            "reported": "2025-10-30",
+            "adjEps": 4.38
+          }
+        ],
+        "fy0": 19.9416,
+        "fy0End": "2026-12-31",
+        "fy1": 23.0665,
+        "fy1End": "2027-12-31",
+        "analysts": 39,
+        "updated": "2026-10-20"
+      }
     },
     {
       "t": "JPM",
       "name": "JPMorgan Chase",
       "price": 333.53,
       "metric": "pb",
-      "bvps": 133.01
+      "bvps": 132.297,
+      "earnings": {
+        "lastQuarter": "Sep 2026",
+        "lastQuarterEnd": "2026-09-30",
+        "lastReported": "2026-10-13",
+        "next": "2027-01-14",
+        "nextConfirmed": true,
+        "adjTtm": 23.06,
+        "ttmBasis": "yahoo-quote",
+        "gaapQuarters": null,
+        "quarters": [
+          {
+            "qtr": "Sep 2026",
+            "reported": "2026-10-13",
+            "adjEps": 5.75
+          },
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-14",
+            "adjEps": 6.14
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-14",
+            "adjEps": 5.94
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-13",
+            "adjEps": 5.23
+          }
+        ],
+        "fy0": 24.0674,
+        "fy0End": "2026-12-31",
+        "fy1": 25.5012,
+        "fy1End": "2027-12-31",
+        "analysts": 15,
+        "updated": "2026-10-20"
+      },
+      "ttmEps": 23.84,
+      "fwdEps": 25.2201
     },
     {
       "t": "BAC",
       "name": "Bank of America",
       "price": 50.39,
       "metric": "pb",
-      "bvps": 39.34
+      "bvps": 39.255,
+      "earnings": {
+        "lastQuarter": "Sep 2026",
+        "lastQuarterEnd": "2026-09-30",
+        "lastReported": "2026-10-14",
+        "next": "2027-01-15",
+        "nextConfirmed": true,
+        "adjTtm": 4.38,
+        "ttmBasis": "yahoo-quote",
+        "gaapQuarters": null,
+        "quarters": [
+          {
+            "qtr": "Sep 2026",
+            "reported": "2026-10-14",
+            "adjEps": 1.08
+          },
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-14",
+            "adjEps": 1.21
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-15",
+            "adjEps": 1.11
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-14",
+            "adjEps": 0.98
+          }
+        ],
+        "fy0": 4.421,
+        "fy0End": "2026-12-31",
+        "fy1": 5.1468,
+        "fy1End": "2027-12-31",
+        "analysts": 18,
+        "updated": "2026-10-20"
+      },
+      "ttmEps": 4.19,
+      "fwdEps": 5.0045
     },
     {
       "t": "WFC",
       "name": "Wells Fargo",
       "price": 81.8,
       "metric": "pb",
-      "bvps": 54.48
+      "bvps": 54.43,
+      "earnings": {
+        "lastQuarter": "Sep 2026",
+        "lastQuarterEnd": "2026-09-30",
+        "lastReported": "2026-10-13",
+        "next": "2027-01-14",
+        "nextConfirmed": true,
+        "adjTtm": 7.15,
+        "ttmBasis": "yahoo-quote",
+        "gaapQuarters": null,
+        "quarters": [
+          {
+            "qtr": "Sep 2026",
+            "reported": "2026-10-13",
+            "adjEps": 1.87
+          },
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-14",
+            "adjEps": 1.96
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-14",
+            "adjEps": 1.56
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-14",
+            "adjEps": 1.76
+          }
+        ],
+        "fy0": 7.3408,
+        "fy0End": "2026-12-31",
+        "fy1": 8.0552,
+        "fy1End": "2027-12-31",
+        "analysts": 21,
+        "updated": "2026-10-20"
+      },
+      "ttmEps": 6.88,
+      "fwdEps": 7.9151
     },
     {
       "t": "GS",
       "name": "Goldman Sachs",
       "price": 875.78,
       "metric": "pb",
-      "bvps": 367.67
+      "bvps": 372.246,
+      "earnings": {
+        "lastQuarter": "Sep 2026",
+        "lastQuarterEnd": "2026-09-30",
+        "lastReported": "2026-10-13",
+        "next": "2027-01-19",
+        "nextConfirmed": true,
+        "adjTtm": 69.55,
+        "ttmBasis": "yahoo-quote",
+        "gaapQuarters": null,
+        "quarters": [
+          {
+            "qtr": "Sep 2026",
+            "reported": "2026-10-13",
+            "adjEps": 17.01
+          },
+          {
+            "qtr": "Jun 2026",
+            "reported": "2026-07-14",
+            "adjEps": 20.98
+          },
+          {
+            "qtr": "Mar 2026",
+            "reported": "2026-04-13",
+            "adjEps": 17.55
+          },
+          {
+            "qtr": "Dec 2025",
+            "reported": "2026-01-15",
+            "adjEps": 14.01
+          }
+        ],
+        "fy0": 71.0896,
+        "fy0End": "2026-12-31",
+        "fy1": 73.8501,
+        "fy1End": "2027-12-31",
+        "analysts": 24,
+        "updated": "2026-10-20"
+      },
+      "ttmEps": 69.12,
+      "fwdEps": 73.3088
     }
   ],
   "groups": {
@@ -527,32 +1689,85 @@
     "secIT": {
       "label": "S&P 500 Information Technology",
       "short": "Info Tech sector",
-      "t": 32.75,
-      "f": 27.99
+      "t": 33.17,
+      "f": 19.39,
+      "n": 75,
+      "asOf": "2026-10-20"
     },
     "secUtil": {
       "label": "S&P 500 Utilities",
       "short": "Utilities sector",
-      "t": 20.13,
-      "f": 19.22
+      "t": 18.76,
+      "f": 15.99,
+      "n": 31,
+      "asOf": "2026-10-20"
     },
     "secEnergy": {
       "label": "S&P 500 Energy",
       "short": "Energy sector",
-      "t": 21.79,
-      "f": 13.02
+      "t": 19.68,
+      "f": 12.85,
+      "n": 21,
+      "asOf": "2026-10-20"
     },
     "secCD": {
       "label": "S&P 500 Consumer Discretionary",
       "short": "Cons. Disc. sector",
-      "t": 25.82,
-      "f": 24.01
+      "t": 27.86,
+      "f": 26.02,
+      "n": 47,
+      "asOf": "2026-10-20"
     },
     "secInd": {
       "label": "S&P 500 Industrials",
       "short": "Industrials sector",
-      "t": 28.18,
-      "f": 26.76
+      "t": 27.65,
+      "f": 22.34,
+      "n": 83,
+      "asOf": "2026-10-20"
     }
-  }
+  },
+  "notes": [
+    {
+      "t": [
+        "GOOG",
+        "AMZN"
+      ],
+      "qtr": "2026-06",
+      "title": "GOOG & AMZN — inflated trailing EPS",
+      "text": "Q2 2026 included one-time investment gains (Alphabet ~$99B, Amazon ~$53B pre-tax, largely Anthropic stakes), so trailing P/E is flattered — for the stocks and for the Magnificent 7 median. Forward P/E is the cleaner read."
+    },
+    {
+      "t": [
+        "META"
+      ],
+      "qtr": "2025-09",
+      "title": "META — depressed trailing EPS",
+      "text": "Q3 2025 carried a one-time tax charge (EPS $1.05), so trailing P/E overstates the multiple."
+    },
+    {
+      "t": [
+        "XOM"
+      ],
+      "qtr": "2026-03",
+      "title": "XOM — depressed trailing EPS",
+      "text": "Q1 2026 absorbed ~$0.92/share of negative timing effects and Q2 2026 ~$0.63/share of impairments and reserve additions, so trailing P/E overstates the multiple. Consensus expects 2027 earnings below 2026 as the oil-price spike fades."
+    },
+    {
+      "t": [
+        "NKE"
+      ],
+      "qtr": "2026-05",
+      "title": "NKE — flattered trailing EPS",
+      "text": "Q4 FY2026 (May 2026) included a one-time +$0.52/share benefit from expected tariff refunds, so trailing P/E looks far cheaper than forward."
+    },
+    {
+      "t": [
+        "UBER"
+      ],
+      "qtr": "2025-09",
+      "title": "UBER — trailing EPS mostly one-offs",
+      "text": "Q3 2025 included a ~$2.30/share tax valuation-allowance release, and every quarter swings with revaluations of equity stakes (±$1.5B pre-tax). Forward P/E is the cleaner read. Growth uses Simply Wall St, since Zacks computes off the tax-inflated 2025 base."
+    }
+  ]
 }

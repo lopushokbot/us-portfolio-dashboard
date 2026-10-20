@@ -1,0 +1,17 @@
+{
+  "NVDA": {"pct": 14.00, "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"},
+  "NU":   {"pct": 28.38, "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"},
+  "CRCL": {"pct": 14.54, "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-10-20"},
+  "VST":  {"pct": 16.47, "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-10-20"},
+  "MU":   {"pct": 32.63, "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"},
+  "SNDK": {"pct": 48.16, "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"},
+  "TSM":  {"pct": 28.89, "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"},
+  "GOOG": {"pct": 16.81, "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"},
+  "AMZN": {"pct": 16.11, "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"},
+  "MSFT": {"pct": 15.86, "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"},
+  "META": {"pct": 20.55, "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"},
+  "OXY":  {"pct": 10.36, "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"},
+  "XOM":  {"pct": 13.70, "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"},
+  "NKE":  {"pct": 7.02,  "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"},
+  "UBER": {"pct": 14.68, "zacks": 3.66, "source": "Simply Wall St EPS growth p.a., 2026-10-20 (Zacks Exp EPS Growth 3-5yr shows 3.66%)"}
+}
