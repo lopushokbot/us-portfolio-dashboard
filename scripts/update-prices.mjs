@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * Daily price refresh for the US Portfolio Valuation Dashboard.
- * - Reads data.json, fetches the latest price for every holding + peer from Yahoo Finance,
- *   writes the prices back and stamps meta.pricesAsOf in Dubai time.
+ * - Reads data.json, fetches the latest price for every holding + peer + index (S&P 500, Nasdaq-100)
+ *   from Yahoo Finance, writes the prices back and stamps meta.pricesAsOf in Dubai time.
  * - EPS / book value / consensus / index P/Es are NOT touched (they change quarterly — see RUNBOOK).
  * - If a ticker fails after retries the previous price is kept and the failure is logged.
  * - Exits non-zero only if every ticker failed (nothing sensible to commit).
@@ -35,28 +35,28 @@ async function yahooPrice(ticker, attempt = 1) {
 
 function dubaiStamp(date) {
   const fmt = new Intl.DateTimeFormat("en-US", {
-    timeZone: "Asia/Dubai", month: "long", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false,
+    timeZone: "Asia/Dubai", month: "long", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
   });
   return `${fmt.format(date)} Dubai`;
 }
 
 const data = JSON.parse(await readFile(DATA_PATH, "utf8"));
-const rows = [...data.stocks, ...data.peers];
+const rows = [...data.stocks, ...data.peers, ...(data.indices || [])];
 let ok = 0, failed = [];
 let latestMarketTime = null;
 
 for (const row of rows) {
   try {
-    const { price, time } = await yahooPrice(row.t);
+    const { price, time } = await yahooPrice(row.yahoo || row.t);
     const old = row.price;
     row.price = Math.round(price * 100) / 100;
     if (time && (!latestMarketTime || time > latestMarketTime)) latestMarketTime = time;
     const chg = old ? ((row.price / old - 1) * 100).toFixed(2) : "n/a";
-    console.log(`${row.t.padEnd(5)} ${String(old).padStart(9)} → ${String(row.price).padStart(9)}  (${chg}%)`);
+    console.log(`${(row.yahoo || row.t).padEnd(5)} ${String(old).padStart(9)} → ${String(row.price).padStart(9)}  (${chg}%)`);
     ok++;
   } catch (err) {
-    failed.push(row.t);
-    console.warn(`${row.t.padEnd(5)} FAILED — keeping ${row.price} (${err.message})`);
+    failed.push(row.name && row.yahoo ? row.name : row.t);
+    console.warn(`${(row.yahoo || row.t).padEnd(5)} FAILED — keeping ${row.price} (${err.message})`);
   }
   await sleep(250);
 }

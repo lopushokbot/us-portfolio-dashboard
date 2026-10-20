@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>US Portfolio · Valuation Dashboard</title>
-<meta name="description" content="Trailing and forward P/E multiples for a 15-stock US portfolio versus peer groups and market benchmarks. Prices refresh daily at 18:30 Dubai.">
+<meta name="description" content="Trailing and forward P/E multiples for a 15-stock US portfolio, with the price and earnings behind every multiple versus peer groups and market benchmarks. Prices refresh daily at 18:30 Dubai.">
 <meta property="og:title" content="US Portfolio · Valuation Dashboard">
 <meta property="og:description" content="Trailing &amp; forward P/E vs peer groups, S&amp;P 500 and Nasdaq-100 benchmarks. Prices refresh daily.">
 <meta property="og:type" content="website">
@@ -98,6 +98,7 @@ section { padding: 32px 0; }
 /* ---------- Benchmark tiles ---------- */
 .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 @media (max-width: 860px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .tiles { grid-template-columns: 1fr; } .tile { padding: 24px 20px; } }
 .tile {
   background: var(--card); border-radius: 16px; padding: 28px 24px;
   box-shadow: var(--shadow); border: 1px solid var(--hairline);
@@ -110,6 +111,11 @@ section { padding: 32px 0; }
 }
 .tile .value small { font-size: 22px; font-weight: 500; color: var(--muted); }
 .tile .context { font-size: 13px; color: var(--muted); }
+.tile .kv { margin: 14px 0 12px; padding-top: 12px; border-top: 1px solid var(--hairline); font-size: 13px; line-height: 1.5; }
+.tile .kv div { display: flex; justify-content: space-between; gap: 12px; }
+.tile .kv dt { color: var(--muted); white-space: nowrap; }
+.tile .kv dd { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; text-align: right; }
+.tile .kv .src dd { color: var(--ink-2); font-weight: 400; }
 
 /* ---------- Cards ---------- */
 .card {
@@ -168,6 +174,9 @@ tbody tr:hover { background: var(--accent-soft); }
 .co .tk { font-weight: 600; font-size: 15px; }
 .co .nm { font-size: 12.5px; color: var(--muted); }
 .val-strong { font-weight: 600; }
+.stack { display: inline-flex; flex-direction: column; align-items: flex-end; line-height: 1.3; }
+.stack .eps { font-size: 12px; font-weight: 400; color: var(--muted); }
+.price { font-weight: 500; }
 .val-muted { color: var(--muted); }
 .nm-flag { color: var(--muted); font-weight: 400; }
 .badge {
@@ -193,7 +202,7 @@ sup.fn { font-size: 10px; color: var(--accent); font-weight: 600; cursor: help; 
 .sw-band { width: 16px; height: 8px; border-radius: 4px; background: var(--accent-soft); border: 1px solid var(--accent); }
 .sw-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
 .hist { display: flex; flex-direction: column; }
-.hrow { display: grid; grid-template-columns: 56px 1fr 150px; align-items: center; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--hairline); font-size: 13.5px; }
+.hrow { display: grid; grid-template-columns: 56px 1fr 176px; align-items: center; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--hairline); font-size: 13.5px; }
 .hrow:last-child { border-bottom: none; }
 .hrow .ht { font-weight: 600; }
 .hrow .hv { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
@@ -229,7 +238,7 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
 <body>
 
 <header class="wrap">
-  <div class="eyebrow">Portfolio · 15 Holdings</div>
+  <div class="eyebrow" id="eyebrow">Portfolio</div>
   <h1>US Equity Valuation</h1>
   <p class="sub">Trailing and forward multiples for every holding, measured against its peer group and the market.</p>
   <p class="stamp" id="stamp">Loading latest prices…</p>
@@ -240,7 +249,7 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
 
   <section class="fade">
     <h2 class="section-title">Market benchmarks</h2>
-    <p class="section-sub">Where the indices trade today.</p>
+    <p class="section-sub">Index P/E at today's level. The published multiple fixes the index's earnings (level ÷ P/E on the source date); today's level is divided by those same earnings — exactly how each stock below is priced.</p>
     <div class="tiles" id="tiles"></div>
   </section>
 
@@ -285,13 +294,13 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
   <section class="fade">
     <div class="card">
       <h2 class="section-title">Holdings</h2>
-      <p class="section-sub">Derived from the latest earnings reports and consensus estimates. Click a column to sort.</p>
+      <p class="section-sub">Every multiple is today's price divided by the earnings shown beneath it — trailing-twelve-month EPS, next-fiscal-year consensus EPS, or book value per share for NU. Click a column to sort.</p>
       <div class="table-scroll">
         <table id="holdings">
           <thead>
             <tr>
               <th data-k="t">Company<span class="arrow">▾</span></th>
-              <th data-k="price">Price<span class="arrow">▾</span></th>
+              <th data-k="price" id="th-price" title="Price used for every multiple in the row">Price<span class="arrow">▾</span></th>
               <th data-k="ttmPe" title="Trailing P/E">Trailing<span class="arrow">▾</span></th>
               <th data-k="fwdPe" title="Forward P/E">Forward<span class="arrow">▾</span></th>
               <th data-k="growth" title="Consensus long-term EPS growth, % per year">Growth<span class="arrow">▾</span></th>
@@ -310,7 +319,7 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
   <section class="fade">
     <div class="card">
       <h2 class="section-title">Peer groups</h2>
-      <p class="section-sub">How each benchmark is built: the median of members' own multiples at today's prices, with the simple mean for reference.</p>
+      <p class="section-sub">How each benchmark is built: the median of members' own multiples at today's prices, with the simple mean for reference. Hover a ticker for its price and earnings.</p>
       <div class="peers" id="peers"></div>
     </div>
   </section>
@@ -319,17 +328,18 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
     <div class="card method">
       <h3>Notes</h3>
       <ol class="notes">
-        <li><b>Peer benchmark = median.</b> Tesla trades near 320× trailing / 160× forward, which would push a simple Magnificent 7 mean to ~67× / ~43× — not a usable yardstick. Peer benchmarks therefore use the median of the members' multiples; the plain mean is shown in the Peer groups panel for reference. For two-member groups (HOOD·IBKR, V·MA) median and mean are identical.</li>
+        <li><b>Peer benchmark = median.</b> Tesla trades near 320× trailing / 160× forward, which would push a simple Magnificent 7 mean to ~67× / ~43× — not a usable yardstick. Peer benchmarks therefore use the median of the members' multiples; the plain mean is shown in the Peer groups panel for reference. For the two-member V·MA group median and mean are identical.</li>
         <li><b>NU — price-to-book.</b> As a bank, Nubank is valued on P/B: price ÷ book value per share of $2.74 (Q2 2026: $13.25B equity, 4.83B shares), compared with the P/B of JPM, BAC, WFC and GS (book value per share from each bank's Q2 2026 release). On earnings, NU trades at FY2027 consensus EPS of $1.14.</li>
         <li><b>GOOG &amp; AMZN — inflated trailing EPS.</b> Q2 2026 included one-time investment gains (Alphabet ~$99B, Amazon ~$53B pre-tax, largely Anthropic stakes), so trailing P/E is flattered — for the stocks and for the Magnificent 7 median. Forward P/E on FY2027 consensus is the cleaner read.</li>
         <li><b>META — depressed trailing EPS.</b> Q3 2025 carried a one-time tax charge (EPS $1.05), so trailing P/E overstates the multiple slightly.</li>
-        <li><b>COIN.</b> Loss-making over the trailing twelve months (−$3.73 TTM EPS) — trailing P/E not meaningful. Forward uses FY2027 consensus of $2.88. Peers: Robinhood and Interactive Brokers.</li>
         <li><b>CRCL.</b> Peers: Visa and Mastercard (payment networks). Consensus sees FY2027 EPS below FY2026, hence forward P/E above trailing.</li>
-        <li><b>TEM.</b> Unprofitable trailing (−$1.44) and roughly breakeven FY2027 consensus (−$0.02) — both multiples not meaningful. First positive quarter posted in Q2 2026.</li>
-        <li><b>IREN.</b> No clean listed peer group; benchmarked to the S&amp;P 500 Financials sector (GICS classifies crypto miners there). Trailing EPS $0.54 predates the FY2026 results due August 27, 2026; FY2027 consensus is a loss (−$1.00), so forward is not meaningful.</li>
-        <li><b>Forward basis.</b> Forward EPS is next-fiscal-year consensus (FY/CY2027 — for MSFT, MU, SNDK, AAPL and V those fiscal years span roughly the next twelve months). NVDA uses next-twelve-months consensus of $11.71, since its FY2027 ends January 2027.</li>
+        <li><b>XOM — depressed trailing EPS.</b> TTM GAAP EPS of $7.77 (Q3'25 $1.76, Q4'25 $1.53, Q1'26 $1.00, Q2'26 $3.48) absorbs ~$0.9/share of negative timing effects in Q1 2026 plus impairments and reserve additions, so trailing P/E overstates the multiple. CY2027 consensus ($11.97) sits below CY2026 (~$12.7) as the 2026 oil-price spike is expected to fade. Benchmarked to the S&amp;P 500 Energy sector, like OXY.</li>
+        <li><b>NKE — trailing flattered, forward is the current fiscal year.</b> Q4 FY2026 included a one-time +$0.52/share benefit from expected tariff refunds, so the $2.08 TTM EPS (≈ $1.56 underlying) makes trailing P/E look far cheaper than forward. Nike's fiscal year ends in May: forward uses FY2027 consensus of $1.31 (ending May 2027, already one quarter in); FY2028 consensus is ~$1.56. Benchmarked to the S&amp;P 500 Consumer Discretionary sector.</li>
+        <li><b>UBER — trailing EPS mostly one-offs.</b> TTM GAAP EPS of $4.55 includes a ~$2.30/share tax valuation-allowance release (Q3 2025) and large quarterly swings from revaluing equity stakes (±$1.5B pre-tax each quarter); excluding the tax release alone, TTM is ~$2.25. Forward P/E on CY2027 consensus ($4.54) is the cleaner read. Growth uses Simply Wall St (14.7%), since Zacks' 3.7% is computed off the tax-inflated 2025 base. GICS classifies Uber as Industrials (Passenger Ground Transportation).</li>
+        <li><b>Index multiples.</b> Published index P/Es are point-in-time. Each is anchored to the index level on its source date (shown on the tile), which fixes the index's earnings: EPS = level ÷ P/E. The tile then divides today's level by that same EPS — the same method used for every stock, so index and stock multiples always use same-day prices. Index EPS is refreshed with each earnings season.</li>
+        <li><b>Forward basis.</b> Forward EPS is next-fiscal-year consensus (FY/CY2027 — for MSFT, MU, SNDK, AAPL and V those fiscal years span roughly the next twelve months; for NKE see note 7). NVDA uses next-twelve-months consensus of $11.71, since its FY2027 ends January 2027.</li>
         <li><b>EPS growth &amp; PEG.</b> Growth is the analyst consensus long-term EPS growth rate (3–5 years, % per year). PEG = forward P/E ÷ that growth rate — below 1 is conventionally "growth at a reasonable price". Where no long-term consensus exists (marked †), growth is next fiscal year vs the current one. PEG is N/M when growth is negative or forward earnings are not meaningful. Memory names (MU, SNDK) show very low PEGs because consensus assumes the current up-cycle persists — treat with the same caution as their forward P/E.</li>
-        <li><b>Own-history band.</b> Quarterly trailing P/E over the last five years (since IPO for CRCL and TEM), from reported TTM EPS and quarter-end prices; quarters with losses, or with P/E above 100× because earnings were near zero, are excluded, so the range only spans normally profitable periods. NU uses price-to-book history. Refreshed annually.</li>
+        <li><b>Own-history band.</b> Quarterly trailing P/E over the last five years (since IPO for CRCL, since the 2025 spin-off for SNDK), from reported TTM EPS and quarter-end prices; quarters with losses, or with P/E above 100× because earnings were near zero, are excluded, so the range only spans normally profitable periods (UBER: since 2023). NU uses price-to-book history. Refreshed annually.</li>
       </ol>
     </div>
   </section>
@@ -338,8 +348,8 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
     <div class="card method">
       <h3>Methodology &amp; sources</h3>
       <p><b>Prices</b> refresh automatically every day at 18:30 Dubai time from Yahoo Finance (US market is open at that hour, so the quote is intraday). All multiples are recomputed from the new prices on every load. <b>Earnings data</b> (EPS, book value, consensus, index and sector multiples) is refreshed after each earnings season — see the date in the header.</p>
-      <p><b>Trailing P/E</b> = price ÷ trailing-twelve-month diluted EPS, summed from the four most recently reported quarters. <b>Forward P/E</b> = price ÷ analyst consensus EPS (see note 9). <b>PEG</b> = forward P/E ÷ consensus long-term EPS growth (see note 10). <b>History bands</b> = own 5-year quarterly trailing P/E range (note 11). <b>Peer benchmarks</b> are the median of the members' own trailing and forward P/E (or P/B for banks), computed the same way at the same prices (see note 1).</p>
-      <p><b>Sector means</b> (MU, SNDK, TSM, VST, OXY, TEM, IREN): S&amp;P 500 GICS sector trailing P/E from WorldPERatio (Aug 26, 2026); forward P/E from sector-ETF data, Alaric Securities (Jul 29, 2026). <b>S&amp;P 500</b>: trailing (GAAP) from multpl.com (Aug 26); forward from FactSet Earnings Insight (Aug 7). <b>Nasdaq-100</b>: WorldPERatio / NTM consensus (Aug 26). Per-stock EPS and book values from company earnings releases and stockanalysis.com (fetched Aug 27, 2026).</p>
+      <p><b>Trailing P/E</b> = price ÷ trailing-twelve-month diluted EPS, summed from the four most recently reported quarters. <b>Forward P/E</b> = price ÷ analyst consensus EPS (see note 10). <b>PEG</b> = forward P/E ÷ consensus long-term EPS growth (see note 11). <b>History bands</b> = own 5-year quarterly trailing P/E range (note 12). <b>Index P/E</b> = today's index level ÷ the index EPS implied by the published multiple on its source date (note 9). <b>Peer benchmarks</b> are the median of the members' own trailing and forward P/E (or P/B for banks), computed the same way at the same prices (see note 1).</p>
+      <p><b>Sector means</b> (MU, SNDK, TSM, VST, OXY, XOM, NKE, UBER): S&amp;P 500 GICS sector trailing P/E from WorldPERatio (Aug 26, 2026; Industrials from its August 2026 monthly series); forward P/E from sector-ETF data, Alaric Securities (Jul 29, 2026). <b>S&amp;P 500</b>: trailing (GAAP) from multpl.com (Aug 26); forward from FactSet Earnings Insight (Aug 7). <b>Nasdaq-100</b>: WorldPERatio / NTM consensus (Aug 26). Index levels from Yahoo Finance (^GSPC, ^NDX), refreshed daily with stock prices. Per-stock EPS and book values from company earnings releases and stockanalysis.com (fetched Aug 27, 2026; XOM, NKE and UBER added Oct 20, 2026 with their latest reported quarters and Yahoo / stockanalysis consensus).</p>
       <p>Numbers are point-in-time and for reference only — not investment advice.</p>
     </div>
   </section>
@@ -364,7 +374,7 @@ const median = a => {
   return v.length % 2 ? v[h] : (v[h - 1] + v[h]) / 2;
 };
 
-let DATA, ALL = {}, rows = [];
+let DATA, ALL = {}, rows = [], SPX;
 
 function multiples(s) {
   if (s.metric === "pb") return { ttmPe: s.price && s.bvps ? s.price / s.bvps : null, fwdPe: null };
@@ -401,17 +411,33 @@ function renderStamp() {
   const m = DATA.meta;
   const warn = m.priceWarning ? ` · <span class="warn">${m.priceWarning}</span>` : "";
   document.getElementById("stamp").innerHTML =
-    `<strong>Prices as of ${m.pricesAsOf}</strong> · earnings data as of ${m.earningsAsOf} · refreshes daily at 18:30 Dubai${warn}`;
+    `<strong>Prices as of ${m.pricesAsOf}</strong> · earnings data as of ${m.earningsAsOf}${m.earningsAsOfAdded ? ` (XOM, NKE, UBER: ${m.earningsAsOfAdded})` : ""} · refreshes daily at 18:30 Dubai${warn}`;
   document.getElementById("footer").textContent = `US Portfolio Valuation Dashboard · Prices ${m.pricesAsOf} · Earnings data ${m.earningsAsOf}`;
 }
 
+/* Index multiple re-priced at today's level: EPS implied on the source date (level ÷ P/E) is held fixed */
+const lvl = v => v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const shortDate = iso => new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+function indexPe(ix, kind) {
+  const b = ix[kind], eps = b.level / b.pe;
+  return { ...b, eps, live: ix.price / eps };
+}
 function renderTiles() {
-  document.getElementById("tiles").innerHTML = DATA.bench.map(b => `
-    <div class="tile">
-      <div class="label">${b.kind}</div>
-      <div class="index-name">${b.index}</div>
-      <div class="value">${b.value.toFixed(1)}<small>×</small></div>
-      <div class="context">${b.context}</div>
+  const tiles = [];
+  DATA.indices.forEach(ix => ["trailing", "forward"].forEach(kind => tiles.push({ ix, kind, m: indexPe(ix, kind) })));
+  tiles.sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "trailing" ? -1 : 1));
+  document.getElementById("tiles").innerHTML = tiles.map(({ ix, kind, m }) => `
+    <div class="tile" title="${m.source}: ${m.pe.toFixed(2)}× at ${lvl(m.level)} on ${shortDate(m.date)} → implied ${kind} EPS ${lvl(m.eps)}">
+      <div class="label">${kind === "trailing" ? "Trailing P/E" : "Forward P/E"}</div>
+      <div class="index-name">${ix.name}</div>
+      <div class="value">${m.live.toFixed(1)}<small>×</small></div>
+      <dl class="kv">
+        <div><dt>Index today</dt><dd>${lvl(ix.price)}</dd></div>
+        <div><dt>${kind === "trailing" ? "TTM" : "Fwd"} EPS</dt><dd>${lvl(m.eps)}</dd></div>
+        <div class="src"><dt>Index ${shortDate(m.date)}</dt><dd>${lvl(m.level)}</dd></div>
+        <div class="src"><dt>P/E ${shortDate(m.date)}</dt><dd>${m.pe.toFixed(1)}×</dd></div>
+      </dl>
+      <div class="context">${m.context}</div>
     </div>`).join("");
 }
 
@@ -434,13 +460,18 @@ function pegCell(r) {
   if (r.peg == null) return `<span class="nm-flag">N/M</span>`;
   return r.peg.toFixed(2);
 }
+function stackCell(v, eps, lbl) {
+  if (eps == null) return mult(v);
+  const e = `${eps < 0 ? "−" : ""}$${money(Math.abs(eps))}`;
+  return `<span class="stack">${mult(v)}<span class="eps" title="${lbl === "BV" ? "Book value per share" : "Earnings per share"}">${lbl} ${e}</span></span>`;
+}
 function renderTable() {
   document.querySelector("#holdings tbody").innerHTML = rows.map(r => `
     <tr>
       <td><div class="co"><span class="tk">${r.t}${r.isPb ? '<span class="badge">P/B</span>' : ""}${fnSup(r.fn)}</span><span class="nm">${r.name} · ${r.groupShort}</span></div></td>
-      <td class="val-muted">$${money(r.price)}</td>
-      <td class="val-strong">${mult(r.ttmPe)}</td>
-      <td class="val-strong">${r.isPb ? '<span class="nm-flag">—</span>' : mult(r.fwdPe)}</td>
+      <td class="price">$${money(r.price)}</td>
+      <td class="val-strong">${stackCell(r.ttmPe, r.isPb ? r.bvps : r.ttmEps, r.isPb ? "BV" : "EPS")}</td>
+      <td class="val-strong">${r.isPb ? '<span class="nm-flag">—</span>' : stackCell(r.fwdPe, r.fwdEps, "EPS")}</td>
       <td class="val-muted">${growthCell(r)}</td>
       <td class="val-strong">${pegCell(r)}</td>
       <td class="val-muted">${mult(r.secT)}</td>
@@ -478,7 +509,9 @@ function renderPeers() {
     const memberStr = g.members.map(m => {
       const s = ALL[m], x = multiples(s);
       const v = g.kind === "pb" ? `${fx(x.ttmPe) ?? "—"}×` : `${x.ttmPe ? fx(x.ttmPe) : "N/M"} / ${x.fwdPe ? fx(x.fwdPe) : "N/M"}×`;
-      return `${m} ${v}`;
+      const tip = g.kind === "pb" ? `${s.name}: $${money(s.price)} ÷ BV/share $${money(s.bvps)}`
+        : `${s.name}: $${money(s.price)} ÷ TTM EPS $${money(s.ttmEps)} · ÷ fwd EPS $${money(s.fwdEps)}`;
+      return `<span title="${tip}">${m} ${v}</span>`;
     }).join(" · ");
     const meanStr = g.kind === "pb"
       ? `<b>${fx(gm.t) ?? "—"}×</b> P/B median<br><span class="pm">mean ${fx(gm.tMean) ?? "—"}×</span>`
@@ -526,7 +559,7 @@ function renderHistory() {
   const spans = rows.filter(r => r.hist && r.hist.from).map(r => r.hist.from.slice(0, 4));
   const earliest = spans.length ? spans.sort()[0] : "";
   document.getElementById("note-hist").textContent =
-    `Quarterly trailing P/E, ${earliest ? earliest + "–2026" : "last 5 years"}; shorter for recent listings (CRCL, TEM). NU shown on price-to-book. A highlighted dot means today is outside the historical range.`;
+    `Quarterly trailing P/E, ${earliest ? earliest + "–2026" : "last 5 years"}; shorter for recent listings (CRCL, SNDK). NU shown on price-to-book. A highlighted dot means today is outside the historical range.`;
 }
 
 /* ================= Charts ================= */
@@ -543,7 +576,7 @@ function hideTT() { tt.style.opacity = 0; }
 
 function drawChart(svgId, kind) {
   const vKey = kind === "ttm" ? "ttmPe" : "fwdPe", pKey = kind === "ttm" ? "secT" : "secF";
-  const ref = kind === "ttm" ? DATA.sp500.t : DATA.sp500.f;
+  const ref = kind === "ttm" ? SPX.t : SPX.f;
   const data = rows.filter(r => !r.isPb && r[vKey] != null).sort((a, b) => b[vKey] - a[vKey]);
   const rowH = 40, mL = 56, mR = 56, mT = 8, mB = 30;
   const W = 980, H = mT + data.length * rowH + mB;
@@ -584,8 +617,10 @@ function drawChart(svgId, kind) {
     const d = data[+g.dataset.i];
     const v = d[vKey], p = d[pKey];
     const rel = p == null ? "" : (v <= p ? `${Math.abs(Math.round((v / p - 1) * 100))}% discount` : `+${Math.round((v / p - 1) * 100)}% premium`);
+    const eps = kind === "ttm" ? d.ttmEps : d.fwdEps;
     const html = `<div class="tt-title">${d.name} (${d.t})</div>
       <div class="tt-line">${kind === "ttm" ? "Trailing" : "Forward"} P/E <b>${fx(v)}×</b></div>
+      <div class="tt-line">$${money(d.price)} ÷ ${kind === "ttm" ? "TTM" : "forward"} EPS $${money(eps)}</div>
       <div class="tt-line">${d.groupShort} median ${p != null ? fx(p) + "× → " + rel : "n/a"}</div>`;
     g.addEventListener("mousemove", e => showTT(html, e));
     g.addEventListener("mouseleave", hideTT);
@@ -615,8 +650,12 @@ async function init() {
   [...DATA.stocks, ...DATA.peers].forEach(s => { ALL[s.t] = s; });
   rows = DATA.stocks.map(derive);
 
-  document.getElementById("ref-ttm").textContent = `${DATA.sp500.t.toFixed(1)}×`;
-  document.getElementById("ref-fwd").textContent = `${DATA.sp500.f.toFixed(1)}×`;
+  const spx = DATA.indices.find(i => i.key === "spx");
+  SPX = { t: indexPe(spx, "trailing").live, f: indexPe(spx, "forward").live };
+  document.getElementById("ref-ttm").textContent = `${SPX.t.toFixed(1)}×`;
+  document.getElementById("ref-fwd").textContent = `${SPX.f.toFixed(1)}×`;
+  document.getElementById("eyebrow").textContent = `Portfolio · ${DATA.stocks.length} Holdings`;
+  document.getElementById("th-price").title = `Price used for every multiple in the row · ${DATA.meta.pricesAsOf}`;
   renderStamp();
   renderTiles();
   renderTable();

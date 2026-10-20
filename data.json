@@ -1,39 +1,52 @@
 {
   "meta": {
-    "pricesAsOf": "October 20, 2026 at 24:06 Dubai",
-    "pricesAsOfISO": "2026-10-19T20:06:43.344Z",
-    "priceSource": "Yahoo Finance (last trade 2026-10-19 20:00 UTC)",
+    "pricesAsOf": "October 20, 2026 at 12:42 Dubai",
+    "pricesAsOfISO": "2026-10-20T08:42:49.445Z",
+    "priceSource": "Yahoo Finance (last trade 2026-10-19 21:15 UTC)",
     "earningsAsOf": "August 27, 2026",
-    "earningsNote": "All holdings and peers had reported Q2 2026 (or the equivalent fiscal quarter)."
+    "earningsNote": "All holdings and peers had reported Q2 2026 (or the equivalent fiscal quarter). XOM, NKE and UBER were added on October 20, 2026 with their latest reported quarters (NKE through fiscal Q1 FY2027).",
+    "earningsAsOfAdded": "October 20, 2026"
   },
-  "sp500": {
-    "t": 29.6,
-    "f": 20
-  },
-  "bench": [
+  "indices": [
     {
-      "index": "S&P 500",
-      "kind": "Trailing P/E",
-      "value": 29.6,
-      "context": "GAAP TTM · operating basis ≈ 26×"
+      "key": "spx",
+      "name": "S&P 500",
+      "yahoo": "^GSPC",
+      "price": 7690.73,
+      "trailing": {
+        "pe": 29.59,
+        "level": 7675.7,
+        "date": "2026-08-26",
+        "source": "multpl.com, GAAP TTM",
+        "context": "GAAP basis · operating ≈ 26×"
+      },
+      "forward": {
+        "pe": 20,
+        "level": 7709.96,
+        "date": "2026-08-06",
+        "source": "FactSet Earnings Insight (Aug 7 report, Aug 6 close)",
+        "context": "5-yr avg 19.9× · 10-yr avg 19.0×"
+      }
     },
     {
-      "index": "S&P 500",
-      "kind": "Forward P/E",
-      "value": 20,
-      "context": "5-yr avg 19.9× · 10-yr avg 19.0×"
-    },
-    {
-      "index": "Nasdaq-100",
-      "kind": "Trailing P/E",
-      "value": 28.9,
-      "context": "5-yr range 27.5–33.4×"
-    },
-    {
-      "index": "Nasdaq-100",
-      "kind": "Forward P/E",
-      "value": 22.4,
-      "context": "5-yr median 24.2×"
+      "key": "ndx",
+      "name": "Nasdaq-100",
+      "yahoo": "^NDX",
+      "price": 29529.34,
+      "trailing": {
+        "pe": 28.94,
+        "level": 29224.52,
+        "date": "2026-08-26",
+        "source": "WorldPERatio",
+        "context": "5-yr range 27.5–33.4×"
+      },
+      "forward": {
+        "pe": 22.4,
+        "level": 29224.52,
+        "date": "2026-08-26",
+        "source": "NTM consensus, historyofmarket.com",
+        "context": "5-yr median 24.2×"
+      }
     }
   ],
   "stocks": [
@@ -45,7 +58,7 @@
       "ttmEps": 7.91,
       "fwdEps": 11.71,
       "fn": [
-        9
+        10
       ],
       "growth": {
         "pct": 58.3,
@@ -66,7 +79,7 @@
     {
       "t": "NU",
       "name": "Nu Holdings",
-      "price": 14.49,
+      "price": 14.51,
       "group": "banks",
       "metric": "pb",
       "bvps": 2.74,
@@ -91,41 +104,14 @@
       }
     },
     {
-      "t": "IREN",
-      "name": "IREN",
-      "price": 27.73,
-      "group": "secFin",
-      "ttmEps": 0.54,
-      "fwdEps": -1,
-      "fn": [
-        8
-      ],
-      "growth": {
-        "pct": 41.8,
-        "basis": "lt",
-        "source": "Simply Wall St EPS growth p.a. (Zacks NA), 2026-08-27"
-      },
-      "hist": {
-        "min": 27,
-        "median": 33,
-        "max": 52.7,
-        "quarters": 4,
-        "excluded": 9,
-        "from": "2025-06",
-        "to": "2026-03",
-        "source": "macrotrends quarterly, fetched 2026-08-27",
-        "note": "only four profitable TTM quarters on record (since mid-2025)"
-      }
-    },
-    {
       "t": "CRCL",
       "name": "Circle",
-      "price": 81.35,
+      "price": 81.37,
       "group": "payments",
       "ttmEps": 1.8,
       "fwdEps": 1.59,
       "fn": [
-        6
+        5
       ],
       "growth": {
         "pct": 14.2,
@@ -142,33 +128,6 @@
         "to": "2026-06",
         "source": "macrotrends quarterly, fetched 2026-08-27",
         "note": "listed June 2025, one profitable TTM quarter so far"
-      }
-    },
-    {
-      "t": "TEM",
-      "name": "Tempus AI",
-      "price": 64.34,
-      "group": "secHC",
-      "ttmEps": -1.44,
-      "fwdEps": -0.02,
-      "fn": [
-        7
-      ],
-      "growth": {
-        "pct": 55.1,
-        "basis": "lt",
-        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27"
-      },
-      "hist": {
-        "min": null,
-        "median": null,
-        "max": null,
-        "quarters": 2,
-        "excluded": 5,
-        "from": "2024-06",
-        "to": "2026-06",
-        "source": "macrotrends quarterly, fetched 2026-08-27",
-        "note": "loss-making since its 2024 IPO apart from one anomalous two-quarter window"
       }
     },
     {
@@ -195,32 +154,6 @@
       }
     },
     {
-      "t": "COIN",
-      "name": "Coinbase",
-      "price": 168.45,
-      "group": "exchanges",
-      "ttmEps": -3.73,
-      "fwdEps": 2.88,
-      "fn": [
-        5
-      ],
-      "growth": {
-        "pct": 10.3,
-        "basis": "lt",
-        "source": "Zacks Exp EPS Growth 3-5yr, 2026-08-27 (Simply Wall St 67.9% off a depressed 2026 base)"
-      },
-      "hist": {
-        "min": 20.1,
-        "median": 33.2,
-        "max": 64.2,
-        "quarters": 10,
-        "excluded": 8,
-        "from": "2022-03",
-        "to": "2026-03",
-        "source": "macrotrends quarterly, fetched 2026-08-27"
-      }
-    },
-    {
       "t": "MU",
       "name": "Micron",
       "price": 904.9,
@@ -228,7 +161,7 @@
       "ttmEps": 44.17,
       "fwdEps": 155.03,
       "fn": [
-        9
+        10
       ],
       "growth": {
         "pct": 31,
@@ -254,7 +187,7 @@
       "ttmEps": 72.89,
       "fwdEps": 214.1,
       "fn": [
-        9
+        10
       ],
       "growth": {
         "pct": 48.2,
@@ -276,7 +209,7 @@
     {
       "t": "TSM",
       "name": "TSMC (ADR)",
-      "price": 420.29,
+      "price": 420.22,
       "group": "secIT",
       "ttmEps": 13.86,
       "fwdEps": 20.87,
@@ -400,7 +333,7 @@
     {
       "t": "OXY",
       "name": "Occidental",
-      "price": 62.73,
+      "price": 62.72,
       "group": "secEnergy",
       "ttmEps": 6.51,
       "fwdEps": 3.82,
@@ -418,6 +351,85 @@
         "from": "2021-12",
         "to": "2026-06",
         "source": "macrotrends quarterly P/E, fetched 2026-08-27"
+      }
+    },
+    {
+      "t": "XOM",
+      "name": "Exxon Mobil",
+      "price": 178.28,
+      "group": "secEnergy",
+      "ttmEps": 7.77,
+      "fwdEps": 11.97,
+      "fn": [
+        6
+      ],
+      "growth": {
+        "pct": 13.7,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20"
+      },
+      "hist": {
+        "min": 6.3,
+        "median": 12.8,
+        "max": 28.2,
+        "quarters": 19,
+        "excluded": 1,
+        "from": "2021-12",
+        "to": "2026-06",
+        "source": "macrotrends quarterly (macrotrends.net/stocks/charts/XOM/exxonmobil-holdings/pe-ratio), fetched 2026-10-20"
+      }
+    },
+    {
+      "t": "NKE",
+      "name": "Nike",
+      "price": 37.21,
+      "group": "secCD",
+      "ttmEps": 2.08,
+      "fwdEps": 1.31,
+      "fn": [
+        7
+      ],
+      "growth": {
+        "pct": 7,
+        "basis": "lt",
+        "source": "Zacks Exp EPS Growth 3-5yr, 2026-10-20 (Simply Wall St 2.1%)"
+      },
+      "hist": {
+        "min": 18.5,
+        "median": 29,
+        "max": 40.4,
+        "quarters": 21,
+        "excluded": 0,
+        "from": "2021-08",
+        "to": "2026-08",
+        "source": "macrotrends quarterly (fiscal quarter ends Aug/Nov/Feb/May), fetched 2026-10-20"
+      }
+    },
+    {
+      "t": "UBER",
+      "name": "Uber",
+      "price": 69.96,
+      "group": "secInd",
+      "ttmEps": 4.55,
+      "fwdEps": 4.54,
+      "fn": [
+        8
+      ],
+      "growth": {
+        "pct": 14.7,
+        "basis": "lt",
+        "source": "Simply Wall St EPS growth p.a., 2026-10-19 (Zacks 3.66% distorted by the 2025 tax-release base)"
+      },
+      "hist": {
+        "min": 12.6,
+        "median": 17.3,
+        "max": 86.8,
+        "quarters": 11,
+        "excluded": 9,
+        "from": "2023-09",
+        "to": "2026-06",
+        "source": "macrotrends quarterly, fetched 2026-10-20",
+        "note": "profitable TTM only since 2023-09"
       }
     }
   ],
@@ -437,37 +449,23 @@
       "fwdEps": 2.16
     },
     {
-      "t": "HOOD",
-      "name": "Robinhood",
-      "price": 96.52,
-      "ttmEps": 2.26,
-      "fwdEps": 2.7
-    },
-    {
-      "t": "IBKR",
-      "name": "Interactive Brokers",
-      "price": 81.35,
-      "ttmEps": 2.52,
-      "fwdEps": 3.18
-    },
-    {
       "t": "V",
       "name": "Visa",
-      "price": 403.09,
+      "price": 402.92,
       "ttmEps": 11.75,
       "fwdEps": 15
     },
     {
       "t": "MA",
       "name": "Mastercard",
-      "price": 616.27,
+      "price": 616.4,
       "ttmEps": 18.18,
       "fwdEps": 23.03
     },
     {
       "t": "JPM",
       "name": "JPMorgan Chase",
-      "price": 333.63,
+      "price": 333.53,
       "metric": "pb",
       "bvps": 133.01
     },
@@ -488,7 +486,7 @@
     {
       "t": "GS",
       "name": "Goldman Sachs",
-      "price": 875.79,
+      "price": 875.78,
       "metric": "pb",
       "bvps": 367.67
     }
@@ -505,14 +503,6 @@
         "META",
         "NVDA",
         "TSLA"
-      ]
-    },
-    "exchanges": {
-      "label": "Brokerages & exchanges",
-      "short": "HOOD · IBKR",
-      "members": [
-        "HOOD",
-        "IBKR"
       ]
     },
     "payments": {
@@ -540,18 +530,6 @@
       "t": 32.75,
       "f": 27.99
     },
-    "secFin": {
-      "label": "S&P 500 Financials",
-      "short": "Financials sector",
-      "t": 16.85,
-      "f": 15.81
-    },
-    "secHC": {
-      "label": "S&P 500 Health Care",
-      "short": "Health Care sector",
-      "t": 30.34,
-      "f": 19.69
-    },
     "secUtil": {
       "label": "S&P 500 Utilities",
       "short": "Utilities sector",
@@ -563,6 +541,18 @@
       "short": "Energy sector",
       "t": 21.79,
       "f": 13.02
+    },
+    "secCD": {
+      "label": "S&P 500 Consumer Discretionary",
+      "short": "Cons. Disc. sector",
+      "t": 25.82,
+      "f": 24.01
+    },
+    "secInd": {
+      "label": "S&P 500 Industrials",
+      "short": "Industrials sector",
+      "t": 28.18,
+      "f": 26.76
     }
   }
 }
