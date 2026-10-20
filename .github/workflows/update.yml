@@ -2,10 +2,9 @@ name: Daily price + earnings update
 
 on:
   schedule:
-    # 18:30 Dubai (14:30 UTC) — US market open: intraday prices, catches pre-market reports
-    - cron: "30 14 * * *"
-    # 06:00 Dubai (02:00 UTC) — after the US close: catches after-hours reports the same night
-    - cron: "0 2 * * *"
+    # 08:00 Dubai (04:00 UTC), once a day — after the US close: previous session's closing prices,
+    # plus any report published before the open or after the close that day
+    - cron: "0 4 * * *"
   workflow_dispatch:
 
 permissions:

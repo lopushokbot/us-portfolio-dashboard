@@ -12,7 +12,7 @@ Playwright MCP blocks `file://` URLs — always serve over http for screenshots.
 
 ## Automatic (no action needed)
 
-Prices, EPS (TTM + NTM), book values, report dates, index and sector multiples all refresh twice a day via GitHub Actions. To run locally: `node scripts/update-prices.mjs && node scripts/update-fundamentals.mjs && node scripts/update-indices.mjs`.
+Prices, EPS (TTM + NTM), book values, report dates, index and sector multiples all refresh once a day at 08:00 Dubai (04:00 UTC) via GitHub Actions. To run locally: `node scripts/update-prices.mjs && node scripts/update-fundamentals.mjs && node scripts/update-indices.mjs`.
 
 Yahoo gotchas: chart API = Node default UA; crumb/quote/quoteSummary = exactly `Mozilla/5.0` UA (others 429). Nasdaq API = full browser UA. Never put a personal email in any request header.
 
@@ -43,7 +43,7 @@ Research JSON snapshots from each pass go in `data/` for provenance.
 ## Live site & automation
 
 - **Live**: https://lopushokbot.github.io/us-portfolio-dashboard/ (GitHub Pages, branch `main`, root)
-- **Daily job**: Actions workflow "Daily price update" — cron `30 14 * * *` UTC (18:30 Dubai). Runs `node scripts/update-prices.mjs`, commits `data.json` if changed, Pages redeploys within ~1–2 min.
+- **Daily job**: Actions workflow "Daily price + earnings update" — cron `0 4 * * *` UTC (08:00 Dubai). Runs update-prices → update-fundamentals → update-indices, commits `data.json` + `data/fiscal-years.json` if changed, Pages redeploys within ~1–2 min.
 - **Run it now**: `gh workflow run update.yml -R lopushokbot/us-portfolio-dashboard` then `gh run list -R lopushokbot/us-portfolio-dashboard -L 3`
 - **Check health**: `gh run list -R lopushokbot/us-portfolio-dashboard -w "Daily price update" -L 5` — a failed run means Yahoo blocked every ticker (script exits 1 only when 0/25 succeed). Partial failures keep the old price and show a "Stale price for: …" warning in the page header.
 - **Local test**: `node scripts/update-prices.mjs` (writes data.json; commit + push to publish)
@@ -58,6 +58,8 @@ git add -A && git commit -m "…" && git push
 ```
 
 ## Log
+
+- **2026-10-20 (v6.1)** — Sema: one update a day at 08:00 Dubai instead of twice daily. Cron now `0 4 * * *` UTC; page copy updated.
 
 - **2026-10-20 (v6)** — Sema: index P/E from today's data, most recent company earnings, auto-refresh after every report. Added `scripts/lib.mjs`, `update-fundamentals.mjs`, `update-indices.mjs`; workflow now 2×/day (14:30 + 02:00 UTC). Forward basis switched from next-FY to NTM blend for all. Index + sector multiples bottom-up (S&P 500 26.0×/19.1×, NDX 32.7×/22.2× on Oct 20; FactSet 26.0×/19.0×). New UI: Next-report column, Earnings calendar card, data-driven notes (quarter-tagged curated + automatic GAAP-vs-adjusted flags), auto-hide negative-earnings holdings, sector rows in Peer groups. Growth refreshed (NVDA Zacks now 14% vs 58% in Aug). First GitHub run 39398443898 succeeded (25/25 prices, 23/23 earnings, 100% index coverage).
 

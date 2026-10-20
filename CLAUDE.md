@@ -1,12 +1,12 @@
 # US Portfolio Valuation Dashboard
 
-Apple-style static dashboard showing trailing and forward P/E for Sema's 15 US stock holdings versus hand-picked peer groups, plus S&P 500 and Nasdaq-100 benchmarks. Static page + data.json, no build step. **Fully automatic since 2026-10-20**: prices, per-company earnings (GAAP TTM, NTM consensus, report dates) and bottom-up index/sector multiples all refresh twice a day.
+Apple-style static dashboard showing trailing and forward P/E for Sema's 15 US stock holdings versus hand-picked peer groups, plus S&P 500 and Nasdaq-100 benchmarks. Static page + data.json, no build step. **Fully automatic since 2026-10-20**: prices, per-company earnings (GAAP TTM, NTM consensus, report dates) and bottom-up index/sector multiples all refresh once a day at 08:00 Dubai.
 
 ## Status
 
 - **Built**: 2026-08-27 · data as of 2026-08-27 (all holdings had reported Q2 2026 / equivalent fiscal quarter)
 - **Deployed 2026-08-27** (Sema's request): GitHub `lopushokbot/us-portfolio-dashboard` (public) · **Live: https://lopushokbot.github.io/us-portfolio-dashboard/**
-- **Auto-update (v6)**: GitHub Actions `.github/workflows/update.yml` runs at 14:30 UTC (18:30 Dubai, market open) and 02:00 UTC (06:00 Dubai, after the close): `update-prices.mjs` → `update-fundamentals.mjs` → `update-indices.mjs`, commits `data.json` + `data/fiscal-years.json`, Pages redeploys. A new earnings report is in the numbers within hours. Manual only: growth rates (Zacks/SWS), history bands, curated one-off notes.
+- **Auto-update (v6)**: GitHub Actions `.github/workflows/update.yml` runs once a day at 04:00 UTC = 08:00 Dubai (Sema's choice, 2026-10-20; after the US close, so prices are the previous session's close): `update-prices.mjs` → `update-fundamentals.mjs` → `update-indices.mjs`, commits `data.json` + `data/fiscal-years.json`, Pages redeploys. A new earnings report is in the numbers by the next morning. Manual only: growth rates (Zacks/SWS), history bands, curated one-off notes.
 - **v4 (2026-08-27)**: EPS growth + PEG columns and an own-history band card added (see Methodology). Growth sources: Zacks 3-5yr where available, else Simply Wall St.
 - **v5 (2026-10-20, Sema's request)**: index tiles show the index level behind each P/E (live level, implied EPS, level + P/E on source date); every multiple in the table shows the EPS/BV it divides into; chart + peer tooltips show price ÷ EPS. Removed loss-makers TEM, COIN, IREN (and the now-unused HOOD/IBKR peers, Financials/Health Care sectors). Added XOM (Energy), NKE (Consumer Discretionary), UBER (Industrials) with Oct 20 earnings data.
 - **v6 (2026-10-20, Sema: "forget August, use the most recent data, refresh after each report")**: see Methodology. Validated: bottom-up S&P 500 forward 19.1× vs FactSet 19.0× (Oct 16), trailing 26.0× vs FactSet 26.0× / multpl 26.2×; Industrials 22.3× vs FactSet 22.6×.
@@ -23,7 +23,7 @@ us-portfolio-dashboard/
 ├── scripts/update-fundamentals.mjs — per holding + peer: ttmEps, fwdEps (NTM), bvps, `earnings{lastQuarter,lastReported,next,nextConfirmed,adjTtm,gaapQuarters,fy0,fy1,…}`
 ├── scripts/update-indices.mjs — bottom-up S&P 500 / Nasdaq-100 / GICS sector P/E from ~518 constituents (~1 min; first run ~1 min more for the fiscal-year cache)
 ├── data/fiscal-years.json — cache: each constituent's current-FY end date (for the NTM blend); auto-refreshed after year end
-├── .github/workflows/update.yml — daily 14:30 UTC cron + workflow_dispatch; commits data.json
+├── .github/workflows/update.yml — daily 04:00 UTC (08:00 Dubai) cron + workflow_dispatch; commits data.json + data/fiscal-years.json
 ├── assets/fonts/       — New York Large (4 weights) + InterVariable, bundled
 ├── data/research-*.json — provenance snapshots (2026-08-27 pass; xom-nke-uber + growth on 2026-10-20)
 ├── robots.txt, sitemap.xml

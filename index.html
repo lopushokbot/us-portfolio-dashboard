@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>US Portfolio · Valuation Dashboard</title>
-<meta name="description" content="Trailing and forward P/E multiples for a 15-stock US portfolio, with the price and earnings behind every multiple versus peer groups and market benchmarks. Prices refresh daily at 18:30 Dubai.">
+<meta name="description" content="Trailing and forward P/E multiples for a 15-stock US portfolio, with the price and earnings behind every multiple versus peer groups and market benchmarks. Prices and earnings refresh daily at 08:00 Dubai.">
 <meta property="og:title" content="US Portfolio · Valuation Dashboard">
 <meta property="og:description" content="Trailing &amp; forward P/E vs peer groups, S&amp;P 500 and Nasdaq-100 benchmarks. Prices refresh daily.">
 <meta property="og:type" content="website">
@@ -342,7 +342,7 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
   <section class="fade">
     <div class="card">
       <h2 class="section-title">Earnings calendar</h2>
-      <p class="section-sub">The dashboard re-reads each company's numbers twice a day, so a new report flows into every multiple within hours of publication.</p>
+      <p class="section-sub">The dashboard re-reads each company's numbers every morning at 8:00 Dubai, so a new report is in every multiple by the next morning.</p>
       <div class="cal">
         <div><h4 class="cal-h">Upcoming</h4><div id="cal-next"></div></div>
         <div><h4 class="cal-h">Recently reported</h4><div id="cal-last"></div></div>
@@ -368,7 +368,7 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
   <section class="fade">
     <div class="card method">
       <h3>Methodology &amp; sources</h3>
-      <p><b>Prices</b> come from Yahoo Finance twice a day — 18:30 Dubai (US market open, intraday quote) and 06:00 Dubai (after the close). <b>Earnings</b> are re-read on the same schedule, so trailing EPS, consensus and report dates update automatically after every report; the index and sector multiples are rebuilt from scratch on each run.</p>
+      <p><b>Prices</b> come from Yahoo Finance once a day at 8:00 Dubai — the previous US session's close. <b>Earnings</b> are re-read in the same run, so trailing EPS, consensus and report dates update automatically after every report; the index and sector multiples are rebuilt from scratch on each run.</p>
       <p><b>Trailing P/E</b> = price ÷ diluted GAAP EPS summed over the four most recently reported quarters (Yahoo Finance fundamentals; quote-level TTM EPS where quarters are incomplete). <b>Forward P/E</b> = price ÷ next-twelve-months consensus EPS — a time-weighted blend of the current and next fiscal year's consensus, the same basis FactSet uses for the market's forward P/E. <b>P/B</b> (banks) = price ÷ book value per share from the latest quarter. <b>PEG</b> = forward P/E ÷ consensus long-term EPS growth. <b>History bands</b> = own 5-year quarterly trailing P/E range.</p>
       <p><b>S&amp;P 500, Nasdaq-100 and sector multiples</b> are computed bottom-up from every constituent with the same definitions: Σ market cap ÷ Σ earnings, where each company's earnings = market cap × EPS ÷ price. Loss-makers are included, as S&amp;P and FactSet do (the tile also shows the figure without them); dual share classes are counted once. Constituents: Wikipedia's S&amp;P 500 list (GICS sectors) and Nasdaq's Nasdaq-100 list. Cross-check on Oct 20, 2026: S&amp;P 500 forward 19.1× vs FactSet 19.0× (Oct 16); trailing 26.0× vs FactSet 26.0× and multpl 26.2×.</p>
       <p><b>Report dates</b>: last report from Nasdaq, next report from Yahoo Finance (estimated until the company confirms). <b>Growth</b>: Zacks 3–5-year EPS growth, Simply Wall St where Zacks has none (manual, refreshed with this table's source date). Numbers are for reference only — not investment advice.</p>
