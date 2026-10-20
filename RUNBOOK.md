@@ -10,7 +10,20 @@ python3 -m http.server 8734
 
 Playwright MCP blocks `file://` URLs — always serve over http for screenshots.
 
-## Refresh data (after each earnings season, or when prices move a lot)
+## Automatic (no action needed)
+
+Prices, EPS (TTM + NTM), book values, report dates, index and sector multiples all refresh twice a day via GitHub Actions. To run locally: `node scripts/update-prices.mjs && node scripts/update-fundamentals.mjs && node scripts/update-indices.mjs`.
+
+Yahoo gotchas: chart API = Node default UA; crumb/quote/quoteSummary = exactly `Mozilla/5.0` UA (others 429). Nasdaq API = full browser UA. Never put a personal email in any request header.
+
+## Manual refresh (the parts that are NOT automatic)
+
+- **Growth (PEG)** — every few months: Zacks "Exp EPS Growth (3-5yr)" per holding via headless Chrome (`/Users/iibot/airbnb-pricing-watch/node_modules/playwright-core` + system Chrome), Simply Wall St where NA. Save to `data/research-growth-<date>.json`, copy into `stocks[].growth`.
+- **One-off notes** — after a holding reports, if the Notes show an automatic "one-off items" flag, research it and replace with a curated note in `data.json → notes[]` (`t`, `qtr` = quarter-end month of the affected quarter, `title`, `text`). Curated notes expire on their own when the quarter leaves the TTM window.
+- **History bands** — yearly (step 6c below).
+- **New holding** — add `{t, name, price, group, growth, hist}` to `stocks` (group key must exist in `groups`); the next run fills EPS and dates.
+
+## Legacy manual refresh steps (pre-2026-10-20, kept for reference)
 
 1. **Prices** — automatic (daily workflow). To force: `node scripts/update-prices.mjs`.
 2. **TTM EPS** — for each holding, sum the last 4 reported quarters' diluted GAAP EPS (stockanalysis.com `/financials/?p=quarterly` or the company's press release). TSM: use USD per ADR from the TSMC release.
@@ -45,6 +58,8 @@ git add -A && git commit -m "…" && git push
 ```
 
 ## Log
+
+- **2026-10-20 (v6)** — Sema: index P/E from today's data, most recent company earnings, auto-refresh after every report. Added `scripts/lib.mjs`, `update-fundamentals.mjs`, `update-indices.mjs`; workflow now 2×/day (14:30 + 02:00 UTC). Forward basis switched from next-FY to NTM blend for all. Index + sector multiples bottom-up (S&P 500 26.0×/19.1×, NDX 32.7×/22.2× on Oct 20; FactSet 26.0×/19.0×). New UI: Next-report column, Earnings calendar card, data-driven notes (quarter-tagged curated + automatic GAAP-vs-adjusted flags), auto-hide negative-earnings holdings, sector rows in Peer groups. Growth refreshed (NVDA Zacks now 14% vs 58% in Aug). First GitHub run 39398443898 succeeded (25/25 prices, 23/23 earnings, 100% index coverage).
 
 - **2026-10-20 (v5)** — Sema: (1) show index prices behind index P/E → tiles now show index today, implied EPS, index level + P/E on source date; tile value = today's level ÷ implied EPS; `bench`/`sp500` replaced by `indices`, price script also refreshes ^GSPC/^NDX. (2) show prices behind each P/E → EPS/BV printed under every multiple, price ÷ EPS in chart and peer tooltips. (3) removed TEM, COIN, IREN (negative earnings) + HOOD/IBKR peers + secFin/secHC groups. (4) added XOM, NKE, UBER (research in `data/research-xom-nke-uber.json`; new groups secCD 25.82/24.01, secInd 28.18/26.76). Footnotes renumbered (1–12). Also fixed the "24:06" midnight stamp (hourCycle h23).
 
