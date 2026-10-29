@@ -99,6 +99,138 @@ export function ttmFromQuarters(qs, mostRecentQuarter) {
   return { ttm: last4.reduce((a, x) => a + x.eps, 0), quarters: last4 };
 }
 
+/* ---------- SEC EDGAR: same-day GAAP EPS ----------
+ * Yahoo's quarterly timeseries lags a new report by 1–3 days. EDGAR has the 10-Q/10-K XBRL the day it is filed
+ * (often the report day) and the 8-K earnings release (exhibit 99.1) within minutes of the announcement.
+ * SEC fair-access: a descriptive User-Agent with a contact address, ≤10 requests/second.
+ */
+const SECH = { "user-agent": "us-portfolio-dashboard admin@lopushokbot.dev" };
+async function secFetch(url, as = "json") {
+  return retry(async () => {
+    await sleep(150);
+    const r = await fetch(url, { headers: SECH });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return as === "json" ? r.json() : r.text();
+  }, `SEC ${url.split("/").slice(-1)[0]}`, 3);
+}
+
+let cikMap = null;
+export async function secCik(ticker) {
+  if (!cikMap) {
+    const j = await secFetch("https://www.sec.gov/files/company_tickers.json");
+    cikMap = Object.fromEntries(Object.values(j).map(x => [x.ticker.replace(".", "-"), String(x.cik_str).padStart(10, "0")]));
+  }
+  return cikMap[ticker] || null;
+}
+
+const days = (a, b) => (new Date(b) - new Date(a)) / 864e5;
+const monthEnd = (iso, add) => { const d = new Date(iso + "T00:00:00Z"); return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + add + 1, 0)).toISOString().slice(0, 10); };
+
+/** Quarterly diluted EPS from 10-Q/10-K XBRL (Q4 = fiscal year − nine-month YTD). Oldest → newest: [{end, eps, filed, src}]. */
+async function secXbrlQuarters(cik) {
+  const j = await secFetch(`https://data.sec.gov/api/xbrl/companyconcept/CIK${cik}/us-gaap/EarningsPerShareDiluted.json`);
+  const latest = new Map();
+  for (const f of j?.units?.["USD/shares"] || []) {
+    if (!/^10-[QK]/.test(f.form) || !f.start) continue;
+    const k = `${f.start}|${f.end}`, prev = latest.get(k);
+    if (!prev) latest.set(k, { ...f, first: f.filed });
+    else { if (f.filed > prev.filed) Object.assign(prev, { val: f.val, filed: f.filed }); if (f.filed < prev.first) prev.first = f.filed; }
+  }
+  const facts = [...latest.values()], q = new Map();
+  for (const f of facts) { const d = days(f.start, f.end); if (d >= 80 && d <= 100) q.set(f.end, { end: f.end, eps: f.val, filed: f.first, src: f.form.slice(0, 4) }); }
+  for (const fy of facts) {
+    const d = days(fy.start, fy.end);
+    if (d < 350 || d > 380 || q.has(fy.end)) continue;
+    const ytd9 = facts.find(f => f.start === fy.start && days(f.start, f.end) >= 260 && days(f.start, f.end) <= 285);
+    /* EPS isn't additive when the share count moves (IPOs, big buybacks) — a derived Q4 yields to Yahoo's reported one */
+    if (ytd9) q.set(fy.end, { end: fy.end, eps: Math.round((fy.val - ytd9.val) * 100) / 100, filed: fy.first, src: "10-K", derived: true });
+  }
+  return [...q.values()].sort((a, b) => a.end.localeCompare(b.end));
+}
+
+/** Table rows of an HTML document as plain-text lines. */
+function htmlRows(h) {
+  return h.replace(/<\/(tr|p|div)>/gi, "\n").replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;|&#160;|&#xa0;/gi, " ").replace(/&amp;/g, "&").replace(/&#8217;|&rsquo;/g, "'").replace(/&#[0-9]+;|&[a-z]+;/gi, " ")
+    .split("\n").map(l => l.replace(/\s+/g, " ").trim()).filter(Boolean);
+}
+
+/**
+ * Diluted EPS of a quarter that so far exists only in the 8-K earnings release (exhibit 99.1).
+ * The release prints the quarter next to the same quarter a year earlier; a value is accepted only when the
+ * row's other figure matches that prior-year quarter from XBRL — so a misread table can't slip through.
+ */
+async function secReleaseQuarter(cik, known) {
+  if (known.length < 4) return null;
+  const last = known[known.length - 1];
+  const sub = await secFetch(`https://data.sec.gov/submissions/CIK${cik}.json`);
+  const r = sub.filings.recent;
+  let idx = -1;
+  for (let i = 0; i < r.form.length; i++) {
+    if (r.filingDate[i] <= last.filed) break;
+    if (r.form[i] === "8-K" && String(r.items[i]).split(",").includes("2.02")) { idx = i; break; }
+  }
+  if (idx < 0) return null;
+  const end = monthEnd(last.end, 3), filed = r.filingDate[idx];
+  if (days(end, filed) < 0 || days(end, filed) > 75) return null;
+  const prior = known.find(x => Math.abs(days(x.end, monthEnd(end, -12))) <= 10);
+  if (!prior) return null;
+
+  const acc = r.accessionNumber[idx], base = `https://www.sec.gov/Archives/edgar/data/${Number(cik)}/${acc.replace(/-/g, "")}`;
+  const index = await secFetch(`${base}/${acc}-index.htm`, "text");
+  const ex = [...index.matchAll(/href="([^"]+\.htm)"[^<]*<\/a><\/td>\s*<td[^>]*>\s*EX-99\.1\s*</gi)][0]?.[1];
+  if (!ex) return null;
+  const rows = htmlRows(await secFetch(`https://www.sec.gov${ex}`, "text"));
+  const votes = new Map();
+  for (const line of rows) {
+    if (!/diluted/i.test(line) || /non-gaap|adjusted|excluding/i.test(line)) continue;
+    const nums = [...line.matchAll(/(\()?\$?\s?(\d{1,4}\.\d{2})\b(\))?/g)].map(m => (m[1] && m[3] ? -1 : 1) * Number(m[2]));
+    if (nums.length < 2) continue;
+    const [a, b] = nums, near = (x, y) => Math.abs(x - y) < 0.006;
+    const v = near(a, prior.eps) && !near(b, prior.eps) ? b : near(b, prior.eps) && !near(a, prior.eps) ? a : null;
+    if (v != null) votes.set(v, (votes.get(v) || 0) + 1);
+  }
+  if (!votes.size) return null;
+  const [eps] = [...votes.entries()].sort((x, y) => y[1] - x[1])[0];
+  return { end, eps, filed, src: "8-K", prior: prior.eps, url: `https://www.sec.gov${ex}` };
+}
+
+/**
+ * GAAP diluted EPS by quarter from EDGAR for a US filer: XBRL quarters plus, when the newest quarter is only
+ * in the earnings release so far, that quarter. Also returns the latest earnings-release (8-K item 2.02) date.
+ */
+export async function secQuarterlyEps(ticker) {
+  const cik = await secCik(ticker);
+  if (!cik) throw new Error("no CIK");
+  const quarters = await secXbrlQuarters(cik);
+  if (!quarters.length) throw new Error("no XBRL EPS");
+  let release = null;
+  try { release = await secReleaseQuarter(cik, quarters); } catch (e) { /* release parse is best-effort */ }
+  if (release) quarters.push(release);
+  const sub = await secFetch(`https://data.sec.gov/submissions/CIK${cik}.json`);
+  const r = sub.filings.recent, last = quarters[quarters.length - 1];
+  let releaseDate = null;
+  for (let i = 0; i < r.form.length; i++) {
+    if (r.filingDate[i] < last.end) break;
+    if (r.form[i] === "8-K" && String(r.items[i]).split(",").includes("2.02") && r.filingDate[i] <= last.filed) { releaseDate = r.filingDate[i]; break; }
+  }
+  return { cik, quarters, release, lastReported: releaseDate || last.filed };
+}
+
+/**
+ * SEC + Yahoo quarters merged by period end (±20 days). A quarter as filed (10-Q, 8-K release) wins;
+ * Yahoo fills quarters EDGAR lacks and replaces Q4s that EDGAR only has as fiscal year − nine months.
+ */
+export function mergeQuarters(yahoo, sec) {
+  const out = (sec || []).map(x => ({ end: x.end, eps: x.eps, src: x.src, derived: !!x.derived }));
+  for (const y of yahoo) {
+    const i = out.findIndex(x => Math.abs(days(x.end, y.end)) <= 20);
+    if (i < 0) out.push({ end: y.end, eps: y.eps, src: "Yahoo" });
+    else if (out[i].derived) out[i] = { end: out[i].end, eps: y.eps, src: "Yahoo" };
+  }
+  return out.sort((a, b) => a.end.localeCompare(b.end));
+}
+
 /* ---------- Nasdaq ---------- */
 const NQH = { "user-agent": BROWSER_UA, accept: "application/json" };
 /** Last reported quarters with report dates, newest first: [{qtr:"Sep 2026", reported:"2026-10-15", eps}] (eps = adjusted). */

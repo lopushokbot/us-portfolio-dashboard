@@ -12,7 +12,9 @@ Playwright MCP blocks `file://` URLs — always serve over http for screenshots.
 
 ## Automatic (no action needed)
 
-Prices, EPS (TTM + NTM), book values, report dates, index and sector multiples all refresh once a day at 08:00 Dubai (04:00 UTC) via GitHub Actions. To run locally: `node scripts/update-prices.mjs && node scripts/update-fundamentals.mjs && node scripts/update-indices.mjs`.
+Prices, EPS (TTM + NTM), book values, report dates, index and sector multiples all refresh once a day at ~07:37 Dubai (03:37 UTC) via GitHub Actions. To run locally: `node scripts/update-prices.mjs && node scripts/update-fundamentals.mjs && node scripts/update-indices.mjs`.
+
+SEC EDGAR gotchas: User-Agent `us-portfolio-dashboard admin@lopushokbot.dev` (SEC requires name + contact; never a personal email); ≤10 req/s (150 ms spacing in lib). IFRS filers (NU, TSM) and V (no plain `EarningsPerShareDiluted` tag) fall back to Yahoo. If a report is missing the morning after: `node scripts/update-fundamentals.mjs` prints `<T>: <month> quarter from SEC 8-K/10-Q` when EDGAR filled it; if not, check the 8-K has item 2.02 and an EX-99.1 exhibit.
 
 Yahoo gotchas: chart API = Node default UA; crumb/quote/quoteSummary = exactly `Mozilla/5.0` UA (others 429). Nasdaq API = full browser UA. Never put a personal email in any request header.
 
@@ -43,7 +45,7 @@ Research JSON snapshots from each pass go in `data/` for provenance.
 ## Live site & automation
 
 - **Live**: https://lopushokbot.github.io/us-portfolio-dashboard/ (GitHub Pages, branch `main`, root)
-- **Daily job**: Actions workflow "Daily price + earnings update" — cron `0 4 * * *` UTC (08:00 Dubai). Runs update-prices → update-fundamentals → update-indices, commits `data.json` + `data/fiscal-years.json` if changed, Pages redeploys within ~1–2 min.
+- **Daily job**: Actions workflow "Daily price + earnings update" — cron `37 3 * * *` UTC (~07:37 Dubai; GitHub may still start it late). Runs update-prices → update-fundamentals → update-indices, commits `data.json` + `data/fiscal-years.json` if changed, Pages redeploys within ~1–2 min.
 - **Run it now**: `gh workflow run update.yml -R lopushokbot/us-portfolio-dashboard` then `gh run list -R lopushokbot/us-portfolio-dashboard -L 3`
 - **Check health**: `gh run list -R lopushokbot/us-portfolio-dashboard -w "Daily price update" -L 5` — a failed run means Yahoo blocked every ticker (script exits 1 only when 0/25 succeed). Partial failures keep the old price and show a "Stale price for: …" warning in the page header.
 - **Local test**: `node scripts/update-prices.mjs` (writes data.json; commit + push to publish)
@@ -58,6 +60,8 @@ git add -A && git commit -m "…" && git push
 ```
 
 ## Log
+
+- **2026-10-29 (v7)** — Sema asked why GOOG/MSFT weren't updated. Cause: both reported Oct 28 after the US close (after that day's run), and Yahoo's quarterly EPS lags reports by 1–3 days, so even the next run would have missed them. Fix: SEC EDGAR as primary GAAP EPS source (`secQuarterlyEps`, `mergeQuarters` in lib.mjs) incl. same-day 8-K release parse; lastQuarter/lastReported follow EDGAR when it is ahead of Nasdaq; stale Yahoo next-dates (≤ last report) roll +91 days as estimates; adjusted-TTM flag only when Nasdaq and GAAP quarters align. Result: GOOG TTM 19.91 → 19.16 (Q3 $2.12 incl. −$0.55 equity-securities loss; note updated), MSFT 17.96 → 19.16 (Q1 FY27 $4.92, clean). Cron moved to `37 3 * * *`.
 
 - **2026-10-20 (v6.1)** — Sema: one update a day at 08:00 Dubai instead of twice daily. Cron now `0 4 * * *` UTC; page copy updated.
 

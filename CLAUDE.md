@@ -1,16 +1,17 @@
 # US Portfolio Valuation Dashboard
 
-Apple-style static dashboard showing trailing and forward P/E for Sema's 15 US stock holdings versus hand-picked peer groups, plus S&P 500 and Nasdaq-100 benchmarks. Static page + data.json, no build step. **Fully automatic since 2026-10-20**: prices, per-company earnings (GAAP TTM, NTM consensus, report dates) and bottom-up index/sector multiples all refresh once a day at 08:00 Dubai.
+Apple-style static dashboard showing trailing and forward P/E for Sema's 15 US stock holdings versus hand-picked peer groups, plus S&P 500 and Nasdaq-100 benchmarks. Static page + data.json, no build step. **Fully automatic since 2026-10-20**: prices, per-company earnings (GAAP TTM, NTM consensus, report dates) and bottom-up index/sector multiples all refresh once a day before 08:00 Dubai.
 
 ## Status
 
 - **Built**: 2026-08-27 · data as of 2026-08-27 (all holdings had reported Q2 2026 / equivalent fiscal quarter)
 - **Deployed 2026-08-27** (Sema's request): GitHub `lopushokbot/us-portfolio-dashboard` (public) · **Live: https://lopushokbot.github.io/us-portfolio-dashboard/**
-- **Auto-update (v6)**: GitHub Actions `.github/workflows/update.yml` runs once a day at 04:00 UTC = 08:00 Dubai (Sema's choice, 2026-10-20; after the US close, so prices are the previous session's close): `update-prices.mjs` → `update-fundamentals.mjs` → `update-indices.mjs`, commits `data.json` + `data/fiscal-years.json`, Pages redeploys. A new earnings report is in the numbers by the next morning. Manual only: growth rates (Zacks/SWS), history bands, curated one-off notes.
+- **Auto-update (v6)**: GitHub Actions `.github/workflows/update.yml` runs once a day at 03:37 UTC ≈ 07:37 Dubai (Sema chose 08:00 on 2026-10-20; moved off the top of the hour 2026-10-29 because GitHub delayed it 5–6 h; after the US close, so prices are the previous session's close): `update-prices.mjs` → `update-fundamentals.mjs` → `update-indices.mjs`, commits `data.json` + `data/fiscal-years.json`, Pages redeploys. A new earnings report is in the numbers by the next morning (SEC 8-K release parse — no wait for Yahoo). Manual only: growth rates (Zacks/SWS), history bands, curated one-off notes.
 - **v4 (2026-08-27)**: EPS growth + PEG columns and an own-history band card added (see Methodology). Growth sources: Zacks 3-5yr where available, else Simply Wall St.
 - **v5 (2026-10-20, Sema's request)**: index tiles show the index level behind each P/E (live level, implied EPS, level + P/E on source date); every multiple in the table shows the EPS/BV it divides into; chart + peer tooltips show price ÷ EPS. Removed loss-makers TEM, COIN, IREN (and the now-unused HOOD/IBKR peers, Financials/Health Care sectors). Added XOM (Energy), NKE (Consumer Discretionary), UBER (Industrials) with Oct 20 earnings data.
 - **v6 (2026-10-20, Sema: "forget August, use the most recent data, refresh after each report")**: see Methodology. Validated: bottom-up S&P 500 forward 19.1× vs FactSet 19.0× (Oct 16), trailing 26.0× vs FactSet 26.0× / multpl 26.2×; Industrials 22.3× vs FactSet 22.6×.
-- **Open items**: Sema's remaining improvement ideas not yet built: portfolio-weighted P/E (needs weights), EV/Sales for loss-makers, peers for the sector-benchmarked names, auto-refresh of EPS, history snapshots, Telegram alerts.
+- **v7 (2026-10-29, Sema: "why wasn't it updated with GOOG/MSFT?")**: Yahoo's quarterly EPS lags a report by 1–3 days, so GOOG/MSFT (reported Oct 28 after close) were still on the June quarter. Added SEC EDGAR as primary GAAP EPS source: 10-Q/10-K XBRL quarters + same-day 8-K earnings-release parse (exhibit 99.1, accepted only when the row's other figure matches the prior-year quarter). Validated: GS release parse 17.01 = Yahoo 17.01; all other TTMs unchanged. Cron moved to 03:37 UTC (GitHub was starting the `0 4` job 5–6 h late).
+- **Open items**: Sema's remaining improvement ideas not yet built: portfolio-weighted P/E (needs weights), EV/Sales for loss-makers, peers for the sector-benchmarked names, history snapshots, Telegram alerts.
 
 ## Files
 
@@ -18,12 +19,12 @@ Apple-style static dashboard showing trailing and forward P/E for Sema's 15 US s
 us-portfolio-dashboard/
 ├── index.html          — the dashboard (CSS + JS); fetches data.json on load and derives every ratio client-side
 ├── data.json           — ALL data: meta (as-of stamps), indices, stocks, peers, groups
-├── scripts/lib.mjs      — shared helpers: Yahoo session (cookie+crumb), batch quotes, quoteSummary, quarterly EPS timeseries, Nasdaq report dates + Nasdaq-100 list, S&P 500 list (Wikipedia → datahub fallback), NTM blend
+├── scripts/lib.mjs      — shared helpers: Yahoo session (cookie+crumb), batch quotes, quoteSummary, quarterly EPS timeseries, SEC EDGAR quarterly EPS (XBRL + 8-K release parse) + merge, Nasdaq report dates + Nasdaq-100 list, S&P 500 list (Wikipedia → datahub fallback), NTM blend
 ├── scripts/update-prices.mjs — Yahoo chart-API price refresh for stocks, peers and indices (^GSPC, ^NDX via `yahoo` field). Node's default UA only (a browser UA gets 429)
 ├── scripts/update-fundamentals.mjs — per holding + peer: ttmEps, fwdEps (NTM), bvps, `earnings{lastQuarter,lastReported,next,nextConfirmed,adjTtm,gaapQuarters,fy0,fy1,…}`
 ├── scripts/update-indices.mjs — bottom-up S&P 500 / Nasdaq-100 / GICS sector P/E from ~518 constituents (~1 min; first run ~1 min more for the fiscal-year cache)
 ├── data/fiscal-years.json — cache: each constituent's current-FY end date (for the NTM blend); auto-refreshed after year end
-├── .github/workflows/update.yml — daily 04:00 UTC (08:00 Dubai) cron + workflow_dispatch; commits data.json + data/fiscal-years.json
+├── .github/workflows/update.yml — daily 03:37 UTC (~07:37 Dubai) cron + workflow_dispatch; commits data.json + data/fiscal-years.json
 ├── assets/fonts/       — New York Large (4 weights) + InterVariable, bundled
 ├── data/research-*.json — provenance snapshots (2026-08-27 pass; xom-nke-uber + growth on 2026-10-20)
 ├── robots.txt, sitemap.xml
@@ -40,7 +41,7 @@ us-portfolio-dashboard/
 
 ## Methodology (fixed — keep consistent on refresh)
 
-- **Trailing P/E** = price ÷ sum of last 4 reported quarters' diluted GAAP EPS (Yahoo fundamentals-timeseries `quarterlyDilutedEPS`; must be 4 consecutive quarters ending at `mostRecentQuarter`, else Yahoo quote `epsTrailingTwelveMonths`; non-USD reporters like TSM always use the quote field, which is per-ADR USD). Yahoo's quote TTM is sometimes wrong (OXY 3.52 vs true 6.46) — the quarterly sum wins.
+- **Trailing P/E** = price ÷ sum of last 4 reported quarters' diluted GAAP EPS (SEC EDGAR as filed — 10-Q/10-K XBRL `EarningsPerShareDiluted`, or the 8-K earnings release on report day — with Yahoo fundamentals-timeseries `quarterlyDilutedEPS` filling quarters EDGAR lacks and replacing Q4s EDGAR only has as FY − 9M (wrong when share count moves, e.g. CRCL post-IPO); each quarter's `src` is stored in `gaapQuarters`; must be 4 consecutive quarters ending at `mostRecentQuarter`, else Yahoo quote `epsTrailingTwelveMonths`; non-USD reporters like TSM always use the quote field, which is per-ADR USD). Yahoo's quote TTM is sometimes wrong (OXY 3.52 vs true 6.46) — the quarterly sum wins.
 - **Forward P/E** = price ÷ next-twelve-months consensus EPS = f·FY0 + (1−f)·FY1, f = share of current fiscal year remaining (Yahoo earningsTrend 0y/+1y with endDate). Same basis as FactSet's index forward P/E.
 - **Hidden rule (Sema, 2026-10-20)**: holdings with negative trailing or forward EPS are hidden automatically (listed under the table + in Notes) and reappear when earnings turn positive. Banks (P/B) exempt.
 - **One-off notes**: curated notes live in `data.json → notes[]` tagged with the affected quarter-end month (`qtr: "2026-06"`); each is shown only while that quarter is inside the stock's TTM window. Plus an automatic flag when GAAP TTM differs >25% from the company-adjusted TTM (sum of Nasdaq's adjusted quarterly EPS). Footnote numbers are assigned at render time.
