@@ -52,7 +52,7 @@ let latestMarketTime = null;
 for (const row of rows) {
   try {
     const { price, time } = await yahooPrice(row.yahoo || row.t);
-    const old = row.price;
+    const old = row.close ?? row.price;
     row.price = Math.round(price * 100) / 100;
     if (time && (!latestMarketTime || time > latestMarketTime)) latestMarketTime = time;
     const chg = old ? ((row.price / old - 1) * 100).toFixed(2) : "n/a";
