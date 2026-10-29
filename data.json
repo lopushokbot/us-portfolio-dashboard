@@ -1,7 +1,7 @@
 {
   "meta": {
-    "pricesAsOf": "October 29, 2026 at 10:52 Dubai",
-    "pricesAsOfISO": "2026-10-29T06:52:31.802Z",
+    "pricesAsOf": "October 29, 2026 at 11:08 Dubai",
+    "pricesAsOfISO": "2026-10-29T07:08:40.650Z",
     "priceSource": "Yahoo Finance (last trade 2026-10-28 21:18 UTC)",
     "earningsAsOf": "2026-10-29",
     "indicesAsOf": "2026-10-29",
@@ -12,57 +12,57 @@
         "n": 75
       },
       "secEnergy": {
-        "t": 18.13,
-        "f": 12.67,
+        "t": 18.19,
+        "f": 12.64,
         "n": 21
       },
       "secUtil": {
-        "t": 18.54,
+        "t": 18.53,
         "f": 16.37,
         "n": 31
       },
       "secCD": {
         "t": 28.64,
-        "f": 26.07,
+        "f": 26.08,
         "n": 47
       },
       "secInd": {
-        "t": 26.82,
-        "f": 22.47,
+        "t": 26.58,
+        "f": 22.44,
         "n": 83
       },
       "secFin": {
-        "t": 16.23,
+        "t": 16.22,
         "f": 14.93,
         "n": 76
       },
       "secHC": {
-        "t": 36.46,
-        "f": 19.42,
+        "t": 36.57,
+        "f": 19.43,
         "n": 60
       },
       "secComm": {
         "t": 17.79,
-        "f": 17.68,
+        "f": 17.69,
         "n": 19
       },
       "secStaples": {
-        "t": 30.53,
-        "f": 23.5,
+        "t": 30.47,
+        "f": 23.51,
         "n": 34
       },
       "secMat": {
-        "t": 29.47,
+        "t": 30.02,
         "f": 17.09,
         "n": 24
       },
       "secRE": {
-        "t": 33.84,
-        "f": 35.23,
+        "t": 33.78,
+        "f": 35.28,
         "n": 30
       }
     },
-    "earningsUpdatedISO": "2026-10-29T07:04:50.214Z",
+    "earningsUpdatedISO": "2026-10-29T07:08:40.715Z",
     "recentReports": [
       {
         "text": "GOOG Sep 2026 (reported 2026-10-28)",
@@ -93,13 +93,13 @@
       "yahoo": "^GSPC",
       "price": 7743.98,
       "trailing": {
-        "pe": 25.85,
+        "pe": 25.84,
         "level": 7743.98,
         "date": "2026-10-29",
         "n": 500,
         "coverage": 1,
         "losers": 23,
-        "exLoss": 24.84,
+        "exLoss": 24.83,
         "source": "Bottom-up from 500 constituents (Yahoo Finance consensus)",
         "basis": "GAAP TTM"
       },
@@ -121,24 +121,24 @@
       "yahoo": "^NDX",
       "price": 29813.16,
       "trailing": {
-        "pe": 32.36,
+        "pe": 32.37,
         "level": 29813.16,
         "date": "2026-10-29",
         "n": 100,
         "coverage": 1,
         "losers": 8,
-        "exLoss": 29.94,
+        "exLoss": 29.95,
         "source": "Bottom-up from 100 constituents (Yahoo Finance consensus)",
         "basis": "GAAP TTM"
       },
       "forward": {
-        "pe": 22.1,
+        "pe": 22.09,
         "level": 29813.16,
         "date": "2026-10-29",
         "n": 100,
         "coverage": 1,
         "losers": 3,
-        "exLoss": 21.96,
+        "exLoss": 21.95,
         "source": "Bottom-up from 100 constituents (Yahoo Finance consensus)",
         "basis": "NTM consensus"
       }
@@ -151,7 +151,7 @@
       "price": 215.38,
       "group": "mag7",
       "ttmEps": 7.91,
-      "fwdEps": 14.2208,
+      "fwdEps": 14.2209,
       "growth": {
         "pct": 14,
         "basis": "lt",
@@ -462,7 +462,7 @@
       "price": 983.23,
       "group": "secIT",
       "ttmEps": 74.21,
-      "fwdEps": 181.5253,
+      "fwdEps": 181.5255,
       "growth": {
         "pct": 32.6,
         "basis": "lt",
@@ -544,7 +544,7 @@
       "price": 1404.77,
       "group": "secIT",
       "ttmEps": 72.9,
-      "fwdEps": 231.9523,
+      "fwdEps": 231.9527,
       "growth": {
         "pct": 48.2,
         "basis": "lt",
@@ -1016,7 +1016,7 @@
       "price": 62.86,
       "group": "secEnergy",
       "ttmEps": 6.46,
-      "fwdEps": 5.3454,
+      "fwdEps": 5.3453,
       "growth": {
         "pct": 10.4,
         "basis": "lt",
@@ -1871,7 +1871,7 @@
         "updated": "2026-10-29"
       },
       "ttmEps": 69.55,
-      "fwdEps": 73.9741
+      "fwdEps": 73.9742
     }
   ],
   "groups": {
@@ -1918,7 +1918,7 @@
     "secUtil": {
       "label": "S&P 500 Utilities",
       "short": "Utilities sector",
-      "t": 18.54,
+      "t": 18.53,
       "f": 16.37,
       "n": 31,
       "asOf": "2026-10-29"
@@ -1926,8 +1926,8 @@
     "secEnergy": {
       "label": "S&P 500 Energy",
       "short": "Energy sector",
-      "t": 18.13,
-      "f": 12.67,
+      "t": 18.19,
+      "f": 12.64,
       "n": 21,
       "asOf": "2026-10-29"
     },
@@ -1935,15 +1935,15 @@
       "label": "S&P 500 Consumer Discretionary",
       "short": "Cons. Disc. sector",
       "t": 28.64,
-      "f": 26.07,
+      "f": 26.08,
       "n": 47,
       "asOf": "2026-10-29"
     },
     "secInd": {
       "label": "S&P 500 Industrials",
       "short": "Industrials sector",
-      "t": 26.82,
-      "f": 22.47,
+      "t": 26.58,
+      "f": 22.44,
       "n": 83,
       "asOf": "2026-10-29"
     }
