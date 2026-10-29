@@ -109,7 +109,7 @@ for (const row of rows) {
     if (row.metric === "pb" && q.bookValue > 0) row.bvps = r4(q.bookValue * scale);
     if (ttm != null) row.ttmEps = r4(ttm);
     if (ntm != null) row.fwdEps = r4(ntm);
-    row.price = r2(p);
+    if (row.price == null) row.price = r2(p);  /* prices (incl. extended hours) are owned by update-prices.mjs */
     row.earnings = earnings;
     log.push(`${t.padEnd(5)} ttm ${String(old.ttm ?? "—").padStart(7)} → ${String(row.ttmEps ?? "—").padStart(8)}  fwd(NTM) ${String(old.fwd ?? "—").padStart(7)} → ${String(row.fwdEps ?? "—").padStart(8)}${row.metric === "pb" ? `  bv ${old.bv} → ${row.bvps}` : ""}  last ${earnings.lastQuarter} @ ${earnings.lastReported} · next ${earnings.next}${earnings.nextConfirmed ? "" : " (est.)"}`);
   } catch (err) {

@@ -11,6 +11,7 @@ Apple-style static dashboard showing trailing and forward P/E for Sema's 15 US s
 - **v5 (2026-10-20, Sema's request)**: index tiles show the index level behind each P/E (live level, implied EPS, level + P/E on source date); every multiple in the table shows the EPS/BV it divides into; chart + peer tooltips show price ÷ EPS. Removed loss-makers TEM, COIN, IREN (and the now-unused HOOD/IBKR peers, Financials/Health Care sectors). Added XOM (Energy), NKE (Consumer Discretionary), UBER (Industrials) with Oct 20 earnings data.
 - **v6 (2026-10-20, Sema: "forget August, use the most recent data, refresh after each report")**: see Methodology. Validated: bottom-up S&P 500 forward 19.1× vs FactSet 19.0× (Oct 16), trailing 26.0× vs FactSet 26.0× / multpl 26.2×; Industrials 22.3× vs FactSet 22.6×.
 - **v7 (2026-10-29, Sema: "why wasn't it updated with GOOG/MSFT?")**: Yahoo's quarterly EPS lags a report by 1–3 days, so GOOG/MSFT (reported Oct 28 after close) were still on the June quarter. Added SEC EDGAR as primary GAAP EPS source: 10-Q/10-K XBRL quarters + same-day 8-K earnings-release parse (exhibit 99.1, accepted only when the row's other figure matches the prior-year quarter). Validated: GS release parse 17.01 = Yahoo 17.01; all other TTMs unchanged. Cron moved to 03:37 UTC (GitHub was starting the `0 4` job 5–6 h late).
+- **v7.1 (2026-10-29, Sema: "take overnight trading price into consideration for all stocks, especially after earnings")**: stocks + peers now price at the latest trade of ANY session — regular, after-hours, overnight (Blue Ocean, 8pm–4am ET), pre-market — via Yahoo quote (`overnightPrice=true` returns overnight fields but drops post-market ones, so both variants are fetched; `yahooLastTrades` in lib.mjs). `stocks[].close` = regular close, `session` + `sessionTime` = source of `price`. Table shows "overnight −10.0%" under the price (≥3% moves coloured). Indices stay on the official close. update-fundamentals no longer overwrites `price`.
 - **Open items**: Sema's remaining improvement ideas not yet built: portfolio-weighted P/E (needs weights), EV/Sales for loss-makers, peers for the sector-benchmarked names, history snapshots, Telegram alerts.
 
 ## Files
@@ -20,7 +21,7 @@ us-portfolio-dashboard/
 ├── index.html          — the dashboard (CSS + JS); fetches data.json on load and derives every ratio client-side
 ├── data.json           — ALL data: meta (as-of stamps), indices, stocks, peers, groups
 ├── scripts/lib.mjs      — shared helpers: Yahoo session (cookie+crumb), batch quotes, quoteSummary, quarterly EPS timeseries, SEC EDGAR quarterly EPS (XBRL + 8-K release parse) + merge, Nasdaq report dates + Nasdaq-100 list, S&P 500 list (Wikipedia → datahub fallback), NTM blend
-├── scripts/update-prices.mjs — Yahoo chart-API price refresh for stocks, peers and indices (^GSPC, ^NDX via `yahoo` field). Node's default UA only (a browser UA gets 429)
+├── scripts/update-prices.mjs — Yahoo chart-API close for stocks, peers and indices (^GSPC, ^NDX via `yahoo` field; Node's default UA only — a browser UA gets 429), then stocks + peers switched to the latest extended-hours trade (after-hours / overnight / pre-market) via the crumb quote API
 ├── scripts/update-fundamentals.mjs — per holding + peer: ttmEps, fwdEps (NTM), bvps, `earnings{lastQuarter,lastReported,next,nextConfirmed,adjTtm,gaapQuarters,fy0,fy1,…}`
 ├── scripts/update-indices.mjs — bottom-up S&P 500 / Nasdaq-100 / GICS sector P/E from ~518 constituents (~1 min; first run ~1 min more for the fiscal-year cache)
 ├── data/fiscal-years.json — cache: each constituent's current-FY end date (for the NTM blend); auto-refreshed after year end
@@ -68,6 +69,6 @@ NVDA, NU, CRCL, VST, MU, SNDK, TSM, GOOG, AMZN, MSFT, META, OXY (broker screensh
 ## Rules
 
 - All data lives in `data.json` — edit there, never hardcode numbers into index.html
-- Price fields are overwritten daily by the workflow; everything else in data.json is manual
+- Price fields (`price`, `close`, `session`, `sessionTime`) are overwritten daily by the workflow; `price` is the latest trade of any session, never only the regular close
 - Repo is public (required for free GitHub Pages) — Sema accepted this when asking to publish
 - Update this file and RUNBOOK.md after any refresh

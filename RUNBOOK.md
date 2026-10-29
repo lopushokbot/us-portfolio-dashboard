@@ -61,6 +61,8 @@ git add -A && git commit -m "…" && git push
 
 ## Log
 
+- **2026-10-29 (v7.1)** — Sema: use overnight trading prices for all stocks, especially after earnings (GOOG ~$291 after hours vs $321.89 close). `update-prices.mjs` now sets each stock/peer `price` to the latest trade across regular/post/overnight/pre sessions (`yahooLastTrades`), keeps `close`, records `session`/`sessionTime`; page shows the session + % vs close under each price. GOOG → $289.81 overnight: 15.1× trailing / 19.8× forward (was 16.8× / 22.0×); MSFT $552.85 (+4.1%): 28.9× / 26.2×.
+
 - **2026-10-29 (v7)** — Sema asked why GOOG/MSFT weren't updated. Cause: both reported Oct 28 after the US close (after that day's run), and Yahoo's quarterly EPS lags reports by 1–3 days, so even the next run would have missed them. Fix: SEC EDGAR as primary GAAP EPS source (`secQuarterlyEps`, `mergeQuarters` in lib.mjs) incl. same-day 8-K release parse; lastQuarter/lastReported follow EDGAR when it is ahead of Nasdaq; stale Yahoo next-dates (≤ last report) roll +91 days as estimates; adjusted-TTM flag only when Nasdaq and GAAP quarters align. Result: GOOG TTM 19.91 → 19.16 (Q3 $2.12 incl. −$0.55 equity-securities loss; note updated), MSFT 17.96 → 19.16 (Q1 FY27 $4.92, clean). Cron moved to `37 3 * * *`.
 
 - **2026-10-20 (v6.1)** — Sema: one update a day at 08:00 Dubai instead of twice daily. Cron now `0 4 * * *` UTC; page copy updated.

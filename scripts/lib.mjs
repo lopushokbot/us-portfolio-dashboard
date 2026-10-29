@@ -56,12 +56,12 @@ async function yahooJson(url) {
   }, url.split("?")[0].split("/").slice(-2).join("/"));
 }
 
-/** Batch quote: up to ~100 symbols per call. Returns {SYMBOL: quote}. */
-export async function yahooQuotes(symbols) {
+/** Batch quote: up to ~100 symbols per call. Returns {SYMBOL: quote}. `extra` = additional query string (e.g. "&overnightPrice=true"). */
+export async function yahooQuotes(symbols, extra = "") {
   const out = {};
   for (let i = 0; i < symbols.length; i += 80) {
     const chunk = symbols.slice(i, i + 80);
-    const j = await yahooJson(`https://{host}.finance.yahoo.com/v7/finance/quote?symbols=${chunk.map(encodeURIComponent).join(",")}`);
+    const j = await yahooJson(`https://{host}.finance.yahoo.com/v7/finance/quote?symbols=${chunk.map(encodeURIComponent).join(",")}${extra}`);
     for (const q of j?.quoteResponse?.result || []) out[q.symbol] = q;
     await sleep(400);
   }
@@ -97,6 +97,30 @@ export function ttmFromQuarters(qs, mostRecentQuarter) {
   }
   if (mostRecentQuarter && Math.abs(new Date(last4[3].end) - new Date(mostRecentQuarter)) / 864e5 > 20) return null;
   return { ttm: last4.reduce((a, x) => a + x.eps, 0), quarters: last4 };
+}
+
+/**
+ * Latest trade across every session — regular, after-hours (16:00–20:00 ET), overnight (20:00–04:00 ET, Blue Ocean ATS)
+ * and pre-market (04:00–09:30 ET). Yahoo returns the overnight fields only when asked with overnightPrice=true, and then
+ * drops the post-market ones — so both variants are fetched. Returns {SYMBOL: {price, time, session, close, closeTime}}.
+ */
+export async function yahooLastTrades(symbols) {
+  const [plain, night] = await Promise.all([yahooQuotes(symbols), yahooQuotes(symbols, "&overnightPrice=true").catch(() => ({}))]);
+  const out = {};
+  for (const t of symbols) {
+    const a = plain[t] || {}, b = night[t] || {};
+    const close = a.regularMarketPrice ?? b.regularMarketPrice, closeTime = a.regularMarketTime ?? b.regularMarketTime;
+    if (!(close > 0)) continue;
+    const cands = [
+      { session: "regular", price: close, time: closeTime },
+      { session: "post", price: a.postMarketPrice ?? b.postMarketPrice, time: a.postMarketTime ?? b.postMarketTime },
+      { session: "pre", price: a.preMarketPrice ?? b.preMarketPrice, time: a.preMarketTime ?? b.preMarketTime },
+      { session: "overnight", price: b.overnightMarketPrice, time: b.overnightMarketTime },
+    ].filter(c => c.price > 0 && c.time && c.time >= closeTime);
+    const best = cands.sort((x, y) => y.time - x.time)[0];
+    out[t] = { price: best.price, time: new Date(best.time * 1000), session: best.session, close, closeTime: new Date(closeTime * 1000) };
+  }
+  return out;
 }
 
 /* ---------- SEC EDGAR: same-day GAAP EPS ----------

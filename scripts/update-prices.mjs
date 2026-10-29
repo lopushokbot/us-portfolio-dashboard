@@ -3,6 +3,9 @@
  * Daily price refresh for the US Portfolio Valuation Dashboard.
  * - Reads data.json, fetches the latest price for every holding + peer + index (S&P 500, Nasdaq-100)
  *   from Yahoo Finance, writes the prices back and stamps meta.pricesAsOf in Dubai time.
+ * - Stocks + peers use the LATEST TRADE OF ANY SESSION (after-hours, overnight, pre-market), so a reaction to an
+ *   after-close earnings report is in the multiples by the next morning. `close` keeps the regular-session close,
+ *   `session` says where `price` came from. Indices stay on the official close (no extended-hours index level).
  * - EPS / book value / consensus / index P/Es are NOT touched (they change quarterly — see RUNBOOK).
  * - If a ticker fails after retries the previous price is kept and the failure is logged.
  * - Exits non-zero only if every ticker failed (nothing sensible to commit).
@@ -10,6 +13,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { yahooLastTrades } from "./lib.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_PATH = path.join(ROOT, "data.json");
@@ -59,6 +63,23 @@ for (const row of rows) {
     console.warn(`${(row.yahoo || row.t).padEnd(5)} FAILED — keeping ${row.price} (${err.message})`);
   }
   await sleep(250);
+}
+
+/* extended hours: replace the regular close with the latest trade of any session */
+const tickers = [...data.stocks, ...data.peers].map(r => r.t);
+let ext = {};
+try { ext = await yahooLastTrades(tickers); } catch (err) { console.warn(`Extended-hours quotes unavailable — using regular close (${err.message})`); }
+const LABEL = { regular: "close", post: "after-hours", pre: "pre-market", overnight: "overnight" };
+console.log("");
+for (const row of [...data.stocks, ...data.peers]) {
+  const x = ext[row.t];
+  if (!x) { row.close = row.price; row.session = "regular"; delete row.sessionTime; continue; }
+  row.close = Math.round(x.close * 100) / 100;
+  row.price = Math.round(x.price * 100) / 100;
+  row.session = x.session;
+  row.sessionTime = x.time.toISOString();
+  if (x.time > latestMarketTime) latestMarketTime = x.time;
+  if (x.session !== "regular") console.log(`${row.t.padEnd(5)} ${LABEL[x.session].padEnd(11)} ${String(row.price).padStart(9)}  vs close ${row.close}  (${((row.price / row.close - 1) * 100).toFixed(2)}%)  @ ${row.sessionTime.slice(0, 16)}Z`);
 }
 
 if (ok === 0) {
