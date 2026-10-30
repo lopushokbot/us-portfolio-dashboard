@@ -2,10 +2,12 @@ name: Daily price + earnings update
 
 on:
   schedule:
-    # ~07:30 Dubai (03:30 UTC), once a day — after the US close: previous session's closing prices,
-    # plus any report published before the open or after the close that day. Off the top of the hour:
-    # GitHub delayed the "0 4" schedule by 5–6 h (runs landed 13:00–14:30 Dubai).
+    # Target ~07:30 Dubai. GitHub's scheduler is best-effort: it started "0 4" 5–6 h late and skipped
+    # Oct 29–30 2026 entirely, so there are three slots; a scheduled run exits early once today's
+    # (Dubai) refresh is done. Manual runs (workflow_dispatch) always refresh.
     - cron: "37 3 * * *"
+    - cron: "11 5 * * *"
+    - cron: "43 7 * * *"
   workflow_dispatch:
 
 permissions:
@@ -22,20 +24,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Skip if already refreshed today (scheduled runs only)
+        id: guard
+        run: |
+          last=$(node -e 'const m=require("./data.json").meta; const t=new Date(m.pricesAsOfISO||0); console.log(new Date(t.getTime()+4*3600e3).toISOString().slice(0,10))')
+          today=$(TZ=Asia/Dubai date +%F)
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$last" = "$today" ]; then
+            echo "Already refreshed today ($today) — skipping."; echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-node@v4
+        if: steps.guard.outputs.skip != 'true'
         with:
           node-version: "24"
 
       - name: Refresh prices
+        if: steps.guard.outputs.skip != 'true'
         run: node scripts/update-prices.mjs
 
       - name: Refresh earnings (holdings + peers)
+        if: steps.guard.outputs.skip != 'true'
         run: node scripts/update-fundamentals.mjs
 
       - name: Rebuild index + sector multiples (bottom-up)
+        if: steps.guard.outputs.skip != 'true'
         run: node scripts/update-indices.mjs
 
       - name: Commit and push
+        if: steps.guard.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

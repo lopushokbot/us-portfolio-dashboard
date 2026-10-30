@@ -195,10 +195,13 @@ async function secReleaseQuarter(cik, known) {
     if (r.form[i] === "8-K" && String(r.items[i]).split(",").includes("2.02")) { idx = i; break; }
   }
   if (idx < 0) return null;
-  const end = monthEnd(last.end, 3), filed = r.filingDate[idx];
+  /* the new quarter is the one a year after the 4th-newest known quarter (works for 52/53-week years ending
+     early in a month too, e.g. SNDK/MU — month-end arithmetic would miss those) */
+  const prior = known[known.length - 4];
+  const span = days(prior.end, last.end);
+  if (span < 255 || span > 290) return null;
+  const me = monthEnd(prior.end, 12), end = prior.end.slice(8) > me.slice(8) ? me : me.slice(0, 8) + prior.end.slice(8), filed = r.filingDate[idx];
   if (days(end, filed) < 0 || days(end, filed) > 75) return null;
-  const prior = known.find(x => Math.abs(days(x.end, monthEnd(end, -12))) <= 10);
-  if (!prior) return null;
 
   const acc = r.accessionNumber[idx], base = `https://www.sec.gov/Archives/edgar/data/${Number(cik)}/${acc.replace(/-/g, "")}`;
   const index = await secFetch(`${base}/${acc}-index.htm`, "text");
