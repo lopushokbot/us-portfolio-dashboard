@@ -44,6 +44,8 @@ Research JSON snapshots from each pass go in `data/` for provenance.
 
 ## Live site & automation
 
+- **Primary trigger (since 2026-10-30)**: Mac LaunchAgent `com.lopushokbot.us-dashboard` → `~/us-portfolio-dashboard-trigger/trigger.sh` (outside ~/Documents — TCC). 07:30 Dubai + every hour + at login; dispatches `update.yml` once per Dubai day. Log: `~/us-portfolio-dashboard-trigger/logs/launchd.log` (one line per dispatch). Status: `launchctl list | grep us-dashboard`. Reload: `launchctl bootout gui/$(id -u)/com.lopushokbot.us-dashboard; launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.lopushokbot.us-dashboard.plist` (copy of the plist in the trigger folder).
+
 - **Live**: https://lopushokbot.github.io/us-portfolio-dashboard/ (GitHub Pages, branch `main`, root)
 - **Daily job**: Actions workflow "Daily price + earnings update" — cron slots 03:37 / 05:11 / 07:43 UTC; the first one GitHub actually starts refreshes, later ones skip (guard step). GitHub may start them hours late or drop them — if the page is stale, run it now (below). Runs update-prices → update-fundamentals → update-indices, commits `data.json` + `data/fiscal-years.json` if changed, Pages redeploys within ~1–2 min.
 - **Run it now**: `gh workflow run update.yml -R lopushokbot/us-portfolio-dashboard` then `gh run list -R lopushokbot/us-portfolio-dashboard -L 3`
@@ -60,6 +62,8 @@ git add -A && git commit -m "…" && git push
 ```
 
 ## Log
+
+- **2026-10-30 (v7.3)** — Sema approved the Mac trigger. LaunchAgent `com.lopushokbot.us-dashboard` runs `~/us-portfolio-dashboard-trigger/trigger.sh` at 07:30 Dubai + hourly + at login; it dispatches the workflow once per Dubai day (skips if `meta.pricesAsOfISO` is today or a run is in progress). Verified gh auth (keyring) works under launchd. GitHub cron slots stay as backup.
 
 - **2026-10-30 (v7.2)** — Sema: "why didn't it update again?" GitHub never started the scheduled run on Oct 29 or Oct 30 (best-effort cron; the Oct 29 slot was probably dropped by the cron edit that day). Fix: three cron slots (03:37, 05:11, 07:43 UTC) with a guard step — a scheduled run exits early once `meta.pricesAsOfISO` is today (Dubai); `workflow_dispatch` always refreshes. Also fixed the 8-K parse for 52/53-week fiscal years ending early in a month (SNDK quarter ended 2026-10-03 was missed): new quarter = year-ago quarter + 1 year. Picked up AMZN Q3 $1.89 (8-K), SNDK Q1 FY27 $52.60 (8-K, TTM 72.90 → 124.75), MA Q3. A Mac LaunchAgent that dispatches the workflow at 07:30 Dubai was proposed but needs Sema's OK (blocked by the permission system as persistence).
 
