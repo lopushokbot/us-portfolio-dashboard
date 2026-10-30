@@ -45,7 +45,7 @@ Research JSON snapshots from each pass go in `data/` for provenance.
 ## Live site & automation
 
 - **Live**: https://lopushokbot.github.io/us-portfolio-dashboard/ (GitHub Pages, branch `main`, root)
-- **Daily job**: Actions workflow "Daily price + earnings update" — cron `37 3 * * *` UTC (~07:37 Dubai; GitHub may still start it late). Runs update-prices → update-fundamentals → update-indices, commits `data.json` + `data/fiscal-years.json` if changed, Pages redeploys within ~1–2 min.
+- **Daily job**: Actions workflow "Daily price + earnings update" — cron slots 03:37 / 05:11 / 07:43 UTC; the first one GitHub actually starts refreshes, later ones skip (guard step). GitHub may start them hours late or drop them — if the page is stale, run it now (below). Runs update-prices → update-fundamentals → update-indices, commits `data.json` + `data/fiscal-years.json` if changed, Pages redeploys within ~1–2 min.
 - **Run it now**: `gh workflow run update.yml -R lopushokbot/us-portfolio-dashboard` then `gh run list -R lopushokbot/us-portfolio-dashboard -L 3`
 - **Check health**: `gh run list -R lopushokbot/us-portfolio-dashboard -w "Daily price update" -L 5` — a failed run means Yahoo blocked every ticker (script exits 1 only when 0/25 succeed). Partial failures keep the old price and show a "Stale price for: …" warning in the page header.
 - **Local test**: `node scripts/update-prices.mjs` (writes data.json; commit + push to publish)
@@ -60,6 +60,8 @@ git add -A && git commit -m "…" && git push
 ```
 
 ## Log
+
+- **2026-10-30 (v7.2)** — Sema: "why didn't it update again?" GitHub never started the scheduled run on Oct 29 or Oct 30 (best-effort cron; the Oct 29 slot was probably dropped by the cron edit that day). Fix: three cron slots (03:37, 05:11, 07:43 UTC) with a guard step — a scheduled run exits early once `meta.pricesAsOfISO` is today (Dubai); `workflow_dispatch` always refreshes. Also fixed the 8-K parse for 52/53-week fiscal years ending early in a month (SNDK quarter ended 2026-10-03 was missed): new quarter = year-ago quarter + 1 year. Picked up AMZN Q3 $1.89 (8-K), SNDK Q1 FY27 $52.60 (8-K, TTM 72.90 → 124.75), MA Q3. A Mac LaunchAgent that dispatches the workflow at 07:30 Dubai was proposed but needs Sema's OK (blocked by the permission system as persistence).
 
 - **2026-10-29 (v7.1)** — Sema: use overnight trading prices for all stocks, especially after earnings (GOOG ~$291 after hours vs $321.89 close). `update-prices.mjs` now sets each stock/peer `price` to the latest trade across regular/post/overnight/pre sessions (`yahooLastTrades`), keeps `close`, records `session`/`sessionTime`; page shows the session + % vs close under each price. GOOG → $289.81 overnight: 15.1× trailing / 19.8× forward (was 16.8× / 22.0×); MSFT $552.85 (+4.1%): 28.9× / 26.2×.
 

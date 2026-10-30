@@ -12,6 +12,7 @@ Apple-style static dashboard showing trailing and forward P/E for Sema's 15 US s
 - **v6 (2026-10-20, Sema: "forget August, use the most recent data, refresh after each report")**: see Methodology. Validated: bottom-up S&P 500 forward 19.1× vs FactSet 19.0× (Oct 16), trailing 26.0× vs FactSet 26.0× / multpl 26.2×; Industrials 22.3× vs FactSet 22.6×.
 - **v7 (2026-10-29, Sema: "why wasn't it updated with GOOG/MSFT?")**: Yahoo's quarterly EPS lags a report by 1–3 days, so GOOG/MSFT (reported Oct 28 after close) were still on the June quarter. Added SEC EDGAR as primary GAAP EPS source: 10-Q/10-K XBRL quarters + same-day 8-K earnings-release parse (exhibit 99.1, accepted only when the row's other figure matches the prior-year quarter). Validated: GS release parse 17.01 = Yahoo 17.01; all other TTMs unchanged. Cron moved to 03:37 UTC (GitHub was starting the `0 4` job 5–6 h late).
 - **v7.1 (2026-10-29, Sema: "take overnight trading price into consideration for all stocks, especially after earnings")**: stocks + peers now price at the latest trade of ANY session — regular, after-hours, overnight (Blue Ocean, 8pm–4am ET), pre-market — via Yahoo quote (`overnightPrice=true` returns overnight fields but drops post-market ones, so both variants are fetched; `yahooLastTrades` in lib.mjs). `stocks[].close` = regular close, `session` + `sessionTime` = source of `price`. Table shows "overnight −10.0%" under the price (≥3% moves coloured). Indices stay on the official close. update-fundamentals no longer overwrites `price`.
+- **v7.2 (2026-10-30)**: GitHub skipped the scheduled runs on Oct 29–30 → three cron slots + skip-if-done guard; 8-K parse fixed for SNDK/MU-style fiscal calendars.
 - **Open items**: Sema's remaining improvement ideas not yet built: portfolio-weighted P/E (needs weights), EV/Sales for loss-makers, peers for the sector-benchmarked names, history snapshots, Telegram alerts.
 
 ## Files
@@ -25,7 +26,7 @@ us-portfolio-dashboard/
 ├── scripts/update-fundamentals.mjs — per holding + peer: ttmEps, fwdEps (NTM), bvps, `earnings{lastQuarter,lastReported,next,nextConfirmed,adjTtm,gaapQuarters,fy0,fy1,…}`
 ├── scripts/update-indices.mjs — bottom-up S&P 500 / Nasdaq-100 / GICS sector P/E from ~518 constituents (~1 min; first run ~1 min more for the fiscal-year cache)
 ├── data/fiscal-years.json — cache: each constituent's current-FY end date (for the NTM blend); auto-refreshed after year end
-├── .github/workflows/update.yml — daily 03:37 UTC (~07:37 Dubai) cron + workflow_dispatch; commits data.json + data/fiscal-years.json
+├── .github/workflows/update.yml — cron slots 03:37/05:11/07:43 UTC (first that GitHub starts wins; guard skips the rest) + workflow_dispatch; commits data.json + data/fiscal-years.json
 ├── assets/fonts/       — New York Large (4 weights) + InterVariable, bundled
 ├── data/research-*.json — provenance snapshots (2026-08-27 pass; xom-nke-uber + growth on 2026-10-20)
 ├── robots.txt, sitemap.xml
