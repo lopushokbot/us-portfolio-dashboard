@@ -70,6 +70,8 @@ git add -A && git commit -m "…" && git push
 
 ## Log
 
+- **2026-11-03 (v8.1)** — Sema: make the sector page visible from the main page → pill link under the header stamp + footer link in index.html (footer text now in `<span id="footer">`).
+
 - **2026-11-03 (v8)** — Sector leaders sub-page (`sectors.html`): top 10 per S&P 500 sector, 110 companies, same P/E logic as holdings; daily workflow step `update-sectors.mjs` after the index rebuild (timeout raised to 30 min); file sent to Sema's Telegram (message 472). Refactor of update-fundamentals into `earnings.mjs` verified identical on all 23 rows.
 
 - **2026-10-30 (v7.3)** — Sema approved the Mac trigger. LaunchAgent `com.lopushokbot.us-dashboard` runs `~/us-portfolio-dashboard-trigger/trigger.sh` at 07:30 Dubai + hourly + at login; it dispatches the workflow once per Dubai day (skips if `meta.pricesAsOfISO` is today or a run is in progress). Verified gh auth (keyring) works under launchd. GitHub cron slots stay as backup.

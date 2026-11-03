@@ -251,6 +251,17 @@ sup.fn { font-size: 10px; color: var(--accent); font-weight: 600; cursor: help; 
 .method p { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
 
 footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(--muted); }
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+.xlink {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 24px;
+  font-size: 15px; font-weight: 500; color: var(--accent); text-decoration: none;
+  padding: 9px 20px; border-radius: 980px; border: 1px solid var(--accent);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.xlink:hover { background: var(--accent); color: #fff; }
+.xlink .chev { font-size: 17px; line-height: 1; transition: transform 0.3s ease; }
+.xlink:hover .chev { transform: translateX(2px); }
 
 /* ---------- Fade-in ---------- */
 .fade { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
@@ -267,6 +278,7 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
   <h1>US Equity Valuation</h1>
   <p class="sub">Trailing and forward multiples for every holding, measured against its peer group and the market.</p>
   <p class="stamp" id="stamp">Loading latest prices…</p>
+  <a class="xlink" href="sectors.html" title="Trailing and forward P/E for the ten largest companies in each S&amp;P 500 sector">S&amp;P 500 sector leaders <span class="chev">›</span></a>
 </header>
 
 <main class="wrap">
@@ -381,7 +393,7 @@ footer { padding: 48px 0 64px; text-align: center; font-size: 13px; color: var(-
 
 </main>
 
-<footer class="wrap" id="footer">US Portfolio Valuation Dashboard</footer>
+<footer class="wrap"><span id="footer">US Portfolio Valuation Dashboard</span><br><a href="sectors.html">S&amp;P 500 sector leaders — top 10 companies per sector ›</a></footer>
 
 <div class="tooltip" id="tt"></div>
 
