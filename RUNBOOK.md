@@ -59,6 +59,8 @@ Research JSON snapshots from each pass go in `data/` for provenance.
 - Send to Telegram: `node scripts/export-sectors.mjs && node scripts/send-telegram.mjs exports/sectors-<date>.html "S&P 500 Sector Leaders · <date>"`. The export is pre-rendered so it reads without JavaScript (iOS Quick Look); verify at 390px.
 - GAAP outliers are real one-offs (e.g. MLM gain, BA asset-sale gain, MRK/GILD charges) — hover a trailing figure for its four quarters. If a quarterly sum and Yahoo's quote TTM differ >5×, the quote wins (share-basis mismatch: splits, BRK).
 
+- **Same-day coverage test**: scratch backtest = for each company `secReleaseQuarter(cik, xbrlQuarters.slice(0,-1))` vs the filed 10-Q value; `secReleaseQuarter` takes a `dbg` object that records why a read failed (`dbg.reason`, `dbg.rows`).
+
 ## Deploy changes manually
 
 ```bash
@@ -69,6 +71,8 @@ git add -A && git commit -m "…" && git push
 ```
 
 ## Log
+
+- **2026-11-03 (v8.2)** — Sema asked whether all 110 sector companies update on report day. Backtested the 8-K release reader on every company (hide the newest 10-Q quarter, read it from the release alone): was 43/101 correct + 1 wrong (NFLX); after fixes 73/85 correct, 0 wrong, plus live check of 21 companies with a release newer than their last 10-Q: 11 read, all matching Yahoo. Fixes: EX-99 exhibits, whole table rows, column located from both year-ago (P) and previous (S) quarter, sequential-only rows (PSX), label/figures on separate rows (VZ), '.56' figures (WMB), 'assuming dilution' (MRK), reject values equal to a recent quarter, 16-week retail quarters (COST/PEP). Not same-day (Yahoo fills in 1–3 days): TSLA, LIN, GE, UNH, OXY, EOG, BKNG, LOW, VTR, VMC, CRCL, VST, EXC, FCX; NEE/AEP/D/ETR/PLD/DLR whose XBRL lacks a recent quarter. Main-page numbers verified unchanged.
 
 - **2026-11-03 (v8.1)** — Sema: make the sector page visible from the main page → pill link under the header stamp + footer link in index.html (footer text now in `<span id="footer">`).
 

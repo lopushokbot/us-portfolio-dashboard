@@ -93,7 +93,7 @@ export function ttmFromQuarters(qs, mostRecentQuarter) {
   const last4 = qs.slice(-4);
   for (let i = 1; i < 4; i++) {
     const gap = (new Date(last4[i].end) - new Date(last4[i - 1].end)) / 864e5;
-    if (gap < 75 || gap > 105) return null;
+    if (gap < 75 || gap > 125) return null;   /* 16-week retail quarters run ~112 days */
   }
   if (mostRecentQuarter && Math.abs(new Date(last4[3].end) - new Date(mostRecentQuarter)) / 864e5 > 20) return null;
   return { ttm: last4.reduce((a, x) => a + x.eps, 0), quarters: last4 };
@@ -159,7 +159,7 @@ const days = (a, b) => (new Date(b) - new Date(a)) / 864e5;
 const monthEnd = (iso, add) => { const d = new Date(iso + "T00:00:00Z"); return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + add + 1, 0)).toISOString().slice(0, 10); };
 
 /** Quarterly diluted EPS from 10-Q/10-K XBRL (Q4 = fiscal year − nine-month YTD). Oldest → newest: [{end, eps, filed, src}]. */
-async function secXbrlQuarters(cik) {
+export async function secXbrlQuarters(cik) {
   const j = await secFetch(`https://data.sec.gov/api/xbrl/companyconcept/CIK${cik}/us-gaap/EarningsPerShareDiluted.json`);
   const latest = new Map();
   for (const f of j?.units?.["USD/shares"] || []) {
@@ -169,22 +169,29 @@ async function secXbrlQuarters(cik) {
     else { if (f.filed > prev.filed) Object.assign(prev, { val: f.val, filed: f.filed }); if (f.filed < prev.first) prev.first = f.filed; }
   }
   const facts = [...latest.values()], q = new Map();
-  for (const f of facts) { const d = days(f.start, f.end); if (d >= 80 && d <= 100) q.set(f.end, { end: f.end, eps: f.val, filed: f.first, src: f.form.slice(0, 4) }); }
+  /* 80–120 days: calendar quarters, 12/13-week and 16-week retail quarters (COST, PEP) */
+  for (const f of facts) { const d = days(f.start, f.end); if (d >= 80 && d <= 120) q.set(f.end, { end: f.end, eps: f.val, filed: f.first, src: f.form.slice(0, 4) }); }
   for (const fy of facts) {
     const d = days(fy.start, fy.end);
     if (d < 350 || d > 380 || q.has(fy.end)) continue;
-    const ytd9 = facts.find(f => f.start === fy.start && days(f.start, f.end) >= 260 && days(f.start, f.end) <= 285);
+    const ytd9 = facts.find(f => f.start === fy.start && days(f.start, f.end) >= 245 && days(f.start, f.end) <= 290);
     /* EPS isn't additive when the share count moves (IPOs, big buybacks) — a derived Q4 yields to Yahoo's reported one */
     if (ytd9) q.set(fy.end, { end: fy.end, eps: Math.round((fy.val - ytd9.val) * 100) / 100, filed: fy.first, src: "10-K", derived: true });
   }
   return [...q.values()].sort((a, b) => a.end.localeCompare(b.end));
 }
 
-/** Table rows of an HTML document as plain-text lines. */
+/** Plain-text lines of an HTML document: one per table row (cells often wrap text in <p>/<div>), one per paragraph elsewhere. */
 function htmlRows(h) {
-  return h.replace(/<\/(tr|p|div)>/gi, "\n").replace(/<[^>]+>/g, " ")
-    .replace(/&nbsp;|&#160;|&#xa0;/gi, " ").replace(/&amp;/g, "&").replace(/&#8217;|&rsquo;/g, "'").replace(/&#[0-9]+;|&[a-z]+;/gi, " ")
-    .split("\n").map(l => l.replace(/\s+/g, " ").trim()).filter(Boolean);
+  const text = x => x.replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;|&#160;|&#xa0;/gi, " ").replace(/&amp;/g, "&").replace(/&#8217;|&rsquo;/g, "'").replace(/&#[0-9]+;|&#x[0-9a-f]+;|&[a-z]+;/gi, " ")
+    .replace(/\s+/g, " ").trim();
+  const out = [];
+  for (const part of h.split(/(<table[\s\S]*?<\/table>)/i)) {
+    const pieces = /^<table/i.test(part) ? part.split(/<\/tr>/i) : part.split(/<\/(?:p|div)>/i);
+    for (const x of pieces) { const t = text(x); if (t) out.push(t); }
+  }
+  return out;
 }
 
 /**
@@ -192,8 +199,8 @@ function htmlRows(h) {
  * The release prints the quarter next to the same quarter a year earlier; a value is accepted only when the
  * row's other figure matches that prior-year quarter from XBRL — so a misread table can't slip through.
  */
-async function secReleaseQuarter(cik, known) {
-  if (known.length < 4) return null;
+export async function secReleaseQuarter(cik, known, dbg = {}) {
+  if (known.length < 4) return (dbg.reason = "few quarters", null);
   const last = known[known.length - 1];
   const sub = await secFetch(`https://data.sec.gov/submissions/CIK${cik}.json`);
   const r = sub.filings.recent;
@@ -202,31 +209,58 @@ async function secReleaseQuarter(cik, known) {
     if (r.filingDate[i] <= last.filed) break;
     if (r.form[i] === "8-K" && String(r.items[i]).split(",").includes("2.02")) { idx = i; break; }
   }
-  if (idx < 0) return null;
+  if (idx < 0) return (dbg.reason = "no 8-K 2.02", null);
   /* the new quarter is the one a year after the 4th-newest known quarter (works for 52/53-week years ending
      early in a month too, e.g. SNDK/MU — month-end arithmetic would miss those) */
   const prior = known[known.length - 4];
   const span = days(prior.end, last.end);
-  if (span < 255 || span > 290) return null;
+  if (span < 245 || span > 300) return (dbg.reason = "span", null);
   const me = monthEnd(prior.end, 12), end = prior.end.slice(8) > me.slice(8) ? me : me.slice(0, 8) + prior.end.slice(8), filed = r.filingDate[idx];
-  if (days(end, filed) < 0 || days(end, filed) > 75) return null;
+  if (days(end, filed) < 0 || days(end, filed) > 75) return (dbg.reason = `date ${end} ${filed}`, null);
 
   const acc = r.accessionNumber[idx], base = `https://www.sec.gov/Archives/edgar/data/${Number(cik)}/${acc.replace(/-/g, "")}`;
   const index = await secFetch(`${base}/${acc}-index.htm`, "text");
-  const ex = [...index.matchAll(/href="([^"]+\.htm)"[^<]*<\/a><\/td>\s*<td[^>]*>\s*EX-99\.1\s*</gi)][0]?.[1];
-  if (!ex) return null;
-  const rows = htmlRows(await secFetch(`https://www.sec.gov${ex}`, "text"));
+  /* the release is EX-99.1 for most filers, plain EX-99 for some (VZ, GE, PFE); try each EX-99* exhibit in order */
+  const exs = [...index.matchAll(/href="([^"]+\.htm)"[^<]*<\/a><\/td>\s*<td[^>]*>\s*(EX-99[^<\s]*)\s*</gi)]
+    .sort((x, y) => (y[2] === "EX-99.1") - (x[2] === "EX-99.1")).map(m => m[1]);
+  const ex = exs[0];
+  if (!ex) return (dbg.reason = "no EX-99.1", dbg.types = [...index.matchAll(/<td[^>]*>\s*(EX-[^<\s]+)\s*</g)].map(m => m[1]), null);
+  /* A diluted-EPS row prints this quarter next to the year-ago quarter P (and often the previous quarter S, or YTD pairs).
+     Columns come in many orders — [cur, P], [P, cur, ytdP, ytdCur], [cur, S, P, …] (TMUS), [P, …, S, cur] (TSLA, NFLX) —
+     so the value is located from the known quarters, never assumed: with S present it is S's neighbour away from P,
+     otherwise P's partner in a two-column pair. Percent figures are ignored. */
+  const P = prior.eps, S = last.eps, near = (x, y) => Math.abs(x - y) < 0.006;
   const votes = new Map();
-  for (const line of rows) {
-    if (!/diluted/i.test(line) || /non-gaap|adjusted|excluding/i.test(line)) continue;
-    const nums = [...line.matchAll(/(\()?\$?\s?(\d{1,4}\.\d{2})\b(\))?/g)].map(m => (m[1] && m[3] ? -1 : 1) * Number(m[2]));
-    if (nums.length < 2) continue;
-    const [a, b] = nums, near = (x, y) => Math.abs(x - y) < 0.006;
-    const v = near(a, prior.eps) && !near(b, prior.eps) ? b : near(b, prior.eps) && !near(a, prior.eps) ? a : null;
-    if (v != null) votes.set(v, (votes.get(v) || 0) + 1);
+  for (const e of exs.slice(0, 3)) {
+    const rows = htmlRows(await secFetch(`https://www.sec.gov${e}`, "text"));
+    if (!dbg.rows) { dbg.rows = rows.filter(l => /diluted|assuming dilution/i.test(l)).slice(0, 8); dbg.prior = P; dbg.url = e; }
+    /* per-share figures: "4.92", "(0.12)", "-0.12", ".56" (WMB); never the tail of a larger number, never a percentage */
+    const numsOf = l => [...l.matchAll(/(\()?(-)?\$?\s?(?<![\d,.])(\d{0,4}\.\d{2})\b(\))?(?!\s?%)/g)].map(m => ((m[1] && m[4]) || m[2] ? -1 : 1) * Number(m[3]));
+    for (let r = 0; r < rows.length; r++) {
+      let line = rows[r];
+      if (line.length > 400 || !/diluted|assuming dilution/i.test(line) || /non-gaap|adjusted|excluding|guidance|outlook/i.test(line)) continue;
+      /* label on its own row, figures on the next one (VZ) */
+      if (numsOf(line).length < 2 && rows[r + 1] && rows[r + 1].length < 300) line += " " + rows[r + 1];
+      const nums = numsOf(line);
+      if (nums.length < 2) continue;
+      const iP = nums.findIndex(x => near(x, P));
+      const iS = near(P, S) ? -1 : nums.findIndex((x, k) => k !== iP && near(x, S));
+      let i = -1;
+      if (iP >= 0 && iS >= 0) i = iS + (iS > iP ? 1 : -1);
+      else if (iP >= 0 && (nums.length === 2 || nums.length === 4) && iP <= 1) i = iP ^ 1;
+      /* sequential-only release: [this quarter, previous quarter] (PSX) */
+      else if (iP < 0 && iS >= 0 && nums.length === 2) i = iS ^ 1;
+      const v = nums[i];
+      /* a value equal to one of the last known quarters is a misread column, not the new quarter */
+      if (v == null || near(v, P) || known.slice(-3).some(k => near(v, k.eps))) continue;
+      votes.set(v, (votes.get(v) || 0) + 1);
+    }
+    if (votes.size) break;
   }
-  if (!votes.size) return null;
-  const [eps] = [...votes.entries()].sort((x, y) => y[1] - x[1])[0];
+  if (!votes.size) return (dbg.reason = "no matching row", null);
+  const ranked = [...votes.entries()].sort((x, y) => y[1] - x[1]);
+  if (ranked[1] && ranked[1][1] === ranked[0][1]) return (dbg.reason = `ambiguous ${ranked.map(x => x[0]).join("/")}`, null);
+  const [eps] = ranked[0];
   return { end, eps, filed, src: "8-K", prior: prior.eps, url: `https://www.sec.gov${ex}` };
 }
 
