@@ -129,7 +129,15 @@ export async function yahooLastTrades(symbols) {
  * SEC fair-access: a descriptive User-Agent with a contact address, ≤10 requests/second.
  */
 const SECH = { "user-agent": "us-portfolio-dashboard admin@lopushokbot.dev" };
+const secCache = new Map();   /* submissions JSON is read twice per company — once per run is enough */
 async function secFetch(url, as = "json") {
+  if (url.includes("/submissions/")) {
+    if (!secCache.has(url)) secCache.set(url, secFetchRaw(url, as).catch(e => { secCache.delete(url); throw e; }));
+    return secCache.get(url);
+  }
+  return secFetchRaw(url, as);
+}
+async function secFetchRaw(url, as) {
   return retry(async () => {
     await sleep(150);
     const r = await fetch(url, { headers: SECH });

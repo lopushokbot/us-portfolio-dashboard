@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S&amp;P 500 Sector Leaders · Valuation</title>
+<meta name="description" content="Trailing and forward P/E for the ten largest companies in each of the eleven S&amp;P 500 sectors — GAAP trailing earnings, next-twelve-months consensus, latest trade incl. after-hours and overnight. Refreshed daily.">
+<meta property="og:title" content="S&amp;P 500 Sector Leaders · Valuation">
+<meta property="og:description" content="Trailing &amp; forward P/E for the top 10 companies in every S&amp;P 500 sector, against sector and index multiples. Refreshed daily.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lopushokbot.github.io/us-portfolio-dashboard/sectors.html">
+<link rel="canonical" href="https://lopushokbot.github.io/us-portfolio-dashboard/sectors.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230071e3'/%3E%3Crect x='12' y='34' width='9' height='18' rx='2' fill='white'/%3E%3Crect x='27' y='22' width='9' height='30' rx='2' fill='white'/%3E%3Crect x='42' y='12' width='9' height='40' rx='2' fill='white'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<style>
+/* ---------- Fonts ---------- */
+@font-face { font-family: "New York"; src: url("assets/fonts/NewYorkLarge-Semibold.otf") format("opentype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "New York"; src: url("assets/fonts/NewYorkLarge-Bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("assets/fonts/InterVariable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+
+/* ---------- Tokens (same as the portfolio page) ---------- */
+:root {
+  color-scheme: light dark;
+  --page: #f5f5f7;
+  --card: #ffffff;
+  --ink: #1d1d1f;
+  --ink-2: #52514e;
+  --muted: #86868b;
+  --hairline: rgba(0,0,0,0.08);
+  --accent: #0071e3;
+  --accent-soft: rgba(0,113,227,0.10);
+  --good: #006300;
+  --bad: #b04a17;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  --glass: rgba(245,245,247,0.78);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #000000;
+    --card: #1c1c1e;
+    --ink: #f5f5f7;
+    --ink-2: #c3c2b7;
+    --muted: #98989d;
+    --hairline: rgba(255,255,255,0.12);
+    --accent: #2997ff;
+    --accent-soft: rgba(41,151,255,0.14);
+    --good: #30d158;
+    --bad: #ff9f0a;
+    --shadow: none;
+    --glass: rgba(0,0,0,0.72);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  font-family: "Inter", -apple-system, system-ui, sans-serif;
+  background: var(--page); color: var(--ink);
+  font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+@media (max-width: 560px) { .wrap { padding: 0 16px; } }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- Hero ---------- */
+header { padding: 64px 0 40px; text-align: center; }
+.back { display: inline-block; font-size: 14px; font-weight: 500; margin-bottom: 28px; }
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+h1 { font-family: "New York", Georgia, serif; font-size: clamp(36px, 6vw, 56px); font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; margin-bottom: 16px; }
+.sub { font-size: 18px; color: var(--muted); max-width: 660px; margin: 0 auto; }
+.stamp { font-size: 13px; color: var(--muted); margin-top: 14px; }
+.stamp .warn { color: var(--bad); }
+
+/* ---------- Sector nav (frosted, sticky) ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--glass); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--hairline);
+}
+.nav .wrap { display: flex; gap: 8px; overflow-x: auto; padding-top: 12px; padding-bottom: 12px; scrollbar-width: none; }
+.nav .wrap::-webkit-scrollbar { display: none; }
+.chip {
+  flex: none; font-size: 13.5px; font-weight: 500; color: var(--ink-2);
+  padding: 6px 14px; border-radius: 980px; border: 1px solid var(--hairline); background: var(--card);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; white-space: nowrap;
+}
+.chip:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
+.chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* ---------- Sections & cards ---------- */
+section { padding: 32px 0; }
+.section-title { font-family: "New York", Georgia, serif; font-size: 28px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+.section-sub { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
+.card { background: var(--card); border-radius: 16px; padding: 32px; box-shadow: var(--shadow); border: 1px solid var(--hairline); }
+@media (max-width: 640px) { .card { padding: 20px 16px; } }
+.card + .card { margin-top: 24px; }
+
+/* ---------- Sector card head ---------- */
+.shead { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+.shead h2 { font-family: "New York", Georgia, serif; font-size: 26px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+.shead .smeta { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.kpis { display: flex; gap: 28px; }
+.kpi { text-align: right; line-height: 1.3; }
+.kpi .k { font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.kpi .v { font-size: 20px; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.kpi .v small { font-size: 13px; color: var(--muted); font-weight: 500; }
+.kpi .c { font-size: 11.5px; color: var(--muted); }
+@media (max-width: 640px) { .kpis { gap: 20px; width: 100%; } .kpi { text-align: left; } .shead h2 { font-size: 23px; } }
+
+/* ---------- Tables ---------- */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+table.leaders { min-width: 820px; }
+table.overview { min-width: 760px; }
+.sm { display: none; }
+@media (max-width: 600px) {
+  .hide-m { display: none; }
+  .lg { display: none; } .sm { display: inline; }
+  table.overview { min-width: 0; }
+  table.leaders { min-width: 0; }
+  .co .nm.lg { display: none; }
+  table.leaders .co .rk { display: none; }
+  .co .pm { display: block; font-size: 12px; color: var(--muted); white-space: nowrap; }
+  thead th { padding: 0 4px 12px; font-size: 11px; letter-spacing: 0.04em; }
+  tbody td { padding: 12px 4px; }
+  thead th:not(.sorted) .arrow { display: none; }
+  .card { padding: 20px 12px; }
+  table.overview td:first-child { white-space: normal; max-width: 118px; }
+  table.overview .co .tk { font-size: 14px; line-height: 1.25; }
+}
+thead th {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted); text-align: right; padding: 0 8px 12px;
+  border-bottom: 1px solid var(--hairline); white-space: nowrap; user-select: none;
+}
+thead th.sortable { cursor: pointer; }
+thead th .arrow { font-size: 10px; opacity: 0; margin-left: 3px; }
+thead th.sorted .arrow { opacity: 1; }
+thead th:first-child, tbody td:first-child { text-align: left; padding-left: 0; }
+tbody td { padding: 13px 8px; text-align: right; border-bottom: 1px solid var(--hairline); font-variant-numeric: tabular-nums; white-space: nowrap; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr { transition: background 0.2s ease; }
+tbody tr:hover { background: var(--accent-soft); }
+/* first column stays put while the numbers scroll on a phone */
+.sticky { position: sticky; left: 0; z-index: 1; background: var(--card); }
+tbody tr:hover .sticky { background: linear-gradient(var(--accent-soft), var(--accent-soft)), var(--card); }
+.co { display: flex; align-items: center; gap: 12px; }
+.co .rk { width: 18px; font-size: 12.5px; color: var(--muted); text-align: right; flex: none; }
+.co .nmw { display: flex; flex-direction: column; line-height: 1.35; min-width: 0; }
+.co .tk { font-weight: 600; font-size: 15px; }
+.co .nm { font-size: 12.5px; color: var(--muted); max-width: 170px; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 560px) { .co .nm { max-width: 110px; } .co { gap: 8px; } }
+.val-strong { font-weight: 600; }
+.val-muted { color: var(--muted); }
+.stack { display: inline-flex; flex-direction: column; align-items: flex-end; line-height: 1.3; }
+.stack .eps { font-size: 12px; font-weight: 400; color: var(--muted); }
+.price { font-weight: 500; }
+.ext { font-size: 12px; font-weight: 400; color: var(--muted); }
+.ext b { font-weight: 600; }
+.ext b.dn { color: var(--bad); } .ext b.up { color: var(--good); }
+.nm-flag { color: var(--muted); font-weight: 400; }
+.loss { font-size: 12px; font-weight: 600; color: var(--bad); }
+.delta-neg { color: var(--good); font-weight: 500; }
+.delta-pos { color: var(--bad); font-weight: 500; }
+.earn { display: inline-flex; flex-direction: column; align-items: flex-end; line-height: 1.3; font-size: 13.5px; }
+.earn .nx { font-weight: 500; }
+.earn .nx.soon { color: var(--accent); font-weight: 600; }
+.earn .est { font-size: 11px; color: var(--muted); font-weight: 400; }
+.earn .ls { font-size: 12px; color: var(--muted); }
+.earn .ls.new { color: var(--good); font-weight: 500; }
+[title] { cursor: help; }
+tbody tr[data-href] { cursor: pointer; }
+tr.ref td { font-weight: 600; background: var(--page); }
+tr.ref td.sticky { background: var(--page); }
+tr.ref .co .tk { font-size: 15px; }
+
+/* ---------- Notes ---------- */
+.method h3 { font-family: "New York", Georgia, serif; font-size: 20px; font-weight: 600; margin-bottom: 10px; }
+.method p { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+.method b { color: var(--ink-2); font-weight: 600; }
+footer { padding: 40px 0 64px; text-align: center; font-size: 13px; color: var(--muted); }
+
+.fade { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade.in { opacity: 1; transform: none; }
+#loading { text-align: center; color: var(--muted); padding: 40px 0; font-size: 15px; }
+#loading:empty { display: none; }
+@media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <a class="back" id="back" href="./">‹ Portfolio valuation</a>
+  <div class="eyebrow">S&amp;P 500 · Top 10 per sector</div>
+  <h1>Sector Leaders</h1>
+  <p class="sub">Trailing and forward P/E for the ten largest companies in each of the eleven S&amp;P&nbsp;500 sectors, on the same definitions as the portfolio page.</p>
+  <p class="stamp" id="stamp">Loading latest prices…</p>
+</header>
+
+<nav class="nav" aria-label="Sectors"><div class="wrap" id="nav"></div></nav>
+
+<main class="wrap">
+  <div id="loading"></div>
+
+  <section class="fade" id="overview">
+    <h2 class="section-title">Sectors at a glance</h2>
+    <p class="section-sub">Each sector's P/E across all its S&amp;P&nbsp;500 members and across its ten leaders (Σ market cap ÷ Σ earnings), against the index. Tap a sector to jump to its companies.</p>
+    <div class="card"><div class="table-scroll"><table class="overview" id="ov"></table></div></div>
+  </section>
+
+  <div id="sectors"></div>
+
+  <section class="fade">
+    <div class="card method">
+      <h3>Methodology &amp; sources</h3>
+      <p><b>Companies</b>: the ten largest members of each GICS sector of the S&amp;P&nbsp;500 by market capitalisation (share classes counted once), re-ranked on every refresh — 110 companies.</p>
+      <p><b>Trailing P/E</b> = latest price ÷ diluted GAAP EPS summed over the four most recently reported quarters, taken as filed from SEC EDGAR (10-Q/10-K, or the earnings release on report day) with Yahoo Finance filling gaps. GAAP includes one-off gains and charges, so a trailing multiple can look unusually high or low after a large write-down or asset sale — hover a trailing figure to see the four quarters behind it. <b>Forward P/E</b> = latest price ÷ next-twelve-months consensus EPS, a time-weighted blend of the current and next fiscal year's consensus. Negative earnings show as a loss and are left out of medians.</p>
+      <p><b>Latest price</b> = the last trade in any session — regular, after-hours (4–8 pm ET), overnight (8 pm–4 am ET) or pre-market — with the move versus the regular close underneath. <b>Sector P/E (all members)</b> is computed bottom-up across every S&amp;P&nbsp;500 member of the sector at the official close; <b>top-10 P/E</b> = Σ market cap ÷ Σ earnings over the ten leaders; <b>vs sector</b> compares a company's forward P/E with its sector's all-member forward P/E (green = cheaper).</p>
+      <p>Refreshed automatically every morning (Dubai time) together with the portfolio page. Numbers are for reference only — not investment advice.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap" id="footer">S&amp;P 500 Sector Leaders</footer>
+
+<script>
+/* ================= Helpers ================= */
+const fx = (v, dp = 1) => v == null || !isFinite(v) ? null : v.toFixed(dp);
+const mult = v => v == null ? `<span class="nm-flag">N/M</span>` : `${fx(v)}×`;
+const money = v => v >= 1000 ? v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : v.toFixed(2);
+const capFmt = v => v >= 1e12 ? `$${(v / 1e12).toFixed(2)}T` : `$${Math.round(v / 1e9)}B`;
+const pct = v => `${v < 0 ? "−" : "+"}${Math.abs(Math.round(v * 100))}%`;
+const median = a => { const v = a.filter(x => x != null && isFinite(x)).sort((p, q) => p - q); if (!v.length) return null; const m = v.length >> 1; return v.length % 2 ? v[m] : (v[m - 1] + v[m]) / 2; };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const TODAY = new Date().toISOString().slice(0, 10);
+const shortDate = d => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+const longDate = d => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+const daysTo = d => Math.round((Date.parse(d) - Date.parse(TODAY)) / 864e5);
+const SESSION = { post: "after-hours", pre: "pre-market", overnight: "overnight" };
+const slug = k => k.replace(/^sec/, "").toLowerCase();
+
+/* ================= Derive ================= */
+function derive(c, sector) {
+  const ttmPe = c.price > 0 && c.ttmEps > 0 ? c.price / c.ttmEps : null;
+  const fwdPe = c.price > 0 && c.fwdEps > 0 ? c.price / c.fwdEps : null;
+  const vs = fwdPe && sector.all.f ? fwdPe / sector.all.f - 1 : null;
+  const e = c.earnings || {};
+  return { ...c, ttmPe, fwdPe, vs, nextKey: e.next || "9999", lastKey: e.lastReported || "" };
+}
+
+/* ================= Cells ================= */
+function priceCell(r) {
+  const label = SESSION[r.session];
+  if (!label || !(r.close > 0) || Math.abs(r.price - r.close) < 0.005) return `$${money(r.price)}`;
+  const chg = r.price / r.close - 1, p = `${chg < 0 ? "−" : "+"}${(Math.abs(chg) * 100).toFixed(1)}%`;
+  const when = r.sessionTime ? new Date(r.sessionTime).toLocaleString("en-US", { timeZone: "America/New_York", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + " ET" : "";
+  const big = Math.abs(chg) >= 0.03 ? (chg < 0 ? "dn" : "up") : "";
+  return `<span class="stack">$${money(r.price)}<span class="ext" title="${label[0].toUpperCase() + label.slice(1)} trade ${when} · regular close $${money(r.close)} — both multiples use $${money(r.price)}">${label} <b class="${big}">${p}</b></span></span>`;
+}
+/* phone layout: price sits under the ticker (move vs close shown when the price is from an extended session) */
+function miniPrice(r) {
+  const ext = SESSION[r.session] && r.close > 0 && Math.abs(r.price - r.close) >= 0.005;
+  if (!ext) return `$${money(r.price)}`;
+  const chg = r.price / r.close - 1, big = Math.abs(chg) >= 0.03 ? (chg < 0 ? "dn" : "up") : "";
+  return `$${money(r.price)} <span class="ext"><b class="${big}">${chg < 0 ? "−" : "+"}${(Math.abs(chg) * 100).toFixed(1)}%</b></span>`;
+}
+function peCell(pe, eps, kind, r) {
+  if (eps == null) return `<span class="nm-flag">—</span>`;
+  const e = `${eps < 0 ? "−" : ""}$${money(Math.abs(eps))}`;
+  let title = kind === "ttm" ? "Trailing-twelve-month diluted GAAP EPS" : "Next-twelve-months consensus EPS";
+  if (kind === "ttm") {
+    const qs = (r.earnings?.gaapQuarters || []).map(q => `${q.end.slice(0, 7)}: ${q.eps < 0 ? "−" : ""}$${Math.abs(q.eps).toFixed(2)}`).join(" · ");
+    if (qs) title += ` — by quarter: ${qs}`;
+    else if (r.earnings?.ttmBasis === "yahoo-quote") title += " (Yahoo Finance quote TTM)";
+  } else if (r.earnings?.fy0 != null) {
+    title += ` — blend of FY ending ${r.earnings.fy0End || "?"} ($${money(r.earnings.fy0)}) and next FY ($${money(r.earnings.fy1)})${r.earnings.analysts ? `, ${r.earnings.analysts} analysts` : ""}`;
+  }
+  const top = pe != null ? `${fx(pe)}×` : `<span class="loss">Loss</span>`;
+  return `<span class="stack" title="${esc(title)}">${top}<span class="eps">EPS ${e}</span></span>`;
+}
+function earnCell(r) {
+  const e = r.earnings || {};
+  const d = e.next ? daysTo(e.next) : null;
+  const top = e.next ? `<span class="nx${d != null && d >= 0 && d <= 7 ? " soon" : ""}" title="Next report ${longDate(e.next)} — ${e.nextConfirmed ? "confirmed" : "estimated date"}">${shortDate(e.next)}${e.nextConfirmed ? "" : '<span class="est"> est.</span>'}</span>` : `<span class="nm-flag">—</span>`;
+  const fresh = e.lastReported && daysTo(e.lastReported) >= -14;
+  const bottom = e.lastReported ? `<span class="ls${fresh ? " new" : ""}" title="Last report ${longDate(e.lastReported)}${e.lastQuarter ? ` (${e.lastQuarter} quarter)` : ""} — already in the numbers">last ${shortDate(e.lastReported)}</span>` : "";
+  return `<span class="earn">${top}${bottom}</span>`;
+}
+const vsCell = v => v == null ? `<span class="nm-flag">—</span>` : `<span class="${v < -0.005 ? "delta-neg" : v > 0.005 ? "delta-pos" : ""}">${pct(v)}</span>`;
+
+/* ================= Render ================= */
+let DATA, SECT = [];
+const COLS = [
+  { k: "rank", label: "Company", dir: 1 },
+  { k: "mcap", label: "Mkt cap", dir: -1, cls: "hide-m" },
+  { k: "price", label: "Price", dir: -1, cls: "hide-m" },
+  { k: "ttmPe", label: "Trailing", short: "Trail.", dir: 1, tip: "Price ÷ trailing-twelve-month diluted GAAP EPS" },
+  { k: "fwdPe", label: "Forward", short: "Fwd", dir: 1, tip: "Price ÷ next-twelve-months consensus EPS" },
+  { k: "vs", label: "vs sector", short: "vs sec.", dir: 1, tip: "Forward P/E vs the sector's all-member forward P/E" },
+  { k: "nextKey", label: "Next report", dir: 1, cls: "hide-m" },
+];
+
+function rowHtml(r) {
+  return `<tr>
+    <td class="sticky"><div class="co"><span class="rk">${r.rank}</span><span class="nmw"><span class="tk">${esc(r.t)}</span><span class="nm lg" title="${esc(r.name)}">${esc(r.name)}</span><span class="pm sm">${miniPrice(r)}</span></span></div></td>
+    <td class="val-muted hide-m">${capFmt(r.mcap)}</td>
+    <td class="price hide-m">${priceCell(r)}</td>
+    <td class="val-strong">${peCell(r.ttmPe, r.ttmEps, "ttm", r)}</td>
+    <td class="val-strong">${peCell(r.fwdPe, r.fwdEps, "fwd", r)}</td>
+    <td>${vsCell(r.vs)}</td>
+    <td class="hide-m">${earnCell(r)}</td>
+  </tr>`;
+}
+
+function renderSector(s) {
+  const el = document.getElementById(`s-${slug(s.key)}`);
+  const body = el.querySelector("tbody");
+  const { k, dir } = s.sort;
+  const val = r => r[k] == null ? null : r[k];
+  const rows = [...s.rows].sort((a, b) => {
+    const x = val(a), y = val(b);
+    if (x == null && y == null) return a.rank - b.rank;
+    if (x == null) return 1; if (y == null) return -1;
+    return (x < y ? -1 : x > y ? 1 : 0) * dir || a.rank - b.rank;
+  });
+  body.innerHTML = rows.map(rowHtml).join("");
+  el.querySelectorAll("thead th").forEach(th => {
+    const on = th.dataset.k === k;
+    th.classList.toggle("sorted", on);
+    th.querySelector(".arrow").textContent = dir > 0 ? "▲" : "▼";
+  });
+}
+
+function sectorCard(s) {
+  const t = s.top, a = s.all;
+  const meds = `Median of the ten: ${fx(median(s.rows.map(r => r.ttmPe))) ?? "—"}× trailing · ${fx(median(s.rows.map(r => r.fwdPe))) ?? "—"}× forward`;
+  return `<section class="fade" id="${slug(s.key)}">
+    <div class="card" id="s-${slug(s.key)}">
+      <div class="shead">
+        <div>
+          <h2>${esc(s.name)}</h2>
+          <div class="smeta">Top 10 = ${Math.round((t.share || 0) * 100)}% of the sector's market cap · ${meds}</div>
+        </div>
+        <div class="kpis">
+          <div class="kpi" title="Bottom-up across all ${a.n ?? ""} S&amp;P 500 members of the sector"><div class="k">Sector · all</div><div class="v">${fx(a.t) ?? "—"}<small>×</small> · ${fx(a.f) ?? "—"}<small>×</small></div><div class="c">trailing · forward</div></div>
+          <div class="kpi" title="Σ market cap ÷ Σ earnings over the ten companies below"><div class="k">Top 10</div><div class="v">${fx(t.t) ?? "—"}<small>×</small> · ${fx(t.f) ?? "—"}<small>×</small></div><div class="c">trailing · forward</div></div>
+        </div>
+      </div>
+      <div class="table-scroll"><table class="leaders">
+        <thead><tr>${COLS.map(c => `<th class="sortable${c.k === "rank" ? " sticky" : ""}${c.cls ? " " + c.cls : ""}" data-k="${c.k}"${c.tip ? ` title="${c.tip}"` : ""}>${c.short ? `<span class="lg">${c.label}</span><span class="sm">${c.short}</span>` : c.label}<span class="arrow">▲</span></th>`).join("")}</tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </div>
+  </section>`;
+}
+
+function renderOverview() {
+  const spx = DATA.meta.spx || {};
+  const head = `<thead><tr>
+    <th class="sticky">Sector</th>
+    <th title="Bottom-up across all sector members"><span class="lg">Sector trailing</span><span class="sm">Trailing</span></th><th title="Bottom-up across all sector members"><span class="lg">Sector forward</span><span class="sm">Forward</span></th>
+    <th class="hide-m" title="Σ market cap ÷ Σ earnings over the ten leaders">Top 10 trailing</th><th class="hide-m" title="Σ market cap ÷ Σ earnings over the ten leaders">Top 10 forward</th>
+    <th title="Sector forward P/E vs the S&amp;P 500 forward P/E"><span class="lg">vs S&amp;P 500</span><span class="sm">vs S&amp;P</span></th><th class="hide-m" title="Ten leaders' share of the sector's market cap">Top 10 share</th>
+  </tr></thead>`;
+  const ref = `<tr class="ref"><td class="sticky"><div class="co"><span class="nmw"><span class="tk">S&amp;P 500</span><span class="nm" title="${spx.date ? "Bottom-up across all members, " + longDate(spx.date) : "Index"}">Index</span></span></div></td>
+    <td>${mult(spx.t)}</td><td>${mult(spx.f)}</td><td class="val-muted hide-m">—</td><td class="val-muted hide-m">—</td><td class="val-muted">—</td><td class="val-muted hide-m">—</td></tr>`;
+  const rows = SECT.map(s => `<tr data-href="#${slug(s.key)}">
+    <td class="sticky"><div class="co"><span class="nmw"><span class="tk">${esc(s.short)}</span><span class="nm">${s.all.n ?? ""} members</span></span></div></td>
+    <td class="val-strong">${mult(s.all.t)}</td><td class="val-strong">${mult(s.all.f)}</td>
+    <td class="hide-m">${mult(s.top.t)}</td><td class="hide-m">${mult(s.top.f)}</td>
+    <td>${vsCell(s.all.f && spx.f ? s.all.f / spx.f - 1 : null)}</td>
+    <td class="val-muted hide-m">${Math.round((s.top.share || 0) * 100)}%</td></tr>`).join("");
+  const ov = document.getElementById("ov");
+  ov.innerHTML = head + `<tbody>${ref}${rows}</tbody>`;
+  ov.querySelectorAll("tr[data-href]").forEach(tr => tr.addEventListener("click", () => { location.hash = tr.dataset.href; }));
+}
+
+function renderNav() {
+  const nav = document.getElementById("nav");
+  nav.innerHTML = SECT.map(s => `<a class="chip" href="#${slug(s.key)}" data-k="${slug(s.key)}">${esc(s.short)}</a>`).join("");
+  const chips = [...nav.querySelectorAll(".chip")];
+  const io = new IntersectionObserver(ents => {
+    for (const en of ents) if (en.isIntersecting) {
+      chips.forEach(c => c.classList.toggle("on", c.dataset.k === en.target.id));
+      const on = nav.querySelector(".chip.on");
+      if (on) nav.scrollTo({ left: on.offsetLeft - 24, behavior: "smooth" });
+    }
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  SECT.forEach(s => io.observe(document.getElementById(slug(s.key))));
+}
+
+function renderStamp() {
+  const m = DATA.meta;
+  const nCos = DATA.companies.length;
+  const warn = m.warning ? ` · <span class="warn">${esc(m.warning)}</span>` : "";
+  document.getElementById("stamp").innerHTML = `<strong>Prices as of ${esc(m.pricesAsOf)}</strong> · latest trade incl. after-hours &amp; overnight · ${nCos} companies${warn}`;
+  document.getElementById("footer").textContent = `S&P 500 Sector Leaders · ${m.pricesAsOf} · part of the US Portfolio Valuation Dashboard`;
+}
+
+function init() {
+  const byT = Object.fromEntries(DATA.companies.map(c => [c.t, c]));
+  SECT = DATA.sectors.map(s => ({ ...s, rows: s.tickers.map(t => byT[t]).filter(Boolean).map(c => derive(c, s)), sort: { k: "rank", dir: 1 } }));
+  renderStamp();
+  renderOverview();
+  document.getElementById("sectors").innerHTML = SECT.map(sectorCard).join("");
+  SECT.forEach(s => {
+    renderSector(s);
+    document.querySelectorAll(`#s-${slug(s.key)} thead th`).forEach(th => th.addEventListener("click", () => {
+      const c = COLS.find(x => x.k === th.dataset.k);
+      s.sort = s.sort.k === c.k ? { k: c.k, dir: -s.sort.dir } : { k: c.k, dir: c.dir };
+      renderSector(s);
+    }));
+  });
+  renderNav();
+  const io = new IntersectionObserver(ents => ents.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), { threshold: 0.04 });
+  document.querySelectorAll(".fade").forEach(el => io.observe(el));
+  if (location.hash) { const t = document.querySelector(location.hash); if (t) t.scrollIntoView(); }
+}
+
+(async () => {
+  try {
+    DATA = window.__SECTORS__ || await (await fetch("sectors.json", { cache: "no-store" })).json();
+    init();
+  } catch (err) {
+    document.getElementById("loading").textContent = "Couldn't load the data — please refresh.";
+    document.querySelectorAll(".fade").forEach(el => el.classList.add("in"));
+  }
+})();
+</script>
+</body>
+</html>
