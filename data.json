@@ -1,69 +1,73 @@
 {
   "meta": {
-    "pricesAsOf": "November 2, 2026 at 07:44 Dubai",
-    "pricesAsOfISO": "2026-11-02T03:44:42.133Z",
-    "priceSource": "Yahoo Finance (last trade 2026-11-02 03:44 UTC)",
-    "earningsAsOf": "2026-11-02",
-    "indicesAsOf": "2026-11-02",
+    "pricesAsOf": "November 3, 2026 at 07:41 Dubai",
+    "pricesAsOfISO": "2026-11-03T03:41:53.996Z",
+    "priceSource": "Yahoo Finance (last trade 2026-11-03 03:41 UTC)",
+    "earningsAsOf": "2026-11-03",
+    "indicesAsOf": "2026-11-03",
     "sectorsAll": {
       "secIT": {
-        "t": 31.24,
-        "f": 18.46,
+        "t": 30.93,
+        "f": 17.92,
         "n": 75
       },
       "secEnergy": {
-        "t": 16.85,
-        "f": 12.93,
+        "t": 16.37,
+        "f": 12.38,
         "n": 21
       },
       "secUtil": {
-        "t": 18.92,
-        "f": 16.77,
+        "t": 18.88,
+        "f": 16.85,
         "n": 31
       },
       "secCD": {
-        "t": 28.15,
-        "f": 24.95,
+        "t": 28.64,
+        "f": 25.64,
         "n": 47
       },
       "secInd": {
-        "t": 26.51,
-        "f": 22.32,
+        "t": 26.56,
+        "f": 22.59,
         "n": 83
       },
       "secFin": {
-        "t": 16.27,
-        "f": 15.01,
+        "t": 16.41,
+        "f": 15.27,
         "n": 76
       },
       "secHC": {
-        "t": 36.99,
-        "f": 19.86,
+        "t": 36.97,
+        "f": 19.8,
         "n": 60
       },
       "secComm": {
-        "t": 16.41,
-        "f": 15.97,
+        "t": 16.36,
+        "f": 16.05,
         "n": 19
       },
       "secStaples": {
-        "t": 31.1,
-        "f": 24.23,
+        "t": 31.56,
+        "f": 24.69,
         "n": 34
       },
       "secMat": {
-        "t": 30.65,
-        "f": 17.4,
+        "t": 31.03,
+        "f": 17.7,
         "n": 24
       },
       "secRE": {
-        "t": 34.76,
-        "f": 35.53,
+        "t": 34.88,
+        "f": 35.89,
         "n": 30
       }
     },
-    "earningsUpdatedISO": "2026-11-02T03:44:42.202Z",
+    "earningsUpdatedISO": "2026-11-03T03:41:54.092Z",
     "recentReports": [
+      {
+        "text": "XOM Sep 2026 (reported 2026-10-30)",
+        "detected": "2026-11-03"
+      },
       {
         "text": "SNDK Sep 2026 (reported 2026-10-29)",
         "detected": "2026-10-30"
@@ -103,26 +107,26 @@
       "key": "spx",
       "name": "S&P 500",
       "yahoo": "^GSPC",
-      "price": 7580.07,
+      "price": 7541.4,
       "trailing": {
-        "pe": 24.96,
-        "level": 7580.07,
-        "date": "2026-11-02",
+        "pe": 24.89,
+        "level": 7541.4,
+        "date": "2026-11-03",
         "n": 500,
         "coverage": 1,
         "losers": 24,
-        "exLoss": 23.98,
+        "exLoss": 23.93,
         "source": "Bottom-up from 500 constituents (Yahoo Finance consensus)",
         "basis": "GAAP TTM"
       },
       "forward": {
-        "pe": 18.56,
-        "level": 7580.07,
-        "date": "2026-11-02",
+        "pe": 18.48,
+        "level": 7541.4,
+        "date": "2026-11-03",
         "n": 500,
         "coverage": 1,
         "losers": 3,
-        "exLoss": 18.51,
+        "exLoss": 18.43,
         "source": "Bottom-up from 500 constituents (Yahoo Finance consensus)",
         "basis": "NTM consensus"
       }
@@ -131,26 +135,26 @@
       "key": "ndx",
       "name": "Nasdaq-100",
       "yahoo": "^NDX",
-      "price": 28384.85,
+      "price": 27989.82,
       "trailing": {
-        "pe": 29.97,
-        "level": 28384.85,
-        "date": "2026-11-02",
+        "pe": 29.85,
+        "level": 27989.82,
+        "date": "2026-11-03",
         "n": 100,
         "coverage": 1,
         "losers": 8,
-        "exLoss": 28.2,
+        "exLoss": 28.11,
         "source": "Bottom-up from 100 constituents (Yahoo Finance consensus)",
         "basis": "GAAP TTM"
       },
       "forward": {
-        "pe": 20.72,
-        "level": 28384.85,
-        "date": "2026-11-02",
+        "pe": 20.51,
+        "level": 27989.82,
+        "date": "2026-11-03",
         "n": 100,
         "coverage": 1,
         "losers": 3,
-        "exLoss": 20.6,
+        "exLoss": 20.39,
         "source": "Bottom-up from 100 constituents (Yahoo Finance consensus)",
         "basis": "NTM consensus"
       }
@@ -160,10 +164,10 @@
     {
       "t": "NVDA",
       "name": "Nvidia",
-      "price": 207.81,
+      "price": 203.84,
       "group": "mag7",
       "ttmEps": 7.91,
-      "fwdEps": 14.2906,
+      "fwdEps": 14.3086,
       "growth": {
         "pct": 14,
         "basis": "lt",
@@ -236,16 +240,16 @@
         "fy1": 15.9146,
         "fy1End": "2028-01-31",
         "analysts": 52,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "close": 204.64,
+      "close": 202.06,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:44:28.000Z"
+      "sessionTime": "2026-11-03T03:41:51.000Z"
     },
     {
       "t": "NU",
       "name": "Nu Holdings",
-      "price": 11.81,
+      "price": 11.68,
       "group": "banks",
       "metric": "pb",
       "bvps": 2.743,
@@ -301,21 +305,21 @@
         "fy1": 1.1081,
         "fy1End": "2027-12-31",
         "analysts": 17,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "ttmEps": 0.73,
-      "fwdEps": 1.0674,
-      "close": 11.61,
+      "ttmEps": 0.74,
+      "fwdEps": 1.0681,
+      "close": 11.62,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:33:06.000Z"
+      "sessionTime": "2026-11-03T03:14:00.000Z"
     },
     {
       "t": "CRCL",
       "name": "Circle",
-      "price": 74.29,
+      "price": 71.46,
       "group": "payments",
       "ttmEps": 1.46,
-      "fwdEps": 1.3632,
+      "fwdEps": 1.3569,
       "growth": {
         "pct": 14.5,
         "basis": "lt",
@@ -384,24 +388,24 @@
             "adjEps": 0.64
           }
         ],
-        "fy0": 1.1114,
+        "fy0": 1.1282,
         "fy0End": "2026-12-31",
-        "fy1": 1.4116,
+        "fy1": 1.3999,
         "fy1End": "2027-12-31",
-        "analysts": 20,
-        "updated": "2026-11-02"
+        "analysts": 19,
+        "updated": "2026-11-03"
       },
-      "close": 72.54,
+      "close": 72.08,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:44:35.000Z"
+      "sessionTime": "2026-11-03T03:41:00.000Z"
     },
     {
       "t": "VST",
       "name": "Vistra",
-      "price": 139.98,
+      "price": 135.23,
       "group": "secUtil",
       "ttmEps": 5.92,
-      "fwdEps": 10.1617,
+      "fwdEps": 10.1646,
       "growth": {
         "pct": 16.5,
         "basis": "lt",
@@ -474,19 +478,19 @@
         "fy1": 10.3316,
         "fy1End": "2027-12-31",
         "analysts": 8,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "close": 138.37,
+      "close": 134.61,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:39:09.000Z"
+      "sessionTime": "2026-11-03T03:36:56.000Z"
     },
     {
       "t": "MU",
       "name": "Micron",
-      "price": 911.32,
+      "price": 840.68,
       "group": "secIT",
       "ttmEps": 74.21,
-      "fwdEps": 181.9357,
+      "fwdEps": 182.0135,
       "growth": {
         "pct": 32.6,
         "basis": "lt",
@@ -556,22 +560,22 @@
         ],
         "fy0": 176.5017,
         "fy0End": "2027-08-31",
-        "fy1": 207.8044,
+        "fy1": 207.7605,
         "fy1End": "2028-08-31",
         "analysts": 36,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "close": 884.74,
+      "close": 833.59,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:44:32.000Z"
+      "sessionTime": "2026-11-03T03:41:38.000Z"
     },
     {
       "t": "SNDK",
       "name": "Sandisk",
-      "price": 1189.46,
+      "price": 1085.9,
       "group": "secIT",
       "ttmEps": 124.75,
-      "fwdEps": 246.97,
+      "fwdEps": 248.3787,
       "growth": {
         "pct": 48.2,
         "basis": "lt",
@@ -640,24 +644,24 @@
             "adjEps": 5.83
           }
         ],
-        "fy0": 226.8465,
+        "fy0": 227.8024,
         "fy0End": "2027-06-30",
-        "fy1": 285.4569,
+        "fy1": 287.2585,
         "fy1End": "2028-06-30",
         "analysts": 20,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "close": 1150.89,
+      "close": 1075.08,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:44:31.000Z"
+      "sessionTime": "2026-11-03T03:41:52.000Z"
     },
     {
       "t": "TSM",
       "name": "TSMC (ADR)",
-      "price": 415.15,
+      "price": 403.36,
       "group": "secIT",
-      "ttmEps": 15.43,
-      "fwdEps": 22.4378,
+      "ttmEps": 15.15,
+      "fwdEps": 22.4539,
       "growth": {
         "pct": 28.9,
         "basis": "lt",
@@ -709,19 +713,19 @@
         "fy1": 23.3853,
         "fy1End": "2027-12-31",
         "analysts": 13,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "close": 406.13,
+      "close": 398.63,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:44:19.000Z"
+      "sessionTime": "2026-11-03T03:41:13.000Z"
     },
     {
       "t": "GOOG",
       "name": "Alphabet",
-      "price": 281.81,
+      "price": 278.7,
       "group": "mag7",
       "ttmEps": 19.16,
-      "fwdEps": 15.3249,
+      "fwdEps": 15.1363,
       "growth": {
         "pct": 16.8,
         "basis": "lt",
@@ -789,24 +793,24 @@
             "adjEps": 2.82
           }
         ],
-        "fy0": 16.2944,
+        "fy0": 14.8972,
         "fy0End": "2026-12-31",
-        "fy1": 15.1387,
+        "fy1": 15.1813,
         "fy1End": "2027-12-31",
-        "analysts": 23,
-        "updated": "2026-11-02"
+        "analysts": 22,
+        "updated": "2026-11-03"
       },
-      "close": 278.22,
+      "close": 278.04,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:44:41.000Z"
+      "sessionTime": "2026-11-03T03:40:47.000Z"
     },
     {
       "t": "AMZN",
       "name": "Amazon",
-      "price": 241.61,
+      "price": 245.97,
       "group": "mag7",
       "ttmEps": 12.37,
-      "fwdEps": 10.9989,
+      "fwdEps": 11.0051,
       "growth": {
         "pct": 16.1,
         "basis": "lt",
@@ -874,24 +878,24 @@
             "adjEps": 1.95
           }
         ],
-        "fy0": 12.8109,
+        "fy0": 12.8097,
         "fy0End": "2026-12-31",
-        "fy1": 10.6509,
+        "fy1": 10.6655,
         "fy1End": "2027-12-31",
         "analysts": 56,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "close": 240.35,
+      "close": 245.63,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:43:45.000Z"
+      "sessionTime": "2026-11-03T03:41:45.000Z"
     },
     {
       "t": "MSFT",
       "name": "Microsoft",
-      "price": 522.84,
+      "price": 507.5,
       "group": "mag7",
       "ttmEps": 19.16,
-      "fwdEps": 21.4313,
+      "fwdEps": 21.3513,
       "growth": {
         "pct": 15.9,
         "basis": "lt",
@@ -959,24 +963,24 @@
             "adjEps": 4.14
           }
         ],
-        "fy0": 20.0169,
+        "fy0": 19.8547,
         "fy0End": "2027-06-30",
-        "fy1": 24.1364,
+        "fy1": 24.1793,
         "fy1End": "2028-06-30",
         "analysts": 33,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "close": 521.91,
+      "close": 507.12,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:44:36.000Z"
+      "sessionTime": "2026-11-03T03:41:44.000Z"
     },
     {
       "t": "META",
       "name": "Meta",
-      "price": 617.01,
+      "price": 607.6,
       "group": "mag7",
       "ttmEps": 29.33,
-      "fwdEps": 33.1516,
+      "fwdEps": 33.1647,
       "growth": {
         "pct": 20.6,
         "basis": "lt",
@@ -1049,19 +1053,19 @@
         "fy1": 33.9252,
         "fy1End": "2027-12-31",
         "analysts": 57,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "close": 614.99,
+      "close": 606.73,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:44:40.000Z"
+      "sessionTime": "2026-11-03T03:41:34.000Z"
     },
     {
       "t": "OXY",
       "name": "Occidental",
-      "price": 63.56,
+      "price": 60.87,
       "group": "secEnergy",
       "ttmEps": 6.46,
-      "fwdEps": 5.3142,
+      "fwdEps": 5.3091,
       "growth": {
         "pct": 10.4,
         "basis": "lt",
@@ -1134,19 +1138,19 @@
         "fy1": 5.0153,
         "fy1End": "2027-12-31",
         "analysts": 26,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "close": 64,
+      "close": 60.72,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:39:28.000Z"
+      "sessionTime": "2026-11-03T02:53:16.000Z"
     },
     {
       "t": "XOM",
       "name": "Exxon Mobil",
-      "price": 186.4,
+      "price": 179.66,
       "group": "secEnergy",
-      "ttmEps": 9.72,
-      "fwdEps": 12.2461,
+      "ttmEps": 9.73,
+      "fwdEps": 12.2658,
       "growth": {
         "pct": 13.7,
         "basis": "lt",
@@ -1163,19 +1167,14 @@
         "source": "macrotrends quarterly (macrotrends.net/stocks/charts/XOM/exxonmobil-holdings/pe-ratio), fetched 2026-10-20"
       },
       "earnings": {
-        "lastQuarter": "Jun 2026",
+        "lastQuarter": "Sep 2026",
         "lastQuarterEnd": "2026-09-30",
-        "lastReported": "2026-07-31",
+        "lastReported": "2026-10-30",
         "next": "2027-01-29",
         "nextConfirmed": false,
-        "adjTtm": 8.27,
-        "ttmBasis": "yahoo-quote",
+        "adjTtm": 10.62,
+        "ttmBasis": "4 reported quarters",
         "gaapQuarters": [
-          {
-            "end": "2025-09-30",
-            "eps": 1.76,
-            "src": "Yahoo"
-          },
           {
             "end": "2025-12-31",
             "eps": 1.53,
@@ -1190,9 +1189,19 @@
             "end": "2026-06-30",
             "eps": 3.48,
             "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-09-30",
+            "eps": 3.72,
+            "src": "SEC 10-Q"
           }
         ],
         "quarters": [
+          {
+            "qtr": "Sep 2026",
+            "reported": "2026-10-30",
+            "adjEps": 4.23
+          },
           {
             "qtr": "Jun 2026",
             "reported": "2026-07-31",
@@ -1207,31 +1216,26 @@
             "qtr": "Dec 2025",
             "reported": "2026-01-30",
             "adjEps": 1.71
-          },
-          {
-            "qtr": "Sep 2025",
-            "reported": "2025-10-31",
-            "adjEps": 1.88
           }
         ],
-        "fy0": 13.4582,
+        "fy0": 13.608,
         "fy0End": "2026-12-31",
         "fy1": 12.0133,
         "fy1End": "2027-12-31",
         "analysts": 23,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "close": 187.25,
+      "close": 179.67,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:44:16.000Z"
+      "sessionTime": "2026-11-03T03:37:31.000Z"
     },
     {
       "t": "NKE",
       "name": "Nike",
-      "price": 38.68,
+      "price": 39.05,
       "group": "secCD",
       "ttmEps": 2.08,
-      "fwdEps": 1.3679,
+      "fwdEps": 1.3687,
       "growth": {
         "pct": 7,
         "basis": "lt",
@@ -1304,19 +1308,19 @@
         "fy1": 1.5263,
         "fy1End": "2028-05-31",
         "analysts": 40,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "close": 38.67,
+      "close": 39.12,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:33:14.000Z"
+      "sessionTime": "2026-11-03T03:41:39.000Z"
     },
     {
       "t": "UBER",
       "name": "Uber",
-      "price": 65.53,
+      "price": 66.65,
       "group": "secInd",
       "ttmEps": 4.55,
-      "fwdEps": 4.3132,
+      "fwdEps": 4.3014,
       "growth": {
         "pct": 14.7,
         "basis": "lt",
@@ -1385,25 +1389,25 @@
             "adjEps": 3.11
           }
         ],
-        "fy0": 3.1761,
+        "fy0": 3.1749,
         "fy0End": "2026-12-31",
-        "fy1": 4.5316,
+        "fy1": 4.5133,
         "fy1End": "2027-12-31",
-        "analysts": 38,
-        "updated": "2026-11-02"
+        "analysts": 37,
+        "updated": "2026-11-03"
       },
-      "close": 65.25,
+      "close": 66.71,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:42:28.000Z"
+      "sessionTime": "2026-11-03T03:40:44.000Z"
     }
   ],
   "peers": [
     {
       "t": "AAPL",
       "name": "Apple",
-      "price": 344.92,
+      "price": 331,
       "ttmEps": 8.72,
-      "fwdEps": 9.5538,
+      "fwdEps": 9.7069,
       "earnings": {
         "lastQuarter": "Jun 2026",
         "lastQuarterEnd": "2026-06-27",
@@ -1456,23 +1460,23 @@
             "adjEps": 1.85
           }
         ],
-        "fy0": 8.832,
-        "fy0End": "2026-09-30",
-        "fy1": 9.5538,
-        "fy1End": "2027-09-30",
-        "analysts": 39,
-        "updated": "2026-11-02"
+        "fy0": 9.5902,
+        "fy0End": "2027-09-30",
+        "fy1": 10.8295,
+        "fy1End": "2028-09-30",
+        "analysts": 22,
+        "updated": "2026-11-03"
       },
-      "close": 344.63,
+      "close": 338.32,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:43:56.000Z"
+      "sessionTime": "2026-11-03T03:41:45.000Z"
     },
     {
       "t": "TSLA",
       "name": "Tesla",
-      "price": 401.01,
+      "price": 403.78,
       "ttmEps": 0.91,
-      "fwdEps": 2.0885,
+      "fwdEps": 2.0926,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastQuarterEnd": "2026-09-30",
@@ -1525,23 +1529,23 @@
             "adjEps": 0.31
           }
         ],
-        "fy0": 1.7405,
+        "fy0": 1.7387,
         "fy0End": "2026-12-31",
-        "fy1": 2.1553,
+        "fy1": 2.1592,
         "fy1End": "2027-12-31",
-        "analysts": 33,
-        "updated": "2026-11-02"
+        "analysts": 32,
+        "updated": "2026-11-03"
       },
-      "close": 399.81,
+      "close": 403.82,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:43:57.000Z"
+      "sessionTime": "2026-11-03T03:41:40.000Z"
     },
     {
       "t": "V",
       "name": "Visa",
-      "price": 413.16,
+      "price": 424.84,
       "ttmEps": 12.33,
-      "fwdEps": 15.2209,
+      "fwdEps": 15.2216,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastQuarterEnd": "2026-09-30",
@@ -1594,23 +1598,23 @@
             "adjEps": 3.17
           }
         ],
-        "fy0": 15.0282,
+        "fy0": 15.0232,
         "fy0End": "2027-09-30",
-        "fy1": 17.1349,
+        "fy1": 17.1297,
         "fy1End": "2028-09-30",
         "analysts": 32,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
-      "close": 413.59,
+      "close": 425.51,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:21:07.000Z"
+      "sessionTime": "2026-11-03T03:40:46.000Z"
     },
     {
       "t": "MA",
       "name": "Mastercard",
-      "price": 638.55,
+      "price": 657.11,
       "ttmEps": 19.12,
-      "fwdEps": 22.637,
+      "fwdEps": 22.639,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastQuarterEnd": "2026-09-30",
@@ -1663,21 +1667,21 @@
             "adjEps": 4.76
           }
         ],
-        "fy0": 20.036,
+        "fy0": 20.0397,
         "fy0End": "2026-12-31",
-        "fy1": 23.1365,
+        "fy1": 23.1281,
         "fy1End": "2027-12-31",
-        "analysts": 37,
-        "updated": "2026-11-02"
+        "analysts": 39,
+        "updated": "2026-11-03"
       },
-      "close": 638.01,
+      "close": 658.1,
       "session": "overnight",
-      "sessionTime": "2026-11-02T02:56:25.000Z"
+      "sessionTime": "2026-11-03T03:29:05.000Z"
     },
     {
       "t": "JPM",
       "name": "JPMorgan Chase",
-      "price": 338.28,
+      "price": 340.19,
       "metric": "pb",
       "bvps": 132.297,
       "earnings": {
@@ -1734,21 +1738,21 @@
         ],
         "fy0": 24.021,
         "fy0End": "2026-12-31",
-        "fy1": 25.5312,
+        "fy1": 25.5731,
         "fy1End": "2027-12-31",
         "analysts": 15,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
       "ttmEps": 23.84,
-      "fwdEps": 25.2879,
-      "close": 337.04,
+      "fwdEps": 25.3273,
+      "close": 340.58,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:23:37.000Z"
+      "sessionTime": "2026-11-03T03:36:28.000Z"
     },
     {
       "t": "BAC",
       "name": "Bank of America",
-      "price": 50.19,
+      "price": 49.53,
       "metric": "pb",
       "bvps": 39.255,
       "earnings": {
@@ -1803,23 +1807,23 @@
             "adjEps": 0.98
           }
         ],
-        "fy0": 4.3901,
+        "fy0": 4.3857,
         "fy0End": "2026-12-31",
-        "fy1": 5.1009,
+        "fy1": 5.101,
         "fy1End": "2027-12-31",
         "analysts": 17,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
       "ttmEps": 4.21,
-      "fwdEps": 4.9863,
-      "close": 50.01,
+      "fwdEps": 4.9877,
+      "close": 49.57,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:41:51.000Z"
+      "sessionTime": "2026-11-03T03:33:10.000Z"
     },
     {
       "t": "WFC",
       "name": "Wells Fargo",
-      "price": 83.45,
+      "price": 85.89,
       "metric": "pb",
       "bvps": 52.858,
       "earnings": {
@@ -1874,23 +1878,23 @@
             "adjEps": 1.76
           }
         ],
-        "fy0": 7.3419,
+        "fy0": 7.3416,
         "fy0End": "2026-12-31",
-        "fy1": 8.0611,
+        "fy1": 8.0618,
         "fy1End": "2027-12-31",
         "analysts": 21,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
       "ttmEps": 7.09,
-      "fwdEps": 7.9452,
-      "close": 83.4,
+      "fwdEps": 7.9477,
+      "close": 85.89,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:05:39.000Z"
+      "sessionTime": "2026-11-03T02:32:13.000Z"
     },
     {
       "t": "GS",
       "name": "Goldman Sachs",
-      "price": 901.58,
+      "price": 896,
       "metric": "pb",
       "bvps": 372.246,
       "earnings": {
@@ -1920,7 +1924,7 @@
           {
             "end": "2026-09-30",
             "eps": 17.01,
-            "src": "SEC 8-K"
+            "src": "SEC 10-Q"
           }
         ],
         "quarters": [
@@ -1945,18 +1949,18 @@
             "adjEps": 14.01
           }
         ],
-        "fy0": 71.4698,
+        "fy0": 71.4638,
         "fy0End": "2026-12-31",
-        "fy1": 74.4932,
+        "fy1": 74.6299,
         "fy1End": "2027-12-31",
         "analysts": 24,
-        "updated": "2026-11-02"
+        "updated": "2026-11-03"
       },
       "ttmEps": 69.55,
-      "fwdEps": 74.0061,
-      "close": 894.55,
+      "fwdEps": 74.1285,
+      "close": 898.72,
       "session": "overnight",
-      "sessionTime": "2026-11-02T03:43:58.000Z"
+      "sessionTime": "2026-11-03T03:20:55.000Z"
     }
   ],
   "groups": {
@@ -1995,42 +1999,42 @@
     "secIT": {
       "label": "S&P 500 Information Technology",
       "short": "Info Tech sector",
-      "t": 31.24,
-      "f": 18.46,
+      "t": 30.93,
+      "f": 17.92,
       "n": 75,
-      "asOf": "2026-11-02"
+      "asOf": "2026-11-03"
     },
     "secUtil": {
       "label": "S&P 500 Utilities",
       "short": "Utilities sector",
-      "t": 18.92,
-      "f": 16.77,
+      "t": 18.88,
+      "f": 16.85,
       "n": 31,
-      "asOf": "2026-11-02"
+      "asOf": "2026-11-03"
     },
     "secEnergy": {
       "label": "S&P 500 Energy",
       "short": "Energy sector",
-      "t": 16.85,
-      "f": 12.93,
+      "t": 16.37,
+      "f": 12.38,
       "n": 21,
-      "asOf": "2026-11-02"
+      "asOf": "2026-11-03"
     },
     "secCD": {
       "label": "S&P 500 Consumer Discretionary",
       "short": "Cons. Disc. sector",
-      "t": 28.15,
-      "f": 24.95,
+      "t": 28.64,
+      "f": 25.64,
       "n": 47,
-      "asOf": "2026-11-02"
+      "asOf": "2026-11-03"
     },
     "secInd": {
       "label": "S&P 500 Industrials",
       "short": "Industrials sector",
-      "t": 26.51,
-      "f": 22.32,
+      "t": 26.56,
+      "f": 22.59,
       "n": 83,
-      "asOf": "2026-11-02"
+      "asOf": "2026-11-03"
     }
   },
   "notes": [
