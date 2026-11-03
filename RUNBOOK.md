@@ -52,6 +52,13 @@ Research JSON snapshots from each pass go in `data/` for provenance.
 - **Check health**: `gh run list -R lopushokbot/us-portfolio-dashboard -w "Daily price update" -L 5` — a failed run means Yahoo blocked every ticker (script exits 1 only when 0/25 succeed). Partial failures keep the old price and show a "Stale price for: …" warning in the page header.
 - **Local test**: `node scripts/update-prices.mjs` (writes data.json; commit + push to publish)
 
+## Sector leaders page
+
+- Live: https://lopushokbot.github.io/us-portfolio-dashboard/sectors.html (refreshed by the daily workflow).
+- Run locally: `node scripts/update-indices.mjs && node scripts/update-sectors.mjs` (sector "all members" values come from data.json, so run indices first).
+- Send to Telegram: `node scripts/export-sectors.mjs && node scripts/send-telegram.mjs exports/sectors-<date>.html "S&P 500 Sector Leaders · <date>"`. The export is pre-rendered so it reads without JavaScript (iOS Quick Look); verify at 390px.
+- GAAP outliers are real one-offs (e.g. MLM gain, BA asset-sale gain, MRK/GILD charges) — hover a trailing figure for its four quarters. If a quarterly sum and Yahoo's quote TTM differ >5×, the quote wins (share-basis mismatch: splits, BRK).
+
 ## Deploy changes manually
 
 ```bash
@@ -62,6 +69,8 @@ git add -A && git commit -m "…" && git push
 ```
 
 ## Log
+
+- **2026-11-03 (v8)** — Sector leaders sub-page (`sectors.html`): top 10 per S&P 500 sector, 110 companies, same P/E logic as holdings; daily workflow step `update-sectors.mjs` after the index rebuild (timeout raised to 30 min); file sent to Sema's Telegram (message 472). Refactor of update-fundamentals into `earnings.mjs` verified identical on all 23 rows.
 
 - **2026-10-30 (v7.3)** — Sema approved the Mac trigger. LaunchAgent `com.lopushokbot.us-dashboard` runs `~/us-portfolio-dashboard-trigger/trigger.sh` at 07:30 Dubai + hourly + at login; it dispatches the workflow once per Dubai day (skips if `meta.pricesAsOfISO` is today or a run is in progress). Verified gh auth (keyring) works under launchd. GitHub cron slots stay as backup.
 
