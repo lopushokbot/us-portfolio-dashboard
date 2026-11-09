@@ -268,14 +268,22 @@ export async function secReleaseQuarter(cik, known, dbg = {}) {
  * GAAP diluted EPS by quarter from EDGAR for a US filer: XBRL quarters plus, when the newest quarter is only
  * in the earnings release so far, that quarter. Also returns the latest earnings-release (8-K item 2.02) date.
  */
-export async function secQuarterlyEps(ticker) {
+export async function secQuarterlyEps(ticker, yahooQs = []) {
   const cik = await secCik(ticker);
   if (!cik) throw new Error("no CIK");
-  const quarters = await secXbrlQuarters(cik);
-  if (!quarters.length) throw new Error("no XBRL EPS");
+  let quarters = [];
+  try { quarters = await secXbrlQuarters(cik); } catch (e) { /* no plain EarningsPerShareDiluted tag (ABNB, MNST, V …) */ }
+  /* The release reader needs the last four quarters. Where XBRL is missing or behind, Yahoo's quarters stand in
+     (filed = the day after quarter end, so only releases after that quarter are read) — ABNB/MNST reports landed a day
+     late before this, waiting for Yahoo. */
+  const known = [...quarters];
+  for (const y of yahooQs) if (!known.some(x => Math.abs(days(x.end, y.end)) <= 20))
+    known.push({ end: y.end, eps: y.eps, filed: new Date(Date.parse(y.end) + 864e5).toISOString().slice(0, 10), src: "Yahoo" });
+  known.sort((a, b) => a.end.localeCompare(b.end));
   let release = null;
-  try { release = await secReleaseQuarter(cik, quarters); } catch (e) { /* release parse is best-effort */ }
+  try { release = await secReleaseQuarter(cik, known); } catch (e) { /* release parse is best-effort */ }
   if (release) quarters.push(release);
+  if (!quarters.length) throw new Error("no XBRL EPS");
   const sub = await secFetch(`https://data.sec.gov/submissions/CIK${cik}.json`);
   const r = sub.filings.recent, last = quarters[quarters.length - 1];
   let releaseDate = null;

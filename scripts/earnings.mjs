@@ -40,18 +40,20 @@ export async function refreshEarnings(row, q, log = [], newReports = [], now = n
   const mrq = s.defaultKeyStatistics?.mostRecentQuarter?.fmt || null;
   let ttm = q.epsTrailingTwelveMonths != null ? q.epsTrailingTwelveMonths * scale : null, ttmBasis = "yahoo-quote", gaapQuarters = null, sec = null;
   if ((q.financialCurrency || "USD") === "USD") {
-    try { sec = await secQuarterlyEps(t); } catch (e) { /* foreign filers (IFRS) and odd XBRL tags: Yahoo only */ }
+    let yq = [];
+    try { yq = await yahooQuarterlyEps(t); } catch (e) { /* SEC alone may still cover it */ }
+    try { sec = await secQuarterlyEps(t, yq); } catch (e) { /* foreign filers (IFRS) and odd XBRL tags: Yahoo only */ }
     try {
-      let yq = [];
-      try { yq = await yahooQuarterlyEps(t); } catch (e) { if (!sec) throw e; }
+      if (!yq.length && !sec) throw new Error("no quarterly data");
       const qs = mergeQuarters(yq, sec?.quarters);
       const newest = qs[qs.length - 1];
       const fresh = newest && newest.src !== "Yahoo" && (!mrq || days(mrq, newest.end) > 20);
       if (fresh) log.push(`${t}: ${newest.end.slice(0, 7)} quarter from SEC ${newest.src} (EPS ${newest.eps}) — not in Yahoo yet`);
       const sum = ttmFromQuarters(qs, fresh ? newest.end : mrq);
-      /* unit guard: a per-Class-A or per-ordinary-share XBRL figure (BRK-B) is off by 100×+ from the quoted share */
+      /* unit guard: per-Class-A-share XBRL (BRK-B) or pre-split quarters (BKNG) are off by 10×+ from the quoted share.
+         Only for clearly positive earnings — near-zero or loss TTMs swing by large ratios legitimately (LYV, Nov 2026) */
       const ratio = sum && ttm ? sum.ttm / ttm : 1;
-      if (sum && ratio > 0 && (ratio > 5 || ratio < 0.2)) log.push(`${t}: quarterly sum ${sum.ttm.toFixed(2)} vs quote TTM ${ttm.toFixed(2)} — different share basis, using the quote TTM`);
+      if (sum && sum.ttm > 0 && ttm > 0 && (ratio > 8 || ratio < 0.125)) log.push(`${t}: quarterly sum ${sum.ttm.toFixed(2)} vs quote TTM ${ttm.toFixed(2)} — different share basis, using the quote TTM`);
       else if (sum) {
         if (ttm != null && Math.abs(sum.ttm - ttm) > 0.1 * Math.abs(sum.ttm)) log.push(`${t}: quarterly sum ${sum.ttm.toFixed(2)} vs quote TTM ${ttm.toFixed(2)} — using the quarterly sum`);
         ttm = sum.ttm; ttmBasis = "4 reported quarters";
@@ -72,9 +74,23 @@ export async function refreshEarnings(row, q, log = [], newReports = [], now = n
   /* the GAAP quarters can be a quarter ahead of Nasdaq/Yahoo on report day — the newest source wins */
   const gEnd = gaapQuarters?.[gaapQuarters.length - 1]?.end;
   const nqMonth = reports[0] ? qtrMonth(reports[0].qtr) : null;
-  const secAhead = gEnd && gaapQuarters[gaapQuarters.length - 1].src !== "Yahoo" && (!nqMonth || endMonth(gEnd) > nqMonth);
-  const lastQuarter = secAhead ? qtrLabel(gEnd) : reports[0]?.qtr || prev.lastQuarter || null;
-  const lastReported = secAhead ? sec.lastReported : reports[0]?.reported || prev.lastReported || null;
+  /* Nasdaq's report list often lags by days (SO/DUK/SRE, VST in Nov 2026): whenever the earnings in use already include
+     a newer quarter — from SEC, Yahoo's quarters, or Yahoo's quote (mostRecentQuarter) — label the report from that */
+  /* quote-based TTM: trust Yahoo's newer mostRecentQuarter only once the quoted EPS has actually moved (or it was
+     already labelled so on an earlier run) — Yahoo can roll the date before the figure (BRK-B, Nov 2026) */
+  const quoteMoved = ttm != null && row.ttmEps != null && Math.abs(ttm - row.ttmEps) > 0.005;
+  const quoteKnown = prev.lastQuarterEnd && mrq && endMonth(prev.lastQuarterEnd) >= endMonth(mrq);
+  const qEnd = gEnd || (ttmBasis === "yahoo-quote" && (quoteMoved || quoteKnown) ? mrq : null);
+  const ahead = qEnd && (!nqMonth || endMonth(qEnd) > nqMonth);
+  let relDate = null;
+  if (ahead) {
+    const sLast = sec?.quarters?.[sec.quarters.length - 1];
+    const yTs = q.earningsTimestamp ? fromTs(q.earningsTimestamp) : null;
+    if (sLast && Math.abs(days(sLast.end, qEnd)) <= 20) relDate = sec.lastReported;
+    else if (yTs && yTs > qEnd && yTs <= today) relDate = yTs;
+  }
+  const lastQuarter = ahead ? qtrLabel(qEnd) : reports[0]?.qtr || prev.lastQuarter || null;
+  const lastReported = ahead ? relDate || prev.lastReported || null : reports[0]?.reported || prev.lastReported || null;
   let nextDate = next, nextConfirmed = s.calendarEvents?.earnings?.isEarningsDateEstimate === false;
   /* Yahoo keeps the just-passed date for a few days after a report — roll it a quarter forward as an estimate */
   if (nextDate && lastReported && nextDate <= lastReported) { nextDate = isoDay(Date.parse(lastReported) + 91 * 864e5); nextConfirmed = false; }
@@ -82,7 +98,7 @@ export async function refreshEarnings(row, q, log = [], newReports = [], now = n
   const aligned = !gEnd || !nqMonth || endMonth(gEnd) === nqMonth;
   const earnings = {
     lastQuarter,
-    lastQuarterEnd: secAhead ? gEnd : mrq || prev.lastQuarterEnd || null,
+    lastQuarterEnd: ahead ? qEnd : mrq || prev.lastQuarterEnd || null,
     lastReported,
     next: nextDate || null,
     nextConfirmed,
