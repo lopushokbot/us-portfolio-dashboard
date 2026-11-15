@@ -1,12 +1,12 @@
 {
   "meta": {
-    "asOf": "2026-11-14",
-    "asOfISO": "2026-11-14T03:41:55.385Z",
-    "pricesAsOf": "November 14, 2026 at 07:41 Dubai",
+    "asOf": "2026-11-15",
+    "asOfISO": "2026-11-15T03:32:45.432Z",
+    "pricesAsOf": "November 15, 2026 at 07:32 Dubai",
     "spx": {
       "t": 24.7,
-      "f": 18.44,
-      "date": "2026-11-14",
+      "f": 18.43,
+      "date": "2026-11-15",
       "level": 7561.67
     },
     "universe": "503 S&P 500 members (Wikipedia), GICS sectors",
@@ -108,15 +108,15 @@
       "short": "Info Tech",
       "all": {
         "t": 29.09,
-        "f": 17.3,
+        "f": 17.28,
         "n": 76
       },
       "top": {
         "t": 28.71,
-        "f": 17.03,
+        "f": 17,
         "medT": 27.25,
-        "medF": 20.86,
-        "cap": 17737334168035,
+        "medF": 20.85,
+        "cap": 17736804344011,
         "share": 0.76,
         "losersT": 1,
         "losersF": 0
@@ -140,15 +140,15 @@
       "short": "Comm. Services",
       "all": {
         "t": 16.83,
-        "f": 16.98,
+        "f": 16.95,
         "n": 19
       },
       "top": {
         "t": 16.7,
         "f": 17.15,
-        "medT": 16.4,
+        "medT": 16.38,
         "medF": 16.18,
-        "cap": 6490571604732,
+        "cap": 6489940433083,
         "share": 0.96,
         "losersT": 1,
         "losersF": 0
@@ -179,8 +179,8 @@
         "t": 30.06,
         "f": 30.56,
         "medT": 24.51,
-        "medF": 23.92,
-        "cap": 5659878343987,
+        "medF": 23.93,
+        "cap": 5659246369077,
         "share": 0.8,
         "losersT": 0,
         "losersF": 0
@@ -204,14 +204,14 @@
       "short": "Financials",
       "all": {
         "t": 17.51,
-        "f": 15.53,
+        "f": 15.52,
         "n": 76
       },
       "top": {
         "t": 17.22,
-        "f": 17.11,
+        "f": 17.1,
         "medT": 14.78,
-        "medF": 13.8,
+        "medF": 13.79,
         "cap": 5129681798753,
         "share": 0.57,
         "losersT": 0,
@@ -235,15 +235,15 @@
       "name": "Health Care",
       "short": "Health Care",
       "all": {
-        "t": 36.73,
+        "t": 36.75,
         "f": 20.04,
         "n": 60
       },
       "top": {
         "t": 46.32,
-        "f": 21.31,
+        "f": 21.3,
         "medT": 41.33,
-        "medF": 18.62,
+        "medF": 18.61,
         "cap": 4295662282860,
         "share": 0.61,
         "losersT": 1,
@@ -268,12 +268,12 @@
       "short": "Industrials",
       "all": {
         "t": 27.21,
-        "f": 22.32,
+        "f": 22.3,
         "n": 83
       },
       "top": {
         "t": 27.56,
-        "f": 24.79,
+        "f": 24.78,
         "medT": 27.91,
         "medF": 23.21,
         "cap": 2001239225156,
@@ -299,16 +299,16 @@
       "name": "Consumer Staples",
       "short": "Cons. Staples",
       "all": {
-        "t": 31.93,
-        "f": 25.09,
+        "t": 31.95,
+        "f": 25.1,
         "n": 33
       },
       "top": {
-        "t": 32.51,
+        "t": 32.52,
         "f": 28.65,
         "medT": 29.05,
-        "medF": 24.14,
-        "cap": 3217960672049,
+        "medF": 24.13,
+        "cap": 3221073539923,
         "share": 0.82,
         "losersT": 0,
         "losersF": 0
@@ -331,13 +331,13 @@
       "name": "Energy",
       "short": "Energy",
       "all": {
-        "t": 14.5,
-        "f": 11.72,
+        "t": 14.51,
+        "f": 11.75,
         "n": 21
       },
       "top": {
         "t": 14.42,
-        "f": 11.86,
+        "f": 11.91,
         "medT": 15.53,
         "medF": 12.72,
         "cap": 1933152861070,
@@ -369,7 +369,7 @@
       },
       "top": {
         "t": 19.09,
-        "f": 18.62,
+        "f": 18.61,
         "medT": 20.06,
         "medF": 18.5,
         "cap": 820325009148,
@@ -396,12 +396,12 @@
       "short": "Real Estate",
       "all": {
         "t": 37.03,
-        "f": 36.86,
+        "f": 36.91,
         "n": 30
       },
       "top": {
         "t": 42.7,
-        "f": 44.75,
+        "f": 44.88,
         "medT": 40.57,
         "medF": 40,
         "cap": 871488636284,
@@ -462,7 +462,7 @@
       "sector": "Information Technology",
       "rank": 1,
       "ttmEps": 8.97,
-      "fwdEps": 9.5574,
+      "fwdEps": 9.5779,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-02",
@@ -491,9 +491,9 @@
             "src": "SEC 10-K"
           }
         ],
-        "fy0": 9.4132,
+        "fy0": 9.4294,
         "fy0End": "2027-09-30",
-        "fy1": 10.5734,
+        "fy1": 10.598,
         "fy1End": "2028-09-30",
         "analysts": 35
       },
@@ -509,7 +509,7 @@
       "sector": "Information Technology",
       "rank": 2,
       "ttmEps": 7.91,
-      "fwdEps": 14.4451,
+      "fwdEps": 14.4804,
       "earnings": {
         "lastQuarter": "Jul 2026",
         "lastReported": "2026-08-26",
@@ -538,9 +538,9 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 9.3233,
+        "fy0": 9.327,
         "fy0End": "2027-01-31",
-        "fy1": 15.8324,
+        "fy1": 15.8537,
         "fy1End": "2028-01-31",
         "analysts": 51
       },
@@ -556,7 +556,7 @@
       "sector": "Information Technology",
       "rank": 3,
       "ttmEps": 19.16,
-      "fwdEps": 21.5852,
+      "fwdEps": 21.5965,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -650,7 +650,7 @@
       "sector": "Information Technology",
       "rank": 5,
       "ttmEps": 74.21,
-      "fwdEps": 182.9549,
+      "fwdEps": 183.0399,
       "earnings": {
         "lastQuarter": "Aug 2026",
         "lastReported": "2026-09-30",
@@ -697,7 +697,7 @@
       "sector": "Information Technology",
       "rank": 6,
       "ttmEps": 4.6,
-      "fwdEps": 16.4586,
+      "fwdEps": 16.4847,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-03",
@@ -744,7 +744,7 @@
       "sector": "Information Technology",
       "rank": 7,
       "ttmEps": 1.43,
-      "fwdEps": 2.4314,
+      "fwdEps": 2.4337,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-02",
@@ -791,7 +791,7 @@
       "sector": "Information Technology",
       "rank": 8,
       "ttmEps": 6.38,
-      "fwdEps": 9.4834,
+      "fwdEps": 9.4914,
       "earnings": {
         "lastQuarter": "Aug 2026",
         "lastReported": "2026-09-10",
@@ -838,7 +838,7 @@
       "sector": "Information Technology",
       "rank": 9,
       "ttmEps": 3.76,
-      "fwdEps": 5.6292,
+      "fwdEps": 5.6514,
       "earnings": {
         "lastQuarter": "Oct 2026",
         "lastReported": "2026-11-12",
@@ -867,17 +867,17 @@
             "src": "SEC 8-K"
           }
         ],
-        "fy0": 5.5048,
+        "fy0": 5.5035,
         "fy0End": "2027-07-31",
-        "fy1": 5.9319,
+        "fy1": 6.0065,
         "fy1End": "2028-07-31",
-        "analysts": 27
+        "analysts": 28
       },
       "price": 94.5,
       "close": 95.64,
       "session": "post",
       "sessionTime": "2026-11-14T00:59:07.000Z",
-      "mcap": 372574461880
+      "mcap": 372044637856
     },
     {
       "t": "INTC",
@@ -885,7 +885,7 @@
       "sector": "Information Technology",
       "rank": 10,
       "ttmEps": -2.41,
-      "fwdEps": 1.7515,
+      "fwdEps": 1.7523,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -932,7 +932,7 @@
       "sector": "Communication Services",
       "rank": 1,
       "ttmEps": 19.16,
-      "fwdEps": 15.5582,
+      "fwdEps": 15.5457,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -979,7 +979,7 @@
       "sector": "Communication Services",
       "rank": 2,
       "ttmEps": 29.33,
-      "fwdEps": 33.3502,
+      "fwdEps": 33.3634,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -1018,7 +1018,7 @@
       "close": 641.69,
       "session": "post",
       "sessionTime": "2026-11-14T00:59:39.000Z",
-      "mcap": 1628728174882
+      "mcap": 1628351228656
     },
     {
       "t": "NFLX",
@@ -1026,7 +1026,7 @@
       "sector": "Communication Services",
       "rank": 3,
       "ttmEps": 3.46,
-      "fwdEps": 3.7432,
+      "fwdEps": 3.7437,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-20",
@@ -1102,7 +1102,7 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 6.9329,
+        "fy0": 6.934,
         "fy0End": "2026-09-30",
         "fy1": 7.4924,
         "fy1End": "2027-09-30",
@@ -1120,7 +1120,7 @@
       "sector": "Communication Services",
       "rank": 5,
       "ttmEps": 3.92,
-      "fwdEps": 5.274,
+      "fwdEps": 5.2747,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-26",
@@ -1167,7 +1167,7 @@
       "sector": "Communication Services",
       "rank": 6,
       "ttmEps": 10.36,
-      "fwdEps": 13.6529,
+      "fwdEps": 13.6605,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -1202,11 +1202,11 @@
         "fy1End": "2027-12-31",
         "analysts": 21
       },
-      "price": 169.94,
+      "price": 169.7,
       "close": 169.95,
       "session": "post",
       "sessionTime": "2026-11-13T22:06:48.000Z",
-      "mcap": 180012785194
+      "mcap": 179758559771
     },
     {
       "t": "T",
@@ -1214,7 +1214,7 @@
       "sector": "Communication Services",
       "rank": 7,
       "ttmEps": 1.85,
-      "fwdEps": 2.5701,
+      "fwdEps": 2.5706,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -1261,7 +1261,7 @@
       "sector": "Communication Services",
       "rank": 8,
       "ttmEps": 14.86,
-      "fwdEps": 20.152,
+      "fwdEps": 20.1642,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-04",
@@ -1308,7 +1308,7 @@
       "sector": "Communication Services",
       "rank": 9,
       "ttmEps": 3.16,
-      "fwdEps": 3.5189,
+      "fwdEps": 3.519,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-22",
@@ -1337,7 +1337,7 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 3.4987,
+        "fy0": 3.4992,
         "fy0End": "2026-12-31",
         "fy1": 3.5219,
         "fy1End": "2027-12-31",
@@ -1355,7 +1355,7 @@
       "sector": "Communication Services",
       "rank": 10,
       "ttmEps": -1.29,
-      "fwdEps": 4.4349,
+      "fwdEps": 4.4673,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-09",
@@ -1384,9 +1384,9 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 1.8939,
+        "fy0": 1.9057,
         "fy0End": "2027-03-31",
-        "fy1": 5.9573,
+        "fy1": 5.9843,
         "fy1End": "2028-03-31",
         "analysts": 15
       },
@@ -1402,7 +1402,7 @@
       "sector": "Consumer Discretionary",
       "rank": 1,
       "ttmEps": 12.37,
-      "fwdEps": 10.9524,
+      "fwdEps": 10.9489,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -1431,9 +1431,9 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 12.8011,
+        "fy0": 12.8038,
         "fy0End": "2026-12-31",
-        "fy1": 10.6804,
+        "fy1": 10.6826,
         "fy1End": "2027-12-31",
         "analysts": 58
       },
@@ -1449,7 +1449,7 @@
       "sector": "Consumer Discretionary",
       "rank": 2,
       "ttmEps": 0.91,
-      "fwdEps": 2.1034,
+      "fwdEps": 2.1046,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -1496,7 +1496,7 @@
       "sector": "Consumer Discretionary",
       "rank": 3,
       "ttmEps": 14.29,
-      "fwdEps": 15.719,
+      "fwdEps": 15.7214,
       "earnings": {
         "lastQuarter": "Jul 2026",
         "lastReported": "2026-08-18",
@@ -1543,7 +1543,7 @@
       "sector": "Consumer Discretionary",
       "rank": 4,
       "ttmEps": 12.64,
-      "fwdEps": 13.562,
+      "fwdEps": 13.5639,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-04",
@@ -1590,7 +1590,7 @@
       "sector": "Consumer Discretionary",
       "rank": 5,
       "ttmEps": 5.41,
-      "fwdEps": 5.6336,
+      "fwdEps": 5.635,
       "earnings": {
         "lastQuarter": "Jul 2026",
         "lastReported": "2026-08-19",
@@ -1629,7 +1629,7 @@
       "close": 134.37,
       "session": "post",
       "sessionTime": "2026-11-13T23:58:52.000Z",
-      "mcap": 147588499580
+      "mcap": 146956524670
     },
     {
       "t": "LOW",
@@ -1637,7 +1637,7 @@
       "sector": "Consumer Discretionary",
       "rank": 6,
       "ttmEps": 11.83,
-      "fwdEps": 12.7875,
+      "fwdEps": 12.7849,
       "earnings": {
         "lastQuarter": "Jul 2026",
         "lastReported": "2026-08-19",
@@ -1666,9 +1666,9 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 12.2911,
+        "fy0": 12.2892,
         "fy0End": "2027-01-31",
-        "fy1": 12.922,
+        "fy1": 12.917,
         "fy1End": "2028-01-31",
         "analysts": 32
       },
@@ -1684,7 +1684,7 @@
       "sector": "Consumer Discretionary",
       "rank": 7,
       "ttmEps": 2.21,
-      "fwdEps": 3.2796,
+      "fwdEps": 3.281,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -1731,7 +1731,7 @@
       "sector": "Consumer Discretionary",
       "rank": 8,
       "ttmEps": 9.22,
-      "fwdEps": 12.0219,
+      "fwdEps": 12.0089,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-03",
@@ -1739,9 +1739,9 @@
         "nextConfirmed": false,
         "ttmBasis": "yahoo-quote",
         "gaapQuarters": null,
-        "fy0": 10.4236,
+        "fy0": 10.4152,
         "fy0End": "2026-12-31",
-        "fy1": 12.257,
+        "fy1": 12.2377,
         "fy1End": "2027-12-31",
         "analysts": 30
       },
@@ -1757,7 +1757,7 @@
       "sector": "Consumer Discretionary",
       "rank": 9,
       "ttmEps": 5.35,
-      "fwdEps": 6.2559,
+      "fwdEps": 6.2581,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -1804,7 +1804,7 @@
       "sector": "Consumer Discretionary",
       "rank": 10,
       "ttmEps": 10.02,
-      "fwdEps": 13.2705,
+      "fwdEps": 13.2743,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-02",
@@ -1851,7 +1851,7 @@
       "sector": "Financials",
       "rank": 1,
       "ttmEps": 35.73,
-      "fwdEps": 22.7836,
+      "fwdEps": 22.7843,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-07",
@@ -1877,7 +1877,7 @@
       "sector": "Financials",
       "rank": 2,
       "ttmEps": 23.84,
-      "fwdEps": 25.3602,
+      "fwdEps": 25.3647,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-13",
@@ -1924,7 +1924,7 @@
       "sector": "Financials",
       "rank": 3,
       "ttmEps": 12.33,
-      "fwdEps": 15.2947,
+      "fwdEps": 15.3004,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -1971,7 +1971,7 @@
       "sector": "Financials",
       "rank": 4,
       "ttmEps": 19.12,
-      "fwdEps": 22.7663,
+      "fwdEps": 22.7748,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -2018,7 +2018,7 @@
       "sector": "Financials",
       "rank": 5,
       "ttmEps": 4.21,
-      "fwdEps": 5.0029,
+      "fwdEps": 5.0048,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-14",
@@ -2065,7 +2065,7 @@
       "sector": "Financials",
       "rank": 6,
       "ttmEps": 12.6,
-      "fwdEps": 13.5925,
+      "fwdEps": 13.5946,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-14",
@@ -2112,7 +2112,7 @@
       "sector": "Financials",
       "rank": 7,
       "ttmEps": 69.55,
-      "fwdEps": 74.2238,
+      "fwdEps": 74.2324,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-13",
@@ -2159,7 +2159,7 @@
       "sector": "Financials",
       "rank": 8,
       "ttmEps": 7.09,
-      "fwdEps": 7.9636,
+      "fwdEps": 7.9656,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-13",
@@ -2206,7 +2206,7 @@
       "sector": "Financials",
       "rank": 9,
       "ttmEps": 17.76,
-      "fwdEps": 19.9396,
+      "fwdEps": 19.9444,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-23",
@@ -2253,7 +2253,7 @@
       "sector": "Financials",
       "rank": 10,
       "ttmEps": 10.25,
-      "fwdEps": 12.8501,
+      "fwdEps": 12.8546,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-13",
@@ -2300,7 +2300,7 @@
       "sector": "Health Care",
       "rank": 1,
       "ttmEps": 30.81,
-      "fwdEps": 48.6842,
+      "fwdEps": 48.7257,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -2347,7 +2347,7 @@
       "sector": "Health Care",
       "rank": 2,
       "ttmEps": 6.6,
-      "fwdEps": 11.5579,
+      "fwdEps": 11.5593,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-13",
@@ -2394,7 +2394,7 @@
       "sector": "Health Care",
       "rank": 3,
       "ttmEps": 5.81,
-      "fwdEps": 15.9122,
+      "fwdEps": 15.9182,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-30",
@@ -2441,7 +2441,7 @@
       "sector": "Health Care",
       "rank": 4,
       "ttmEps": 17.51,
-      "fwdEps": 22.9701,
+      "fwdEps": 22.9778,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-13",
@@ -2488,7 +2488,7 @@
       "sector": "Health Care",
       "rank": 5,
       "ttmEps": 0.97,
-      "fwdEps": 8.1856,
+      "fwdEps": 8.2025,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -2535,7 +2535,7 @@
       "sector": "Health Care",
       "rank": 6,
       "ttmEps": 18.96,
-      "fwdEps": 27.4621,
+      "fwdEps": 27.4689,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -2582,7 +2582,7 @@
       "sector": "Health Care",
       "rank": 7,
       "ttmEps": 17.24,
-      "fwdEps": 24.8605,
+      "fwdEps": 24.8646,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-03",
@@ -2629,7 +2629,7 @@
       "sector": "Health Care",
       "rank": 8,
       "ttmEps": -3.16,
-      "fwdEps": 8.7032,
+      "fwdEps": 8.7335,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -2676,7 +2676,7 @@
       "sector": "Health Care",
       "rank": 9,
       "ttmEps": 2.68,
-      "fwdEps": 5.8833,
+      "fwdEps": 5.8845,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -2723,7 +2723,7 @@
       "sector": "Health Care",
       "rank": 10,
       "ttmEps": 0.7,
-      "fwdEps": 2.9615,
+      "fwdEps": 2.9612,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-03",
@@ -2770,7 +2770,7 @@
       "sector": "Industrials",
       "rank": 1,
       "ttmEps": 8.67,
-      "fwdEps": 9.7456,
+      "fwdEps": 9.7506,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-20",
@@ -2817,7 +2817,7 @@
       "sector": "Industrials",
       "rank": 2,
       "ttmEps": 25.49,
-      "fwdEps": 31.5312,
+      "fwdEps": 31.5449,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -2864,7 +2864,7 @@
       "sector": "Industrials",
       "rank": 3,
       "ttmEps": 6.16,
-      "fwdEps": 8.0418,
+      "fwdEps": 8.0429,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-20",
@@ -2911,7 +2911,7 @@
       "sector": "Industrials",
       "rank": 4,
       "ttmEps": 38.11,
-      "fwdEps": 26.7047,
+      "fwdEps": 26.6888,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -3005,7 +3005,7 @@
       "sector": "Industrials",
       "rank": 6,
       "ttmEps": 12.83,
-      "fwdEps": 14.2369,
+      "fwdEps": 14.2403,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-22",
@@ -3052,7 +3052,7 @@
       "sector": "Industrials",
       "rank": 7,
       "ttmEps": 1.69,
-      "fwdEps": 4.178,
+      "fwdEps": 4.1804,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-04",
@@ -3081,9 +3081,9 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 2.6039,
+        "fy0": 2.6032,
         "fy0End": "2026-12-31",
-        "fy1": 4.4096,
+        "fy1": 4.4068,
         "fy1End": "2027-12-31",
         "analysts": 39
       },
@@ -3099,7 +3099,7 @@
       "sector": "Industrials",
       "rank": 8,
       "ttmEps": 28.15,
-      "fwdEps": 32.9528,
+      "fwdEps": 32.9601,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-22",
@@ -3146,7 +3146,7 @@
       "sector": "Industrials",
       "rank": 9,
       "ttmEps": 10.01,
-      "fwdEps": 16.0964,
+      "fwdEps": 16.1036,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-03",
@@ -3193,7 +3193,7 @@
       "sector": "Industrials",
       "rank": 10,
       "ttmEps": 9.19,
-      "fwdEps": 1.6264,
+      "fwdEps": 1.6378,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -3240,7 +3240,7 @@
       "sector": "Consumer Staples",
       "rank": 1,
       "ttmEps": 2.77,
-      "fwdEps": 3.15,
+      "fwdEps": 3.1506,
       "earnings": {
         "lastQuarter": "Jul 2026",
         "lastReported": "2026-08-20",
@@ -3269,7 +3269,7 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 2.8848,
+        "fy0": 2.8834,
         "fy0End": "2027-01-31",
         "fy1": 3.2218,
         "fy1End": "2028-01-31",
@@ -3279,7 +3279,7 @@
       "close": 128.09,
       "session": "post",
       "sessionTime": "2026-11-14T00:39:20.000Z",
-      "mcap": 1014964125888
+      "mcap": 1018076993762
     },
     {
       "t": "COST",
@@ -3287,7 +3287,7 @@
       "sector": "Consumer Staples",
       "rank": 2,
       "ttmEps": 20.76,
-      "fwdEps": 23.3011,
+      "fwdEps": 23.3073,
       "earnings": {
         "lastQuarter": "Aug 2026",
         "lastReported": "2026-09-24",
@@ -3313,7 +3313,7 @@
       "sector": "Consumer Staples",
       "rank": 3,
       "ttmEps": 3.4,
-      "fwdEps": 3.5048,
+      "fwdEps": 3.5053,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -3360,7 +3360,7 @@
       "sector": "Consumer Staples",
       "rank": 4,
       "ttmEps": 6.64,
-      "fwdEps": 7.1329,
+      "fwdEps": 7.1341,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-22",
@@ -3407,7 +3407,7 @@
       "sector": "Consumer Staples",
       "rank": 5,
       "ttmEps": 6.85,
-      "fwdEps": 8.9545,
+      "fwdEps": 8.9564,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -3454,7 +3454,7 @@
       "sector": "Consumer Staples",
       "rank": 6,
       "ttmEps": 7.95,
-      "fwdEps": 8.5958,
+      "fwdEps": 8.5964,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-08",
@@ -3480,7 +3480,7 @@
       "sector": "Consumer Staples",
       "rank": 7,
       "ttmEps": 4.85,
-      "fwdEps": 5.8927,
+      "fwdEps": 5.8933,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -3527,7 +3527,7 @@
       "sector": "Consumer Staples",
       "rank": 8,
       "ttmEps": 1.105,
-      "fwdEps": 1.2686,
+      "fwdEps": 1.269,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -3574,7 +3574,7 @@
       "sector": "Consumer Staples",
       "rank": 9,
       "ttmEps": 3.17,
-      "fwdEps": 3.3234,
+      "fwdEps": 3.3243,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -3621,7 +3621,7 @@
       "sector": "Consumer Staples",
       "rank": 10,
       "ttmEps": 2.55,
-      "fwdEps": 4.0772,
+      "fwdEps": 4.0777,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-30",
@@ -3668,7 +3668,7 @@
       "sector": "Energy",
       "rank": 1,
       "ttmEps": 9.73,
-      "fwdEps": 12.6996,
+      "fwdEps": 12.6964,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-30",
@@ -3715,7 +3715,7 @@
       "sector": "Energy",
       "rank": 2,
       "ttmEps": 13.67,
-      "fwdEps": 16.789,
+      "fwdEps": 16.7843,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-30",
@@ -3762,7 +3762,7 @@
       "sector": "Energy",
       "rank": 3,
       "ttmEps": 9.52,
-      "fwdEps": 11.5432,
+      "fwdEps": 11.5553,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -3791,9 +3791,9 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 11.9571,
+        "fy0": 11.9639,
         "fy0End": "2026-12-31",
-        "fy1": 11.4823,
+        "fy1": 11.4966,
         "fy1End": "2027-12-31",
         "analysts": 28
       },
@@ -3809,7 +3809,7 @@
       "sector": "Energy",
       "rank": 4,
       "ttmEps": 51.17,
-      "fwdEps": 62.3722,
+      "fwdEps": 61.1964,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-03",
@@ -3838,9 +3838,9 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 68.8496,
+        "fy0": 68.7817,
         "fy0End": "2026-12-31",
-        "fy1": 61.4192,
+        "fy1": 60.1075,
         "fy1End": "2027-12-31",
         "analysts": 18
       },
@@ -3856,7 +3856,7 @@
       "sector": "Energy",
       "rank": 5,
       "ttmEps": 44.46,
-      "fwdEps": 54.3044,
+      "fwdEps": 53.4069,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-22",
@@ -3885,9 +3885,9 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 59.8085,
+        "fy0": 59.4909,
         "fy0End": "2026-12-31",
-        "fy1": 53.4946,
+        "fy1": 52.5335,
         "fy1End": "2027-12-31",
         "analysts": 18
       },
@@ -3903,7 +3903,7 @@
       "sector": "Energy",
       "rank": 6,
       "ttmEps": 31.31,
-      "fwdEps": 32.5966,
+      "fwdEps": 32.2019,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -3932,9 +3932,9 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 34.7604,
+        "fy0": 34.6182,
         "fy0End": "2026-12-31",
-        "fy1": 32.2782,
+        "fy1": 31.855,
         "fy1End": "2027-12-31",
         "analysts": 19
       },
@@ -3950,7 +3950,7 @@
       "sector": "Energy",
       "rank": 7,
       "ttmEps": 2.54,
-      "fwdEps": 2.5605,
+      "fwdEps": 2.561,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-02",
@@ -3997,7 +3997,7 @@
       "sector": "Energy",
       "rank": 8,
       "ttmEps": 15.48,
-      "fwdEps": 17.0684,
+      "fwdEps": 17.1195,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -4026,9 +4026,9 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 18.8612,
+        "fy0": 18.7104,
         "fy0End": "2026-12-31",
-        "fy1": 16.8046,
+        "fy1": 16.8911,
         "fy1End": "2027-12-31",
         "analysts": 29
       },
@@ -4044,7 +4044,7 @@
       "sector": "Energy",
       "rank": 9,
       "ttmEps": 2.06,
-      "fwdEps": 2.9979,
+      "fwdEps": 2.9996,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-23",
@@ -4091,7 +4091,7 @@
       "sector": "Energy",
       "rank": 10,
       "ttmEps": 1.62,
-      "fwdEps": 1.5426,
+      "fwdEps": 1.5425,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -4138,7 +4138,7 @@
       "sector": "Utilities",
       "rank": 1,
       "ttmEps": 5.5467,
-      "fwdEps": 4.3308,
+      "fwdEps": 4.3318,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -4185,7 +4185,7 @@
       "sector": "Utilities",
       "rank": 2,
       "ttmEps": 4.37,
-      "fwdEps": 4.8948,
+      "fwdEps": 4.8956,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -4232,7 +4232,7 @@
       "sector": "Utilities",
       "rank": 3,
       "ttmEps": 6.84,
-      "fwdEps": 7.1117,
+      "fwdEps": 7.1129,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -4279,7 +4279,7 @@
       "sector": "Utilities",
       "rank": 4,
       "ttmEps": 12.48,
-      "fwdEps": 13.3174,
+      "fwdEps": 13.32,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-09",
@@ -4326,7 +4326,7 @@
       "sector": "Utilities",
       "rank": 5,
       "ttmEps": 6.13,
-      "fwdEps": 6.8416,
+      "fwdEps": 6.8428,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -4373,7 +4373,7 @@
       "sector": "Utilities",
       "rank": 6,
       "ttmEps": 3.01,
-      "fwdEps": 3.7914,
+      "fwdEps": 3.792,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-30",
@@ -4420,7 +4420,7 @@
       "sector": "Utilities",
       "rank": 7,
       "ttmEps": 4.35,
-      "fwdEps": 5.0222,
+      "fwdEps": 5.0241,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-02",
@@ -4467,7 +4467,7 @@
       "sector": "Utilities",
       "rank": 8,
       "ttmEps": 4.29,
-      "fwdEps": 4.5141,
+      "fwdEps": 4.5152,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -4514,7 +4514,7 @@
       "sector": "Utilities",
       "rank": 9,
       "ttmEps": 4.67,
-      "fwdEps": 5.4789,
+      "fwdEps": 5.4799,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -4561,7 +4561,7 @@
       "sector": "Utilities",
       "rank": 10,
       "ttmEps": 2.57,
-      "fwdEps": 3.0112,
+      "fwdEps": 3.0116,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-30",
@@ -4608,7 +4608,7 @@
       "sector": "Real Estate",
       "rank": 1,
       "ttmEps": 2.31,
-      "fwdEps": 3.0887,
+      "fwdEps": 3.0898,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-26",
@@ -4655,7 +4655,7 @@
       "sector": "Real Estate",
       "rank": 2,
       "ttmEps": 4.53,
-      "fwdEps": 3.649,
+      "fwdEps": 3.648,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-15",
@@ -4702,7 +4702,7 @@
       "sector": "Real Estate",
       "rank": 3,
       "ttmEps": 16.65,
-      "fwdEps": 20.4438,
+      "fwdEps": 20.4492,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -4796,7 +4796,7 @@
       "sector": "Real Estate",
       "rank": 5,
       "ttmEps": 13.86,
-      "fwdEps": 6.6998,
+      "fwdEps": 6.7015,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -4843,7 +4843,7 @@
       "sector": "Real Estate",
       "rank": 6,
       "ttmEps": 2.39,
-      "fwdEps": 2.9438,
+      "fwdEps": 2.9427,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -4890,7 +4890,7 @@
       "sector": "Real Estate",
       "rank": 7,
       "ttmEps": 9.55,
-      "fwdEps": 9.1375,
+      "fwdEps": 8.8265,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-26",
@@ -4919,9 +4919,9 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 8.4151,
+        "fy0": 8.6925,
         "fy0End": "2026-12-31",
-        "fy1": 9.2438,
+        "fy1": 8.8458,
         "fy1End": "2027-12-31",
         "analysts": 5
       },
@@ -4980,11 +4980,11 @@
     },
     {
       "t": "VMRK",
-      "name": "Vivmark Residential",
+      "name": "AvalonBay Communities",
       "sector": "Real Estate",
       "rank": 9,
       "ttmEps": -0.3111,
-      "fwdEps": 1.5248,
+      "fwdEps": 1.5252,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -5031,7 +5031,7 @@
       "sector": "Real Estate",
       "rank": 10,
       "ttmEps": 0.53,
-      "fwdEps": 0.6649,
+      "fwdEps": 0.6655,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -5078,7 +5078,7 @@
       "sector": "Materials",
       "rank": 1,
       "ttmEps": 15.05,
-      "fwdEps": 18.1387,
+      "fwdEps": 18.1394,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -5125,7 +5125,7 @@
       "sector": "Materials",
       "rank": 2,
       "ttmEps": 8.6,
-      "fwdEps": 9.9778,
+      "fwdEps": 9.9804,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-22",
@@ -5172,7 +5172,7 @@
       "sector": "Materials",
       "rank": 3,
       "ttmEps": 7.35,
-      "fwdEps": 9.2457,
+      "fwdEps": 9.2491,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -5219,7 +5219,7 @@
       "sector": "Materials",
       "rank": 4,
       "ttmEps": 2.38,
-      "fwdEps": 4.0838,
+      "fwdEps": 4.0868,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -5266,7 +5266,7 @@
       "sector": "Materials",
       "rank": 5,
       "ttmEps": 10.88,
-      "fwdEps": 13.0605,
+      "fwdEps": 13.0637,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -5313,7 +5313,7 @@
       "sector": "Materials",
       "rank": 6,
       "ttmEps": 2.38,
-      "fwdEps": 14.518,
+      "fwdEps": 14.5212,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -5360,7 +5360,7 @@
       "sector": "Materials",
       "rank": 7,
       "ttmEps": 5.32,
-      "fwdEps": 5.95,
+      "fwdEps": 5.9519,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -5407,7 +5407,7 @@
       "sector": "Materials",
       "rank": 8,
       "ttmEps": 15.71,
-      "fwdEps": 21.7674,
+      "fwdEps": 21.7729,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-26",
@@ -5454,7 +5454,7 @@
       "sector": "Materials",
       "rank": 9,
       "ttmEps": 37.79,
-      "fwdEps": 17.479,
+      "fwdEps": 17.4869,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-04",
@@ -5501,7 +5501,7 @@
       "sector": "Materials",
       "rank": 10,
       "ttmEps": 8.45,
-      "fwdEps": 9.9211,
+      "fwdEps": 9.9246,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
