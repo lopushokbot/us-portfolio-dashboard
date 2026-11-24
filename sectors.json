@@ -1,13 +1,13 @@
 {
   "meta": {
-    "asOf": "2026-11-23",
-    "asOfISO": "2026-11-23T03:47:18.399Z",
-    "pricesAsOf": "November 23, 2026 at 07:47 Dubai",
+    "asOf": "2026-11-24",
+    "asOfISO": "2026-11-24T03:43:31.912Z",
+    "pricesAsOf": "November 24, 2026 at 07:43 Dubai",
     "spx": {
-      "t": 16.34,
-      "f": 16.73,
-      "date": "2026-11-23",
-      "level": 6910.39
+      "t": 16.7,
+      "f": 17.52,
+      "date": "2026-11-24",
+      "level": 7237.17
     },
     "universe": "503 S&P 500 members (Wikipedia), GICS sectors",
     "recentReports": [
@@ -131,31 +131,31 @@
       "name": "Information Technology",
       "short": "Info Tech",
       "all": {
-        "t": 11.03,
-        "f": 14.9,
+        "t": 11.47,
+        "f": 16.26,
         "n": 76
       },
       "top": {
-        "t": 24.53,
-        "f": 15.4,
-        "medT": 32.44,
-        "medF": 19.76,
-        "cap": 16313717183487,
+        "t": 26.38,
+        "f": 16.13,
+        "medT": 25.85,
+        "medF": 19.96,
+        "cap": 17196443707057,
         "share": 0.76,
-        "losersT": 0,
+        "losersT": 1,
         "losersF": 0
       },
       "tickers": [
         "AAPL",
-        "MSFT",
         "NVDA",
+        "MSFT",
         "AVGO",
-        "AMD",
         "MU",
-        "CSCO",
+        "AMD",
         "PLTR",
+        "CSCO",
         "ORCL",
-        "PANW"
+        "INTC"
       ]
     },
     {
@@ -163,16 +163,16 @@
       "name": "Communication Services",
       "short": "Comm. Services",
       "all": {
-        "t": 15.15,
-        "f": 15.28,
+        "t": 15.94,
+        "f": 16.1,
         "n": 19
       },
       "top": {
-        "t": 15.56,
-        "f": 16.14,
-        "medT": 16.05,
-        "medF": 15.45,
-        "cap": 6071586775672,
+        "t": 16.01,
+        "f": 16.61,
+        "medT": 16.08,
+        "medF": 15.54,
+        "cap": 6244250113124,
         "share": 0.96,
         "losersT": 1,
         "losersF": 0
@@ -195,17 +195,17 @@
       "name": "Consumer Discretionary",
       "short": "Cons. Discretionary",
       "all": {
-        "t": 27.18,
-        "f": 24.64,
+        "t": 28.41,
+        "f": 25.78,
         "n": 47
       },
       "top": {
-        "t": 28.89,
-        "f": 29.61,
-        "medT": 24.65,
-        "medF": 24.31,
-        "cap": 5499280021309,
-        "share": 0.8,
+        "t": 29.59,
+        "f": 30.33,
+        "medT": 24.63,
+        "medF": 24.21,
+        "cap": 5632510882558,
+        "share": 0.81,
         "losersT": 0,
         "losersF": 0
       },
@@ -227,16 +227,16 @@
       "name": "Financials",
       "short": "Financials",
       "all": {
-        "t": 16.28,
-        "f": 14.41,
+        "t": 16.54,
+        "f": 14.69,
         "n": 76
       },
       "top": {
-        "t": 16.2,
-        "f": 16.05,
-        "medT": 13.4,
-        "medF": 12.5,
-        "cap": 4823992470251,
+        "t": 16.3,
+        "f": 16.17,
+        "medT": 13.51,
+        "medF": 12.6,
+        "cap": 4858592296970,
         "share": 0.57,
         "losersT": 0,
         "losersF": 0
@@ -259,16 +259,16 @@
       "name": "Health Care",
       "short": "Health Care",
       "all": {
-        "t": 34.49,
-        "f": 18.69,
+        "t": 34.84,
+        "f": 18.91,
         "n": 60
       },
       "top": {
-        "t": 43.54,
-        "f": 19.87,
-        "medT": 39.36,
-        "medF": 17.85,
-        "cap": 4037674647741,
+        "t": 43.7,
+        "f": 21.07,
+        "medT": 38.74,
+        "medF": 18.49,
+        "cap": 4066165468166,
         "share": 0.6,
         "losersT": 1,
         "losersF": 0
@@ -283,7 +283,7 @@
         "AMGN",
         "GILD",
         "ABT",
-        "PFE"
+        "DHR"
       ]
     },
     {
@@ -291,16 +291,16 @@
       "name": "Industrials",
       "short": "Industrials",
       "all": {
-        "t": 25.21,
-        "f": 20.6,
+        "t": 25.93,
+        "f": 21.38,
         "n": 83
       },
       "top": {
-        "t": 25.78,
-        "f": 23.08,
-        "medT": 26.87,
-        "medF": 22.06,
-        "cap": 1872282074884,
+        "t": 26.33,
+        "f": 23.56,
+        "medT": 27.07,
+        "medF": 22.43,
+        "cap": 1911953010558,
         "share": 0.36,
         "losersT": 0,
         "losersF": 0
@@ -314,8 +314,8 @@
         "DE",
         "LMT",
         "UBER",
-        "BA",
-        "ETN"
+        "ETN",
+        "BA"
       ]
     },
     {
@@ -323,16 +323,16 @@
       "name": "Consumer Staples",
       "short": "Cons. Staples",
       "all": {
-        "t": 31.32,
-        "f": 24.56,
+        "t": 31.36,
+        "f": 24.58,
         "n": 33
       },
       "top": {
-        "t": 32.47,
-        "f": 28.2,
-        "medT": 27.7,
-        "medF": 23.97,
-        "cap": 3174569206769,
+        "t": 32.3,
+        "f": 28.04,
+        "medT": 27.49,
+        "medF": 23.86,
+        "cap": 3159319746852,
         "share": 0.82,
         "losersT": 0,
         "losersF": 0
@@ -345,8 +345,8 @@
         "PM",
         "PEP",
         "MO",
-        "MNST",
         "MDLZ",
+        "MNST",
         "CL"
       ]
     },
@@ -355,16 +355,16 @@
       "name": "Energy",
       "short": "Energy",
       "all": {
-        "t": 13.49,
-        "f": 11,
+        "t": 13.32,
+        "f": 10.88,
         "n": 21
       },
       "top": {
-        "t": 13.51,
-        "f": 11.22,
-        "medT": 14.85,
-        "medF": 12.19,
-        "cap": 1810465588736,
+        "t": 13.25,
+        "f": 11.07,
+        "medT": 14.51,
+        "medF": 12,
+        "cap": 1775736148419,
         "share": 0.81,
         "losersT": 0,
         "losersF": 0
@@ -387,16 +387,16 @@
       "name": "Utilities",
       "short": "Utilities",
       "all": {
-        "t": 17.78,
-        "f": 16.51,
+        "t": 18.01,
+        "f": 16.75,
         "n": 31
       },
       "top": {
-        "t": 18.55,
-        "f": 18.07,
-        "medT": 19.28,
-        "medF": 18.3,
-        "cap": 797361650970,
+        "t": 18.71,
+        "f": 18.22,
+        "medT": 19.56,
+        "medF": 18.38,
+        "cap": 804056762123,
         "share": 0.59,
         "losersT": 0,
         "losersF": 0
@@ -419,16 +419,16 @@
       "name": "Real Estate",
       "short": "Real Estate",
       "all": {
-        "t": 35.43,
-        "f": 36.53,
+        "t": 35.8,
+        "f": 36.95,
         "n": 30
       },
       "top": {
-        "t": 41.23,
-        "f": 46,
-        "medT": 40.16,
-        "medF": 42.44,
-        "cap": 841376205615,
+        "t": 41.56,
+        "f": 46.36,
+        "medT": 40.43,
+        "medF": 43.3,
+        "cap": 848095743320,
         "share": 0.7,
         "losersT": 1,
         "losersF": 0
@@ -437,8 +437,8 @@
         "WELL",
         "PLD",
         "EQIX",
-        "AMT",
         "SPG",
+        "AMT",
         "DLR",
         "PSA",
         "O",
@@ -451,17 +451,17 @@
       "name": "Materials",
       "short": "Materials",
       "all": {
-        "t": 27.15,
-        "f": 16.03,
+        "t": 27.89,
+        "f": 16.59,
         "n": 24
       },
       "top": {
-        "t": 23.23,
-        "f": 18.21,
-        "medT": 25.74,
-        "medF": 23.28,
-        "cap": 820597221902,
-        "share": 0.76,
+        "t": 23.85,
+        "f": 18.77,
+        "medT": 26.48,
+        "medF": 23.84,
+        "cap": 842503414191,
+        "share": 0.77,
         "losersT": 0,
         "losersF": 0
       },
@@ -470,8 +470,8 @@
         "NEM",
         "ECL",
         "SHW",
-        "APD",
         "FCX",
+        "APD",
         "CRH",
         "NUE",
         "MLM",
@@ -486,7 +486,7 @@
       "sector": "Information Technology",
       "rank": 1,
       "ttmEps": 8.97,
-      "fwdEps": 9.6037,
+      "fwdEps": 9.6069,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-02",
@@ -521,66 +521,19 @@
         "fy1End": "2028-09-30",
         "analysts": 35
       },
-      "price": 348.59,
-      "close": 342.56,
+      "price": 350.68,
+      "close": 349.08,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:10.000Z",
-      "mcap": 5065773505018
-    },
-    {
-      "t": "MSFT",
-      "name": "Microsoft",
-      "sector": "Information Technology",
-      "rank": 2,
-      "ttmEps": 19.16,
-      "fwdEps": 21.6922,
-      "earnings": {
-        "lastQuarter": "Sep 2026",
-        "lastReported": "2026-10-28",
-        "next": "2027-01-27",
-        "nextConfirmed": false,
-        "ttmBasis": "4 reported quarters",
-        "gaapQuarters": [
-          {
-            "end": "2025-12-31",
-            "eps": 5.16,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-03-31",
-            "eps": 4.27,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-06-30",
-            "eps": 4.81,
-            "src": "Yahoo"
-          },
-          {
-            "end": "2026-09-30",
-            "eps": 4.92,
-            "src": "SEC 10-Q"
-          }
-        ],
-        "fy0": 20.0139,
-        "fy0End": "2027-06-30",
-        "fy1": 24.2008,
-        "fy1End": "2028-06-30",
-        "analysts": 33
-      },
-      "price": 498.49,
-      "close": 484.52,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T03:47:06.000Z",
-      "mcap": 3701883453431
+      "sessionTime": "2026-11-24T03:43:31.000Z",
+      "mcap": 5096145261506
     },
     {
       "t": "NVDA",
       "name": "NVIDIA",
       "sector": "Information Technology",
-      "rank": 3,
+      "rank": 2,
       "ttmEps": 9.31,
-      "fwdEps": 15.298,
+      "fwdEps": 15.3169,
       "earnings": {
         "lastQuarter": "Oct 2026",
         "lastReported": "2026-11-17",
@@ -615,11 +568,58 @@
         "fy1End": "2028-01-31",
         "analysts": 55
       },
-      "price": 134.28,
-      "close": 125.53,
+      "price": 164.1,
+      "close": 165.05,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:21.000Z",
-      "mcap": 3242459156799
+      "sessionTime": "2026-11-24T03:44:30.000Z",
+      "mcap": 3962522614304
+    },
+    {
+      "t": "MSFT",
+      "name": "Microsoft",
+      "sector": "Information Technology",
+      "rank": 3,
+      "ttmEps": 19.16,
+      "fwdEps": 21.7233,
+      "earnings": {
+        "lastQuarter": "Sep 2026",
+        "lastReported": "2026-10-28",
+        "next": "2027-01-27",
+        "nextConfirmed": false,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-12-31",
+            "eps": 5.16,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 4.27,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 4.81,
+            "src": "Yahoo"
+          },
+          {
+            "end": "2026-09-30",
+            "eps": 4.92,
+            "src": "SEC 10-Q"
+          }
+        ],
+        "fy0": 20.0286,
+        "fy0End": "2027-06-30",
+        "fy1": 24.2278,
+        "fy1End": "2028-06-30",
+        "analysts": 33
+      },
+      "price": 495.26,
+      "close": 492.5,
+      "session": "overnight",
+      "sessionTime": "2026-11-24T03:43:31.000Z",
+      "mcap": 3677897141405
     },
     {
       "t": "AVGO",
@@ -627,7 +627,7 @@
       "sector": "Information Technology",
       "rank": 4,
       "ttmEps": 7.83,
-      "fwdEps": 19.3547,
+      "fwdEps": 19.3325,
       "earnings": {
         "lastQuarter": "Jul 2026",
         "lastReported": "2026-09-02",
@@ -658,23 +658,70 @@
         ],
         "fy0": 11.6544,
         "fy0End": "2026-10-31",
-        "fy1": 19.3547,
+        "fy1": 19.3325,
         "fy1End": "2027-10-31",
         "analysts": 50
       },
-      "price": 317.34,
-      "close": 304.41,
+      "price": 312.05,
+      "close": 313.55,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:14.000Z",
-      "mcap": 1514863775212
+      "sessionTime": "2026-11-24T03:43:53.000Z",
+      "mcap": 1489611147643
+    },
+    {
+      "t": "MU",
+      "name": "Micron Technology",
+      "sector": "Information Technology",
+      "rank": 5,
+      "ttmEps": 74.21,
+      "fwdEps": 183.6219,
+      "earnings": {
+        "lastQuarter": "Aug 2026",
+        "lastReported": "2026-09-30",
+        "next": "2026-12-17",
+        "nextConfirmed": true,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-11-27",
+            "eps": 4.6,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-02-26",
+            "eps": 12.07,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-05-28",
+            "eps": 24.67,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-09-03",
+            "eps": 32.87,
+            "src": "Yahoo"
+          }
+        ],
+        "fy0": 176.5948,
+        "fy0End": "2027-08-31",
+        "fy1": 206.6475,
+        "fy1End": "2028-08-31",
+        "analysts": 36
+      },
+      "price": 702.74,
+      "close": 707.7,
+      "session": "overnight",
+      "sessionTime": "2026-11-24T03:44:29.000Z",
+      "mcap": 795096371868
     },
     {
       "t": "AMD",
       "name": "Advanced Micro Devices",
       "sector": "Information Technology",
-      "rank": 5,
+      "rank": 6,
       "ttmEps": 4.6,
-      "fwdEps": 16.6484,
+      "fwdEps": 16.6543,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-03",
@@ -705,117 +752,23 @@
         ],
         "fy0": 8.0844,
         "fy0End": "2026-12-31",
-        "fy1": 17.6383,
+        "fy1": 17.6157,
         "fy1End": "2027-12-31",
         "analysts": 49
       },
-      "price": 447.16,
-      "close": 424.39,
+      "price": 449.5,
+      "close": 453.46,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:20.000Z",
-      "mcap": 740079130189
-    },
-    {
-      "t": "MU",
-      "name": "Micron Technology",
-      "sector": "Information Technology",
-      "rank": 6,
-      "ttmEps": 74.21,
-      "fwdEps": 184.102,
-      "earnings": {
-        "lastQuarter": "Aug 2026",
-        "lastReported": "2026-09-30",
-        "next": "2026-12-17",
-        "nextConfirmed": true,
-        "ttmBasis": "4 reported quarters",
-        "gaapQuarters": [
-          {
-            "end": "2025-11-27",
-            "eps": 4.6,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-02-26",
-            "eps": 12.07,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-05-28",
-            "eps": 24.67,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-09-03",
-            "eps": 32.87,
-            "src": "Yahoo"
-          }
-        ],
-        "fy0": 176.6703,
-        "fy0End": "2027-08-31",
-        "fy1": 208.8288,
-        "fy1End": "2028-08-31",
-        "analysts": 36
-      },
-      "price": 624.81,
-      "close": 594.51,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:17.000Z",
-      "mcap": 706924557329
-    },
-    {
-      "t": "CSCO",
-      "name": "Cisco Systems",
-      "sector": "Information Technology",
-      "rank": 7,
-      "ttmEps": 3.76,
-      "fwdEps": 5.6593,
-      "earnings": {
-        "lastQuarter": "Oct 2026",
-        "lastReported": "2026-11-12",
-        "next": "2027-02-10",
-        "nextConfirmed": true,
-        "ttmBasis": "4 reported quarters",
-        "gaapQuarters": [
-          {
-            "end": "2026-01-24",
-            "eps": 0.8,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-04-25",
-            "eps": 0.85,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-07-25",
-            "eps": 0.97,
-            "src": "Yahoo"
-          },
-          {
-            "end": "2026-10-24",
-            "eps": 1.14,
-            "src": "SEC 10-Q"
-          }
-        ],
-        "fy0": 5.4757,
-        "fy0End": "2027-07-31",
-        "fy1": 6.0569,
-        "fy1End": "2028-07-31",
-        "analysts": 28
-      },
-      "price": 93.58,
-      "close": 90.64,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T03:37:41.000Z",
-      "mcap": 368934291505
+      "sessionTime": "2026-11-24T03:43:31.000Z",
+      "mcap": 743951957256
     },
     {
       "t": "PLTR",
       "name": "Palantir Technologies",
       "sector": "Information Technology",
-      "rank": 8,
+      "rank": 7,
       "ttmEps": 1.43,
-      "fwdEps": 2.452,
+      "fwdEps": 2.4543,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-02",
@@ -850,11 +803,58 @@
         "fy1End": "2027-12-31",
         "analysts": 31
       },
-      "price": 149.26,
-      "close": 143.49,
+      "price": 159.7,
+      "close": 159.36,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:04.000Z",
-      "mcap": 359641640269
+      "sessionTime": "2026-11-24T03:43:31.000Z",
+      "mcap": 384796783139
+    },
+    {
+      "t": "CSCO",
+      "name": "Cisco Systems",
+      "sector": "Information Technology",
+      "rank": 8,
+      "ttmEps": 3.76,
+      "fwdEps": 5.6609,
+      "earnings": {
+        "lastQuarter": "Oct 2026",
+        "lastReported": "2026-11-12",
+        "next": "2027-02-10",
+        "nextConfirmed": true,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2026-01-24",
+            "eps": 0.8,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-04-25",
+            "eps": 0.85,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-07-25",
+            "eps": 0.97,
+            "src": "Yahoo"
+          },
+          {
+            "end": "2026-10-24",
+            "eps": 1.14,
+            "src": "SEC 10-Q"
+          }
+        ],
+        "fy0": 5.4757,
+        "fy0End": "2027-07-31",
+        "fy1": 6.0569,
+        "fy1End": "2028-07-31",
+        "analysts": 28
+      },
+      "price": 96.91,
+      "close": 96.8,
+      "session": "overnight",
+      "sessionTime": "2026-11-24T03:38:52.000Z",
+      "mcap": 382062675149
     },
     {
       "t": "ORCL",
@@ -862,7 +862,7 @@
       "sector": "Information Technology",
       "rank": 9,
       "ttmEps": 6.38,
-      "fwdEps": 9.5551,
+      "fwdEps": 9.5631,
       "earnings": {
         "lastQuarter": "Aug 2026",
         "lastReported": "2026-09-10",
@@ -897,58 +897,58 @@
         "fy1End": "2028-05-31",
         "analysts": 40
       },
-      "price": 105,
-      "close": 101.19,
+      "price": 114.13,
+      "close": 113.68,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:47:48.000Z",
-      "mcap": 327359368083
+      "sessionTime": "2026-11-24T03:44:19.000Z",
+      "mcap": 355824015903
     },
     {
-      "t": "PANW",
-      "name": "Palo Alto Networks",
+      "t": "INTC",
+      "name": "Intel",
       "sector": "Information Technology",
       "rank": 10,
-      "ttmEps": 0.61,
-      "fwdEps": 3.5512,
+      "ttmEps": -2.41,
+      "fwdEps": 1.7598,
       "earnings": {
-        "lastQuarter": "Oct 2026",
-        "lastReported": "2026-11-18",
-        "next": "2027-02-16",
+        "lastQuarter": "Sep 2026",
+        "lastReported": "2026-10-29",
+        "next": "2027-01-28",
         "nextConfirmed": false,
         "ttmBasis": "4 reported quarters",
         "gaapQuarters": [
           {
-            "end": "2026-01-31",
-            "eps": 0.61,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-04-30",
-            "eps": -0.22,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-07-31",
-            "eps": -0.35,
+            "end": "2025-12-27",
+            "eps": -0.12,
             "src": "Yahoo"
           },
           {
-            "end": "2026-10-31",
-            "eps": 0.57,
+            "end": "2026-03-28",
+            "eps": -0.73,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-06-27",
+            "eps": -2.16,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-09-26",
+            "eps": 0.6,
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 4.281,
-        "fy0End": "2027-07-31",
-        "fy1": 1.9711,
-        "fy1End": "2028-07-31",
-        "analysts": 18
+        "fy0": 1.4866,
+        "fy0End": "2026-12-31",
+        "fy1": 1.7905,
+        "fy1End": "2027-12-31",
+        "analysts": 46
       },
-      "price": 348.11,
-      "close": 343.32,
+      "price": 58.05,
+      "close": 59.66,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:47:06.000Z",
-      "mcap": 285798305652
+      "sessionTime": "2026-11-24T03:44:28.000Z",
+      "mcap": 308535738884
     },
     {
       "t": "GOOGL",
@@ -956,7 +956,7 @@
       "sector": "Communication Services",
       "rank": 1,
       "ttmEps": 19.16,
-      "fwdEps": 15.3721,
+      "fwdEps": 15.3655,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -985,17 +985,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 19.5389,
+        "fy0": 19.5394,
         "fy0End": "2026-12-31",
-        "fy1": 14.8906,
+        "fy1": 14.8973,
         "fy1End": "2027-12-31",
-        "analysts": 51
+        "analysts": 52
       },
-      "price": 275.02,
-      "close": 265.29,
+      "price": 283.99,
+      "close": 282.1,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:05.000Z",
-      "mcap": 3381095946248
+      "sessionTime": "2026-11-24T03:44:29.000Z",
+      "mcap": 3491372992285
     },
     {
       "t": "META",
@@ -1003,7 +1003,7 @@
       "sector": "Communication Services",
       "rank": 2,
       "ttmEps": 29.33,
-      "fwdEps": 33.4005,
+      "fwdEps": 33.2981,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -1032,17 +1032,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 29.0735,
+        "fy0": 29.0118,
         "fy0End": "2026-12-31",
-        "fy1": 33.9007,
+        "fy1": 33.779,
         "fy1End": "2027-12-31",
         "analysts": 56
       },
-      "price": 578.5,
-      "close": 560.84,
+      "price": 600.01,
+      "close": 597.6,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:47:40.000Z",
-      "mcap": 1478785556530
+      "sessionTime": "2026-11-24T03:42:59.000Z",
+      "mcap": 1533770229142
     },
     {
       "t": "NFLX",
@@ -1050,7 +1050,7 @@
       "sector": "Communication Services",
       "rank": 3,
       "ttmEps": 3.46,
-      "fwdEps": 3.7449,
+      "fwdEps": 3.7454,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-20",
@@ -1085,11 +1085,11 @@
         "fy1End": "2027-12-31",
         "analysts": 44
       },
-      "price": 57.6,
-      "close": 56.73,
+      "price": 58.22,
+      "close": 58.1,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:47:25.000Z",
-      "mcap": 236524377149
+      "sessionTime": "2026-11-24T03:41:42.000Z",
+      "mcap": 239070292032
     },
     {
       "t": "DIS",
@@ -1097,7 +1097,7 @@
       "sector": "Communication Services",
       "rank": 4,
       "ttmEps": 5.63,
-      "fwdEps": 7.7086,
+      "fwdEps": 7.7524,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-17",
@@ -1126,17 +1126,17 @@
             "src": "Yahoo"
           }
         ],
-        "fy0": 7.5651,
+        "fy0": 7.6077,
         "fy0End": "2027-09-30",
-        "fy1": 8.5285,
+        "fy1": 8.5618,
         "fy1End": "2028-09-30",
-        "analysts": 21
+        "analysts": 22
       },
-      "price": 119.62,
-      "close": 117.98,
+      "price": 120.4,
+      "close": 120.27,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:45:09.000Z",
-      "mcap": 204314522052
+      "sessionTime": "2026-11-24T03:32:38.000Z",
+      "mcap": 205646765770
     },
     {
       "t": "VZ",
@@ -1144,7 +1144,7 @@
       "sector": "Communication Services",
       "rank": 5,
       "ttmEps": 3.92,
-      "fwdEps": 5.2802,
+      "fwdEps": 5.2808,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-26",
@@ -1179,11 +1179,11 @@
         "fy1End": "2027-12-31",
         "analysts": 23
       },
-      "price": 46.58,
-      "close": 46.48,
+      "price": 46.45,
+      "close": 46.45,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:42:37.000Z",
-      "mcap": 193055385519
+      "sessionTime": "2026-11-24T02:48:55.000Z",
+      "mcap": 192516587520
     },
     {
       "t": "TMUS",
@@ -1191,7 +1191,7 @@
       "sector": "Communication Services",
       "rank": 6,
       "ttmEps": 10.36,
-      "fwdEps": 13.7214,
+      "fwdEps": 13.7291,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -1226,11 +1226,11 @@
         "fy1End": "2027-12-31",
         "analysts": 21
       },
-      "price": 166.26,
-      "close": 165.6,
+      "price": 166.61,
+      "close": 166.36,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:36:22.000Z",
-      "mcap": 176114661673
+      "sessionTime": "2026-11-24T03:07:08.000Z",
+      "mcap": 176485404128
     },
     {
       "t": "T",
@@ -1238,7 +1238,7 @@
       "sector": "Communication Services",
       "rank": 7,
       "ttmEps": 1.85,
-      "fwdEps": 2.575,
+      "fwdEps": 2.5756,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -1273,11 +1273,11 @@
         "fy1End": "2027-12-31",
         "analysts": 23
       },
-      "price": 22.34,
-      "close": 22.31,
+      "price": 22.36,
+      "close": 22.3,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:30:46.000Z",
-      "mcap": 150492821121
+      "sessionTime": "2026-11-24T03:37:50.000Z",
+      "mcap": 150627544306
     },
     {
       "t": "APP",
@@ -1285,7 +1285,7 @@
       "sector": "Communication Services",
       "rank": 8,
       "ttmEps": 14.86,
-      "fwdEps": 20.2622,
+      "fwdEps": 20.2744,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-04",
@@ -1320,11 +1320,11 @@
         "fy1End": "2027-12-31",
         "analysts": 26
       },
-      "price": 361.77,
-      "close": 348.29,
+      "price": 374.08,
+      "close": 373.92,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:47:47.000Z",
-      "mcap": 119862353172
+      "sessionTime": "2026-11-24T03:38:45.000Z",
+      "mcap": 123940930623
     },
     {
       "t": "CMCSA",
@@ -1332,7 +1332,7 @@
       "sector": "Communication Services",
       "rank": 9,
       "ttmEps": 3.16,
-      "fwdEps": 3.5195,
+      "fwdEps": 3.5196,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-22",
@@ -1367,11 +1367,11 @@
         "fy1End": "2027-12-31",
         "analysts": 21
       },
-      "price": 25.1,
-      "close": 24.9,
+      "price": 24.74,
+      "close": 24.72,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:13:41.000Z",
-      "mcap": 89130258350
+      "sessionTime": "2026-11-24T03:43:10.000Z",
+      "mcap": 87851888216
     },
     {
       "t": "LYV",
@@ -1379,7 +1379,7 @@
       "sector": "Communication Services",
       "rank": 10,
       "ttmEps": -0.17,
-      "fwdEps": 1.6298,
+      "fwdEps": 1.6361,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -1414,11 +1414,11 @@
         "fy1End": "2027-12-31",
         "analysts": 16
       },
-      "price": 179.09,
-      "close": 174.96,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T02:46:49.000Z",
-      "mcap": 42210893858
+      "price": 182.3,
+      "close": 180.88,
+      "session": "post",
+      "sessionTime": "2026-11-23T21:17:46.000Z",
+      "mcap": 42967479102
     },
     {
       "t": "AMZN",
@@ -1426,7 +1426,7 @@
       "sector": "Consumer Discretionary",
       "rank": 1,
       "ttmEps": 12.37,
-      "fwdEps": 10.8795,
+      "fwdEps": 10.8851,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -1455,17 +1455,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 12.8005,
+        "fy0": 12.7986,
         "fy0End": "2026-12-31",
-        "fy1": 10.6575,
+        "fy1": 10.6704,
         "fy1End": "2027-12-31",
         "analysts": 58
       },
-      "price": 255.8,
-      "close": 246.82,
+      "price": 257.13,
+      "close": 255.39,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:10.000Z",
-      "mcap": 2766000794446
+      "sessionTime": "2026-11-24T03:44:27.000Z",
+      "mcap": 2780382099810
     },
     {
       "t": "TSLA",
@@ -1473,7 +1473,7 @@
       "sector": "Consumer Discretionary",
       "rank": 2,
       "ttmEps": 0.91,
-      "fwdEps": 2.1142,
+      "fwdEps": 2.1153,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -1508,11 +1508,11 @@
         "fy1End": "2027-12-31",
         "analysts": 32
       },
-      "price": 359.23,
-      "close": 345.82,
+      "price": 385.71,
+      "close": 385.46,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:47:45.000Z",
-      "mcap": 1419949296387
+      "sessionTime": "2026-11-24T03:44:29.000Z",
+      "mcap": 1524618269488
     },
     {
       "t": "HD",
@@ -1520,7 +1520,7 @@
       "sector": "Consumer Discretionary",
       "rank": 3,
       "ttmEps": 14.39,
-      "fwdEps": 15.5777,
+      "fwdEps": 15.5624,
       "earnings": {
         "lastQuarter": "Oct 2026",
         "lastReported": "2026-11-17",
@@ -1549,17 +1549,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 14.9714,
+        "fy0": 14.972,
         "fy0End": "2027-01-31",
-        "fy1": 15.7185,
+        "fy1": 15.697,
         "fy1End": "2028-01-31",
         "analysts": 34
       },
-      "price": 342.01,
-      "close": 339.04,
+      "price": 345.89,
+      "close": 346.06,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:35:14.000Z",
-      "mcap": 341219829393
+      "sessionTime": "2026-11-24T03:26:48.000Z",
+      "mcap": 345090850754
     },
     {
       "t": "MCD",
@@ -1567,7 +1567,7 @@
       "sector": "Consumer Discretionary",
       "rank": 4,
       "ttmEps": 12.64,
-      "fwdEps": 13.5792,
+      "fwdEps": 13.5811,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-04",
@@ -1602,11 +1602,11 @@
         "fy1End": "2027-12-31",
         "analysts": 31
       },
-      "price": 273.44,
-      "close": 273.24,
+      "price": 276.23,
+      "close": 276.38,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:37:24.000Z",
-      "mcap": 192989782614
+      "sessionTime": "2026-11-24T03:43:00.000Z",
+      "mcap": 194958923327
     },
     {
       "t": "CVNA",
@@ -1614,7 +1614,7 @@
       "sector": "Consumer Discretionary",
       "rank": 5,
       "ttmEps": 1.992,
-      "fwdEps": 2.0434,
+      "fwdEps": 2.0447,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -1649,11 +1649,11 @@
         "fy1End": "2027-12-31",
         "analysts": 12
       },
-      "price": 65.16,
-      "close": 63.85,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T02:41:55.000Z",
-      "mcap": 163640270895
+      "price": 68.07,
+      "close": 67.81,
+      "session": "post",
+      "sessionTime": "2026-11-24T00:48:46.000Z",
+      "mcap": 170948315289
     },
     {
       "t": "TJX",
@@ -1661,7 +1661,7 @@
       "sector": "Consumer Discretionary",
       "rank": 6,
       "ttmEps": 5.52,
-      "fwdEps": 5.6136,
+      "fwdEps": 5.6149,
       "earnings": {
         "lastQuarter": "Oct 2026",
         "lastReported": "2026-11-18",
@@ -1696,11 +1696,11 @@
         "fy1End": "2028-01-31",
         "analysts": 21
       },
-      "price": 140.99,
-      "close": 139.62,
+      "price": 139.19,
+      "close": 139.25,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:03:44.000Z",
-      "mcap": 155752273574
+      "sessionTime": "2026-11-24T01:42:48.000Z",
+      "mcap": 153105379737
     },
     {
       "t": "LOW",
@@ -1708,7 +1708,7 @@
       "sector": "Consumer Discretionary",
       "rank": 7,
       "ttmEps": 11.93,
-      "fwdEps": 12.6456,
+      "fwdEps": 12.6408,
       "earnings": {
         "lastQuarter": "Oct 2026",
         "lastReported": "2026-11-18",
@@ -1737,17 +1737,17 @@
             "src": "Yahoo"
           }
         ],
-        "fy0": 12.2531,
+        "fy0": 12.2516,
         "fy0End": "2027-01-31",
-        "fy1": 12.7368,
+        "fy1": 12.7295,
         "fy1End": "2028-01-31",
         "analysts": 33
       },
-      "price": 222,
-      "close": 220.84,
+      "price": 226.14,
+      "close": 226.14,
       "session": "overnight",
-      "sessionTime": "2026-11-23T02:50:59.000Z",
-      "mcap": 124553987051
+      "sessionTime": "2026-11-24T03:18:38.000Z",
+      "mcap": 126876753920
     },
     {
       "t": "SBUX",
@@ -1755,7 +1755,7 @@
       "sector": "Consumer Discretionary",
       "rank": 8,
       "ttmEps": 2.21,
-      "fwdEps": 3.2922,
+      "fwdEps": 3.2936,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -1790,11 +1790,11 @@
         "fy1End": "2028-09-30",
         "analysts": 33
       },
-      "price": 104.68,
-      "close": 103.13,
+      "price": 106.54,
+      "close": 106.36,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:43:13.000Z",
-      "mcap": 119345661138
+      "sessionTime": "2026-11-24T03:43:22.000Z",
+      "mcap": 121466249416
     },
     {
       "t": "BKNG",
@@ -1802,7 +1802,7 @@
       "sector": "Consumer Discretionary",
       "rank": 9,
       "ttmEps": 9.22,
-      "fwdEps": 12.0463,
+      "fwdEps": 12.0513,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-03",
@@ -1816,11 +1816,11 @@
         "fy1End": "2027-12-31",
         "analysts": 29
       },
-      "price": 147.35,
-      "close": 144.91,
+      "price": 145.27,
+      "close": 144.94,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:43:13.000Z",
-      "mcap": 109584380577
+      "sessionTime": "2026-11-24T03:19:46.000Z",
+      "mcap": 108037485937
     },
     {
       "t": "MAR",
@@ -1828,7 +1828,7 @@
       "sector": "Consumer Discretionary",
       "rank": 10,
       "ttmEps": 10.02,
-      "fwdEps": 13.3177,
+      "fwdEps": 13.3214,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-02",
@@ -1863,19 +1863,19 @@
         "fy1End": "2027-12-31",
         "analysts": 29
       },
-      "price": 412.59,
-      "close": 406.64,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T03:37:34.000Z",
-      "mcap": 106243745234
+      "price": 415.63,
+      "close": 415.63,
+      "session": "post",
+      "sessionTime": "2026-11-23T21:05:45.000Z",
+      "mcap": 107026554880
     },
     {
       "t": "BRK-B",
       "name": "Berkshire Hathaway",
       "sector": "Financials",
       "rank": 1,
-      "ttmEps": 35.73,
-      "fwdEps": 22.8072,
+      "ttmEps": 35.88,
+      "fwdEps": 22.8074,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-07",
@@ -1889,11 +1889,11 @@
         "fy1End": "2027-12-31",
         "analysts": 3
       },
-      "price": 571.77,
-      "close": 570,
+      "price": 573.9,
+      "close": 572.36,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:46:41.000Z",
-      "mcap": 1214736442299
+      "sessionTime": "2026-11-24T03:44:01.000Z",
+      "mcap": 1219261568720
     },
     {
       "t": "JPM",
@@ -1901,7 +1901,7 @@
       "sector": "Financials",
       "rank": 2,
       "ttmEps": 23.84,
-      "fwdEps": 25.4011,
+      "fwdEps": 25.4056,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-13",
@@ -1936,11 +1936,11 @@
         "fy1End": "2027-12-31",
         "analysts": 15
       },
-      "price": 316.47,
-      "close": 310.53,
+      "price": 317.54,
+      "close": 316.66,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:18.000Z",
-      "mcap": 840420755567
+      "sessionTime": "2026-11-24T03:38:52.000Z",
+      "mcap": 843262251462
     },
     {
       "t": "V",
@@ -1948,7 +1948,7 @@
       "sector": "Financials",
       "rank": 3,
       "ttmEps": 12.33,
-      "fwdEps": 15.348,
+      "fwdEps": 15.3537,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -1983,11 +1983,11 @@
         "fy1End": "2028-09-30",
         "analysts": 32
       },
-      "price": 405.99,
-      "close": 401.87,
+      "price": 410.25,
+      "close": 409.4,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:47:17.000Z",
-      "mcap": 757496137361
+      "sessionTime": "2026-11-24T03:22:14.000Z",
+      "mcap": 765444448012
     },
     {
       "t": "MA",
@@ -1995,7 +1995,7 @@
       "sector": "Financials",
       "rank": 4,
       "ttmEps": 19.12,
-      "fwdEps": 22.8392,
+      "fwdEps": 22.8477,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -2030,11 +2030,11 @@
         "fy1End": "2027-12-31",
         "analysts": 39
       },
-      "price": 631.46,
-      "close": 625.59,
+      "price": 636.75,
+      "close": 635.48,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:39:09.000Z",
-      "mcap": 550112916939
+      "sessionTime": "2026-11-24T03:26:30.000Z",
+      "mcap": 554721360389
     },
     {
       "t": "BAC",
@@ -2042,7 +2042,7 @@
       "sector": "Financials",
       "rank": 5,
       "ttmEps": 4.21,
-      "fwdEps": 5.0208,
+      "fwdEps": 5.0228,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-14",
@@ -2077,11 +2077,11 @@
         "fy1End": "2027-12-31",
         "analysts": 17
       },
-      "price": 47.7,
-      "close": 47.04,
+      "price": 48.19,
+      "close": 48.14,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:31:55.000Z",
-      "mcap": 329139987017
+      "sessionTime": "2026-11-24T03:42:18.000Z",
+      "mcap": 332521074965
     },
     {
       "t": "MS",
@@ -2089,7 +2089,7 @@
       "sector": "Financials",
       "rank": 6,
       "ttmEps": 12.6,
-      "fwdEps": 13.5856,
+      "fwdEps": 13.5877,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-14",
@@ -2124,11 +2124,11 @@
         "fy1End": "2027-12-31",
         "analysts": 22
       },
-      "price": 170.49,
-      "close": 165.67,
+      "price": 172.67,
+      "close": 172.6,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:36:33.000Z",
-      "mcap": 266483335114
+      "sessionTime": "2026-11-24T02:41:07.000Z",
+      "mcap": 269890781902
     },
     {
       "t": "WFC",
@@ -2136,7 +2136,7 @@
       "sector": "Financials",
       "rank": 7,
       "ttmEps": 7.09,
-      "fwdEps": 7.9812,
+      "fwdEps": 7.9831,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-13",
@@ -2171,11 +2171,11 @@
         "fy1End": "2027-12-31",
         "analysts": 21
       },
-      "price": 79.68,
-      "close": 78.62,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T03:35:54.000Z",
-      "mcap": 239187452277
+      "price": 79.89,
+      "close": 80,
+      "session": "post",
+      "sessionTime": "2026-11-24T00:40:17.000Z",
+      "mcap": 239817817719
     },
     {
       "t": "GS",
@@ -2183,7 +2183,7 @@
       "sector": "Financials",
       "rank": 8,
       "ttmEps": 69.55,
-      "fwdEps": 74.3948,
+      "fwdEps": 74.4034,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-13",
@@ -2218,11 +2218,11 @@
         "fy1End": "2027-12-31",
         "analysts": 24
       },
-      "price": 810.1,
-      "close": 790.69,
+      "price": 825.15,
+      "close": 823.62,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:46:20.000Z",
-      "mcap": 233660862688
+      "sessionTime": "2026-11-24T03:42:00.000Z",
+      "mcap": 238001801049
     },
     {
       "t": "AXP",
@@ -2230,7 +2230,7 @@
       "sector": "Financials",
       "rank": 9,
       "ttmEps": 17.76,
-      "fwdEps": 19.9834,
+      "fwdEps": 19.9883,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-23",
@@ -2265,11 +2265,11 @@
         "fy1End": "2027-12-31",
         "analysts": 25
       },
-      "price": 305.75,
-      "close": 301.7,
+      "price": 306.94,
+      "close": 306.9,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:35:13.000Z",
-      "mcap": 205021288172
+      "sessionTime": "2026-11-24T03:42:18.000Z",
+      "mcap": 205819233728
     },
     {
       "t": "C",
@@ -2277,7 +2277,7 @@
       "sector": "Financials",
       "rank": 10,
       "ttmEps": 10.25,
-      "fwdEps": 12.891,
+      "fwdEps": 12.8955,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-13",
@@ -2312,11 +2312,11 @@
         "fy1End": "2027-12-31",
         "analysts": 12
       },
-      "price": 113.42,
-      "close": 110.62,
+      "price": 114.7,
+      "close": 114.35,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:03.000Z",
-      "mcap": 187733292817
+      "sessionTime": "2026-11-24T03:05:59.000Z",
+      "mcap": 189851959024
     },
     {
       "t": "LLY",
@@ -2324,7 +2324,7 @@
       "sector": "Health Care",
       "rank": 1,
       "ttmEps": 30.81,
-      "fwdEps": 49.276,
+      "fwdEps": 49.318,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -2359,11 +2359,11 @@
         "fy1End": "2027-12-31",
         "analysts": 28
       },
-      "price": 1353,
-      "close": 1347.11,
+      "price": 1369.99,
+      "close": 1364.6,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:46:16.000Z",
-      "mcap": 1205178011236
+      "sessionTime": "2026-11-24T03:30:21.000Z",
+      "mcap": 1220311725403
     },
     {
       "t": "JNJ",
@@ -2371,7 +2371,7 @@
       "sector": "Health Care",
       "rank": 2,
       "ttmEps": 6.6,
-      "fwdEps": 11.5608,
+      "fwdEps": 11.5622,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-13",
@@ -2406,11 +2406,11 @@
         "fy1End": "2027-12-31",
         "analysts": 23
       },
-      "price": 271.53,
-      "close": 270.47,
+      "price": 269.44,
+      "close": 270.05,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:37:00.000Z",
-      "mcap": 653656955149
+      "sessionTime": "2026-11-24T03:43:32.000Z",
+      "mcap": 648625657648
     },
     {
       "t": "ABBV",
@@ -2418,7 +2418,7 @@
       "sector": "Health Care",
       "rank": 3,
       "ttmEps": 5.81,
-      "fwdEps": 15.9863,
+      "fwdEps": 15.9924,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-30",
@@ -2453,11 +2453,11 @@
         "fy1End": "2027-12-31",
         "analysts": 29
       },
-      "price": 287.29,
-      "close": 286.2,
+      "price": 288.46,
+      "close": 288.45,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:36:34.000Z",
-      "mcap": 507818484414
+      "sessionTime": "2026-11-24T03:35:32.000Z",
+      "mcap": 509886609283
     },
     {
       "t": "MRK",
@@ -2465,7 +2465,7 @@
       "sector": "Health Care",
       "rank": 4,
       "ttmEps": 0.97,
-      "fwdEps": 8.3232,
+      "fwdEps": 8.34,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -2500,11 +2500,11 @@
         "fy1End": "2027-12-31",
         "analysts": 25
       },
-      "price": 134.75,
-      "close": 133.72,
+      "price": 135.5,
+      "close": 135.47,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:42:17.000Z",
-      "mcap": 332191869527
+      "sessionTime": "2026-11-24T03:13:33.000Z",
+      "mcap": 334040793083
     },
     {
       "t": "UNH",
@@ -2512,7 +2512,7 @@
       "sector": "Health Care",
       "rank": 5,
       "ttmEps": 17.51,
-      "fwdEps": 23.1775,
+      "fwdEps": 23.1851,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-13",
@@ -2543,15 +2543,15 @@
         ],
         "fy0": 20.6136,
         "fy0End": "2026-12-31",
-        "fy1": 23.4739,
+        "fy1": 23.4737,
         "fy1End": "2027-12-31",
         "analysts": 26
       },
-      "price": 340.34,
-      "close": 339.85,
+      "price": 336.12,
+      "close": 336.08,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:46:50.000Z",
-      "mcap": 304952337226
+      "sessionTime": "2026-11-24T03:42:51.000Z",
+      "mcap": 301171106695
     },
     {
       "t": "TMO",
@@ -2559,7 +2559,7 @@
       "sector": "Health Care",
       "rank": 6,
       "ttmEps": 18.96,
-      "fwdEps": 27.5268,
+      "fwdEps": 27.5211,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -2588,17 +2588,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 25.2802,
+        "fy0": 25.2764,
         "fy0End": "2026-12-31",
-        "fy1": 27.7865,
+        "fy1": 27.773,
         "fy1End": "2027-12-31",
-        "analysts": 27
+        "analysts": 28
       },
-      "price": 675.46,
-      "close": 669.54,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T03:42:49.000Z",
-      "mcap": 250268644175
+      "price": 692,
+      "close": 688.08,
+      "session": "post",
+      "sessionTime": "2026-11-23T23:34:17.000Z",
+      "mcap": 256396997788
     },
     {
       "t": "AMGN",
@@ -2606,7 +2606,7 @@
       "sector": "Health Care",
       "rank": 7,
       "ttmEps": 17.24,
-      "fwdEps": 24.9627,
+      "fwdEps": 24.967,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-03",
@@ -2641,11 +2641,11 @@
         "fy1End": "2027-12-31",
         "analysts": 34
       },
-      "price": 442.71,
-      "close": 435.64,
+      "price": 449.94,
+      "close": 449.04,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:25:03.000Z",
-      "mcap": 239466927657
+      "sessionTime": "2026-11-24T02:23:28.000Z",
+      "mcap": 243377719805
     },
     {
       "t": "GILD",
@@ -2653,7 +2653,7 @@
       "sector": "Health Care",
       "rank": 8,
       "ttmEps": -3.16,
-      "fwdEps": 8.9955,
+      "fwdEps": 9.0259,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -2688,11 +2688,11 @@
         "fy1End": "2027-12-31",
         "analysts": 27
       },
-      "price": 167.9,
-      "close": 166.43,
+      "price": 170.98,
+      "close": 170.59,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:46:13.000Z",
-      "mcap": 208252833848
+      "sessionTime": "2026-11-24T03:43:22.000Z",
+      "mcap": 212073081402
     },
     {
       "t": "ABT",
@@ -2700,7 +2700,7 @@
       "sector": "Health Care",
       "rank": 9,
       "ttmEps": 2.68,
-      "fwdEps": 5.8936,
+      "fwdEps": 5.8887,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -2729,64 +2729,64 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 5.5186,
+        "fy0": 5.5175,
         "fy0End": "2026-12-31",
-        "fy1": 5.937,
+        "fy1": 5.9303,
         "fy1End": "2027-12-31",
         "analysts": 27
       },
-      "price": 103.27,
-      "close": 103,
+      "price": 103.83,
+      "close": 103.32,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:37:13.000Z",
-      "mcap": 178857615673
+      "sessionTime": "2026-11-24T01:30:52.000Z",
+      "mcap": 179827503242
     },
     {
-      "t": "PFE",
-      "name": "Pfizer",
+      "t": "DHR",
+      "name": "Danaher",
       "sector": "Health Care",
       "rank": 10,
-      "ttmEps": 0.7,
-      "fwdEps": 2.9642,
+      "ttmEps": 6.11,
+      "fwdEps": 9.2454,
       "earnings": {
         "lastQuarter": "Sep 2026",
-        "lastReported": "2026-11-03",
-        "next": "2027-02-02",
+        "lastReported": "2026-10-21",
+        "next": "2027-01-27",
         "nextConfirmed": false,
         "ttmBasis": "4 reported quarters",
         "gaapQuarters": [
           {
             "end": "2025-12-31",
-            "eps": -0.29,
+            "eps": 1.68,
             "src": "Yahoo"
           },
           {
-            "end": "2026-03-29",
-            "eps": 0.47,
+            "end": "2026-03-27",
+            "eps": 1.45,
             "src": "SEC 10-Q"
           },
           {
-            "end": "2026-06-28",
-            "eps": -0.04,
+            "end": "2026-06-26",
+            "eps": 1.23,
             "src": "SEC 10-Q"
           },
           {
-            "end": "2026-09-27",
-            "eps": 0.56,
+            "end": "2026-09-25",
+            "eps": 1.75,
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 3.0522,
+        "fy0": 8.5917,
         "fy0End": "2026-12-31",
-        "fy1": 2.9541,
+        "fy1": 9.3187,
         "fy1End": "2027-12-31",
         "analysts": 24
       },
-      "price": 27.55,
-      "close": 27.4,
+      "price": 228.07,
+      "close": 225.66,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:46:32.000Z",
-      "mcap": 157030968836
+      "sessionTime": "2026-11-24T01:50:37.000Z",
+      "mcap": 160454273817
     },
     {
       "t": "GE",
@@ -2794,7 +2794,7 @@
       "sector": "Industrials",
       "rank": 1,
       "ttmEps": 8.67,
-      "fwdEps": 9.7713,
+      "fwdEps": 9.7762,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-20",
@@ -2829,11 +2829,11 @@
         "fy1End": "2027-12-31",
         "analysts": 12
       },
-      "price": 314.02,
-      "close": 309.62,
+      "price": 321.91,
+      "close": 321.26,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:03:18.000Z",
-      "mcap": 324493172808
+      "sessionTime": "2026-11-24T03:22:26.000Z",
+      "mcap": 332646318368
     },
     {
       "t": "RTX",
@@ -2841,7 +2841,7 @@
       "sector": "Industrials",
       "rank": 2,
       "ttmEps": 6.16,
-      "fwdEps": 8.0514,
+      "fwdEps": 8.0525,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-20",
@@ -2876,11 +2876,11 @@
         "fy1End": "2027-12-31",
         "analysts": 24
       },
-      "price": 192.47,
-      "close": 190.17,
+      "price": 194.77,
+      "close": 194.77,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:20:15.000Z",
-      "mcap": 259726813054
+      "sessionTime": "2026-11-24T03:40:37.000Z",
+      "mcap": 262830538752
     },
     {
       "t": "CAT",
@@ -2888,7 +2888,7 @@
       "sector": "Industrials",
       "rank": 3,
       "ttmEps": 25.49,
-      "fwdEps": 31.6439,
+      "fwdEps": 31.658,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -2923,11 +2923,11 @@
         "fy1End": "2027-12-31",
         "analysts": 27
       },
-      "price": 528.02,
-      "close": 510.45,
+      "price": 546.95,
+      "close": 547.04,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:38:47.000Z",
-      "mcap": 241618884686
+      "sessionTime": "2026-11-24T03:34:13.000Z",
+      "mcap": 250281121550
     },
     {
       "t": "GEV",
@@ -2935,7 +2935,7 @@
       "sector": "Industrials",
       "rank": 4,
       "ttmEps": 38.11,
-      "fwdEps": 26.8112,
+      "fwdEps": 26.796,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -2970,11 +2970,11 @@
         "fy1End": "2027-12-31",
         "analysts": 25
       },
-      "price": 726.08,
-      "close": 699.33,
+      "price": 757,
+      "close": 756.71,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:00.000Z",
-      "mcap": 192176729707
+      "sessionTime": "2026-11-24T03:43:15.000Z",
+      "mcap": 200360555908
     },
     {
       "t": "UNP",
@@ -2982,7 +2982,7 @@
       "sector": "Industrials",
       "rank": 5,
       "ttmEps": 12.83,
-      "fwdEps": 14.2671,
+      "fwdEps": 14.2705,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-22",
@@ -3017,11 +3017,11 @@
         "fy1End": "2027-12-31",
         "analysts": 24
       },
-      "price": 288.53,
-      "close": 287.29,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T02:42:41.000Z",
-      "mcap": 171459084455
+      "price": 288.89,
+      "close": 288.89,
+      "session": "post",
+      "sessionTime": "2026-11-23T22:16:33.000Z",
+      "mcap": 171673010176
     },
     {
       "t": "DE",
@@ -3064,11 +3064,11 @@
         "fy1End": "2027-10-31",
         "analysts": 22
       },
-      "price": 620.63,
-      "close": 609.25,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T02:46:49.000Z",
-      "mcap": 167337614278
+      "price": 634,
+      "close": 633.03,
+      "session": "post",
+      "sessionTime": "2026-11-23T23:44:25.000Z",
+      "mcap": 170942512011
     },
     {
       "t": "LMT",
@@ -3076,7 +3076,7 @@
       "sector": "Industrials",
       "rank": 7,
       "ttmEps": 28.15,
-      "fwdEps": 33.0187,
+      "fwdEps": 33.0258,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-22",
@@ -3105,17 +3105,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 30.6224,
+        "fy0": 30.6206,
         "fy0End": "2026-12-31",
         "fy1": 33.2957,
         "fy1End": "2027-12-31",
         "analysts": 22
       },
-      "price": 571.01,
-      "close": 565.5,
+      "price": 572.92,
+      "close": 571.67,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:08:20.000Z",
-      "mcap": 131905957338
+      "sessionTime": "2026-11-24T03:31:13.000Z",
+      "mcap": 132347170888
     },
     {
       "t": "UBER",
@@ -3123,7 +3123,7 @@
       "sector": "Industrials",
       "rank": 8,
       "ttmEps": 1.69,
-      "fwdEps": 4.2208,
+      "fwdEps": 4.2258,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-04",
@@ -3158,66 +3158,19 @@
         "fy1End": "2027-12-31",
         "analysts": 38
       },
-      "price": 64.8,
-      "close": 63.47,
+      "price": 64.47,
+      "close": 64.07,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:47:06.000Z",
-      "mcap": 132314999536
-    },
-    {
-      "t": "BA",
-      "name": "Boeing",
-      "sector": "Industrials",
-      "rank": 9,
-      "ttmEps": 9.19,
-      "fwdEps": 1.7398,
-      "earnings": {
-        "lastQuarter": "Sep 2026",
-        "lastReported": "2026-10-27",
-        "next": "2027-01-26",
-        "nextConfirmed": false,
-        "ttmBasis": "4 reported quarters",
-        "gaapQuarters": [
-          {
-            "end": "2025-12-31",
-            "eps": 10.23,
-            "src": "Yahoo"
-          },
-          {
-            "end": "2026-03-31",
-            "eps": -0.11,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-06-30",
-            "eps": -0.67,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-09-30",
-            "eps": -0.26,
-            "src": "SEC 10-Q"
-          }
-        ],
-        "fy0": -2.0343,
-        "fy0End": "2026-12-31",
-        "fy1": 2.176,
-        "fy1End": "2027-12-31",
-        "analysts": 14
-      },
-      "price": 159.05,
-      "close": 155.89,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T03:28:15.000Z",
-      "mcap": 126039157641
+      "sessionTime": "2026-11-24T03:34:31.000Z",
+      "mcap": 131641172436
     },
     {
       "t": "ETN",
       "name": "Eaton",
       "sector": "Industrials",
-      "rank": 10,
+      "rank": 9,
       "ttmEps": 10.01,
-      "fwdEps": 16.2128,
+      "fwdEps": 16.2201,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-03",
@@ -3252,11 +3205,58 @@
         "fy1End": "2027-12-31",
         "analysts": 21
       },
-      "price": 322.29,
-      "close": 311.33,
+      "price": 335.39,
+      "close": 336.34,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:45:20.000Z",
-      "mcap": 125209661381
+      "sessionTime": "2026-11-24T03:36:19.000Z",
+      "mcap": 130299010261
+    },
+    {
+      "t": "BA",
+      "name": "Boeing",
+      "sector": "Industrials",
+      "rank": 10,
+      "ttmEps": 9.19,
+      "fwdEps": 1.7515,
+      "earnings": {
+        "lastQuarter": "Sep 2026",
+        "lastReported": "2026-10-27",
+        "next": "2027-01-26",
+        "nextConfirmed": false,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-12-31",
+            "eps": 10.23,
+            "src": "Yahoo"
+          },
+          {
+            "end": "2026-03-31",
+            "eps": -0.11,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-06-30",
+            "eps": -0.67,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-09-30",
+            "eps": -0.26,
+            "src": "SEC 10-Q"
+          }
+        ],
+        "fy0": -2.0322,
+        "fy0End": "2026-12-31",
+        "fy1": 2.176,
+        "fy1End": "2027-12-31",
+        "analysts": 14
+      },
+      "price": 162.7,
+      "close": 162.39,
+      "session": "overnight",
+      "sessionTime": "2026-11-24T03:38:39.000Z",
+      "mcap": 128931600208
     },
     {
       "t": "WMT",
@@ -3264,7 +3264,7 @@
       "sector": "Consumer Staples",
       "rank": 1,
       "ttmEps": 2.62,
-      "fwdEps": 3.1635,
+      "fwdEps": 3.163,
       "earnings": {
         "lastQuarter": "Oct 2026",
         "lastReported": "2026-11-19",
@@ -3293,17 +3293,17 @@
             "src": "Yahoo"
           }
         ],
-        "fy0": 2.8856,
+        "fy0": 2.8867,
         "fy0End": "2027-01-31",
-        "fy1": 3.2281,
+        "fy1": 3.226,
         "fy1End": "2028-01-31",
         "analysts": 43
       },
-      "price": 128.69,
-      "close": 127.95,
+      "price": 129.84,
+      "close": 129.58,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:00.000Z",
-      "mcap": 1020993793278
+      "sessionTime": "2026-11-24T03:39:29.000Z",
+      "mcap": 1033277012033
     },
     {
       "t": "COST",
@@ -3311,7 +3311,7 @@
       "sector": "Consumer Staples",
       "rank": 2,
       "ttmEps": 20.76,
-      "fwdEps": 23.3686,
+      "fwdEps": 23.3748,
       "earnings": {
         "lastQuarter": "Aug 2026",
         "lastReported": "2026-09-24",
@@ -3325,11 +3325,11 @@
         "fy1End": "2028-08-31",
         "analysts": 33
       },
-      "price": 1107.68,
-      "close": 1102.15,
+      "price": 1069.18,
+      "close": 1097.91,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:46:24.000Z",
-      "mcap": 490845519455
+      "sessionTime": "2026-11-24T03:40:06.000Z",
+      "mcap": 473785055866
     },
     {
       "t": "KO",
@@ -3337,7 +3337,7 @@
       "sector": "Consumer Staples",
       "rank": 3,
       "ttmEps": 3.4,
-      "fwdEps": 3.5146,
+      "fwdEps": 3.5151,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -3372,11 +3372,11 @@
         "fy1End": "2027-12-31",
         "analysts": 26
       },
-      "price": 96.91,
-      "close": 96.99,
+      "price": 96.36,
+      "close": 95.88,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:46:39.000Z",
-      "mcap": 416897345421
+      "sessionTime": "2026-11-24T03:44:29.000Z",
+      "mcap": 414531293845
     },
     {
       "t": "PG",
@@ -3384,12 +3384,12 @@
       "sector": "Consumer Staples",
       "rank": 4,
       "ttmEps": 6.64,
-      "fwdEps": 7.1583,
+      "fwdEps": 7.1593,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-22",
-        "next": "2027-01-21",
-        "nextConfirmed": false,
+        "next": "2027-01-22",
+        "nextConfirmed": true,
         "ttmBasis": "4 reported quarters",
         "gaapQuarters": [
           {
@@ -3413,17 +3413,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 6.979,
+        "fy0": 6.9789,
         "fy0End": "2027-06-30",
-        "fy1": 7.4262,
+        "fy1": 7.426,
         "fy1End": "2028-06-30",
         "analysts": 20
       },
-      "price": 169.73,
-      "close": 169.37,
+      "price": 169.98,
+      "close": 169.6,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:31:21.000Z",
-      "mcap": 393397302860
+      "sessionTime": "2026-11-24T03:35:32.000Z",
+      "mcap": 393976761139
     },
     {
       "t": "PM",
@@ -3431,7 +3431,7 @@
       "sector": "Consumer Staples",
       "rank": 5,
       "ttmEps": 6.85,
-      "fwdEps": 8.9709,
+      "fwdEps": 8.9579,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -3460,25 +3460,25 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 8.3532,
+        "fy0": 8.3519,
         "fy0End": "2026-12-31",
-        "fy1": 9.0423,
+        "fy1": 9.0259,
         "fy1End": "2027-12-31",
         "analysts": 17
       },
-      "price": 184.31,
-      "close": 184.09,
+      "price": 182.51,
+      "close": 182.5,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:12:52.000Z",
-      "mcap": 287275797909
+      "sessionTime": "2026-11-24T03:11:19.000Z",
+      "mcap": 284470236412
     },
     {
       "t": "PEP",
       "name": "PepsiCo",
       "sector": "Consumer Staples",
       "rank": 6,
-      "ttmEps": 7.95,
-      "fwdEps": 8.5736,
+      "ttmEps": 7.93,
+      "fwdEps": 8.5741,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-08",
@@ -3492,11 +3492,11 @@
         "fy1End": "2027-12-31",
         "analysts": 24
       },
-      "price": 140.79,
-      "close": 140.54,
+      "price": 140.62,
+      "close": 140.21,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:43:13.000Z",
-      "mcap": 191860306372
+      "sessionTime": "2026-11-24T03:33:03.000Z",
+      "mcap": 191628669754
     },
     {
       "t": "MO",
@@ -3504,7 +3504,7 @@
       "sector": "Consumer Staples",
       "rank": 7,
       "ttmEps": 4.85,
-      "fwdEps": 5.9003,
+      "fwdEps": 5.9017,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -3535,70 +3535,23 @@
         ],
         "fy0": 5.6994,
         "fy0End": "2026-12-31",
-        "fy1": 5.9236,
+        "fy1": 5.9244,
         "fy1End": "2027-12-31",
         "analysts": 13
       },
-      "price": 74.91,
-      "close": 74.87,
+      "price": 73.74,
+      "close": 73.8,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:13:19.000Z",
-      "mcap": 124608063495
-    },
-    {
-      "t": "MNST",
-      "name": "Monster Beverage",
-      "sector": "Consumer Staples",
-      "rank": 8,
-      "ttmEps": 1.105,
-      "fwdEps": 1.2665,
-      "earnings": {
-        "lastQuarter": "Sep 2026",
-        "lastReported": "2026-11-05",
-        "next": "2027-02-04",
-        "nextConfirmed": false,
-        "ttmBasis": "4 reported quarters",
-        "gaapQuarters": [
-          {
-            "end": "2025-12-31",
-            "eps": 0.23,
-            "src": "Yahoo"
-          },
-          {
-            "end": "2026-03-31",
-            "eps": 0.29,
-            "src": "Yahoo"
-          },
-          {
-            "end": "2026-06-30",
-            "eps": 0.3,
-            "src": "Yahoo"
-          },
-          {
-            "end": "2026-09-30",
-            "eps": 0.29,
-            "src": "Yahoo"
-          }
-        ],
-        "fy0": 1.1451,
-        "fy0End": "2026-12-31",
-        "fy1": 1.2805,
-        "fy1End": "2027-12-31",
-        "analysts": 13
-      },
-      "price": 43.79,
-      "close": 43.69,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T03:14:12.000Z",
-      "mcap": 85719444755
+      "sessionTime": "2026-11-24T03:42:23.000Z",
+      "mcap": 122661843956
     },
     {
       "t": "MDLZ",
       "name": "Mondelez International",
       "sector": "Consumer Staples",
-      "rank": 9,
+      "rank": 8,
       "ttmEps": 3.17,
-      "fwdEps": 3.3307,
+      "fwdEps": 3.3315,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -3633,11 +3586,58 @@
         "fy1End": "2027-12-31",
         "analysts": 23
       },
-      "price": 66.62,
-      "close": 66.28,
+      "price": 66.38,
+      "close": 66.25,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:03:01.000Z",
-      "mcap": 84330145652
+      "sessionTime": "2026-11-24T02:02:20.000Z",
+      "mcap": 84026349706
+    },
+    {
+      "t": "MNST",
+      "name": "Monster Beverage",
+      "sector": "Consumer Staples",
+      "rank": 9,
+      "ttmEps": 1.105,
+      "fwdEps": 1.2669,
+      "earnings": {
+        "lastQuarter": "Sep 2026",
+        "lastReported": "2026-11-05",
+        "next": "2027-02-04",
+        "nextConfirmed": false,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-12-31",
+            "eps": 0.23,
+            "src": "Yahoo"
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 0.29,
+            "src": "Yahoo"
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 0.3,
+            "src": "Yahoo"
+          },
+          {
+            "end": "2026-09-30",
+            "eps": 0.29,
+            "src": "Yahoo"
+          }
+        ],
+        "fy0": 1.1451,
+        "fy0End": "2026-12-31",
+        "fy1": 1.2805,
+        "fy1End": "2027-12-31",
+        "analysts": 13
+      },
+      "price": 42.46,
+      "close": 42.43,
+      "session": "overnight",
+      "sessionTime": "2026-11-24T03:07:08.000Z",
+      "mcap": 83115955181
     },
     {
       "t": "CL",
@@ -3645,7 +3645,7 @@
       "sector": "Consumer Staples",
       "rank": 10,
       "ttmEps": 2.55,
-      "fwdEps": 4.0817,
+      "fwdEps": 4.0846,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-30",
@@ -3674,17 +3674,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 3.9213,
+        "fy0": 3.9238,
         "fy0End": "2026-12-31",
-        "fy1": 4.1002,
+        "fy1": 4.1027,
         "fy1End": "2027-12-31",
         "analysts": 20
       },
-      "price": 98.93,
-      "close": 98.71,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T02:26:39.000Z",
-      "mcap": 78641487572
+      "price": 97.93,
+      "close": 97.93,
+      "session": "post",
+      "sessionTime": "2026-11-23T22:16:51.000Z",
+      "mcap": 77846568960
     },
     {
       "t": "XOM",
@@ -3692,7 +3692,7 @@
       "sector": "Energy",
       "rank": 1,
       "ttmEps": 9.73,
-      "fwdEps": 12.6118,
+      "fwdEps": 12.6058,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-30",
@@ -3721,17 +3721,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 13.7068,
+        "fy0": 13.6799,
         "fy0End": "2026-12-31",
         "fy1": 12.4852,
         "fy1End": "2027-12-31",
         "analysts": 24
       },
-      "price": 161.06,
-      "close": 159.99,
+      "price": 156.92,
+      "close": 156.9,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:27:46.000Z",
-      "mcap": 656999584645
+      "sessionTime": "2026-11-24T03:38:52.000Z",
+      "mcap": 640111599939
     },
     {
       "t": "CVX",
@@ -3739,7 +3739,7 @@
       "sector": "Energy",
       "rank": 2,
       "ttmEps": 13.67,
-      "fwdEps": 16.7086,
+      "fwdEps": 16.684,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-30",
@@ -3768,17 +3768,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 18.3362,
+        "fy0": 18.3162,
         "fy0End": "2026-12-31",
-        "fy1": 16.5205,
+        "fy1": 16.5009,
         "fy1End": "2027-12-31",
         "analysts": 26
       },
-      "price": 209.71,
-      "close": 208.37,
+      "price": 206.66,
+      "close": 206.17,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:22:37.000Z",
-      "mcap": 409197402448
+      "sessionTime": "2026-11-24T03:26:34.000Z",
+      "mcap": 403246064975
     },
     {
       "t": "COP",
@@ -3786,7 +3786,7 @@
       "sector": "Energy",
       "rank": 3,
       "ttmEps": 9.52,
-      "fwdEps": 11.5435,
+      "fwdEps": 11.3956,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -3815,17 +3815,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 11.9768,
+        "fy0": 11.9786,
         "fy0End": "2026-12-31",
-        "fy1": 11.4934,
+        "fy1": 11.3302,
         "fy1End": "2027-12-31",
         "analysts": 28
       },
-      "price": 136.65,
-      "close": 136.12,
+      "price": 132.27,
+      "close": 132.19,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:16:41.000Z",
-      "mcap": 161566079734
+      "sessionTime": "2026-11-24T03:42:44.000Z",
+      "mcap": 156387461046
     },
     {
       "t": "MPC",
@@ -3833,7 +3833,7 @@
       "sector": "Energy",
       "rank": 4,
       "ttmEps": 51.17,
-      "fwdEps": 60.556,
+      "fwdEps": 59.2507,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-03",
@@ -3862,17 +3862,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 69.1283,
+        "fy0": 68.4311,
         "fy0End": "2026-12-31",
-        "fy1": 59.5652,
+        "fy1": 58.2208,
         "fy1End": "2027-12-31",
         "analysts": 18
       },
-      "price": 368.35,
-      "close": 367.19,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T02:38:12.000Z",
-      "mcap": 100295176978
+      "price": 358.68,
+      "close": 357.69,
+      "session": "post",
+      "sessionTime": "2026-11-24T00:11:30.000Z",
+      "mcap": 97662207648
     },
     {
       "t": "PSX",
@@ -3880,7 +3880,7 @@
       "sector": "Energy",
       "rank": 5,
       "ttmEps": 31.31,
-      "fwdEps": 32.3659,
+      "fwdEps": 31.9364,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -3909,17 +3909,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 34.841,
+        "fy0": 34.7232,
         "fy0End": "2026-12-31",
-        "fy1": 32.0798,
+        "fy1": 31.6238,
         "fy1End": "2027-12-31",
         "analysts": 20
       },
-      "price": 241.08,
-      "close": 239.33,
+      "price": 238,
+      "close": 237.22,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:28:26.000Z",
-      "mcap": 94038642229
+      "sessionTime": "2026-11-24T01:59:30.000Z",
+      "mcap": 92837221817
     },
     {
       "t": "VLO",
@@ -3927,7 +3927,7 @@
       "sector": "Energy",
       "rank": 6,
       "ttmEps": 44.46,
-      "fwdEps": 52.1566,
+      "fwdEps": 51.5233,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-22",
@@ -3956,17 +3956,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 60.2347,
+        "fy0": 60.0586,
         "fy0End": "2026-12-31",
-        "fy1": 51.2229,
+        "fy1": 50.5657,
         "fy1End": "2027-12-31",
         "analysts": 18
       },
-      "price": 336.39,
-      "close": 334.18,
+      "price": 328.04,
+      "close": 329.4,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:46:05.000Z",
-      "mcap": 93813925063
+      "sessionTime": "2026-11-24T01:42:52.000Z",
+      "mcap": 91485239962
     },
     {
       "t": "WMB",
@@ -3974,7 +3974,7 @@
       "sector": "Energy",
       "rank": 7,
       "ttmEps": 2.54,
-      "fwdEps": 2.5327,
+      "fwdEps": 2.5331,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-02",
@@ -4009,11 +4009,11 @@
         "fy1End": "2027-12-31",
         "analysts": 16
       },
-      "price": 64.91,
-      "close": 64.31,
+      "price": 65.43,
+      "close": 65.43,
       "session": "overnight",
-      "sessionTime": "2026-11-23T02:43:47.000Z",
-      "mcap": 81150644769
+      "sessionTime": "2026-11-24T02:36:35.000Z",
+      "mcap": 81800749056
     },
     {
       "t": "EOG",
@@ -4021,7 +4021,7 @@
       "sector": "Energy",
       "rank": 8,
       "ttmEps": 15.48,
-      "fwdEps": 17.1995,
+      "fwdEps": 17.1924,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -4050,17 +4050,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 18.8322,
+        "fy0": 18.8108,
         "fy0End": "2026-12-31",
         "fy1": 17.0108,
         "fy1End": "2027-12-31",
         "analysts": 29
       },
-      "price": 148.6,
-      "close": 148.6,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T03:44:24.000Z",
-      "mcap": 77046759424
+      "price": 145.34,
+      "close": 145.34,
+      "session": "post",
+      "sessionTime": "2026-11-23T21:20:00.000Z",
+      "mcap": 75356495872
     },
     {
       "t": "SLB",
@@ -4068,7 +4068,7 @@
       "sector": "Energy",
       "rank": 9,
       "ttmEps": 2.06,
-      "fwdEps": 3.0133,
+      "fwdEps": 3.0154,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-23",
@@ -4099,15 +4099,15 @@
         ],
         "fy0": 2.4522,
         "fy0End": "2026-12-31",
-        "fy1": 3.0782,
+        "fy1": 3.0786,
         "fy1End": "2027-12-31",
         "analysts": 24
       },
-      "price": 46.56,
-      "close": 45.89,
+      "price": 46.38,
+      "close": 46.16,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:46:50.000Z",
-      "mcap": 68723934726
+      "sessionTime": "2026-11-24T03:26:45.000Z",
+      "mcap": 68458249954
     },
     {
       "t": "KMI",
@@ -4115,7 +4115,7 @@
       "sector": "Energy",
       "rank": 10,
       "ttmEps": 1.62,
-      "fwdEps": 1.5435,
+      "fwdEps": 1.5434,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -4150,11 +4150,11 @@
         "fy1End": "2027-12-31",
         "analysts": 21
       },
-      "price": 30.36,
-      "close": 30.36,
+      "price": 30.7,
+      "close": 30.57,
       "session": "overnight",
-      "sessionTime": "2026-11-23T01:02:31.000Z",
-      "mcap": 67633438720
+      "sessionTime": "2026-11-24T03:23:08.000Z",
+      "mcap": 68390858150
     },
     {
       "t": "NEE",
@@ -4162,7 +4162,7 @@
       "sector": "Utilities",
       "rank": 1,
       "ttmEps": 5.5467,
-      "fwdEps": 4.341,
+      "fwdEps": 4.3419,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-21",
@@ -4197,11 +4197,11 @@
         "fy1End": "2027-12-31",
         "analysts": 23
       },
-      "price": 83.42,
-      "close": 83.45,
+      "price": 84.01,
+      "close": 83.97,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:23:59.000Z",
-      "mcap": 174957276656
+      "sessionTime": "2026-11-24T02:34:25.000Z",
+      "mcap": 176194689046
     },
     {
       "t": "SO",
@@ -4209,7 +4209,7 @@
       "sector": "Utilities",
       "rank": 2,
       "ttmEps": 4.37,
-      "fwdEps": 4.9093,
+      "fwdEps": 4.9101,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -4244,11 +4244,11 @@
         "fy1End": "2027-12-31",
         "analysts": 22
       },
-      "price": 93.21,
-      "close": 93.13,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T01:11:52.000Z",
-      "mcap": 108520765326
+      "price": 93.11,
+      "close": 93.11,
+      "session": "post",
+      "sessionTime": "2026-11-23T21:20:00.000Z",
+      "mcap": 108404342784
     },
     {
       "t": "DUK",
@@ -4256,7 +4256,7 @@
       "sector": "Utilities",
       "rank": 3,
       "ttmEps": 6.84,
-      "fwdEps": 7.1242,
+      "fwdEps": 7.1253,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -4291,11 +4291,11 @@
         "fy1End": "2027-12-31",
         "analysts": 22
       },
-      "price": 129.91,
-      "close": 129.78,
+      "price": 129.47,
+      "close": 129.47,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:39:50.000Z",
-      "mcap": 101291903389
+      "sessionTime": "2026-11-24T03:43:11.000Z",
+      "mcap": 100948836352
     },
     {
       "t": "CEG",
@@ -4303,7 +4303,7 @@
       "sector": "Utilities",
       "rank": 4,
       "ttmEps": 12.48,
-      "fwdEps": 13.2978,
+      "fwdEps": 13.3,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-09",
@@ -4338,11 +4338,11 @@
         "fy1End": "2027-12-31",
         "analysts": 21
       },
-      "price": 244.2,
-      "close": 237.41,
+      "price": 252,
+      "close": 251.72,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:31:18.000Z",
-      "mcap": 85862795798
+      "sessionTime": "2026-11-24T03:35:06.000Z",
+      "mcap": 88605342669
     },
     {
       "t": "AEP",
@@ -4350,7 +4350,7 @@
       "sector": "Utilities",
       "rank": 5,
       "ttmEps": 6.13,
-      "fwdEps": 6.8525,
+      "fwdEps": 6.8537,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -4385,11 +4385,11 @@
         "fy1End": "2027-12-31",
         "analysts": 19
       },
-      "price": 127.62,
-      "close": 125.14,
+      "price": 127.43,
+      "close": 127.19,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:22:30.000Z",
-      "mcap": 69492452086
+      "sessionTime": "2026-11-24T03:43:22.000Z",
+      "mcap": 69388991858
     },
     {
       "t": "D",
@@ -4397,7 +4397,7 @@
       "sector": "Utilities",
       "rank": 6,
       "ttmEps": 3.01,
-      "fwdEps": 3.797,
+      "fwdEps": 3.7976,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-30",
@@ -4432,11 +4432,11 @@
         "fy1End": "2027-12-31",
         "analysts": 17
       },
-      "price": 66.76,
-      "close": 66.28,
+      "price": 66.97,
+      "close": 66.79,
       "session": "overnight",
-      "sessionTime": "2026-11-23T01:11:52.000Z",
-      "mcap": 58719830624
+      "sessionTime": "2026-11-24T03:26:45.000Z",
+      "mcap": 58904542444
     },
     {
       "t": "XEL",
@@ -4444,7 +4444,7 @@
       "sector": "Utilities",
       "rank": 7,
       "ttmEps": 4.29,
-      "fwdEps": 4.5233,
+      "fwdEps": 4.5245,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -4479,11 +4479,11 @@
         "fy1End": "2027-12-31",
         "analysts": 19
       },
-      "price": 79.45,
-      "close": 79.3,
+      "price": 80.54,
+      "close": 80.51,
       "session": "overnight",
-      "sessionTime": "2026-11-23T01:00:02.000Z",
-      "mcap": 50996925007
+      "sessionTime": "2026-11-24T03:22:40.000Z",
+      "mcap": 51696567209
     },
     {
       "t": "ETR",
@@ -4491,7 +4491,7 @@
       "sector": "Utilities",
       "rank": 8,
       "ttmEps": 4.35,
-      "fwdEps": 5.0411,
+      "fwdEps": 5.043,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-02",
@@ -4526,11 +4526,11 @@
         "fy1End": "2027-12-31",
         "analysts": 22
       },
-      "price": 104.76,
-      "close": 104.38,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T02:24:45.000Z",
-      "mcap": 50057169571
+      "price": 107.28,
+      "close": 107.28,
+      "session": "post",
+      "sessionTime": "2026-11-23T21:20:00.000Z",
+      "mcap": 51261292544
     },
     {
       "t": "SRE",
@@ -4538,7 +4538,7 @@
       "sector": "Utilities",
       "rank": 9,
       "ttmEps": 4.67,
-      "fwdEps": 5.4691,
+      "fwdEps": 5.4699,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -4573,11 +4573,11 @@
         "fy1End": "2027-12-31",
         "analysts": 18
       },
-      "price": 76.79,
-      "close": 76.16,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T02:49:05.000Z",
-      "mcap": 50229846923
+      "price": 77.96,
+      "close": 77.72,
+      "session": "post",
+      "sessionTime": "2026-11-24T00:58:47.000Z",
+      "mcap": 50995164449
     },
     {
       "t": "EXC",
@@ -4585,7 +4585,7 @@
       "sector": "Utilities",
       "rank": 10,
       "ttmEps": 2.57,
-      "fwdEps": 3.0067,
+      "fwdEps": 3.0072,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-30",
@@ -4620,11 +4620,11 @@
         "fy1End": "2027-12-31",
         "analysts": 20
       },
-      "price": 45.64,
-      "close": 45.7,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T02:34:12.000Z",
-      "mcap": 47232685590
+      "price": 46.05,
+      "close": 46.05,
+      "session": "post",
+      "sessionTime": "2026-11-23T21:27:00.000Z",
+      "mcap": 47656992768
     },
     {
       "t": "WELL",
@@ -4632,7 +4632,7 @@
       "sector": "Real Estate",
       "rank": 1,
       "ttmEps": 2.31,
-      "fwdEps": 2.9507,
+      "fwdEps": 2.9513,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-26",
@@ -4667,11 +4667,11 @@
         "fy1End": "2027-12-31",
         "analysts": 2
       },
-      "price": 240.69,
-      "close": 240.34,
+      "price": 241.01,
+      "close": 240.93,
       "session": "overnight",
-      "sessionTime": "2026-11-23T01:01:15.000Z",
-      "mcap": 176572556858
+      "sessionTime": "2026-11-24T02:49:07.000Z",
+      "mcap": 176807298320
     },
     {
       "t": "PLD",
@@ -4679,7 +4679,7 @@
       "sector": "Real Estate",
       "rank": 2,
       "ttmEps": 4.53,
-      "fwdEps": 3.6401,
+      "fwdEps": 3.6391,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-15",
@@ -4714,11 +4714,11 @@
         "fy1End": "2027-12-31",
         "analysts": 4
       },
-      "price": 124.66,
-      "close": 122.5,
+      "price": 125.96,
+      "close": 125.14,
       "session": "overnight",
-      "sessionTime": "2026-11-23T02:43:13.000Z",
-      "mcap": 121203298370
+      "sessionTime": "2026-11-24T03:06:55.000Z",
+      "mcap": 122467254665
     },
     {
       "t": "EQIX",
@@ -4726,7 +4726,7 @@
       "sector": "Real Estate",
       "rank": 3,
       "ttmEps": 16.65,
-      "fwdEps": 20.4921,
+      "fwdEps": 20.4975,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-28",
@@ -4761,17 +4761,64 @@
         "fy1End": "2027-12-31",
         "analysts": 6
       },
-      "price": 981.22,
-      "close": 968.22,
+      "price": 1005.4,
+      "close": 999.4,
       "session": "overnight",
-      "sessionTime": "2026-11-23T02:53:12.000Z",
-      "mcap": 97129315955
+      "sessionTime": "2026-11-24T01:18:37.000Z",
+      "mcap": 99522856638
+    },
+    {
+      "t": "SPG",
+      "name": "Simon Property Group",
+      "sector": "Real Estate",
+      "rank": 4,
+      "ttmEps": 13.86,
+      "fwdEps": 6.717,
+      "earnings": {
+        "lastQuarter": "Sep 2026",
+        "lastReported": "2026-11-05",
+        "next": "2027-02-01",
+        "nextConfirmed": false,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-12-31",
+            "eps": 9.35,
+            "src": "SEC 10-K"
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 1.48,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-06-30",
+            "eps": 1.49,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-09-30",
+            "eps": 1.54,
+            "src": "SEC 10-Q"
+          }
+        ],
+        "fy0": 6.155,
+        "fy0End": "2026-12-31",
+        "fy1": 6.78,
+        "fy1End": "2027-12-31",
+        "analysts": 3
+      },
+      "price": 234.56,
+      "close": 227.07,
+      "session": "post",
+      "sessionTime": "2026-11-23T21:27:58.000Z",
+      "mcap": 88788978223
     },
     {
       "t": "AMT",
       "name": "American Tower",
       "sector": "Real Estate",
-      "rank": 4,
+      "rank": 5,
       "ttmEps": 7.09,
       "fwdEps": 6.9798,
       "earnings": {
@@ -4808,58 +4855,11 @@
         "fy1End": "2027-12-31",
         "analysts": 10
       },
-      "price": 184.26,
-      "close": 184.21,
+      "price": 179.37,
+      "close": 179.31,
       "session": "overnight",
-      "sessionTime": "2026-11-23T01:04:32.000Z",
-      "mcap": 85453075154
-    },
-    {
-      "t": "SPG",
-      "name": "Simon Property Group",
-      "sector": "Real Estate",
-      "rank": 5,
-      "ttmEps": 13.86,
-      "fwdEps": 6.7152,
-      "earnings": {
-        "lastQuarter": "Sep 2026",
-        "lastReported": "2026-11-05",
-        "next": "2027-02-01",
-        "nextConfirmed": false,
-        "ttmBasis": "4 reported quarters",
-        "gaapQuarters": [
-          {
-            "end": "2025-12-31",
-            "eps": 9.35,
-            "src": "SEC 10-K"
-          },
-          {
-            "end": "2026-03-31",
-            "eps": 1.48,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-06-30",
-            "eps": 1.49,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-09-30",
-            "eps": 1.54,
-            "src": "SEC 10-Q"
-          }
-        ],
-        "fy0": 6.155,
-        "fy0End": "2026-12-31",
-        "fy1": 6.78,
-        "fy1End": "2027-12-31",
-        "analysts": 3
-      },
-      "price": 226.58,
-      "close": 224.35,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T03:24:00.000Z",
-      "mcap": 85768276909
+      "sessionTime": "2026-11-24T01:58:02.000Z",
+      "mcap": 83185268373
     },
     {
       "t": "DLR",
@@ -4867,7 +4867,7 @@
       "sector": "Real Estate",
       "rank": 6,
       "ttmEps": 2.39,
-      "fwdEps": 2.934,
+      "fwdEps": 2.9329,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -4902,11 +4902,11 @@
         "fy1End": "2027-12-31",
         "analysts": 5
       },
-      "price": 166.9,
-      "close": 162.46,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T01:24:28.000Z",
-      "mcap": 64254980571
+      "price": 167.41,
+      "close": 167.41,
+      "session": "post",
+      "sessionTime": "2026-11-23T21:52:13.000Z",
+      "mcap": 64451325952
     },
     {
       "t": "PSA",
@@ -4914,7 +4914,7 @@
       "sector": "Real Estate",
       "rank": 7,
       "ttmEps": 9.55,
-      "fwdEps": 8.8011,
+      "fwdEps": 8.8023,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-26",
@@ -4949,11 +4949,11 @@
         "fy1End": "2027-12-31",
         "analysts": 5
       },
-      "price": 325.67,
-      "close": 325.42,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T01:05:22.000Z",
-      "mcap": 60849311827
+      "price": 330.48,
+      "close": 330.48,
+      "session": "post",
+      "sessionTime": "2026-11-23T21:20:00.000Z",
+      "mcap": 61748027392
     },
     {
       "t": "O",
@@ -4961,7 +4961,7 @@
       "sector": "Real Estate",
       "rank": 8,
       "ttmEps": 1.45,
-      "fwdEps": 1.5834,
+      "fwdEps": 1.5835,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-02",
@@ -4996,19 +4996,19 @@
         "fy1End": "2027-12-31",
         "analysts": 3
       },
-      "price": 58.23,
-      "close": 58.03,
+      "price": 58.62,
+      "close": 58.59,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:43:26.000Z",
-      "mcap": 55532717459
+      "sessionTime": "2026-11-24T03:41:12.000Z",
+      "mcap": 55904653117
     },
     {
       "t": "VMRK",
-      "name": "Vivmark Residential",
+      "name": "AvalonBay Communities",
       "sector": "Real Estate",
       "rank": 9,
       "ttmEps": -0.3111,
-      "fwdEps": 0.2203,
+      "fwdEps": 0.2251,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-05",
@@ -5043,11 +5043,11 @@
         "fy1End": "2027-12-31",
         "analysts": 8
       },
-      "price": 63.04,
-      "close": 63.04,
+      "price": 63.51,
+      "close": 63.51,
       "session": "post",
-      "sessionTime": "2026-11-20T22:25:49.000Z",
-      "mcap": 48843300864
+      "sessionTime": "2026-11-23T21:25:01.000Z",
+      "mcap": 49207451648
     },
     {
       "t": "VTR",
@@ -5055,7 +5055,7 @@
       "sector": "Real Estate",
       "rank": 10,
       "ttmEps": 0.53,
-      "fwdEps": 0.6114,
+      "fwdEps": 0.6118,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -5090,11 +5090,11 @@
         "fy1End": "2027-12-31",
         "analysts": 2
       },
-      "price": 86.55,
-      "close": 86.55,
+      "price": 87.01,
+      "close": 87.01,
       "session": "post",
-      "sessionTime": "2026-11-21T00:27:45.000Z",
-      "mcap": 45769371648
+      "sessionTime": "2026-11-23T21:25:01.000Z",
+      "mcap": 46012628992
     },
     {
       "t": "LIN",
@@ -5102,7 +5102,7 @@
       "sector": "Materials",
       "rank": 1,
       "ttmEps": 15.05,
-      "fwdEps": 18.2397,
+      "fwdEps": 18.2407,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -5137,11 +5137,11 @@
         "fy1End": "2027-12-31",
         "analysts": 10
       },
-      "price": 508.17,
-      "close": 502.83,
+      "price": 518.2,
+      "close": 517,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:23:31.000Z",
-      "mcap": 233292597358
+      "sessionTime": "2026-11-24T03:40:23.000Z",
+      "mcap": 237897208618
     },
     {
       "t": "NEM",
@@ -5149,7 +5149,7 @@
       "sector": "Materials",
       "rank": 2,
       "ttmEps": 8.6,
-      "fwdEps": 9.8564,
+      "fwdEps": 9.6754,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-22",
@@ -5178,17 +5178,17 @@
             "src": "SEC 10-Q"
           }
         ],
-        "fy0": 9.1518,
+        "fy0": 9.155,
         "fy0End": "2026-12-31",
-        "fy1": 9.9378,
+        "fy1": 9.7338,
         "fy1End": "2027-12-31",
-        "analysts": 12
+        "analysts": 9
       },
-      "price": 98.11,
-      "close": 94.68,
+      "price": 100.4,
+      "close": 100.73,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:48:15.000Z",
-      "mcap": 101955243244
+      "sessionTime": "2026-11-24T03:37:01.000Z",
+      "mcap": 104334999293
     },
     {
       "t": "ECL",
@@ -5196,7 +5196,7 @@
       "sector": "Materials",
       "rank": 3,
       "ttmEps": 7.35,
-      "fwdEps": 9.3228,
+      "fwdEps": 9.3206,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -5227,15 +5227,15 @@
         ],
         "fy0": 8.1854,
         "fy0End": "2026-12-31",
-        "fy1": 9.4543,
+        "fy1": 9.448,
         "fy1End": "2027-12-31",
         "analysts": 24
       },
-      "price": 294.7,
-      "close": 294.7,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T01:02:22.000Z",
-      "mcap": 82653855744
+      "price": 308.3,
+      "close": 305.91,
+      "session": "post",
+      "sessionTime": "2026-11-23T23:48:21.000Z",
+      "mcap": 86468214168
     },
     {
       "t": "SHW",
@@ -5243,7 +5243,7 @@
       "sector": "Materials",
       "rank": 4,
       "ttmEps": 10.88,
-      "fwdEps": 13.0518,
+      "fwdEps": 13.0549,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -5278,66 +5278,19 @@
         "fy1End": "2027-12-31",
         "analysts": 29
       },
-      "price": 340.84,
-      "close": 339.74,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T03:03:59.000Z",
-      "mcap": 82342869410
-    },
-    {
-      "t": "APD",
-      "name": "Air Products and Chemicals",
-      "sector": "Materials",
-      "rank": 5,
-      "ttmEps": 2.38,
-      "fwdEps": 14.5529,
-      "earnings": {
-        "lastQuarter": "Sep 2026",
-        "lastReported": "2026-11-05",
-        "next": "2027-01-29",
-        "nextConfirmed": false,
-        "ttmBasis": "4 reported quarters",
-        "gaapQuarters": [
-          {
-            "end": "2025-12-31",
-            "eps": 3.04,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-03-31",
-            "eps": 3.19,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-06-30",
-            "eps": -6.47,
-            "src": "SEC 10-Q"
-          },
-          {
-            "end": "2026-09-30",
-            "eps": 2.62,
-            "src": "Yahoo"
-          }
-        ],
-        "fy0": 14.3787,
-        "fy0End": "2027-09-30",
-        "fy1": 15.5477,
-        "fy1End": "2028-09-30",
-        "analysts": 21
-      },
-      "price": 297.58,
-      "close": 297.09,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T01:16:27.000Z",
-      "mcap": 66269104410
+      "price": 349.47,
+      "close": 349.47,
+      "session": "post",
+      "sessionTime": "2026-11-23T21:52:13.000Z",
+      "mcap": 84427784192
     },
     {
       "t": "FCX",
       "name": "Freeport-McMoRan",
       "sector": "Materials",
-      "rank": 6,
+      "rank": 5,
       "ttmEps": 2.38,
-      "fwdEps": 4.108,
+      "fwdEps": 4.1109,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-27",
@@ -5372,11 +5325,58 @@
         "fy1End": "2027-12-31",
         "analysts": 16
       },
-      "price": 47.98,
-      "close": 45.99,
+      "price": 49.6,
+      "close": 49.71,
       "session": "overnight",
-      "sessionTime": "2026-11-23T03:44:24.000Z",
-      "mcap": 68848235072
+      "sessionTime": "2026-11-24T03:38:07.000Z",
+      "mcap": 71172825584
+    },
+    {
+      "t": "APD",
+      "name": "Air Products and Chemicals",
+      "sector": "Materials",
+      "rank": 6,
+      "ttmEps": 2.38,
+      "fwdEps": 14.5497,
+      "earnings": {
+        "lastQuarter": "Sep 2026",
+        "lastReported": "2026-11-05",
+        "next": "2027-01-29",
+        "nextConfirmed": false,
+        "ttmBasis": "4 reported quarters",
+        "gaapQuarters": [
+          {
+            "end": "2025-12-31",
+            "eps": 3.04,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-03-31",
+            "eps": 3.19,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-06-30",
+            "eps": -6.47,
+            "src": "SEC 10-Q"
+          },
+          {
+            "end": "2026-09-30",
+            "eps": 2.62,
+            "src": "Yahoo"
+          }
+        ],
+        "fy0": 14.3728,
+        "fy0End": "2027-09-30",
+        "fy1": 15.5392,
+        "fy1End": "2028-09-30",
+        "analysts": 22
+      },
+      "price": 304.18,
+      "close": 304.18,
+      "session": "post",
+      "sessionTime": "2026-11-23T22:16:52.000Z",
+      "mcap": 67738877952
     },
     {
       "t": "CRH",
@@ -5384,7 +5384,7 @@
       "sector": "Materials",
       "rank": 7,
       "ttmEps": 5.32,
-      "fwdEps": 5.9184,
+      "fwdEps": 5.92,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -5419,11 +5419,11 @@
         "fy1End": "2027-12-31",
         "analysts": 15
       },
-      "price": 90.19,
-      "close": 88.05,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T02:42:27.000Z",
-      "mcap": 59997159718
+      "price": 92.27,
+      "close": 92.27,
+      "session": "post",
+      "sessionTime": "2026-11-23T21:25:01.000Z",
+      "mcap": 61380837376
     },
     {
       "t": "NUE",
@@ -5431,7 +5431,7 @@
       "sector": "Materials",
       "rank": 8,
       "ttmEps": 15.71,
-      "fwdEps": 22.6382,
+      "fwdEps": 22.6464,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-26",
@@ -5466,11 +5466,11 @@
         "fy1End": "2027-12-31",
         "analysts": 12
       },
-      "price": 243.89,
-      "close": 239.62,
-      "session": "overnight",
-      "sessionTime": "2026-11-23T02:37:30.000Z",
-      "mcap": 54861635218
+      "price": 248.15,
+      "close": 248.15,
+      "session": "post",
+      "sessionTime": "2026-11-23T22:21:30.000Z",
+      "mcap": 55819894784
     },
     {
       "t": "MLM",
@@ -5478,7 +5478,7 @@
       "sector": "Materials",
       "rank": 9,
       "ttmEps": 37.79,
-      "fwdEps": 17.5067,
+      "fwdEps": 17.5144,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-11-04",
@@ -5513,11 +5513,11 @@
         "fy1End": "2027-12-31",
         "analysts": 19
       },
-      "price": 500.74,
-      "close": 500.74,
+      "price": 521.31,
+      "close": 521.31,
       "session": "post",
-      "sessionTime": "2026-11-20T22:23:45.000Z",
-      "mcap": 35611869184
+      "sessionTime": "2026-11-23T22:05:00.000Z",
+      "mcap": 37074780160
     },
     {
       "t": "VMC",
@@ -5525,7 +5525,7 @@
       "sector": "Materials",
       "rank": 10,
       "ttmEps": 8.45,
-      "fwdEps": 9.9528,
+      "fwdEps": 9.9563,
       "earnings": {
         "lastQuarter": "Sep 2026",
         "lastReported": "2026-10-29",
@@ -5560,11 +5560,11 @@
         "fy1End": "2027-12-31",
         "analysts": 22
       },
-      "price": 270.87,
-      "close": 270.87,
+      "price": 281.96,
+      "close": 281.96,
       "session": "post",
-      "sessionTime": "2026-11-20T22:31:37.000Z",
-      "mcap": 34764652544
+      "sessionTime": "2026-11-23T22:25:04.000Z",
+      "mcap": 36187992064
     }
   ]
 }
